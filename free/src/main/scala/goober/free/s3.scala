@@ -5,10 +5,10 @@ import scala.language.higherKinds
 import cats.free.{Free => FF}
 import cats.~>
 import cats.data.Kleisli
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3.model._
+import java.nio.file.Path
+import software.amazon.awssdk.core.sync.RequestBody
 
 object s3 { module =>
 

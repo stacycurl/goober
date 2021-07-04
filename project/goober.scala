@@ -1,5 +1,6 @@
 import java.io.PrintWriter
 import java.lang.{reflect ⇒ R}
+import org.reflections.Reflections
 import sbt.Def.task
 import sbt.{Def, Task, TaskKey, taskKey}
 
@@ -11,26 +12,13 @@ object goober {
       val generate: TaskKey[Unit] = taskKey[Unit]("generate")
 
       val generateTask: Def.Initialize[Task[Unit]] = task {
+        val reflections = new Reflections("software.amazon.awssdk.services")
+
         Modules.create(
-          Module.create[software.amazon.awssdk.services.athena.AthenaClient](
-            Names("athena", "AthenaClient", "AthenaIO", "AthenaOp"),
-            "software.amazon.awssdk.services.athena.AthenaClient",
-            "software.amazon.awssdk.services.athena.model._"
-          ),
-          Module.create[software.amazon.awssdk.services.s3.S3Client](
-            Names("s3", "S3Client", "S3IO", "S3Op"),
-            "java.nio.file.Path",
-            "software.amazon.awssdk.core.sync.RequestBody",
-            "software.amazon.awssdk.services.s3.S3Client",
-            "software.amazon.awssdk.services.s3.model._"
-          ),
-          Module.create[software.amazon.awssdk.services.ec2.Ec2Client](
-            Names("ec2", "Ec2Client", "EC2IO", "EC2Op"),
-            "java.nio.file.Path",
-            "software.amazon.awssdk.core.sync.RequestBody",
-            "software.amazon.awssdk.services.ec2.Ec2Client",
-            "software.amazon.awssdk.services.ec2.model._"
-          )
+          Module.create[software.amazon.awssdk.services.athena.AthenaClient],
+          Module.create[software.amazon.awssdk.services.codebuild.CodeBuildClient],
+          Module.create[software.amazon.awssdk.services.ec2.Ec2Client],
+          Module.create[software.amazon.awssdk.services.s3.S3Client]
         ).writeTo("./free/src/main/scala/goober/free")
       }
     }
@@ -54,16 +42,59 @@ object goober {
     }
 
     case class Modules(values: List[Module]) {
-      def writeTo(directory: String): Unit =
-        values.foreach(_.writeTo(directory))
+      def ioImports: Imports =
+        Imports(values.map(_.names.ioImport))
+
+      def clientImports =
+        Imports(values.map(_.names.clientImport))
+
+      def opImports: Imports =
+        Imports(values.map(_.names.opImport))
+
+      def writeTo(directory: String): Unit = {
+        values.foreach(_.fileContents.writeTo(directory))
+        Embedded(this).fileContents.writeTo(directory)
+        KleisliInterpreter(this).fileContents.writeTo(directory)
+      }
     }
 
     object Module {
-      def create[Env: ClassTag](names: Names, imports: String*): Module =
-        create(names, imports.toList, methodsIn[Env])
+      def create[Client: ClassTag]: Module = {
+        val clazz: Class[_] =
+          implicitly[ClassTag[Client]].runtimeClass
 
-      def create(names: Names, imports: List[String], methods: List[R.Method]): Module =
+        val module =
+          clazz.getPackage.getName.split("\\.").last
+
+        val name =
+          clazz.getSimpleName.stripSuffix("Client")
+
+        create[Client](
+          Names(
+          module = module,
+          client = clazz.getSimpleName,
+          io = s"${name}IO",
+          op = s"${name}Op"
+        ))
+      }
+
+      def create[Client: ClassTag](names: Names): Module =
+        create(names, importsFor[Client], methodsIn[Client])
+
+      def create(names: Names, imports: Imports, methods: List[R.Method]): Module =
         new Module(names, imports, Companion.create(names, methods), SmartConstructors.create(names, methods))
+
+      private def importsFor[A: ClassTag]: Imports = {
+        val clazz: Class[_] =
+          implicitly[ClassTag[A]].runtimeClass
+
+        Imports.create(
+          clazz.getName,
+          s"${clazz.getPackage.getName}.model._",
+          "java.nio.file.Path",
+          "software.amazon.awssdk.core.sync.RequestBody"
+        )
+      }
 
       private def methodsIn[A: ClassTag]: List[R.Method] =
         methodsIn(implicitly[ClassTag[A]].runtimeClass)
@@ -123,16 +154,28 @@ object goober {
 
     case class Module(
       names: Names,
-      imports: List[String],
+      imports: Imports,
       companion: Companion,
       smartConstructors: SmartConstructors
     ) {
+      def interpreterValue: String =
+        s"""lazy val ${names.embedded}Interpreter: ${names.op} ~> Kleisli[M, ${names.client}, *] = new ${names.embedded}Interpreter {
+           |  def primitive[A](f: ${names.client} ⇒ A): Kleisli[M, ${names.client}, A] = interpreter.primitive(f)
+           |}""".stripMargin
 
-      def writeTo(directory: String): Unit = {
-        val pw = new PrintWriter(s"$directory/${names.module}.scala")
-        pw.write(toString.getLines.map(_.trimTrailing).mkString("\n"))
-        pw.close()
-      }
+      def interpreterTrait: String =
+        s"""trait ${names.embedded}Interpreter extends ${names.op}.Visitor.KleisliVisitor[M] {
+           |  def embed[A](e: Embedded[A]): Kleisli[M, ${names.client}, A] = interpreter.embed(e)
+           |}""".stripMargin
+
+      def embeddedClass: String =
+        s"final case class ${names.embedded}[A](client: ${names.client}, io: ${names.io}[A]) extends Embedded[A]"
+
+      def embeddedCase: String =
+        s"case Embedded.${names.embedded}(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ${names.client}, *]](${names.embedded}Interpreter).run(client))"
+
+      def fileContents: FileContents =
+        FileContents(s"${names.module}.scala", toString)
 
       override def toString: String =
         s"""package goober.free
@@ -142,7 +185,7 @@ object goober {
            |import cats.free.{Free => FF}
            |import cats.~>
            |import cats.data.Kleisli
-           |${imports.mkString("import ", "\nimport ", "")}
+           |$imports
            |
            |object ${names.module} { module =>
            |
@@ -173,9 +216,9 @@ object goober {
 
       override def toString: String =
         s"""object ${names.op} {
-           |  // Given a ${names.env} we can embed a ${names.io} program in any algebra that understands embedding.
-           |  implicit val ${names.op}Embeddable: Embeddable[${names.op}, ${names.env}] = new Embeddable[${names.op}, ${names.env}] {
-           |    def embed[A](client: ${names.env}, io: ${names.io}[A]): Embedded[A] = Embedded.${names.embedded}(client, io)
+           |  // Given a ${names.client} we can embed a ${names.io} program in any algebra that understands embedding.
+           |  implicit val ${names.op}Embeddable: Embeddable[${names.op}, ${names.client}] = new Embeddable[${names.op}, ${names.client}] {
+           |    def embed[A](client: ${names.client}, io: ${names.io}[A]): Embedded[A] = Embedded.${names.embedded}(client, io)
            |  }
            |
            |  ${visitor.indentBy("  ")}
@@ -191,11 +234,11 @@ object goober {
 
     case class KleisliVisitor(names: Names, methods: List[KleisliVisitorMethod]) {
       override def toString: String =
-        s"""trait KleisliVisitor[M[_]] extends ${names.op}.Visitor[Kleisli[M, ${names.env}, *]] {
+        s"""trait KleisliVisitor[M[_]] extends ${names.op}.Visitor[Kleisli[M, ${names.client}, *]] {
            |  ${methods.map(_.indentBy("  ")).mkString("\n\n  ")}
            |
            |  def primitive[A](
-           |    f: ${names.env} => A
+           |    f: ${names.client} => A
            |  ): ${names.kleisliType("A")}
            |}""".stripMargin
     }
@@ -294,10 +337,16 @@ object goober {
            |  FF.liftF(${method.getName.capitalize}(${parameterNames(method)}))""".stripMargin
     }
 
-    case class Names(module: String, env: String, io: String, op: String) {
-      def embedded: String = module.capitalize
+    case class Names(module: String, client: String, io: String, op: String) {
+      def opImport: String = s"goober.free.$module.$op"
 
-      def kleisliType(`type`: String): String = s"Kleisli[M, ${env}, ${`type`}]"
+      def ioImport: String = s"goober.free.$module.$io"
+
+      def clientImport: String = s"software.amazon.awssdk.services.$module.$client"
+
+      def embedded: String = client.stripSuffix("Client")
+
+      def kleisliType(`type`: String): String = s"Kleisli[M, ${client}, ${`type`}]"
     }
 
     private def parameterNames(method: R.Method): String =
@@ -313,6 +362,108 @@ object goober {
       classOf[software.amazon.awssdk.core.sync.RequestBody] → "body",
       classOf[java.nio.file.Path] → "path"
     )
+
+    case class Embedded(modules: Modules) {
+      def fileContents: FileContents = FileContents("embedded.scala", toString)
+
+      private def implementations: List[String] =
+        modules.values.map(_.embeddedClass)
+
+
+      override def toString: String =
+        s"""package goober.free
+           |
+           |import scala.language.higherKinds
+           |
+           |import cats.free.Free
+           |${modules.ioImports}
+           |${modules.clientImports}
+           |
+           |
+           |// A pair (J, Free[F, A]) with constructors that tie down J and F.
+           |sealed trait Embedded[A]
+           |
+           |object Embedded {
+           |  ${implementations.mkString("\n  ")}
+           |}
+           |
+           |// Typeclass for embeddable pairs (J, F)
+           |trait Embeddable[F[_], J] {
+           |  def embed[A](j: J, fa: Free[F, A]): Embedded[A]
+           |}
+           |""".stripMargin
+    }
+
+    case class KleisliInterpreter(modules: Modules) {
+      def fileContents: FileContents = FileContents("KleisliInterpreter.scala", toString)
+
+      override def toString: String =
+        s"""package goober.free
+           |
+           |import scala.language.higherKinds
+           |
+           |import cats.data.Kleisli
+           |import cats.effect.{Async, Blocker, ContextShift}
+           |import cats.~>
+           |${modules.opImports}
+           |${modules.clientImports}
+           |
+           |
+           |object KleisliInterpreter {
+           |  def apply[M[_]](b: Blocker)(implicit
+           |    am: Async[M],
+           |    cs: ContextShift[M]
+           |  ): KleisliInterpreter[M] = new KleisliInterpreter[M] {
+           |    val asyncM = am
+           |    val contextShiftM = cs
+           |    val blocker = b
+           |  }
+           |}
+           |
+           |trait KleisliInterpreter[M[_]] { interpreter =>
+           |  ${modules.values.map(_.interpreterValue).mkString("\n\n").indentBy("  ")}
+           |
+           |  ${modules.values.map(_.interpreterTrait).mkString("\n\n").indentBy("  ")}
+           |
+           |
+           |  def primitive[J, A](f: J => A): Kleisli[M, J, A] = Kleisli(a => {
+           |    // primitive AWS methods throw exceptions and so do we when reading values
+           |    // so catch any non-fatal exceptions and lift them into the effect
+           |    blocker.blockOn[M, A](try {
+           |      asyncM.delay(f(a))
+           |    } catch {
+           |      case scala.util.control.NonFatal(e) => asyncM.raiseError(e)
+           |    })(contextShiftM)
+           |  })
+           |
+           |  def embed[J, A](e: Embedded[A]): Kleisli[M, J, A] = e match {
+           |    ${modules.values.map(_.embeddedCase).mkString("\n  ").indentBy("  ")}
+           |  }
+           |
+           |  val blocker: Blocker
+           |  implicit val asyncM: Async[M]
+           |  val contextShiftM: ContextShift[M]
+           |}
+           |""".stripMargin
+    }
+
+    case class FileContents(name: String, contents: String) {
+      def writeTo(directory: String): Unit = {
+        val pw = new PrintWriter(s"$directory/${name}")
+        pw.write(contents.getLines.map(_.trimTrailing).mkString("\n"))
+        pw.close()
+      }
+    }
+
+    object Imports {
+      def create(values: String*): Imports =
+        Imports(values.toList)
+    }
+
+    case class Imports(values: List[String]) {
+      override def toString: String =
+        values.mkString("import ", "\nimport ", "")
+    }
   }
 }
 
