@@ -12,6 +12,11 @@ object goober {
 
       val generateTask: Def.Initialize[Task[Unit]] = task {
         Modules.create(
+          Module.create[software.amazon.awssdk.services.athena.AthenaClient](
+            Names("athena", "AthenaClient", "AthenaIO", "AthenaOp"),
+            "software.amazon.awssdk.services.athena.AthenaClient",
+            "software.amazon.awssdk.services.athena.model._"
+          ),
           Module.create[software.amazon.awssdk.services.s3.S3Client](
             Names("s3", "S3Client", "S3IO", "S3Op"),
             "java.nio.file.Path",
@@ -290,7 +295,7 @@ object goober {
     }
 
     case class Names(module: String, env: String, io: String, op: String) {
-      def embedded: String = module.toUpperCase
+      def embedded: String = module.capitalize
 
       def kleisliType(`type`: String): String = s"Kleisli[M, ${env}, ${`type`}]"
     }

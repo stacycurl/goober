@@ -6,8 +6,10 @@ import java.util.concurrent.Executors
 import cats.data.Kleisli
 import cats.effect.{Async, Blocker, Bracket, ContextShift, Resource}
 import cats.{Applicative, Defer, Endo, ~>}
+import goober.free.athena.AthenaOp
 import goober.free.ec2.EC2Op
 import goober.free.s3.S3Op
+import software.amazon.awssdk.services.athena.AthenaClient
 import software.amazon.awssdk.services.ec2.Ec2Client
 import software.amazon.awssdk.services.s3.{S3Client, S3ClientBuilder}
 
@@ -110,26 +112,28 @@ object KleisliInterpreter {
 }
 
 trait KleisliInterpreter[M[_]] { interpreter =>
-  lazy val S3Interpreter: S3Op ~> Kleisli[M, S3Client, *] = new S3Interpreter {
-    def primitive[A](f: S3Client ⇒ A): Kleisli[M, S3Client, A] = interpreter.primitive(f)
+  lazy val AthenaInterpreter: AthenaOp ~> Kleisli[M, AthenaClient, *] = new AthenaInterpreter {
+    def primitive[A](f: AthenaClient ⇒ A): Kleisli[M, AthenaClient, A] = interpreter.primitive(f)
   }
 
   lazy val EC2Interpreter: EC2Op ~> Kleisli[M, Ec2Client, *] = new EC2Interpreter {
     def primitive[A](f: Ec2Client ⇒ A): Kleisli[M, Ec2Client, A] = interpreter.primitive(f)
   }
 
+  lazy val S3Interpreter: S3Op ~> Kleisli[M, S3Client, *] = new S3Interpreter {
+    def primitive[A](f: S3Client ⇒ A): Kleisli[M, S3Client, A] = interpreter.primitive(f)
+  }
+
+  trait AthenaInterpreter extends AthenaOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AthenaClient, A] = interpreter.embed(e)
+  }
+
   trait EC2Interpreter extends EC2Op.Visitor.KleisliVisitor[M] {
-    def embed[A](
-      e: Embedded[A]
-    ): Kleisli[M, Ec2Client, A] =
-      interpreter.embed(e)
+    def embed[A](e: Embedded[A]): Kleisli[M, Ec2Client, A] = interpreter.embed(e)
   }
 
   trait S3Interpreter extends S3Op.Visitor.KleisliVisitor[M] {
-    def embed[A](
-      e: Embedded[A]
-    ): Kleisli[M, S3Client, A] =
-      interpreter.embed(e)
+    def embed[A](e: Embedded[A]): Kleisli[M, S3Client, A] = interpreter.embed(e)
   }
 
   def primitive[J, A](f: J => A): Kleisli[M, J, A] = Kleisli(a => {
@@ -143,8 +147,9 @@ trait KleisliInterpreter[M[_]] { interpreter =>
   })
 
   def embed[J, A](e: Embedded[A]): Kleisli[M, J, A] = e match {
+    case Embedded.Athena(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AthenaClient, *]](AthenaInterpreter).run(client))
+    case Embedded.Ec2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Ec2Client, *]](EC2Interpreter).run(client))
     case Embedded.S3(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, S3Client, *]](S3Interpreter).run(client))
-    case Embedded.EC2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Ec2Client, *]](EC2Interpreter).run(client))
   }
 
   val blocker: Blocker

@@ -22,7 +22,7 @@ object ec2 { module =>
   object EC2Op {
     // Given a Ec2Client we can embed a EC2IO program in any algebra that understands embedding.
     implicit val EC2OpEmbeddable: Embeddable[EC2Op, Ec2Client] = new Embeddable[EC2Op, Ec2Client] {
-      def embed[A](client: Ec2Client, io: EC2IO[A]): Embedded[A] = Embedded.EC2(client, io)
+      def embed[A](client: Ec2Client, io: EC2IO[A]): Embedded[A] = Embedded.Ec2(client, io)
     }
 
     object Visitor {
