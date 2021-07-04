@@ -2,19 +2,19 @@ package goober.free
 
 import scala.language.higherKinds
 
-import java.nio.file.Path
 import cats.free.{Free => FF}
 import cats.~>
+import cats.data.Kleisli
+import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3.model._
 
 object s3 { module =>
 
-  // Free monad over StatementOp.
+  // Free monad over S3Op
   type S3IO[A] = FF[S3Op, A]
 
-  // Operations for s3
   sealed trait S3Op[A] {
     def visit[F[_]](visitor: S3Op.Visitor[F]): F[A]
   }
@@ -22,7 +22,469 @@ object s3 { module =>
   object S3Op {
     // Given a S3Client we can embed a S3IO program in any algebra that understands embedding.
     implicit val S3OpEmbeddable: Embeddable[S3Op, S3Client] = new Embeddable[S3Op, S3Client] {
-      def embed[A](s3Client: S3Client, s3IO: S3IO[A]): Embedded[A] = Embedded.S3(s3Client, s3IO)
+      def embed[A](client: S3Client, io: S3IO[A]): Embedded[A] = Embedded.S3(client, io)
+    }
+
+    object Visitor {
+      trait KleisliVisitor[M[_]] extends S3Op.Visitor[Kleisli[M, S3Client, *]] {
+        def abortMultipartUpload(
+          request: AbortMultipartUploadRequest
+        ): Kleisli[M, S3Client, AbortMultipartUploadResponse] =
+          primitive(_.abortMultipartUpload(request))
+
+        def completeMultipartUpload(
+          request: CompleteMultipartUploadRequest
+        ): Kleisli[M, S3Client, CompleteMultipartUploadResponse] =
+          primitive(_.completeMultipartUpload(request))
+
+        def copyObject(
+          request: CopyObjectRequest
+        ): Kleisli[M, S3Client, CopyObjectResponse] =
+          primitive(_.copyObject(request))
+
+        def createBucket(
+          request: CreateBucketRequest
+        ): Kleisli[M, S3Client, CreateBucketResponse] =
+          primitive(_.createBucket(request))
+
+        def createMultipartUpload(
+          request: CreateMultipartUploadRequest
+        ): Kleisli[M, S3Client, CreateMultipartUploadResponse] =
+          primitive(_.createMultipartUpload(request))
+
+        def deleteBucket(
+          request: DeleteBucketRequest
+        ): Kleisli[M, S3Client, DeleteBucketResponse] =
+          primitive(_.deleteBucket(request))
+
+        def deleteBucketAnalyticsConfiguration(
+          request: DeleteBucketAnalyticsConfigurationRequest
+        ): Kleisli[M, S3Client, DeleteBucketAnalyticsConfigurationResponse] =
+          primitive(_.deleteBucketAnalyticsConfiguration(request))
+
+        def deleteBucketCors(
+          request: DeleteBucketCorsRequest
+        ): Kleisli[M, S3Client, DeleteBucketCorsResponse] =
+          primitive(_.deleteBucketCors(request))
+
+        def deleteBucketEncryption(
+          request: DeleteBucketEncryptionRequest
+        ): Kleisli[M, S3Client, DeleteBucketEncryptionResponse] =
+          primitive(_.deleteBucketEncryption(request))
+
+        def deleteBucketIntelligentTieringConfiguration(
+          request: DeleteBucketIntelligentTieringConfigurationRequest
+        ): Kleisli[M, S3Client, DeleteBucketIntelligentTieringConfigurationResponse] =
+          primitive(_.deleteBucketIntelligentTieringConfiguration(request))
+
+        def deleteBucketInventoryConfiguration(
+          request: DeleteBucketInventoryConfigurationRequest
+        ): Kleisli[M, S3Client, DeleteBucketInventoryConfigurationResponse] =
+          primitive(_.deleteBucketInventoryConfiguration(request))
+
+        def deleteBucketLifecycle(
+          request: DeleteBucketLifecycleRequest
+        ): Kleisli[M, S3Client, DeleteBucketLifecycleResponse] =
+          primitive(_.deleteBucketLifecycle(request))
+
+        def deleteBucketMetricsConfiguration(
+          request: DeleteBucketMetricsConfigurationRequest
+        ): Kleisli[M, S3Client, DeleteBucketMetricsConfigurationResponse] =
+          primitive(_.deleteBucketMetricsConfiguration(request))
+
+        def deleteBucketOwnershipControls(
+          request: DeleteBucketOwnershipControlsRequest
+        ): Kleisli[M, S3Client, DeleteBucketOwnershipControlsResponse] =
+          primitive(_.deleteBucketOwnershipControls(request))
+
+        def deleteBucketPolicy(
+          request: DeleteBucketPolicyRequest
+        ): Kleisli[M, S3Client, DeleteBucketPolicyResponse] =
+          primitive(_.deleteBucketPolicy(request))
+
+        def deleteBucketReplication(
+          request: DeleteBucketReplicationRequest
+        ): Kleisli[M, S3Client, DeleteBucketReplicationResponse] =
+          primitive(_.deleteBucketReplication(request))
+
+        def deleteBucketTagging(
+          request: DeleteBucketTaggingRequest
+        ): Kleisli[M, S3Client, DeleteBucketTaggingResponse] =
+          primitive(_.deleteBucketTagging(request))
+
+        def deleteBucketWebsite(
+          request: DeleteBucketWebsiteRequest
+        ): Kleisli[M, S3Client, DeleteBucketWebsiteResponse] =
+          primitive(_.deleteBucketWebsite(request))
+
+        def deleteObject(
+          request: DeleteObjectRequest
+        ): Kleisli[M, S3Client, DeleteObjectResponse] =
+          primitive(_.deleteObject(request))
+
+        def deleteObjectTagging(
+          request: DeleteObjectTaggingRequest
+        ): Kleisli[M, S3Client, DeleteObjectTaggingResponse] =
+          primitive(_.deleteObjectTagging(request))
+
+        def deleteObjects(
+          request: DeleteObjectsRequest
+        ): Kleisli[M, S3Client, DeleteObjectsResponse] =
+          primitive(_.deleteObjects(request))
+
+        def deletePublicAccessBlock(
+          request: DeletePublicAccessBlockRequest
+        ): Kleisli[M, S3Client, DeletePublicAccessBlockResponse] =
+          primitive(_.deletePublicAccessBlock(request))
+
+        def getBucketAccelerateConfiguration(
+          request: GetBucketAccelerateConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketAccelerateConfigurationResponse] =
+          primitive(_.getBucketAccelerateConfiguration(request))
+
+        def getBucketAcl(
+          request: GetBucketAclRequest
+        ): Kleisli[M, S3Client, GetBucketAclResponse] =
+          primitive(_.getBucketAcl(request))
+
+        def getBucketAnalyticsConfiguration(
+          request: GetBucketAnalyticsConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketAnalyticsConfigurationResponse] =
+          primitive(_.getBucketAnalyticsConfiguration(request))
+
+        def getBucketCors(
+          request: GetBucketCorsRequest
+        ): Kleisli[M, S3Client, GetBucketCorsResponse] =
+          primitive(_.getBucketCors(request))
+
+        def getBucketEncryption(
+          request: GetBucketEncryptionRequest
+        ): Kleisli[M, S3Client, GetBucketEncryptionResponse] =
+          primitive(_.getBucketEncryption(request))
+
+        def getBucketIntelligentTieringConfiguration(
+          request: GetBucketIntelligentTieringConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketIntelligentTieringConfigurationResponse] =
+          primitive(_.getBucketIntelligentTieringConfiguration(request))
+
+        def getBucketInventoryConfiguration(
+          request: GetBucketInventoryConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketInventoryConfigurationResponse] =
+          primitive(_.getBucketInventoryConfiguration(request))
+
+        def getBucketLifecycleConfiguration(
+          request: GetBucketLifecycleConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketLifecycleConfigurationResponse] =
+          primitive(_.getBucketLifecycleConfiguration(request))
+
+        def getBucketLocation(
+          request: GetBucketLocationRequest
+        ): Kleisli[M, S3Client, GetBucketLocationResponse] =
+          primitive(_.getBucketLocation(request))
+
+        def getBucketLogging(
+          request: GetBucketLoggingRequest
+        ): Kleisli[M, S3Client, GetBucketLoggingResponse] =
+          primitive(_.getBucketLogging(request))
+
+        def getBucketMetricsConfiguration(
+          request: GetBucketMetricsConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketMetricsConfigurationResponse] =
+          primitive(_.getBucketMetricsConfiguration(request))
+
+        def getBucketNotificationConfiguration(
+          request: GetBucketNotificationConfigurationRequest
+        ): Kleisli[M, S3Client, GetBucketNotificationConfigurationResponse] =
+          primitive(_.getBucketNotificationConfiguration(request))
+
+        def getBucketOwnershipControls(
+          request: GetBucketOwnershipControlsRequest
+        ): Kleisli[M, S3Client, GetBucketOwnershipControlsResponse] =
+          primitive(_.getBucketOwnershipControls(request))
+
+        def getBucketPolicy(
+          request: GetBucketPolicyRequest
+        ): Kleisli[M, S3Client, GetBucketPolicyResponse] =
+          primitive(_.getBucketPolicy(request))
+
+        def getBucketPolicyStatus(
+          request: GetBucketPolicyStatusRequest
+        ): Kleisli[M, S3Client, GetBucketPolicyStatusResponse] =
+          primitive(_.getBucketPolicyStatus(request))
+
+        def getBucketReplication(
+          request: GetBucketReplicationRequest
+        ): Kleisli[M, S3Client, GetBucketReplicationResponse] =
+          primitive(_.getBucketReplication(request))
+
+        def getBucketRequestPayment(
+          request: GetBucketRequestPaymentRequest
+        ): Kleisli[M, S3Client, GetBucketRequestPaymentResponse] =
+          primitive(_.getBucketRequestPayment(request))
+
+        def getBucketTagging(
+          request: GetBucketTaggingRequest
+        ): Kleisli[M, S3Client, GetBucketTaggingResponse] =
+          primitive(_.getBucketTagging(request))
+
+        def getBucketVersioning(
+          request: GetBucketVersioningRequest
+        ): Kleisli[M, S3Client, GetBucketVersioningResponse] =
+          primitive(_.getBucketVersioning(request))
+
+        def getBucketWebsite(
+          request: GetBucketWebsiteRequest
+        ): Kleisli[M, S3Client, GetBucketWebsiteResponse] =
+          primitive(_.getBucketWebsite(request))
+
+        def getObject(
+          request: GetObjectRequest,
+          path: Path
+        ): Kleisli[M, S3Client, GetObjectResponse] =
+          primitive(_.getObject(request, path))
+
+        def getObjectAcl(
+          request: GetObjectAclRequest
+        ): Kleisli[M, S3Client, GetObjectAclResponse] =
+          primitive(_.getObjectAcl(request))
+
+        def getObjectLegalHold(
+          request: GetObjectLegalHoldRequest
+        ): Kleisli[M, S3Client, GetObjectLegalHoldResponse] =
+          primitive(_.getObjectLegalHold(request))
+
+        def getObjectLockConfiguration(
+          request: GetObjectLockConfigurationRequest
+        ): Kleisli[M, S3Client, GetObjectLockConfigurationResponse] =
+          primitive(_.getObjectLockConfiguration(request))
+
+        def getObjectRetention(
+          request: GetObjectRetentionRequest
+        ): Kleisli[M, S3Client, GetObjectRetentionResponse] =
+          primitive(_.getObjectRetention(request))
+
+        def getObjectTagging(
+          request: GetObjectTaggingRequest
+        ): Kleisli[M, S3Client, GetObjectTaggingResponse] =
+          primitive(_.getObjectTagging(request))
+
+        def getPublicAccessBlock(
+          request: GetPublicAccessBlockRequest
+        ): Kleisli[M, S3Client, GetPublicAccessBlockResponse] =
+          primitive(_.getPublicAccessBlock(request))
+
+        def headBucket(
+          request: HeadBucketRequest
+        ): Kleisli[M, S3Client, HeadBucketResponse] =
+          primitive(_.headBucket(request))
+
+        def headObject(
+          request: HeadObjectRequest
+        ): Kleisli[M, S3Client, HeadObjectResponse] =
+          primitive(_.headObject(request))
+
+        def listBucketAnalyticsConfigurations(
+          request: ListBucketAnalyticsConfigurationsRequest
+        ): Kleisli[M, S3Client, ListBucketAnalyticsConfigurationsResponse] =
+          primitive(_.listBucketAnalyticsConfigurations(request))
+
+        def listBucketIntelligentTieringConfigurations(
+          request: ListBucketIntelligentTieringConfigurationsRequest
+        ): Kleisli[M, S3Client, ListBucketIntelligentTieringConfigurationsResponse] =
+          primitive(_.listBucketIntelligentTieringConfigurations(request))
+
+        def listBucketInventoryConfigurations(
+          request: ListBucketInventoryConfigurationsRequest
+        ): Kleisli[M, S3Client, ListBucketInventoryConfigurationsResponse] =
+          primitive(_.listBucketInventoryConfigurations(request))
+
+        def listBucketMetricsConfigurations(
+          request: ListBucketMetricsConfigurationsRequest
+        ): Kleisli[M, S3Client, ListBucketMetricsConfigurationsResponse] =
+          primitive(_.listBucketMetricsConfigurations(request))
+
+        def listBuckets(
+          request: ListBucketsRequest
+        ): Kleisli[M, S3Client, ListBucketsResponse] =
+          primitive(_.listBuckets(request))
+
+        def listMultipartUploads(
+          request: ListMultipartUploadsRequest
+        ): Kleisli[M, S3Client, ListMultipartUploadsResponse] =
+          primitive(_.listMultipartUploads(request))
+
+        def listObjectVersions(
+          request: ListObjectVersionsRequest
+        ): Kleisli[M, S3Client, ListObjectVersionsResponse] =
+          primitive(_.listObjectVersions(request))
+
+        def listObjects(
+          request: ListObjectsRequest
+        ): Kleisli[M, S3Client, ListObjectsResponse] =
+          primitive(_.listObjects(request))
+
+        def listObjectsV2(
+          request: ListObjectsV2Request
+        ): Kleisli[M, S3Client, ListObjectsV2Response] =
+          primitive(_.listObjectsV2(request))
+
+        def listParts(
+          request: ListPartsRequest
+        ): Kleisli[M, S3Client, ListPartsResponse] =
+          primitive(_.listParts(request))
+
+        def putBucketAccelerateConfiguration(
+          request: PutBucketAccelerateConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketAccelerateConfigurationResponse] =
+          primitive(_.putBucketAccelerateConfiguration(request))
+
+        def putBucketAcl(
+          request: PutBucketAclRequest
+        ): Kleisli[M, S3Client, PutBucketAclResponse] =
+          primitive(_.putBucketAcl(request))
+
+        def putBucketAnalyticsConfiguration(
+          request: PutBucketAnalyticsConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketAnalyticsConfigurationResponse] =
+          primitive(_.putBucketAnalyticsConfiguration(request))
+
+        def putBucketCors(
+          request: PutBucketCorsRequest
+        ): Kleisli[M, S3Client, PutBucketCorsResponse] =
+          primitive(_.putBucketCors(request))
+
+        def putBucketEncryption(
+          request: PutBucketEncryptionRequest
+        ): Kleisli[M, S3Client, PutBucketEncryptionResponse] =
+          primitive(_.putBucketEncryption(request))
+
+        def putBucketIntelligentTieringConfiguration(
+          request: PutBucketIntelligentTieringConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketIntelligentTieringConfigurationResponse] =
+          primitive(_.putBucketIntelligentTieringConfiguration(request))
+
+        def putBucketInventoryConfiguration(
+          request: PutBucketInventoryConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketInventoryConfigurationResponse] =
+          primitive(_.putBucketInventoryConfiguration(request))
+
+        def putBucketLifecycleConfiguration(
+          request: PutBucketLifecycleConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketLifecycleConfigurationResponse] =
+          primitive(_.putBucketLifecycleConfiguration(request))
+
+        def putBucketLogging(
+          request: PutBucketLoggingRequest
+        ): Kleisli[M, S3Client, PutBucketLoggingResponse] =
+          primitive(_.putBucketLogging(request))
+
+        def putBucketMetricsConfiguration(
+          request: PutBucketMetricsConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketMetricsConfigurationResponse] =
+          primitive(_.putBucketMetricsConfiguration(request))
+
+        def putBucketNotificationConfiguration(
+          request: PutBucketNotificationConfigurationRequest
+        ): Kleisli[M, S3Client, PutBucketNotificationConfigurationResponse] =
+          primitive(_.putBucketNotificationConfiguration(request))
+
+        def putBucketOwnershipControls(
+          request: PutBucketOwnershipControlsRequest
+        ): Kleisli[M, S3Client, PutBucketOwnershipControlsResponse] =
+          primitive(_.putBucketOwnershipControls(request))
+
+        def putBucketPolicy(
+          request: PutBucketPolicyRequest
+        ): Kleisli[M, S3Client, PutBucketPolicyResponse] =
+          primitive(_.putBucketPolicy(request))
+
+        def putBucketReplication(
+          request: PutBucketReplicationRequest
+        ): Kleisli[M, S3Client, PutBucketReplicationResponse] =
+          primitive(_.putBucketReplication(request))
+
+        def putBucketRequestPayment(
+          request: PutBucketRequestPaymentRequest
+        ): Kleisli[M, S3Client, PutBucketRequestPaymentResponse] =
+          primitive(_.putBucketRequestPayment(request))
+
+        def putBucketTagging(
+          request: PutBucketTaggingRequest
+        ): Kleisli[M, S3Client, PutBucketTaggingResponse] =
+          primitive(_.putBucketTagging(request))
+
+        def putBucketVersioning(
+          request: PutBucketVersioningRequest
+        ): Kleisli[M, S3Client, PutBucketVersioningResponse] =
+          primitive(_.putBucketVersioning(request))
+
+        def putBucketWebsite(
+          request: PutBucketWebsiteRequest
+        ): Kleisli[M, S3Client, PutBucketWebsiteResponse] =
+          primitive(_.putBucketWebsite(request))
+
+        def putObject(
+          request: PutObjectRequest,
+          body: RequestBody
+        ): Kleisli[M, S3Client, PutObjectResponse] =
+          primitive(_.putObject(request, body))
+
+        def putObjectAcl(
+          request: PutObjectAclRequest
+        ): Kleisli[M, S3Client, PutObjectAclResponse] =
+          primitive(_.putObjectAcl(request))
+
+        def putObjectLegalHold(
+          request: PutObjectLegalHoldRequest
+        ): Kleisli[M, S3Client, PutObjectLegalHoldResponse] =
+          primitive(_.putObjectLegalHold(request))
+
+        def putObjectLockConfiguration(
+          request: PutObjectLockConfigurationRequest
+        ): Kleisli[M, S3Client, PutObjectLockConfigurationResponse] =
+          primitive(_.putObjectLockConfiguration(request))
+
+        def putObjectRetention(
+          request: PutObjectRetentionRequest
+        ): Kleisli[M, S3Client, PutObjectRetentionResponse] =
+          primitive(_.putObjectRetention(request))
+
+        def putObjectTagging(
+          request: PutObjectTaggingRequest
+        ): Kleisli[M, S3Client, PutObjectTaggingResponse] =
+          primitive(_.putObjectTagging(request))
+
+        def putPublicAccessBlock(
+          request: PutPublicAccessBlockRequest
+        ): Kleisli[M, S3Client, PutPublicAccessBlockResponse] =
+          primitive(_.putPublicAccessBlock(request))
+
+        def restoreObject(
+          request: RestoreObjectRequest
+        ): Kleisli[M, S3Client, RestoreObjectResponse] =
+          primitive(_.restoreObject(request))
+
+        def uploadPart(
+          request: UploadPartRequest,
+          body: RequestBody
+        ): Kleisli[M, S3Client, UploadPartResponse] =
+          primitive(_.uploadPart(request, body))
+
+        def uploadPartCopy(
+          request: UploadPartCopyRequest
+        ): Kleisli[M, S3Client, UploadPartCopyResponse] =
+          primitive(_.uploadPartCopy(request))
+
+        def writeGetObjectResponse(
+          request: WriteGetObjectResponseRequest,
+          body: RequestBody
+        ): Kleisli[M, S3Client, WriteGetObjectResponseResponse] =
+          primitive(_.writeGetObjectResponse(request, body))
+
+        def primitive[A](
+          f: S3Client => A
+        ): Kleisli[M, S3Client, A]
+      }
     }
 
     trait Visitor[F[_]] extends (S3Op ~> F) {
@@ -33,1466 +495,1473 @@ object s3 { module =>
       ): F[A]
 
       def abortMultipartUpload(
-        abortMultipartUploadRequest: AbortMultipartUploadRequest
+        request: AbortMultipartUploadRequest
       ): F[AbortMultipartUploadResponse]
 
       def completeMultipartUpload(
-        completeMultipartUploadRequest: CompleteMultipartUploadRequest
+        request: CompleteMultipartUploadRequest
       ): F[CompleteMultipartUploadResponse]
 
       def copyObject(
-        copyObjectRequest: CopyObjectRequest
+        request: CopyObjectRequest
       ): F[CopyObjectResponse]
 
       def createBucket(
-        createBucketRequest: CreateBucketRequest
+        request: CreateBucketRequest
       ): F[CreateBucketResponse]
 
       def createMultipartUpload(
-        createMultipartUploadRequest: CreateMultipartUploadRequest
+        request: CreateMultipartUploadRequest
       ): F[CreateMultipartUploadResponse]
 
       def deleteBucket(
-        deleteBucketRequest: DeleteBucketRequest
+        request: DeleteBucketRequest
       ): F[DeleteBucketResponse]
 
       def deleteBucketAnalyticsConfiguration(
-        deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest
+        request: DeleteBucketAnalyticsConfigurationRequest
       ): F[DeleteBucketAnalyticsConfigurationResponse]
 
       def deleteBucketCors(
-        deleteBucketCorsRequest: DeleteBucketCorsRequest
+        request: DeleteBucketCorsRequest
       ): F[DeleteBucketCorsResponse]
 
       def deleteBucketEncryption(
-        deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest
+        request: DeleteBucketEncryptionRequest
       ): F[DeleteBucketEncryptionResponse]
 
       def deleteBucketIntelligentTieringConfiguration(
-        deleteBucketIntelligentTieringConfigurationRequest: DeleteBucketIntelligentTieringConfigurationRequest
+        request: DeleteBucketIntelligentTieringConfigurationRequest
       ): F[DeleteBucketIntelligentTieringConfigurationResponse]
 
       def deleteBucketInventoryConfiguration(
-        deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest
+        request: DeleteBucketInventoryConfigurationRequest
       ): F[DeleteBucketInventoryConfigurationResponse]
 
       def deleteBucketLifecycle(
-        deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest
+        request: DeleteBucketLifecycleRequest
       ): F[DeleteBucketLifecycleResponse]
 
       def deleteBucketMetricsConfiguration(
-        deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest
+        request: DeleteBucketMetricsConfigurationRequest
       ): F[DeleteBucketMetricsConfigurationResponse]
 
       def deleteBucketOwnershipControls(
-        deleteBucketOwnershipControlsRequest: DeleteBucketOwnershipControlsRequest
+        request: DeleteBucketOwnershipControlsRequest
       ): F[DeleteBucketOwnershipControlsResponse]
 
       def deleteBucketPolicy(
-        deleteBucketPolicyRequest: DeleteBucketPolicyRequest
+        request: DeleteBucketPolicyRequest
       ): F[DeleteBucketPolicyResponse]
 
       def deleteBucketReplication(
-        deleteBucketReplicationRequest: DeleteBucketReplicationRequest
+        request: DeleteBucketReplicationRequest
       ): F[DeleteBucketReplicationResponse]
 
       def deleteBucketTagging(
-        deleteBucketTaggingRequest: DeleteBucketTaggingRequest
+        request: DeleteBucketTaggingRequest
       ): F[DeleteBucketTaggingResponse]
 
       def deleteBucketWebsite(
-        deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest
+        request: DeleteBucketWebsiteRequest
       ): F[DeleteBucketWebsiteResponse]
 
       def deleteObject(
-        deleteObjectRequest: DeleteObjectRequest
+        request: DeleteObjectRequest
       ): F[DeleteObjectResponse]
 
       def deleteObjectTagging(
-        deleteObjectTaggingRequest: DeleteObjectTaggingRequest
+        request: DeleteObjectTaggingRequest
       ): F[DeleteObjectTaggingResponse]
 
       def deleteObjects(
-        deleteObjectsRequest: DeleteObjectsRequest
+        request: DeleteObjectsRequest
       ): F[DeleteObjectsResponse]
 
       def deletePublicAccessBlock(
-        deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest
+        request: DeletePublicAccessBlockRequest
       ): F[DeletePublicAccessBlockResponse]
 
       def getBucketAccelerateConfiguration(
-        getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest
+        request: GetBucketAccelerateConfigurationRequest
       ): F[GetBucketAccelerateConfigurationResponse]
 
       def getBucketAcl(
-        getBucketAclRequest: GetBucketAclRequest
+        request: GetBucketAclRequest
       ): F[GetBucketAclResponse]
 
       def getBucketAnalyticsConfiguration(
-        getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest
+        request: GetBucketAnalyticsConfigurationRequest
       ): F[GetBucketAnalyticsConfigurationResponse]
 
       def getBucketCors(
-        getBucketCorsRequest: GetBucketCorsRequest
+        request: GetBucketCorsRequest
       ): F[GetBucketCorsResponse]
 
       def getBucketEncryption(
-        getBucketEncryptionRequest: GetBucketEncryptionRequest
+        request: GetBucketEncryptionRequest
       ): F[GetBucketEncryptionResponse]
 
       def getBucketIntelligentTieringConfiguration(
-        getBucketIntelligentTieringConfigurationRequest: GetBucketIntelligentTieringConfigurationRequest
+        request: GetBucketIntelligentTieringConfigurationRequest
       ): F[GetBucketIntelligentTieringConfigurationResponse]
 
       def getBucketInventoryConfiguration(
-        getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest
+        request: GetBucketInventoryConfigurationRequest
       ): F[GetBucketInventoryConfigurationResponse]
 
       def getBucketLifecycleConfiguration(
-        getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest
+        request: GetBucketLifecycleConfigurationRequest
       ): F[GetBucketLifecycleConfigurationResponse]
 
       def getBucketLocation(
-        getBucketLocationRequest: GetBucketLocationRequest
+        request: GetBucketLocationRequest
       ): F[GetBucketLocationResponse]
 
       def getBucketLogging(
-        getBucketLoggingRequest: GetBucketLoggingRequest
+        request: GetBucketLoggingRequest
       ): F[GetBucketLoggingResponse]
 
       def getBucketMetricsConfiguration(
-        getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest
+        request: GetBucketMetricsConfigurationRequest
       ): F[GetBucketMetricsConfigurationResponse]
 
       def getBucketNotificationConfiguration(
-        getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest
+        request: GetBucketNotificationConfigurationRequest
       ): F[GetBucketNotificationConfigurationResponse]
 
       def getBucketOwnershipControls(
-        getBucketOwnershipControlsRequest: GetBucketOwnershipControlsRequest
+        request: GetBucketOwnershipControlsRequest
       ): F[GetBucketOwnershipControlsResponse]
 
       def getBucketPolicy(
-        getBucketPolicyRequest: GetBucketPolicyRequest
+        request: GetBucketPolicyRequest
       ): F[GetBucketPolicyResponse]
 
       def getBucketPolicyStatus(
-        getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest
+        request: GetBucketPolicyStatusRequest
       ): F[GetBucketPolicyStatusResponse]
 
       def getBucketReplication(
-        getBucketReplicationRequest: GetBucketReplicationRequest
+        request: GetBucketReplicationRequest
       ): F[GetBucketReplicationResponse]
 
       def getBucketRequestPayment(
-        getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest
+        request: GetBucketRequestPaymentRequest
       ): F[GetBucketRequestPaymentResponse]
 
       def getBucketTagging(
-        getBucketTaggingRequest: GetBucketTaggingRequest
+        request: GetBucketTaggingRequest
       ): F[GetBucketTaggingResponse]
 
       def getBucketVersioning(
-        getBucketVersioningRequest: GetBucketVersioningRequest
+        request: GetBucketVersioningRequest
       ): F[GetBucketVersioningResponse]
 
       def getBucketWebsite(
-        getBucketWebsiteRequest: GetBucketWebsiteRequest
+        request: GetBucketWebsiteRequest
       ): F[GetBucketWebsiteResponse]
 
       def getObject(
-        getObjectRequest: GetObjectRequest,
-        destinationPath: Path
+        request: GetObjectRequest,
+        path: Path
       ): F[GetObjectResponse]
 
       def getObjectAcl(
-        getObjectAclRequest: GetObjectAclRequest
+        request: GetObjectAclRequest
       ): F[GetObjectAclResponse]
 
       def getObjectLegalHold(
-        getObjectLegalHoldRequest: GetObjectLegalHoldRequest
+        request: GetObjectLegalHoldRequest
       ): F[GetObjectLegalHoldResponse]
 
       def getObjectLockConfiguration(
-        getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
+        request: GetObjectLockConfigurationRequest
       ): F[GetObjectLockConfigurationResponse]
 
       def getObjectRetention(
-        getObjectRetentionRequest: GetObjectRetentionRequest
+        request: GetObjectRetentionRequest
       ): F[GetObjectRetentionResponse]
 
       def getObjectTagging(
-        getObjectTaggingRequest: GetObjectTaggingRequest
+        request: GetObjectTaggingRequest
       ): F[GetObjectTaggingResponse]
 
       def getPublicAccessBlock(
-        getPublicAccessBlockRequest: GetPublicAccessBlockRequest
+        request: GetPublicAccessBlockRequest
       ): F[GetPublicAccessBlockResponse]
 
       def headBucket(
-        headBucketRequest: HeadBucketRequest
+        request: HeadBucketRequest
       ): F[HeadBucketResponse]
 
       def headObject(
-        headObjectRequest: HeadObjectRequest
+        request: HeadObjectRequest
       ): F[HeadObjectResponse]
 
       def listBucketAnalyticsConfigurations(
-        listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest
+        request: ListBucketAnalyticsConfigurationsRequest
       ): F[ListBucketAnalyticsConfigurationsResponse]
 
       def listBucketIntelligentTieringConfigurations(
-        listBucketIntelligentTieringConfigurationsRequest: ListBucketIntelligentTieringConfigurationsRequest
+        request: ListBucketIntelligentTieringConfigurationsRequest
       ): F[ListBucketIntelligentTieringConfigurationsResponse]
 
       def listBucketInventoryConfigurations(
-        listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest
+        request: ListBucketInventoryConfigurationsRequest
       ): F[ListBucketInventoryConfigurationsResponse]
 
       def listBucketMetricsConfigurations(
-        listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest
+        request: ListBucketMetricsConfigurationsRequest
       ): F[ListBucketMetricsConfigurationsResponse]
 
       def listBuckets(
-        listBucketsRequest: ListBucketsRequest
+        request: ListBucketsRequest
       ): F[ListBucketsResponse]
 
       def listMultipartUploads(
-        listMultipartUploadsRequest: ListMultipartUploadsRequest
+        request: ListMultipartUploadsRequest
       ): F[ListMultipartUploadsResponse]
 
       def listObjectVersions(
-        listObjectVersionsRequest: ListObjectVersionsRequest
+        request: ListObjectVersionsRequest
       ): F[ListObjectVersionsResponse]
 
       def listObjects(
-        listObjectsRequest: ListObjectsRequest
+        request: ListObjectsRequest
       ): F[ListObjectsResponse]
 
       def listObjectsV2(
-        listObjectsV2Request: ListObjectsV2Request
+        request: ListObjectsV2Request
       ): F[ListObjectsV2Response]
 
       def listParts(
-        listPartsRequest: ListPartsRequest
+        request: ListPartsRequest
       ): F[ListPartsResponse]
 
       def putBucketAccelerateConfiguration(
-        putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest
+        request: PutBucketAccelerateConfigurationRequest
       ): F[PutBucketAccelerateConfigurationResponse]
 
       def putBucketAcl(
-        putBucketAclRequest: PutBucketAclRequest
+        request: PutBucketAclRequest
       ): F[PutBucketAclResponse]
 
       def putBucketAnalyticsConfiguration(
-        putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest
+        request: PutBucketAnalyticsConfigurationRequest
       ): F[PutBucketAnalyticsConfigurationResponse]
 
       def putBucketCors(
-        putBucketCorsRequest: PutBucketCorsRequest
+        request: PutBucketCorsRequest
       ): F[PutBucketCorsResponse]
 
       def putBucketEncryption(
-        putBucketEncryptionRequest: PutBucketEncryptionRequest
+        request: PutBucketEncryptionRequest
       ): F[PutBucketEncryptionResponse]
 
       def putBucketIntelligentTieringConfiguration(
-        putBucketIntelligentTieringConfigurationRequest: PutBucketIntelligentTieringConfigurationRequest
+        request: PutBucketIntelligentTieringConfigurationRequest
       ): F[PutBucketIntelligentTieringConfigurationResponse]
 
       def putBucketInventoryConfiguration(
-        putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest
+        request: PutBucketInventoryConfigurationRequest
       ): F[PutBucketInventoryConfigurationResponse]
 
       def putBucketLifecycleConfiguration(
-        putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest
+        request: PutBucketLifecycleConfigurationRequest
       ): F[PutBucketLifecycleConfigurationResponse]
 
       def putBucketLogging(
-        putBucketLoggingRequest: PutBucketLoggingRequest
+        request: PutBucketLoggingRequest
       ): F[PutBucketLoggingResponse]
 
       def putBucketMetricsConfiguration(
-        putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest
+        request: PutBucketMetricsConfigurationRequest
       ): F[PutBucketMetricsConfigurationResponse]
 
       def putBucketNotificationConfiguration(
-        putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest
+        request: PutBucketNotificationConfigurationRequest
       ): F[PutBucketNotificationConfigurationResponse]
 
       def putBucketOwnershipControls(
-        putBucketOwnershipControlsRequest: PutBucketOwnershipControlsRequest
+        request: PutBucketOwnershipControlsRequest
       ): F[PutBucketOwnershipControlsResponse]
 
       def putBucketPolicy(
-        putBucketPolicyRequest: PutBucketPolicyRequest
+        request: PutBucketPolicyRequest
       ): F[PutBucketPolicyResponse]
 
       def putBucketReplication(
-        putBucketReplicationRequest: PutBucketReplicationRequest
+        request: PutBucketReplicationRequest
       ): F[PutBucketReplicationResponse]
 
       def putBucketRequestPayment(
-        putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest
+        request: PutBucketRequestPaymentRequest
       ): F[PutBucketRequestPaymentResponse]
 
       def putBucketTagging(
-        putBucketTaggingRequest: PutBucketTaggingRequest
+        request: PutBucketTaggingRequest
       ): F[PutBucketTaggingResponse]
 
       def putBucketVersioning(
-        putBucketVersioningRequest: PutBucketVersioningRequest
+        request: PutBucketVersioningRequest
       ): F[PutBucketVersioningResponse]
 
       def putBucketWebsite(
-        putBucketWebsiteRequest: PutBucketWebsiteRequest
+        request: PutBucketWebsiteRequest
       ): F[PutBucketWebsiteResponse]
 
       def putObject(
-        putObjectRequest: PutObjectRequest,
-        requestBody: RequestBody
+        request: PutObjectRequest,
+        body: RequestBody
       ): F[PutObjectResponse]
 
       def putObjectAcl(
-        putObjectAclRequest: PutObjectAclRequest
+        request: PutObjectAclRequest
       ): F[PutObjectAclResponse]
 
-      def putObjectLegalHold (
-        putObjectLegalHoldRequest: PutObjectLegalHoldRequest
+      def putObjectLegalHold(
+        request: PutObjectLegalHoldRequest
       ): F[PutObjectLegalHoldResponse]
 
       def putObjectLockConfiguration(
-        putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest
+        request: PutObjectLockConfigurationRequest
       ): F[PutObjectLockConfigurationResponse]
 
       def putObjectRetention(
-        putObjectRetentionRequest: PutObjectRetentionRequest
+        request: PutObjectRetentionRequest
       ): F[PutObjectRetentionResponse]
 
       def putObjectTagging(
-        putObjectTaggingRequest: PutObjectTaggingRequest
+        request: PutObjectTaggingRequest
       ): F[PutObjectTaggingResponse]
 
       def putPublicAccessBlock(
-        putPublicAccessBlockRequest: PutPublicAccessBlockRequest
+        request: PutPublicAccessBlockRequest
       ): F[PutPublicAccessBlockResponse]
 
       def restoreObject(
-        restoreObjectRequest: RestoreObjectRequest
+        request: RestoreObjectRequest
       ): F[RestoreObjectResponse]
 
       def uploadPart(
-        uploadPartRequest: UploadPartRequest,
-        requestBody: RequestBody
+        request: UploadPartRequest,
+        body: RequestBody
       ): F[UploadPartResponse]
 
       def uploadPartCopy(
-        uploadPartCopyRequest: UploadPartCopyRequest
+        request: UploadPartCopyRequest
       ): F[UploadPartCopyResponse]
 
       def writeGetObjectResponse(
-        writeGetObjectResponseRequest: WriteGetObjectResponseRequest,
-        requestBody: RequestBody
+        request: WriteGetObjectResponseRequest,
+        body: RequestBody
       ): F[WriteGetObjectResponseResponse]
     }
 
-    final case class Embed[A](e: Embedded[A]) extends S3Op[A] {
-      def visit[F[_]](v: Visitor[F]) = v.embed(e)
+    final case class Embed[A](
+      e: Embedded[A]
+    ) extends S3Op[A] {
+      def visit[F[_]](visitor: Visitor[F]) =
+        visitor.embed(e)
     }
 
     final case class AbortMultipartUpload(
-      abortMultipartUploadRequest: AbortMultipartUploadRequest
+      request: AbortMultipartUploadRequest
     ) extends S3Op[AbortMultipartUploadResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AbortMultipartUploadResponse] =
-        visitor.abortMultipartUpload(abortMultipartUploadRequest)
+        visitor.abortMultipartUpload(request)
     }
 
     final case class CompleteMultipartUpload(
-      completeMultipartUploadRequest: CompleteMultipartUploadRequest
+      request: CompleteMultipartUploadRequest
     ) extends S3Op[CompleteMultipartUploadResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CompleteMultipartUploadResponse] =
-        visitor.completeMultipartUpload(completeMultipartUploadRequest)
+        visitor.completeMultipartUpload(request)
     }
 
     final case class CopyObject(
-      copyObjectRequest: CopyObjectRequest
+      request: CopyObjectRequest
     ) extends S3Op[CopyObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CopyObjectResponse] =
-        visitor.copyObject(copyObjectRequest)
+        visitor.copyObject(request)
     }
 
     final case class CreateBucket(
-      createBucketRequest: CreateBucketRequest
+      request: CreateBucketRequest
     ) extends S3Op[CreateBucketResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateBucketResponse] =
-        visitor.createBucket(createBucketRequest)
+        visitor.createBucket(request)
     }
 
     final case class CreateMultipartUpload(
-      createMultipartUploadRequest: CreateMultipartUploadRequest
+      request: CreateMultipartUploadRequest
     ) extends S3Op[CreateMultipartUploadResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateMultipartUploadResponse] =
-        visitor.createMultipartUpload(createMultipartUploadRequest)
+        visitor.createMultipartUpload(request)
     }
 
     final case class DeleteBucket(
-      deleteBucketRequest: DeleteBucketRequest
+      request: DeleteBucketRequest
     ) extends S3Op[DeleteBucketResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketResponse] =
-        visitor.deleteBucket(deleteBucketRequest)
+        visitor.deleteBucket(request)
     }
 
     final case class DeleteBucketAnalyticsConfiguration(
-      deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest
+      request: DeleteBucketAnalyticsConfigurationRequest
     ) extends S3Op[DeleteBucketAnalyticsConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketAnalyticsConfigurationResponse] =
-        visitor.deleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest)
+        visitor.deleteBucketAnalyticsConfiguration(request)
     }
 
     final case class DeleteBucketCors(
-      deleteBucketCorsRequest: DeleteBucketCorsRequest
+      request: DeleteBucketCorsRequest
     ) extends S3Op[DeleteBucketCorsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketCorsResponse] =
-        visitor.deleteBucketCors(deleteBucketCorsRequest)
+        visitor.deleteBucketCors(request)
     }
 
     final case class DeleteBucketEncryption(
-      deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest
+      request: DeleteBucketEncryptionRequest
     ) extends S3Op[DeleteBucketEncryptionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketEncryptionResponse] =
-        visitor.deleteBucketEncryption(deleteBucketEncryptionRequest)
+        visitor.deleteBucketEncryption(request)
     }
 
     final case class DeleteBucketIntelligentTieringConfiguration(
-      deleteBucketIntelligentTieringConfigurationRequest: DeleteBucketIntelligentTieringConfigurationRequest
+      request: DeleteBucketIntelligentTieringConfigurationRequest
     ) extends S3Op[DeleteBucketIntelligentTieringConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketIntelligentTieringConfigurationResponse] =
-        visitor.deleteBucketIntelligentTieringConfiguration(deleteBucketIntelligentTieringConfigurationRequest)
+        visitor.deleteBucketIntelligentTieringConfiguration(request)
     }
 
     final case class DeleteBucketInventoryConfiguration(
-      deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest
+      request: DeleteBucketInventoryConfigurationRequest
     ) extends S3Op[DeleteBucketInventoryConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketInventoryConfigurationResponse] =
-        visitor.deleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest)
+        visitor.deleteBucketInventoryConfiguration(request)
     }
 
     final case class DeleteBucketLifecycle(
-      deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest
+      request: DeleteBucketLifecycleRequest
     ) extends S3Op[DeleteBucketLifecycleResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketLifecycleResponse] =
-        visitor.deleteBucketLifecycle(deleteBucketLifecycleRequest)
+        visitor.deleteBucketLifecycle(request)
     }
 
     final case class DeleteBucketMetricsConfiguration(
-      deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest
+      request: DeleteBucketMetricsConfigurationRequest
     ) extends S3Op[DeleteBucketMetricsConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketMetricsConfigurationResponse] =
-        visitor.deleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest)
+        visitor.deleteBucketMetricsConfiguration(request)
     }
 
     final case class DeleteBucketOwnershipControls(
-      deleteBucketOwnershipControlsRequest: DeleteBucketOwnershipControlsRequest
+      request: DeleteBucketOwnershipControlsRequest
     ) extends S3Op[DeleteBucketOwnershipControlsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketOwnershipControlsResponse] =
-        visitor.deleteBucketOwnershipControls(deleteBucketOwnershipControlsRequest)
+        visitor.deleteBucketOwnershipControls(request)
     }
 
     final case class DeleteBucketPolicy(
-      deleteBucketPolicyRequest: DeleteBucketPolicyRequest
+      request: DeleteBucketPolicyRequest
     ) extends S3Op[DeleteBucketPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketPolicyResponse] =
-        visitor.deleteBucketPolicy(deleteBucketPolicyRequest)
+        visitor.deleteBucketPolicy(request)
     }
 
     final case class DeleteBucketReplication(
-      deleteBucketReplicationRequest: DeleteBucketReplicationRequest
+      request: DeleteBucketReplicationRequest
     ) extends S3Op[DeleteBucketReplicationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketReplicationResponse] =
-        visitor.deleteBucketReplication(deleteBucketReplicationRequest)
+        visitor.deleteBucketReplication(request)
     }
 
     final case class DeleteBucketTagging(
-      deleteBucketTaggingRequest: DeleteBucketTaggingRequest
+      request: DeleteBucketTaggingRequest
     ) extends S3Op[DeleteBucketTaggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketTaggingResponse] =
-        visitor.deleteBucketTagging(deleteBucketTaggingRequest)
+        visitor.deleteBucketTagging(request)
     }
 
     final case class DeleteBucketWebsite(
-      deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest
+      request: DeleteBucketWebsiteRequest
     ) extends S3Op[DeleteBucketWebsiteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBucketWebsiteResponse] =
-        visitor.deleteBucketWebsite(deleteBucketWebsiteRequest)
+        visitor.deleteBucketWebsite(request)
     }
 
     final case class DeleteObject(
-      deleteObjectRequest: DeleteObjectRequest
+      request: DeleteObjectRequest
     ) extends S3Op[DeleteObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteObjectResponse] =
-        visitor.deleteObject(deleteObjectRequest)
+        visitor.deleteObject(request)
     }
 
     final case class DeleteObjectTagging(
-      deleteObjectTaggingRequest: DeleteObjectTaggingRequest
+      request: DeleteObjectTaggingRequest
     ) extends S3Op[DeleteObjectTaggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteObjectTaggingResponse] =
-        visitor.deleteObjectTagging(deleteObjectTaggingRequest)
+        visitor.deleteObjectTagging(request)
     }
 
     final case class DeleteObjects(
-      deleteObjectsRequest: DeleteObjectsRequest
+      request: DeleteObjectsRequest
     ) extends S3Op[DeleteObjectsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteObjectsResponse] =
-        visitor.deleteObjects(deleteObjectsRequest)
+        visitor.deleteObjects(request)
     }
 
     final case class DeletePublicAccessBlock(
-      deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest
+      request: DeletePublicAccessBlockRequest
     ) extends S3Op[DeletePublicAccessBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeletePublicAccessBlockResponse] =
-        visitor.deletePublicAccessBlock(deletePublicAccessBlockRequest)
+        visitor.deletePublicAccessBlock(request)
     }
 
     final case class GetBucketAccelerateConfiguration(
-      getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest
+      request: GetBucketAccelerateConfigurationRequest
     ) extends S3Op[GetBucketAccelerateConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketAccelerateConfigurationResponse] =
-        visitor.getBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest)
+        visitor.getBucketAccelerateConfiguration(request)
     }
 
     final case class GetBucketAcl(
-      getBucketAclRequest: GetBucketAclRequest
+      request: GetBucketAclRequest
     ) extends S3Op[GetBucketAclResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketAclResponse] =
-        visitor.getBucketAcl(getBucketAclRequest)
+        visitor.getBucketAcl(request)
     }
 
     final case class GetBucketAnalyticsConfiguration(
-      getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest
+      request: GetBucketAnalyticsConfigurationRequest
     ) extends S3Op[GetBucketAnalyticsConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketAnalyticsConfigurationResponse] =
-        visitor.getBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest)
+        visitor.getBucketAnalyticsConfiguration(request)
     }
 
     final case class GetBucketCors(
-      getBucketCorsRequest: GetBucketCorsRequest
+      request: GetBucketCorsRequest
     ) extends S3Op[GetBucketCorsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketCorsResponse] =
-        visitor.getBucketCors(getBucketCorsRequest)
+        visitor.getBucketCors(request)
     }
 
     final case class GetBucketEncryption(
-      getBucketEncryptionRequest: GetBucketEncryptionRequest
+      request: GetBucketEncryptionRequest
     ) extends S3Op[GetBucketEncryptionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketEncryptionResponse] =
-        visitor.getBucketEncryption(getBucketEncryptionRequest)
+        visitor.getBucketEncryption(request)
     }
 
     final case class GetBucketIntelligentTieringConfiguration(
-      getBucketIntelligentTieringConfigurationRequest: GetBucketIntelligentTieringConfigurationRequest
+      request: GetBucketIntelligentTieringConfigurationRequest
     ) extends S3Op[GetBucketIntelligentTieringConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketIntelligentTieringConfigurationResponse] =
-        visitor.getBucketIntelligentTieringConfiguration(getBucketIntelligentTieringConfigurationRequest)
+        visitor.getBucketIntelligentTieringConfiguration(request)
     }
 
     final case class GetBucketInventoryConfiguration(
-      getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest
+      request: GetBucketInventoryConfigurationRequest
     ) extends S3Op[GetBucketInventoryConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketInventoryConfigurationResponse] =
-        visitor.getBucketInventoryConfiguration(getBucketInventoryConfigurationRequest)
+        visitor.getBucketInventoryConfiguration(request)
     }
 
     final case class GetBucketLifecycleConfiguration(
-      getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest
+      request: GetBucketLifecycleConfigurationRequest
     ) extends S3Op[GetBucketLifecycleConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketLifecycleConfigurationResponse] =
-        visitor.getBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest)
+        visitor.getBucketLifecycleConfiguration(request)
     }
 
     final case class GetBucketLocation(
-      getBucketLocationRequest: GetBucketLocationRequest
+      request: GetBucketLocationRequest
     ) extends S3Op[GetBucketLocationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketLocationResponse] =
-        visitor.getBucketLocation(getBucketLocationRequest)
+        visitor.getBucketLocation(request)
     }
 
     final case class GetBucketLogging(
-      getBucketLoggingRequest: GetBucketLoggingRequest
+      request: GetBucketLoggingRequest
     ) extends S3Op[GetBucketLoggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketLoggingResponse] =
-        visitor.getBucketLogging(getBucketLoggingRequest)
+        visitor.getBucketLogging(request)
     }
 
     final case class GetBucketMetricsConfiguration(
-      getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest
+      request: GetBucketMetricsConfigurationRequest
     ) extends S3Op[GetBucketMetricsConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketMetricsConfigurationResponse] =
-        visitor.getBucketMetricsConfiguration(getBucketMetricsConfigurationRequest)
+        visitor.getBucketMetricsConfiguration(request)
     }
 
     final case class GetBucketNotificationConfiguration(
-      getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest
+      request: GetBucketNotificationConfigurationRequest
     ) extends S3Op[GetBucketNotificationConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketNotificationConfigurationResponse] =
-        visitor.getBucketNotificationConfiguration(getBucketNotificationConfigurationRequest)
+        visitor.getBucketNotificationConfiguration(request)
     }
 
     final case class GetBucketOwnershipControls(
-      getBucketOwnershipControlsRequest: GetBucketOwnershipControlsRequest
+      request: GetBucketOwnershipControlsRequest
     ) extends S3Op[GetBucketOwnershipControlsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketOwnershipControlsResponse] =
-        visitor.getBucketOwnershipControls(getBucketOwnershipControlsRequest)
+        visitor.getBucketOwnershipControls(request)
     }
 
     final case class GetBucketPolicy(
-      getBucketPolicyRequest: GetBucketPolicyRequest
+      request: GetBucketPolicyRequest
     ) extends S3Op[GetBucketPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketPolicyResponse] =
-        visitor.getBucketPolicy(getBucketPolicyRequest)
+        visitor.getBucketPolicy(request)
     }
 
     final case class GetBucketPolicyStatus(
-      getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest
+      request: GetBucketPolicyStatusRequest
     ) extends S3Op[GetBucketPolicyStatusResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketPolicyStatusResponse] =
-        visitor.getBucketPolicyStatus(getBucketPolicyStatusRequest)
+        visitor.getBucketPolicyStatus(request)
     }
 
     final case class GetBucketReplication(
-      getBucketReplicationRequest: GetBucketReplicationRequest
+      request: GetBucketReplicationRequest
     ) extends S3Op[GetBucketReplicationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketReplicationResponse] =
-        visitor.getBucketReplication(getBucketReplicationRequest)
+        visitor.getBucketReplication(request)
     }
 
     final case class GetBucketRequestPayment(
-      getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest
+      request: GetBucketRequestPaymentRequest
     ) extends S3Op[GetBucketRequestPaymentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketRequestPaymentResponse] =
-        visitor.getBucketRequestPayment(getBucketRequestPaymentRequest)
+        visitor.getBucketRequestPayment(request)
     }
 
     final case class GetBucketTagging(
-      getBucketTaggingRequest: GetBucketTaggingRequest
+      request: GetBucketTaggingRequest
     ) extends S3Op[GetBucketTaggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketTaggingResponse] =
-        visitor.getBucketTagging(getBucketTaggingRequest)
+        visitor.getBucketTagging(request)
     }
 
     final case class GetBucketVersioning(
-      getBucketVersioningRequest: GetBucketVersioningRequest
+      request: GetBucketVersioningRequest
     ) extends S3Op[GetBucketVersioningResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketVersioningResponse] =
-        visitor.getBucketVersioning(getBucketVersioningRequest)
+        visitor.getBucketVersioning(request)
     }
 
     final case class GetBucketWebsite(
-      getBucketWebsiteRequest: GetBucketWebsiteRequest
+      request: GetBucketWebsiteRequest
     ) extends S3Op[GetBucketWebsiteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketWebsiteResponse] =
-        visitor.getBucketWebsite(getBucketWebsiteRequest)
+        visitor.getBucketWebsite(request)
     }
 
     final case class GetObject(
-      getObjectRequest: GetObjectRequest,
-      destinationPath: Path
+      request: GetObjectRequest,
+      path: Path
     ) extends S3Op[GetObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetObjectResponse] =
-        visitor.getObject(getObjectRequest, destinationPath)
+        visitor.getObject(request, path)
     }
 
     final case class GetObjectAcl(
-      getObjectAclRequest: GetObjectAclRequest
+      request: GetObjectAclRequest
     ) extends S3Op[GetObjectAclResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetObjectAclResponse] =
-        visitor.getObjectAcl(getObjectAclRequest)
+        visitor.getObjectAcl(request)
     }
 
     final case class GetObjectLegalHold(
-      getObjectLegalHoldRequest: GetObjectLegalHoldRequest
+      request: GetObjectLegalHoldRequest
     ) extends S3Op[GetObjectLegalHoldResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetObjectLegalHoldResponse] =
-        visitor.getObjectLegalHold(getObjectLegalHoldRequest)
+        visitor.getObjectLegalHold(request)
     }
 
     final case class GetObjectLockConfiguration(
-      getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
+      request: GetObjectLockConfigurationRequest
     ) extends S3Op[GetObjectLockConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetObjectLockConfigurationResponse] =
-        visitor.getObjectLockConfiguration(getObjectLockConfigurationRequest)
+        visitor.getObjectLockConfiguration(request)
     }
 
     final case class GetObjectRetention(
-      getObjectRetentionRequest: GetObjectRetentionRequest
+      request: GetObjectRetentionRequest
     ) extends S3Op[GetObjectRetentionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetObjectRetentionResponse] =
-        visitor.getObjectRetention(getObjectRetentionRequest)
+        visitor.getObjectRetention(request)
     }
 
     final case class GetObjectTagging(
-      getObjectTaggingRequest: GetObjectTaggingRequest
+      request: GetObjectTaggingRequest
     ) extends S3Op[GetObjectTaggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetObjectTaggingResponse] =
-        visitor.getObjectTagging(getObjectTaggingRequest)
+        visitor.getObjectTagging(request)
     }
 
     final case class GetPublicAccessBlock(
-      getPublicAccessBlockRequest: GetPublicAccessBlockRequest
+      request: GetPublicAccessBlockRequest
     ) extends S3Op[GetPublicAccessBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetPublicAccessBlockResponse] =
-        visitor.getPublicAccessBlock(getPublicAccessBlockRequest)
+        visitor.getPublicAccessBlock(request)
     }
 
     final case class HeadBucket(
-      headBucketRequest: HeadBucketRequest
+      request: HeadBucketRequest
     ) extends S3Op[HeadBucketResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[HeadBucketResponse] =
-        visitor.headBucket(headBucketRequest)
+        visitor.headBucket(request)
     }
 
     final case class HeadObject(
-      headObjectRequest: HeadObjectRequest
+      request: HeadObjectRequest
     ) extends S3Op[HeadObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[HeadObjectResponse] =
-        visitor.headObject(headObjectRequest)
+        visitor.headObject(request)
     }
 
     final case class ListBucketAnalyticsConfigurations(
-      listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest
+      request: ListBucketAnalyticsConfigurationsRequest
     ) extends S3Op[ListBucketAnalyticsConfigurationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBucketAnalyticsConfigurationsResponse] =
-        visitor.listBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest)
+        visitor.listBucketAnalyticsConfigurations(request)
     }
 
     final case class ListBucketIntelligentTieringConfigurations(
-      listBucketIntelligentTieringConfigurationsRequest: ListBucketIntelligentTieringConfigurationsRequest
+      request: ListBucketIntelligentTieringConfigurationsRequest
     ) extends S3Op[ListBucketIntelligentTieringConfigurationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBucketIntelligentTieringConfigurationsResponse] =
-        visitor.listBucketIntelligentTieringConfigurations(listBucketIntelligentTieringConfigurationsRequest)
+        visitor.listBucketIntelligentTieringConfigurations(request)
     }
 
     final case class ListBucketInventoryConfigurations(
-      listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest
+      request: ListBucketInventoryConfigurationsRequest
     ) extends S3Op[ListBucketInventoryConfigurationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBucketInventoryConfigurationsResponse] =
-        visitor.listBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest)
+        visitor.listBucketInventoryConfigurations(request)
     }
 
     final case class ListBucketMetricsConfigurations(
-      listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest
+      request: ListBucketMetricsConfigurationsRequest
     ) extends S3Op[ListBucketMetricsConfigurationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBucketMetricsConfigurationsResponse] =
-        visitor.listBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest)
+        visitor.listBucketMetricsConfigurations(request)
     }
 
     final case class ListBuckets(
-      listBucketsRequest: ListBucketsRequest
+      request: ListBucketsRequest
     ) extends S3Op[ListBucketsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBucketsResponse] =
-        visitor.listBuckets(listBucketsRequest)
+        visitor.listBuckets(request)
     }
 
     final case class ListMultipartUploads(
-      listMultipartUploadsRequest: ListMultipartUploadsRequest
+      request: ListMultipartUploadsRequest
     ) extends S3Op[ListMultipartUploadsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListMultipartUploadsResponse] =
-        visitor.listMultipartUploads(listMultipartUploadsRequest)
+        visitor.listMultipartUploads(request)
     }
 
     final case class ListObjectVersions(
-      listObjectVersionsRequest: ListObjectVersionsRequest
+      request: ListObjectVersionsRequest
     ) extends S3Op[ListObjectVersionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListObjectVersionsResponse] =
-        visitor.listObjectVersions(listObjectVersionsRequest)
+        visitor.listObjectVersions(request)
     }
 
     final case class ListObjects(
-      listObjectsRequest: ListObjectsRequest
+      request: ListObjectsRequest
     ) extends S3Op[ListObjectsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListObjectsResponse] =
-        visitor.listObjects(listObjectsRequest)
+        visitor.listObjects(request)
     }
 
     final case class ListObjectsV2(
-      listObjectsV2Request: ListObjectsV2Request
+      request: ListObjectsV2Request
     ) extends S3Op[ListObjectsV2Response] {
       def visit[F[_]](visitor: Visitor[F]): F[ListObjectsV2Response] =
-        visitor.listObjectsV2(listObjectsV2Request)
+        visitor.listObjectsV2(request)
     }
 
     final case class ListParts(
-      listPartsRequest: ListPartsRequest
+      request: ListPartsRequest
     ) extends S3Op[ListPartsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListPartsResponse] =
-        visitor.listParts(listPartsRequest)
+        visitor.listParts(request)
     }
 
     final case class PutBucketAccelerateConfiguration(
-      putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest
+      request: PutBucketAccelerateConfigurationRequest
     ) extends S3Op[PutBucketAccelerateConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketAccelerateConfigurationResponse] =
-        visitor.putBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest)
+        visitor.putBucketAccelerateConfiguration(request)
     }
 
     final case class PutBucketAcl(
-      putBucketAclRequest: PutBucketAclRequest
+      request: PutBucketAclRequest
     ) extends S3Op[PutBucketAclResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketAclResponse] =
-        visitor.putBucketAcl(putBucketAclRequest)
+        visitor.putBucketAcl(request)
     }
 
     final case class PutBucketAnalyticsConfiguration(
-      putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest
+      request: PutBucketAnalyticsConfigurationRequest
     ) extends S3Op[PutBucketAnalyticsConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketAnalyticsConfigurationResponse] =
-        visitor.putBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest)
+        visitor.putBucketAnalyticsConfiguration(request)
     }
 
     final case class PutBucketCors(
-      putBucketCorsRequest: PutBucketCorsRequest
+      request: PutBucketCorsRequest
     ) extends S3Op[PutBucketCorsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketCorsResponse] =
-        visitor.putBucketCors(putBucketCorsRequest)
+        visitor.putBucketCors(request)
     }
 
     final case class PutBucketEncryption(
-      putBucketEncryptionRequest: PutBucketEncryptionRequest
+      request: PutBucketEncryptionRequest
     ) extends S3Op[PutBucketEncryptionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketEncryptionResponse] =
-        visitor.putBucketEncryption(putBucketEncryptionRequest)
+        visitor.putBucketEncryption(request)
     }
 
     final case class PutBucketIntelligentTieringConfiguration(
-      putBucketIntelligentTieringConfigurationRequest: PutBucketIntelligentTieringConfigurationRequest
+      request: PutBucketIntelligentTieringConfigurationRequest
     ) extends S3Op[PutBucketIntelligentTieringConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketIntelligentTieringConfigurationResponse] =
-        visitor.putBucketIntelligentTieringConfiguration(putBucketIntelligentTieringConfigurationRequest)
+        visitor.putBucketIntelligentTieringConfiguration(request)
     }
 
     final case class PutBucketInventoryConfiguration(
-      putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest
+      request: PutBucketInventoryConfigurationRequest
     ) extends S3Op[PutBucketInventoryConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketInventoryConfigurationResponse] =
-        visitor.putBucketInventoryConfiguration(putBucketInventoryConfigurationRequest)
+        visitor.putBucketInventoryConfiguration(request)
     }
 
     final case class PutBucketLifecycleConfiguration(
-      putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest
+      request: PutBucketLifecycleConfigurationRequest
     ) extends S3Op[PutBucketLifecycleConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketLifecycleConfigurationResponse] =
-        visitor.putBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest)
+        visitor.putBucketLifecycleConfiguration(request)
     }
 
     final case class PutBucketLogging(
-      putBucketLoggingRequest: PutBucketLoggingRequest
+      request: PutBucketLoggingRequest
     ) extends S3Op[PutBucketLoggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketLoggingResponse] =
-        visitor.putBucketLogging(putBucketLoggingRequest)
+        visitor.putBucketLogging(request)
     }
 
     final case class PutBucketMetricsConfiguration(
-      putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest
+      request: PutBucketMetricsConfigurationRequest
     ) extends S3Op[PutBucketMetricsConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketMetricsConfigurationResponse] =
-        visitor.putBucketMetricsConfiguration(putBucketMetricsConfigurationRequest)
+        visitor.putBucketMetricsConfiguration(request)
     }
 
     final case class PutBucketNotificationConfiguration(
-      putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest
+      request: PutBucketNotificationConfigurationRequest
     ) extends S3Op[PutBucketNotificationConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketNotificationConfigurationResponse] =
-        visitor.putBucketNotificationConfiguration(putBucketNotificationConfigurationRequest)
+        visitor.putBucketNotificationConfiguration(request)
     }
 
     final case class PutBucketOwnershipControls(
-      putBucketOwnershipControlsRequest: PutBucketOwnershipControlsRequest
+      request: PutBucketOwnershipControlsRequest
     ) extends S3Op[PutBucketOwnershipControlsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketOwnershipControlsResponse] =
-        visitor.putBucketOwnershipControls(putBucketOwnershipControlsRequest)
+        visitor.putBucketOwnershipControls(request)
     }
 
     final case class PutBucketPolicy(
-      putBucketPolicyRequest: PutBucketPolicyRequest
+      request: PutBucketPolicyRequest
     ) extends S3Op[PutBucketPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketPolicyResponse] =
-        visitor.putBucketPolicy(putBucketPolicyRequest)
+        visitor.putBucketPolicy(request)
     }
 
     final case class PutBucketReplication(
-      putBucketReplicationRequest: PutBucketReplicationRequest
+      request: PutBucketReplicationRequest
     ) extends S3Op[PutBucketReplicationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketReplicationResponse] =
-        visitor.putBucketReplication(putBucketReplicationRequest)
+        visitor.putBucketReplication(request)
     }
 
     final case class PutBucketRequestPayment(
-      putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest
+      request: PutBucketRequestPaymentRequest
     ) extends S3Op[PutBucketRequestPaymentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketRequestPaymentResponse] =
-        visitor.putBucketRequestPayment(putBucketRequestPaymentRequest)
+        visitor.putBucketRequestPayment(request)
     }
 
     final case class PutBucketTagging(
-      putBucketTaggingRequest: PutBucketTaggingRequest
+      request: PutBucketTaggingRequest
     ) extends S3Op[PutBucketTaggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketTaggingResponse] =
-        visitor.putBucketTagging(putBucketTaggingRequest)
+        visitor.putBucketTagging(request)
     }
 
     final case class PutBucketVersioning(
-      putBucketVersioningRequest: PutBucketVersioningRequest
+      request: PutBucketVersioningRequest
     ) extends S3Op[PutBucketVersioningResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketVersioningResponse] =
-        visitor.putBucketVersioning(putBucketVersioningRequest)
+        visitor.putBucketVersioning(request)
     }
 
     final case class PutBucketWebsite(
-      putBucketWebsiteRequest: PutBucketWebsiteRequest
+      request: PutBucketWebsiteRequest
     ) extends S3Op[PutBucketWebsiteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutBucketWebsiteResponse] =
-        visitor.putBucketWebsite(putBucketWebsiteRequest)
+        visitor.putBucketWebsite(request)
     }
 
     final case class PutObject(
-      putObjectRequest: PutObjectRequest,
-      requestBody: RequestBody
+      request: PutObjectRequest,
+      body: RequestBody
     ) extends S3Op[PutObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutObjectResponse] =
-        visitor.putObject(putObjectRequest, requestBody)
+        visitor.putObject(request, body)
     }
 
     final case class PutObjectAcl(
-      putObjectAclRequest: PutObjectAclRequest
+      request: PutObjectAclRequest
     ) extends S3Op[PutObjectAclResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutObjectAclResponse] =
-        visitor.putObjectAcl(putObjectAclRequest)
+        visitor.putObjectAcl(request)
     }
 
-    final case class PutObjectLegalHold (
-      putObjectLegalHoldRequest: PutObjectLegalHoldRequest
+    final case class PutObjectLegalHold(
+      request: PutObjectLegalHoldRequest
     ) extends S3Op[PutObjectLegalHoldResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutObjectLegalHoldResponse] =
-        visitor.putObjectLegalHold(putObjectLegalHoldRequest)
+        visitor.putObjectLegalHold(request)
     }
 
     final case class PutObjectLockConfiguration(
-      putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest
+      request: PutObjectLockConfigurationRequest
     ) extends S3Op[PutObjectLockConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutObjectLockConfigurationResponse] =
-        visitor.putObjectLockConfiguration(putObjectLockConfigurationRequest)
+        visitor.putObjectLockConfiguration(request)
     }
 
     final case class PutObjectRetention(
-      putObjectRetentionRequest: PutObjectRetentionRequest
+      request: PutObjectRetentionRequest
     ) extends S3Op[PutObjectRetentionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutObjectRetentionResponse] =
-        visitor.putObjectRetention(putObjectRetentionRequest)
+        visitor.putObjectRetention(request)
     }
 
     final case class PutObjectTagging(
-      putObjectTaggingRequest: PutObjectTaggingRequest
+      request: PutObjectTaggingRequest
     ) extends S3Op[PutObjectTaggingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutObjectTaggingResponse] =
-        visitor.putObjectTagging(putObjectTaggingRequest)
+        visitor.putObjectTagging(request)
     }
 
     final case class PutPublicAccessBlock(
-      putPublicAccessBlockRequest: PutPublicAccessBlockRequest
+      request: PutPublicAccessBlockRequest
     ) extends S3Op[PutPublicAccessBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutPublicAccessBlockResponse] =
-        visitor.putPublicAccessBlock(putPublicAccessBlockRequest)
+        visitor.putPublicAccessBlock(request)
     }
 
     final case class RestoreObject(
-      restoreObjectRequest: RestoreObjectRequest
+      request: RestoreObjectRequest
     ) extends S3Op[RestoreObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RestoreObjectResponse] =
-        visitor.restoreObject(restoreObjectRequest)
+        visitor.restoreObject(request)
     }
 
     final case class UploadPart(
-      uploadPartRequest: UploadPartRequest,
-      requestBody: RequestBody
+      request: UploadPartRequest,
+      body: RequestBody
     ) extends S3Op[UploadPartResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UploadPartResponse] =
-        visitor.uploadPart(uploadPartRequest, requestBody)
+        visitor.uploadPart(request, body)
     }
 
     final case class UploadPartCopy(
-      uploadPartCopyRequest: UploadPartCopyRequest
+      request: UploadPartCopyRequest
     ) extends S3Op[UploadPartCopyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UploadPartCopyResponse] =
-        visitor.uploadPartCopy(uploadPartCopyRequest)
+        visitor.uploadPartCopy(request)
     }
 
     final case class WriteGetObjectResponse(
-      writeGetObjectResponseRequest: WriteGetObjectResponseRequest,
-      requestBody: RequestBody
+      request: WriteGetObjectResponseRequest,
+      body: RequestBody
     ) extends S3Op[WriteGetObjectResponseResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[WriteGetObjectResponseResponse] =
-        visitor.writeGetObjectResponse(writeGetObjectResponseRequest, requestBody)
+        visitor.writeGetObjectResponse(request, body)
     }
   }
 
-  // Smart constructors
   import S3Op._
 
-  def embed[F[_], J, A](j: J, fa: FF[F, A])(implicit ev: Embeddable[F, J]): FF[S3Op, A] = FF.liftF(Embed(ev.embed(j, fa)))
+  def embed[F[_], J, A](
+    j: J,
+    fa: FF[F, A]
+  )(implicit
+    ev: Embeddable[F, J]
+  ): FF[S3Op, A] =
+    FF.liftF(Embed(ev.embed(j, fa)))
 
   def abortMultipartUpload(
-    abortMultipartUploadRequest: AbortMultipartUploadRequest
+    request: AbortMultipartUploadRequest
   ): S3IO[AbortMultipartUploadResponse] =
-    FF.liftF(AbortMultipartUpload(abortMultipartUploadRequest))
+    FF.liftF(AbortMultipartUpload(request))
 
   def completeMultipartUpload(
-    completeMultipartUploadRequest: CompleteMultipartUploadRequest
+    request: CompleteMultipartUploadRequest
   ): S3IO[CompleteMultipartUploadResponse] =
-    FF.liftF(CompleteMultipartUpload(completeMultipartUploadRequest))
+    FF.liftF(CompleteMultipartUpload(request))
 
   def copyObject(
-    copyObjectRequest: CopyObjectRequest
+    request: CopyObjectRequest
   ): S3IO[CopyObjectResponse] =
-    FF.liftF(CopyObject(copyObjectRequest))
+    FF.liftF(CopyObject(request))
 
   def createBucket(
-    createBucketRequest: CreateBucketRequest
+    request: CreateBucketRequest
   ): S3IO[CreateBucketResponse] =
-    FF.liftF(CreateBucket(createBucketRequest))
+    FF.liftF(CreateBucket(request))
 
   def createMultipartUpload(
-    createMultipartUploadRequest: CreateMultipartUploadRequest
+    request: CreateMultipartUploadRequest
   ): S3IO[CreateMultipartUploadResponse] =
-    FF.liftF(CreateMultipartUpload(createMultipartUploadRequest))
+    FF.liftF(CreateMultipartUpload(request))
 
   def deleteBucket(
-    deleteBucketRequest: DeleteBucketRequest
+    request: DeleteBucketRequest
   ): S3IO[DeleteBucketResponse] =
-    FF.liftF(DeleteBucket(deleteBucketRequest))
+    FF.liftF(DeleteBucket(request))
 
   def deleteBucketAnalyticsConfiguration(
-    deleteBucketAnalyticsConfigurationRequest: DeleteBucketAnalyticsConfigurationRequest
+    request: DeleteBucketAnalyticsConfigurationRequest
   ): S3IO[DeleteBucketAnalyticsConfigurationResponse] =
-    FF.liftF(DeleteBucketAnalyticsConfiguration(deleteBucketAnalyticsConfigurationRequest))
+    FF.liftF(DeleteBucketAnalyticsConfiguration(request))
 
   def deleteBucketCors(
-    deleteBucketCorsRequest: DeleteBucketCorsRequest
+    request: DeleteBucketCorsRequest
   ): S3IO[DeleteBucketCorsResponse] =
-    FF.liftF(DeleteBucketCors(deleteBucketCorsRequest))
+    FF.liftF(DeleteBucketCors(request))
 
   def deleteBucketEncryption(
-    deleteBucketEncryptionRequest: DeleteBucketEncryptionRequest
+    request: DeleteBucketEncryptionRequest
   ): S3IO[DeleteBucketEncryptionResponse] =
-    FF.liftF(DeleteBucketEncryption(deleteBucketEncryptionRequest))
+    FF.liftF(DeleteBucketEncryption(request))
 
   def deleteBucketIntelligentTieringConfiguration(
-    deleteBucketIntelligentTieringConfigurationRequest: DeleteBucketIntelligentTieringConfigurationRequest
+    request: DeleteBucketIntelligentTieringConfigurationRequest
   ): S3IO[DeleteBucketIntelligentTieringConfigurationResponse] =
-    FF.liftF(DeleteBucketIntelligentTieringConfiguration(deleteBucketIntelligentTieringConfigurationRequest))
+    FF.liftF(DeleteBucketIntelligentTieringConfiguration(request))
 
   def deleteBucketInventoryConfiguration(
-    deleteBucketInventoryConfigurationRequest: DeleteBucketInventoryConfigurationRequest
+    request: DeleteBucketInventoryConfigurationRequest
   ): S3IO[DeleteBucketInventoryConfigurationResponse] =
-    FF.liftF(DeleteBucketInventoryConfiguration(deleteBucketInventoryConfigurationRequest))
+    FF.liftF(DeleteBucketInventoryConfiguration(request))
 
   def deleteBucketLifecycle(
-    deleteBucketLifecycleRequest: DeleteBucketLifecycleRequest
+    request: DeleteBucketLifecycleRequest
   ): S3IO[DeleteBucketLifecycleResponse] =
-    FF.liftF(DeleteBucketLifecycle(deleteBucketLifecycleRequest))
+    FF.liftF(DeleteBucketLifecycle(request))
 
   def deleteBucketMetricsConfiguration(
-    deleteBucketMetricsConfigurationRequest: DeleteBucketMetricsConfigurationRequest
+    request: DeleteBucketMetricsConfigurationRequest
   ): S3IO[DeleteBucketMetricsConfigurationResponse] =
-    FF.liftF(DeleteBucketMetricsConfiguration(deleteBucketMetricsConfigurationRequest))
+    FF.liftF(DeleteBucketMetricsConfiguration(request))
 
   def deleteBucketOwnershipControls(
-    deleteBucketOwnershipControlsRequest: DeleteBucketOwnershipControlsRequest
+    request: DeleteBucketOwnershipControlsRequest
   ): S3IO[DeleteBucketOwnershipControlsResponse] =
-    FF.liftF(DeleteBucketOwnershipControls(deleteBucketOwnershipControlsRequest))
+    FF.liftF(DeleteBucketOwnershipControls(request))
 
   def deleteBucketPolicy(
-    deleteBucketPolicyRequest: DeleteBucketPolicyRequest
+    request: DeleteBucketPolicyRequest
   ): S3IO[DeleteBucketPolicyResponse] =
-    FF.liftF(DeleteBucketPolicy(deleteBucketPolicyRequest))
+    FF.liftF(DeleteBucketPolicy(request))
 
   def deleteBucketReplication(
-    deleteBucketReplicationRequest: DeleteBucketReplicationRequest
+    request: DeleteBucketReplicationRequest
   ): S3IO[DeleteBucketReplicationResponse] =
-    FF.liftF(DeleteBucketReplication(deleteBucketReplicationRequest))
+    FF.liftF(DeleteBucketReplication(request))
 
   def deleteBucketTagging(
-    deleteBucketTaggingRequest: DeleteBucketTaggingRequest
+    request: DeleteBucketTaggingRequest
   ): S3IO[DeleteBucketTaggingResponse] =
-    FF.liftF(DeleteBucketTagging(deleteBucketTaggingRequest))
+    FF.liftF(DeleteBucketTagging(request))
 
   def deleteBucketWebsite(
-    deleteBucketWebsiteRequest: DeleteBucketWebsiteRequest
+    request: DeleteBucketWebsiteRequest
   ): S3IO[DeleteBucketWebsiteResponse] =
-    FF.liftF(DeleteBucketWebsite(deleteBucketWebsiteRequest))
+    FF.liftF(DeleteBucketWebsite(request))
 
   def deleteObject(
-    deleteObjectRequest: DeleteObjectRequest
+    request: DeleteObjectRequest
   ): S3IO[DeleteObjectResponse] =
-    FF.liftF(DeleteObject(deleteObjectRequest))
+    FF.liftF(DeleteObject(request))
 
   def deleteObjectTagging(
-    deleteObjectTaggingRequest: DeleteObjectTaggingRequest
+    request: DeleteObjectTaggingRequest
   ): S3IO[DeleteObjectTaggingResponse] =
-    FF.liftF(DeleteObjectTagging(deleteObjectTaggingRequest))
+    FF.liftF(DeleteObjectTagging(request))
 
   def deleteObjects(
-    deleteObjectsRequest: DeleteObjectsRequest
+    request: DeleteObjectsRequest
   ): S3IO[DeleteObjectsResponse] =
-    FF.liftF(DeleteObjects(deleteObjectsRequest))
+    FF.liftF(DeleteObjects(request))
 
   def deletePublicAccessBlock(
-    deletePublicAccessBlockRequest: DeletePublicAccessBlockRequest
+    request: DeletePublicAccessBlockRequest
   ): S3IO[DeletePublicAccessBlockResponse] =
-    FF.liftF(DeletePublicAccessBlock(deletePublicAccessBlockRequest))
+    FF.liftF(DeletePublicAccessBlock(request))
 
   def getBucketAccelerateConfiguration(
-    getBucketAccelerateConfigurationRequest: GetBucketAccelerateConfigurationRequest
+    request: GetBucketAccelerateConfigurationRequest
   ): S3IO[GetBucketAccelerateConfigurationResponse] =
-    FF.liftF(GetBucketAccelerateConfiguration(getBucketAccelerateConfigurationRequest))
+    FF.liftF(GetBucketAccelerateConfiguration(request))
 
   def getBucketAcl(
-    getBucketAclRequest: GetBucketAclRequest
+    request: GetBucketAclRequest
   ): S3IO[GetBucketAclResponse] =
-    FF.liftF(GetBucketAcl(getBucketAclRequest))
+    FF.liftF(GetBucketAcl(request))
 
   def getBucketAnalyticsConfiguration(
-    getBucketAnalyticsConfigurationRequest: GetBucketAnalyticsConfigurationRequest
+    request: GetBucketAnalyticsConfigurationRequest
   ): S3IO[GetBucketAnalyticsConfigurationResponse] =
-    FF.liftF(GetBucketAnalyticsConfiguration(getBucketAnalyticsConfigurationRequest))
+    FF.liftF(GetBucketAnalyticsConfiguration(request))
 
   def getBucketCors(
-    getBucketCorsRequest: GetBucketCorsRequest
+    request: GetBucketCorsRequest
   ): S3IO[GetBucketCorsResponse] =
-    FF.liftF(GetBucketCors(getBucketCorsRequest))
+    FF.liftF(GetBucketCors(request))
 
   def getBucketEncryption(
-    getBucketEncryptionRequest: GetBucketEncryptionRequest
+    request: GetBucketEncryptionRequest
   ): S3IO[GetBucketEncryptionResponse] =
-    FF.liftF(GetBucketEncryption(getBucketEncryptionRequest))
+    FF.liftF(GetBucketEncryption(request))
 
   def getBucketIntelligentTieringConfiguration(
-    getBucketIntelligentTieringConfigurationRequest: GetBucketIntelligentTieringConfigurationRequest
+    request: GetBucketIntelligentTieringConfigurationRequest
   ): S3IO[GetBucketIntelligentTieringConfigurationResponse] =
-    FF.liftF(GetBucketIntelligentTieringConfiguration(getBucketIntelligentTieringConfigurationRequest))
+    FF.liftF(GetBucketIntelligentTieringConfiguration(request))
 
   def getBucketInventoryConfiguration(
-    getBucketInventoryConfigurationRequest: GetBucketInventoryConfigurationRequest
+    request: GetBucketInventoryConfigurationRequest
   ): S3IO[GetBucketInventoryConfigurationResponse] =
-    FF.liftF(GetBucketInventoryConfiguration(getBucketInventoryConfigurationRequest))
+    FF.liftF(GetBucketInventoryConfiguration(request))
 
   def getBucketLifecycleConfiguration(
-    getBucketLifecycleConfigurationRequest: GetBucketLifecycleConfigurationRequest
+    request: GetBucketLifecycleConfigurationRequest
   ): S3IO[GetBucketLifecycleConfigurationResponse] =
-    FF.liftF(GetBucketLifecycleConfiguration(getBucketLifecycleConfigurationRequest))
+    FF.liftF(GetBucketLifecycleConfiguration(request))
 
   def getBucketLocation(
-    getBucketLocationRequest: GetBucketLocationRequest
+    request: GetBucketLocationRequest
   ): S3IO[GetBucketLocationResponse] =
-    FF.liftF(GetBucketLocation(getBucketLocationRequest))
+    FF.liftF(GetBucketLocation(request))
 
   def getBucketLogging(
-    getBucketLoggingRequest: GetBucketLoggingRequest
+    request: GetBucketLoggingRequest
   ): S3IO[GetBucketLoggingResponse] =
-    FF.liftF(GetBucketLogging(getBucketLoggingRequest))
+    FF.liftF(GetBucketLogging(request))
 
   def getBucketMetricsConfiguration(
-    getBucketMetricsConfigurationRequest: GetBucketMetricsConfigurationRequest
+    request: GetBucketMetricsConfigurationRequest
   ): S3IO[GetBucketMetricsConfigurationResponse] =
-    FF.liftF(GetBucketMetricsConfiguration(getBucketMetricsConfigurationRequest))
+    FF.liftF(GetBucketMetricsConfiguration(request))
 
   def getBucketNotificationConfiguration(
-    getBucketNotificationConfigurationRequest: GetBucketNotificationConfigurationRequest
+    request: GetBucketNotificationConfigurationRequest
   ): S3IO[GetBucketNotificationConfigurationResponse] =
-    FF.liftF(GetBucketNotificationConfiguration(getBucketNotificationConfigurationRequest))
+    FF.liftF(GetBucketNotificationConfiguration(request))
 
   def getBucketOwnershipControls(
-    getBucketOwnershipControlsRequest: GetBucketOwnershipControlsRequest
+    request: GetBucketOwnershipControlsRequest
   ): S3IO[GetBucketOwnershipControlsResponse] =
-    FF.liftF(GetBucketOwnershipControls(getBucketOwnershipControlsRequest))
+    FF.liftF(GetBucketOwnershipControls(request))
 
   def getBucketPolicy(
-    getBucketPolicyRequest: GetBucketPolicyRequest
+    request: GetBucketPolicyRequest
   ): S3IO[GetBucketPolicyResponse] =
-    FF.liftF(GetBucketPolicy(getBucketPolicyRequest))
+    FF.liftF(GetBucketPolicy(request))
 
   def getBucketPolicyStatus(
-    getBucketPolicyStatusRequest: GetBucketPolicyStatusRequest
+    request: GetBucketPolicyStatusRequest
   ): S3IO[GetBucketPolicyStatusResponse] =
-    FF.liftF(GetBucketPolicyStatus(getBucketPolicyStatusRequest))
+    FF.liftF(GetBucketPolicyStatus(request))
 
   def getBucketReplication(
-    getBucketReplicationRequest: GetBucketReplicationRequest
+    request: GetBucketReplicationRequest
   ): S3IO[GetBucketReplicationResponse] =
-    FF.liftF(GetBucketReplication(getBucketReplicationRequest))
+    FF.liftF(GetBucketReplication(request))
 
   def getBucketRequestPayment(
-    getBucketRequestPaymentRequest: GetBucketRequestPaymentRequest
+    request: GetBucketRequestPaymentRequest
   ): S3IO[GetBucketRequestPaymentResponse] =
-    FF.liftF(GetBucketRequestPayment(getBucketRequestPaymentRequest))
+    FF.liftF(GetBucketRequestPayment(request))
 
   def getBucketTagging(
-    getBucketTaggingRequest: GetBucketTaggingRequest
+    request: GetBucketTaggingRequest
   ): S3IO[GetBucketTaggingResponse] =
-    FF.liftF(GetBucketTagging(getBucketTaggingRequest))
+    FF.liftF(GetBucketTagging(request))
 
   def getBucketVersioning(
-    getBucketVersioningRequest: GetBucketVersioningRequest
+    request: GetBucketVersioningRequest
   ): S3IO[GetBucketVersioningResponse] =
-    FF.liftF(GetBucketVersioning(getBucketVersioningRequest))
+    FF.liftF(GetBucketVersioning(request))
 
   def getBucketWebsite(
-    getBucketWebsiteRequest: GetBucketWebsiteRequest
+    request: GetBucketWebsiteRequest
   ): S3IO[GetBucketWebsiteResponse] =
-    FF.liftF(GetBucketWebsite(getBucketWebsiteRequest))
+    FF.liftF(GetBucketWebsite(request))
 
   def getObject(
-    getObjectRequest: GetObjectRequest,
-    destinationPath: Path
+    request: GetObjectRequest,
+    path: Path
   ): S3IO[GetObjectResponse] =
-    FF.liftF(GetObject(getObjectRequest, destinationPath))
+    FF.liftF(GetObject(request, path))
 
   def getObjectAcl(
-    getObjectAclRequest: GetObjectAclRequest
+    request: GetObjectAclRequest
   ): S3IO[GetObjectAclResponse] =
-    FF.liftF(GetObjectAcl(getObjectAclRequest))
+    FF.liftF(GetObjectAcl(request))
 
   def getObjectLegalHold(
-    getObjectLegalHoldRequest: GetObjectLegalHoldRequest
+    request: GetObjectLegalHoldRequest
   ): S3IO[GetObjectLegalHoldResponse] =
-    FF.liftF(GetObjectLegalHold(getObjectLegalHoldRequest))
+    FF.liftF(GetObjectLegalHold(request))
 
   def getObjectLockConfiguration(
-    getObjectLockConfigurationRequest: GetObjectLockConfigurationRequest
+    request: GetObjectLockConfigurationRequest
   ): S3IO[GetObjectLockConfigurationResponse] =
-    FF.liftF(GetObjectLockConfiguration(getObjectLockConfigurationRequest))
+    FF.liftF(GetObjectLockConfiguration(request))
 
   def getObjectRetention(
-    getObjectRetentionRequest: GetObjectRetentionRequest
+    request: GetObjectRetentionRequest
   ): S3IO[GetObjectRetentionResponse] =
-    FF.liftF(GetObjectRetention(getObjectRetentionRequest))
+    FF.liftF(GetObjectRetention(request))
 
   def getObjectTagging(
-    getObjectTaggingRequest: GetObjectTaggingRequest
+    request: GetObjectTaggingRequest
   ): S3IO[GetObjectTaggingResponse] =
-    FF.liftF(GetObjectTagging(getObjectTaggingRequest))
+    FF.liftF(GetObjectTagging(request))
 
   def getPublicAccessBlock(
-    getPublicAccessBlockRequest: GetPublicAccessBlockRequest
+    request: GetPublicAccessBlockRequest
   ): S3IO[GetPublicAccessBlockResponse] =
-    FF.liftF(GetPublicAccessBlock(getPublicAccessBlockRequest))
+    FF.liftF(GetPublicAccessBlock(request))
 
   def headBucket(
-    headBucketRequest: HeadBucketRequest
+    request: HeadBucketRequest
   ): S3IO[HeadBucketResponse] =
-    FF.liftF(HeadBucket(headBucketRequest))
+    FF.liftF(HeadBucket(request))
 
   def headObject(
-    headObjectRequest: HeadObjectRequest
+    request: HeadObjectRequest
   ): S3IO[HeadObjectResponse] =
-    FF.liftF(HeadObject(headObjectRequest))
+    FF.liftF(HeadObject(request))
 
   def listBucketAnalyticsConfigurations(
-    listBucketAnalyticsConfigurationsRequest: ListBucketAnalyticsConfigurationsRequest
+    request: ListBucketAnalyticsConfigurationsRequest
   ): S3IO[ListBucketAnalyticsConfigurationsResponse] =
-    FF.liftF(ListBucketAnalyticsConfigurations(listBucketAnalyticsConfigurationsRequest))
+    FF.liftF(ListBucketAnalyticsConfigurations(request))
 
   def listBucketIntelligentTieringConfigurations(
-    listBucketIntelligentTieringConfigurationsRequest: ListBucketIntelligentTieringConfigurationsRequest
+    request: ListBucketIntelligentTieringConfigurationsRequest
   ): S3IO[ListBucketIntelligentTieringConfigurationsResponse] =
-    FF.liftF(ListBucketIntelligentTieringConfigurations(listBucketIntelligentTieringConfigurationsRequest))
+    FF.liftF(ListBucketIntelligentTieringConfigurations(request))
 
   def listBucketInventoryConfigurations(
-    listBucketInventoryConfigurationsRequest: ListBucketInventoryConfigurationsRequest
+    request: ListBucketInventoryConfigurationsRequest
   ): S3IO[ListBucketInventoryConfigurationsResponse] =
-    FF.liftF(ListBucketInventoryConfigurations(listBucketInventoryConfigurationsRequest))
+    FF.liftF(ListBucketInventoryConfigurations(request))
 
   def listBucketMetricsConfigurations(
-    listBucketMetricsConfigurationsRequest: ListBucketMetricsConfigurationsRequest
+    request: ListBucketMetricsConfigurationsRequest
   ): S3IO[ListBucketMetricsConfigurationsResponse] =
-    FF.liftF(ListBucketMetricsConfigurations(listBucketMetricsConfigurationsRequest))
+    FF.liftF(ListBucketMetricsConfigurations(request))
 
   def listBuckets(
-    listBucketsRequest: ListBucketsRequest
+    request: ListBucketsRequest
   ): S3IO[ListBucketsResponse] =
-    FF.liftF(ListBuckets(listBucketsRequest))
+    FF.liftF(ListBuckets(request))
 
   def listMultipartUploads(
-    listMultipartUploadsRequest: ListMultipartUploadsRequest
+    request: ListMultipartUploadsRequest
   ): S3IO[ListMultipartUploadsResponse] =
-    FF.liftF(ListMultipartUploads(listMultipartUploadsRequest))
+    FF.liftF(ListMultipartUploads(request))
 
   def listObjectVersions(
-    listObjectVersionsRequest: ListObjectVersionsRequest
+    request: ListObjectVersionsRequest
   ): S3IO[ListObjectVersionsResponse] =
-    FF.liftF(ListObjectVersions(listObjectVersionsRequest))
+    FF.liftF(ListObjectVersions(request))
 
   def listObjects(
-    listObjectsRequest: ListObjectsRequest
+    request: ListObjectsRequest
   ): S3IO[ListObjectsResponse] =
-    FF.liftF(ListObjects(listObjectsRequest))
+    FF.liftF(ListObjects(request))
 
   def listObjectsV2(
-    listObjectsV2Request: ListObjectsV2Request
+    request: ListObjectsV2Request
   ): S3IO[ListObjectsV2Response] =
-    FF.liftF(ListObjectsV2(listObjectsV2Request))
+    FF.liftF(ListObjectsV2(request))
 
   def listParts(
-    listPartsRequest: ListPartsRequest
+    request: ListPartsRequest
   ): S3IO[ListPartsResponse] =
-    FF.liftF(ListParts(listPartsRequest))
+    FF.liftF(ListParts(request))
 
   def putBucketAccelerateConfiguration(
-    putBucketAccelerateConfigurationRequest: PutBucketAccelerateConfigurationRequest
+    request: PutBucketAccelerateConfigurationRequest
   ): S3IO[PutBucketAccelerateConfigurationResponse] =
-    FF.liftF(PutBucketAccelerateConfiguration(putBucketAccelerateConfigurationRequest))
+    FF.liftF(PutBucketAccelerateConfiguration(request))
 
   def putBucketAcl(
-    putBucketAclRequest: PutBucketAclRequest
+    request: PutBucketAclRequest
   ): S3IO[PutBucketAclResponse] =
-    FF.liftF(PutBucketAcl(putBucketAclRequest))
+    FF.liftF(PutBucketAcl(request))
 
   def putBucketAnalyticsConfiguration(
-    putBucketAnalyticsConfigurationRequest: PutBucketAnalyticsConfigurationRequest
+    request: PutBucketAnalyticsConfigurationRequest
   ): S3IO[PutBucketAnalyticsConfigurationResponse] =
-    FF.liftF(PutBucketAnalyticsConfiguration(putBucketAnalyticsConfigurationRequest))
+    FF.liftF(PutBucketAnalyticsConfiguration(request))
 
   def putBucketCors(
-    putBucketCorsRequest: PutBucketCorsRequest
+    request: PutBucketCorsRequest
   ): S3IO[PutBucketCorsResponse] =
-    FF.liftF(PutBucketCors(putBucketCorsRequest))
+    FF.liftF(PutBucketCors(request))
 
   def putBucketEncryption(
-    putBucketEncryptionRequest: PutBucketEncryptionRequest
+    request: PutBucketEncryptionRequest
   ): S3IO[PutBucketEncryptionResponse] =
-    FF.liftF(PutBucketEncryption(putBucketEncryptionRequest))
+    FF.liftF(PutBucketEncryption(request))
 
   def putBucketIntelligentTieringConfiguration(
-    putBucketIntelligentTieringConfigurationRequest: PutBucketIntelligentTieringConfigurationRequest
+    request: PutBucketIntelligentTieringConfigurationRequest
   ): S3IO[PutBucketIntelligentTieringConfigurationResponse] =
-    FF.liftF(PutBucketIntelligentTieringConfiguration(putBucketIntelligentTieringConfigurationRequest))
+    FF.liftF(PutBucketIntelligentTieringConfiguration(request))
 
   def putBucketInventoryConfiguration(
-    putBucketInventoryConfigurationRequest: PutBucketInventoryConfigurationRequest
+    request: PutBucketInventoryConfigurationRequest
   ): S3IO[PutBucketInventoryConfigurationResponse] =
-    FF.liftF(PutBucketInventoryConfiguration(putBucketInventoryConfigurationRequest))
+    FF.liftF(PutBucketInventoryConfiguration(request))
 
   def putBucketLifecycleConfiguration(
-    putBucketLifecycleConfigurationRequest: PutBucketLifecycleConfigurationRequest
+    request: PutBucketLifecycleConfigurationRequest
   ): S3IO[PutBucketLifecycleConfigurationResponse] =
-    FF.liftF(PutBucketLifecycleConfiguration(putBucketLifecycleConfigurationRequest))
+    FF.liftF(PutBucketLifecycleConfiguration(request))
 
   def putBucketLogging(
-    putBucketLoggingRequest: PutBucketLoggingRequest
+    request: PutBucketLoggingRequest
   ): S3IO[PutBucketLoggingResponse] =
-    FF.liftF(PutBucketLogging(putBucketLoggingRequest))
+    FF.liftF(PutBucketLogging(request))
 
   def putBucketMetricsConfiguration(
-    putBucketMetricsConfigurationRequest: PutBucketMetricsConfigurationRequest
+    request: PutBucketMetricsConfigurationRequest
   ): S3IO[PutBucketMetricsConfigurationResponse] =
-    FF.liftF(PutBucketMetricsConfiguration(putBucketMetricsConfigurationRequest))
+    FF.liftF(PutBucketMetricsConfiguration(request))
 
   def putBucketNotificationConfiguration(
-    putBucketNotificationConfigurationRequest: PutBucketNotificationConfigurationRequest
+    request: PutBucketNotificationConfigurationRequest
   ): S3IO[PutBucketNotificationConfigurationResponse] =
-    FF.liftF(PutBucketNotificationConfiguration(putBucketNotificationConfigurationRequest))
+    FF.liftF(PutBucketNotificationConfiguration(request))
 
   def putBucketOwnershipControls(
-    putBucketOwnershipControlsRequest: PutBucketOwnershipControlsRequest
+    request: PutBucketOwnershipControlsRequest
   ): S3IO[PutBucketOwnershipControlsResponse] =
-    FF.liftF(PutBucketOwnershipControls(putBucketOwnershipControlsRequest))
+    FF.liftF(PutBucketOwnershipControls(request))
 
   def putBucketPolicy(
-    putBucketPolicyRequest: PutBucketPolicyRequest
+    request: PutBucketPolicyRequest
   ): S3IO[PutBucketPolicyResponse] =
-    FF.liftF(PutBucketPolicy(putBucketPolicyRequest))
+    FF.liftF(PutBucketPolicy(request))
 
   def putBucketReplication(
-    putBucketReplicationRequest: PutBucketReplicationRequest
+    request: PutBucketReplicationRequest
   ): S3IO[PutBucketReplicationResponse] =
-    FF.liftF(PutBucketReplication(putBucketReplicationRequest))
+    FF.liftF(PutBucketReplication(request))
 
   def putBucketRequestPayment(
-    putBucketRequestPaymentRequest: PutBucketRequestPaymentRequest
+    request: PutBucketRequestPaymentRequest
   ): S3IO[PutBucketRequestPaymentResponse] =
-    FF.liftF(PutBucketRequestPayment(putBucketRequestPaymentRequest))
+    FF.liftF(PutBucketRequestPayment(request))
 
   def putBucketTagging(
-    putBucketTaggingRequest: PutBucketTaggingRequest
+    request: PutBucketTaggingRequest
   ): S3IO[PutBucketTaggingResponse] =
-    FF.liftF(PutBucketTagging(putBucketTaggingRequest))
+    FF.liftF(PutBucketTagging(request))
 
   def putBucketVersioning(
-    putBucketVersioningRequest: PutBucketVersioningRequest
+    request: PutBucketVersioningRequest
   ): S3IO[PutBucketVersioningResponse] =
-    FF.liftF(PutBucketVersioning(putBucketVersioningRequest))
+    FF.liftF(PutBucketVersioning(request))
 
   def putBucketWebsite(
-    putBucketWebsiteRequest: PutBucketWebsiteRequest
+    request: PutBucketWebsiteRequest
   ): S3IO[PutBucketWebsiteResponse] =
-    FF.liftF(PutBucketWebsite(putBucketWebsiteRequest))
+    FF.liftF(PutBucketWebsite(request))
 
   def putObject(
-    putObjectRequest: PutObjectRequest,
-    requestBody: RequestBody
+    request: PutObjectRequest,
+    body: RequestBody
   ): S3IO[PutObjectResponse] =
-    FF.liftF(PutObject(putObjectRequest, requestBody))
+    FF.liftF(PutObject(request, body))
 
   def putObjectAcl(
-    putObjectAclRequest: PutObjectAclRequest
+    request: PutObjectAclRequest
   ): S3IO[PutObjectAclResponse] =
-    FF.liftF(PutObjectAcl(putObjectAclRequest))
+    FF.liftF(PutObjectAcl(request))
 
-  def putObjectLegalHold (
-    putObjectLegalHoldRequest: PutObjectLegalHoldRequest
+  def putObjectLegalHold(
+    request: PutObjectLegalHoldRequest
   ): S3IO[PutObjectLegalHoldResponse] =
-    FF.liftF(PutObjectLegalHold (putObjectLegalHoldRequest))
+    FF.liftF(PutObjectLegalHold(request))
 
   def putObjectLockConfiguration(
-    putObjectLockConfigurationRequest: PutObjectLockConfigurationRequest
+    request: PutObjectLockConfigurationRequest
   ): S3IO[PutObjectLockConfigurationResponse] =
-    FF.liftF(PutObjectLockConfiguration(putObjectLockConfigurationRequest))
+    FF.liftF(PutObjectLockConfiguration(request))
 
   def putObjectRetention(
-    putObjectRetentionRequest: PutObjectRetentionRequest
+    request: PutObjectRetentionRequest
   ): S3IO[PutObjectRetentionResponse] =
-    FF.liftF(PutObjectRetention(putObjectRetentionRequest))
+    FF.liftF(PutObjectRetention(request))
 
   def putObjectTagging(
-    putObjectTaggingRequest: PutObjectTaggingRequest
+    request: PutObjectTaggingRequest
   ): S3IO[PutObjectTaggingResponse] =
-    FF.liftF(PutObjectTagging(putObjectTaggingRequest))
+    FF.liftF(PutObjectTagging(request))
 
   def putPublicAccessBlock(
-    putPublicAccessBlockRequest: PutPublicAccessBlockRequest
+    request: PutPublicAccessBlockRequest
   ): S3IO[PutPublicAccessBlockResponse] =
-    FF.liftF(PutPublicAccessBlock(putPublicAccessBlockRequest))
+    FF.liftF(PutPublicAccessBlock(request))
 
   def restoreObject(
-    restoreObjectRequest: RestoreObjectRequest
+    request: RestoreObjectRequest
   ): S3IO[RestoreObjectResponse] =
-    FF.liftF(RestoreObject(restoreObjectRequest))
+    FF.liftF(RestoreObject(request))
 
   def uploadPart(
-    uploadPartRequest: UploadPartRequest,
-    requestBody: RequestBody
+    request: UploadPartRequest,
+    body: RequestBody
   ): S3IO[UploadPartResponse] =
-    FF.liftF(UploadPart(uploadPartRequest, requestBody))
+    FF.liftF(UploadPart(request, body))
 
   def uploadPartCopy(
-    uploadPartCopyRequest: UploadPartCopyRequest
+    request: UploadPartCopyRequest
   ): S3IO[UploadPartCopyResponse] =
-    FF.liftF(UploadPartCopy(uploadPartCopyRequest))
+    FF.liftF(UploadPartCopy(request))
 
   def writeGetObjectResponse(
-    writeGetObjectResponseRequest: WriteGetObjectResponseRequest,
-    requestBody: RequestBody
+    request: WriteGetObjectResponseRequest,
+    body: RequestBody
   ): S3IO[WriteGetObjectResponseResponse] =
-    FF.liftF(WriteGetObjectResponse(writeGetObjectResponseRequest, requestBody))
+    FF.liftF(WriteGetObjectResponse(request, body))
 }
-

@@ -1,4 +1,5 @@
 import com.jsuereth.sbtpgp.SbtPgp.autoImport._
+import goober.free.generator
 
 inThisBuild(List(
   organization := "com.github.stacycurl",
@@ -29,7 +30,7 @@ lazy val gooberSettings = Seq(
     "org.scalameta"             %% "munit"             % "0.7.27"  % Test
   ))).value,
   testFrameworks += new TestFramework("munit.Framework"),
-  addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVersion.full)  
+  addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.11.3" cross CrossVersion.full)
 )
 
 lazy val noPublishSettings = Seq(
@@ -57,8 +58,11 @@ lazy val free: Project = project.in(file("free"))
       "org.typelevel"  %% "cats-free"       % catsVersion,
       "org.typelevel"  %% "cats-effect"     % catsEffectVersion,
       "software.amazon.awssdk" % "aws-sdk-java" % awsVersion,
-    )
+    ),
+    generator.generate := generator.generateTask.value
   )
+
+
 
 
 def dependencies(modules: (String, List[ModuleID])*)(version: String): List[sbt.ModuleID] = modules.toMap.apply(version)
