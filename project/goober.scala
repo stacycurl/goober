@@ -18,6 +18,13 @@ object goober {
             "software.amazon.awssdk.core.sync.RequestBody",
             "software.amazon.awssdk.services.s3.S3Client",
             "software.amazon.awssdk.services.s3.model._"
+          ),
+          Module.create[software.amazon.awssdk.services.ec2.Ec2Client](
+            Names("ec2", "Ec2Client", "EC2IO", "EC2Op"),
+            "java.nio.file.Path",
+            "software.amazon.awssdk.core.sync.RequestBody",
+            "software.amazon.awssdk.services.ec2.Ec2Client",
+            "software.amazon.awssdk.services.ec2.model._"
           )
         ).writeTo("./free/src/main/scala/goober/free")
       }
