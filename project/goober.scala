@@ -18,6 +18,7 @@ object goober {
           Module.create[software.amazon.awssdk.services.athena.AthenaClient],
           Module.create[software.amazon.awssdk.services.codebuild.CodeBuildClient],
           Module.create[software.amazon.awssdk.services.ec2.Ec2Client],
+          Module.create[software.amazon.awssdk.services.ecr.EcrClient],
           Module.create[software.amazon.awssdk.services.s3.S3Client]
         ).writeTo("./free/src/main/scala/goober/free")
       }

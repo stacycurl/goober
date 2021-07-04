@@ -8,10 +8,12 @@ import cats.~>
 import goober.free.athena.AthenaOp
 import goober.free.codebuild.CodeBuildOp
 import goober.free.ec2.Ec2Op
+import goober.free.ecr.EcrOp
 import goober.free.s3.S3Op
 import software.amazon.awssdk.services.athena.AthenaClient
 import software.amazon.awssdk.services.codebuild.CodeBuildClient
 import software.amazon.awssdk.services.ec2.Ec2Client
+import software.amazon.awssdk.services.ecr.EcrClient
 import software.amazon.awssdk.services.s3.S3Client
 
 
@@ -39,6 +41,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: Ec2Client ⇒ A): Kleisli[M, Ec2Client, A] = interpreter.primitive(f)
   }
 
+  lazy val EcrInterpreter: EcrOp ~> Kleisli[M, EcrClient, *] = new EcrInterpreter {
+    def primitive[A](f: EcrClient ⇒ A): Kleisli[M, EcrClient, A] = interpreter.primitive(f)
+  }
+
   lazy val S3Interpreter: S3Op ~> Kleisli[M, S3Client, *] = new S3Interpreter {
     def primitive[A](f: S3Client ⇒ A): Kleisli[M, S3Client, A] = interpreter.primitive(f)
   }
@@ -53,6 +59,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait Ec2Interpreter extends Ec2Op.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, Ec2Client, A] = interpreter.embed(e)
+  }
+
+  trait EcrInterpreter extends EcrOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, EcrClient, A] = interpreter.embed(e)
   }
 
   trait S3Interpreter extends S3Op.Visitor.KleisliVisitor[M] {
@@ -74,6 +84,7 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.Athena(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AthenaClient, *]](AthenaInterpreter).run(client))
     case Embedded.CodeBuild(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeBuildClient, *]](CodeBuildInterpreter).run(client))
     case Embedded.Ec2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Ec2Client, *]](Ec2Interpreter).run(client))
+    case Embedded.Ecr(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, EcrClient, *]](EcrInterpreter).run(client))
     case Embedded.S3(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, S3Client, *]](S3Interpreter).run(client))
   }
 
