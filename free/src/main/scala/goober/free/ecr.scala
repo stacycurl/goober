@@ -354,238 +354,238 @@ object ecr { module =>
         visitor.embed(e)
     }
 
-    final case class BatchCheckLayerAvailability(
+    final case class BatchCheckLayerAvailabilityOp(
       request: BatchCheckLayerAvailabilityRequest
     ) extends EcrOp[BatchCheckLayerAvailabilityResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchCheckLayerAvailabilityResponse] =
         visitor.batchCheckLayerAvailability(request)
     }
 
-    final case class BatchDeleteImage(
+    final case class BatchDeleteImageOp(
       request: BatchDeleteImageRequest
     ) extends EcrOp[BatchDeleteImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchDeleteImageResponse] =
         visitor.batchDeleteImage(request)
     }
 
-    final case class BatchGetImage(
+    final case class BatchGetImageOp(
       request: BatchGetImageRequest
     ) extends EcrOp[BatchGetImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetImageResponse] =
         visitor.batchGetImage(request)
     }
 
-    final case class CompleteLayerUpload(
+    final case class CompleteLayerUploadOp(
       request: CompleteLayerUploadRequest
     ) extends EcrOp[CompleteLayerUploadResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CompleteLayerUploadResponse] =
         visitor.completeLayerUpload(request)
     }
 
-    final case class CreateRepository(
+    final case class CreateRepositoryOp(
       request: CreateRepositoryRequest
     ) extends EcrOp[CreateRepositoryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateRepositoryResponse] =
         visitor.createRepository(request)
     }
 
-    final case class DeleteLifecyclePolicy(
+    final case class DeleteLifecyclePolicyOp(
       request: DeleteLifecyclePolicyRequest
     ) extends EcrOp[DeleteLifecyclePolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteLifecyclePolicyResponse] =
         visitor.deleteLifecyclePolicy(request)
     }
 
-    final case class DeleteRegistryPolicy(
+    final case class DeleteRegistryPolicyOp(
       request: DeleteRegistryPolicyRequest
     ) extends EcrOp[DeleteRegistryPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteRegistryPolicyResponse] =
         visitor.deleteRegistryPolicy(request)
     }
 
-    final case class DeleteRepository(
+    final case class DeleteRepositoryOp(
       request: DeleteRepositoryRequest
     ) extends EcrOp[DeleteRepositoryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteRepositoryResponse] =
         visitor.deleteRepository(request)
     }
 
-    final case class DeleteRepositoryPolicy(
+    final case class DeleteRepositoryPolicyOp(
       request: DeleteRepositoryPolicyRequest
     ) extends EcrOp[DeleteRepositoryPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteRepositoryPolicyResponse] =
         visitor.deleteRepositoryPolicy(request)
     }
 
-    final case class DescribeImageScanFindings(
+    final case class DescribeImageScanFindingsOp(
       request: DescribeImageScanFindingsRequest
     ) extends EcrOp[DescribeImageScanFindingsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeImageScanFindingsResponse] =
         visitor.describeImageScanFindings(request)
     }
 
-    final case class DescribeImages(
+    final case class DescribeImagesOp(
       request: DescribeImagesRequest
     ) extends EcrOp[DescribeImagesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeImagesResponse] =
         visitor.describeImages(request)
     }
 
-    final case class DescribeRegistry(
+    final case class DescribeRegistryOp(
       request: DescribeRegistryRequest
     ) extends EcrOp[DescribeRegistryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeRegistryResponse] =
         visitor.describeRegistry(request)
     }
 
-    final case class DescribeRepositories(
+    final case class DescribeRepositoriesOp(
       request: DescribeRepositoriesRequest
     ) extends EcrOp[DescribeRepositoriesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeRepositoriesResponse] =
         visitor.describeRepositories(request)
     }
 
-    final case class GetAuthorizationToken(
+    final case class GetAuthorizationTokenOp(
       request: GetAuthorizationTokenRequest
     ) extends EcrOp[GetAuthorizationTokenResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetAuthorizationTokenResponse] =
         visitor.getAuthorizationToken(request)
     }
 
-    final case class GetDownloadUrlForLayer(
+    final case class GetDownloadUrlForLayerOp(
       request: GetDownloadUrlForLayerRequest
     ) extends EcrOp[GetDownloadUrlForLayerResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetDownloadUrlForLayerResponse] =
         visitor.getDownloadUrlForLayer(request)
     }
 
-    final case class GetLifecyclePolicy(
+    final case class GetLifecyclePolicyOp(
       request: GetLifecyclePolicyRequest
     ) extends EcrOp[GetLifecyclePolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetLifecyclePolicyResponse] =
         visitor.getLifecyclePolicy(request)
     }
 
-    final case class GetLifecyclePolicyPreview(
+    final case class GetLifecyclePolicyPreviewOp(
       request: GetLifecyclePolicyPreviewRequest
     ) extends EcrOp[GetLifecyclePolicyPreviewResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetLifecyclePolicyPreviewResponse] =
         visitor.getLifecyclePolicyPreview(request)
     }
 
-    final case class GetRegistryPolicy(
+    final case class GetRegistryPolicyOp(
       request: GetRegistryPolicyRequest
     ) extends EcrOp[GetRegistryPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetRegistryPolicyResponse] =
         visitor.getRegistryPolicy(request)
     }
 
-    final case class GetRepositoryPolicy(
+    final case class GetRepositoryPolicyOp(
       request: GetRepositoryPolicyRequest
     ) extends EcrOp[GetRepositoryPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetRepositoryPolicyResponse] =
         visitor.getRepositoryPolicy(request)
     }
 
-    final case class InitiateLayerUpload(
+    final case class InitiateLayerUploadOp(
       request: InitiateLayerUploadRequest
     ) extends EcrOp[InitiateLayerUploadResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[InitiateLayerUploadResponse] =
         visitor.initiateLayerUpload(request)
     }
 
-    final case class ListImages(
+    final case class ListImagesOp(
       request: ListImagesRequest
     ) extends EcrOp[ListImagesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListImagesResponse] =
         visitor.listImages(request)
     }
 
-    final case class ListTagsForResource(
+    final case class ListTagsForResourceOp(
       request: ListTagsForResourceRequest
     ) extends EcrOp[ListTagsForResourceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListTagsForResourceResponse] =
         visitor.listTagsForResource(request)
     }
 
-    final case class PutImage(
+    final case class PutImageOp(
       request: PutImageRequest
     ) extends EcrOp[PutImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutImageResponse] =
         visitor.putImage(request)
     }
 
-    final case class PutImageScanningConfiguration(
+    final case class PutImageScanningConfigurationOp(
       request: PutImageScanningConfigurationRequest
     ) extends EcrOp[PutImageScanningConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutImageScanningConfigurationResponse] =
         visitor.putImageScanningConfiguration(request)
     }
 
-    final case class PutImageTagMutability(
+    final case class PutImageTagMutabilityOp(
       request: PutImageTagMutabilityRequest
     ) extends EcrOp[PutImageTagMutabilityResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutImageTagMutabilityResponse] =
         visitor.putImageTagMutability(request)
     }
 
-    final case class PutLifecyclePolicy(
+    final case class PutLifecyclePolicyOp(
       request: PutLifecyclePolicyRequest
     ) extends EcrOp[PutLifecyclePolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutLifecyclePolicyResponse] =
         visitor.putLifecyclePolicy(request)
     }
 
-    final case class PutRegistryPolicy(
+    final case class PutRegistryPolicyOp(
       request: PutRegistryPolicyRequest
     ) extends EcrOp[PutRegistryPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutRegistryPolicyResponse] =
         visitor.putRegistryPolicy(request)
     }
 
-    final case class PutReplicationConfiguration(
+    final case class PutReplicationConfigurationOp(
       request: PutReplicationConfigurationRequest
     ) extends EcrOp[PutReplicationConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutReplicationConfigurationResponse] =
         visitor.putReplicationConfiguration(request)
     }
 
-    final case class SetRepositoryPolicy(
+    final case class SetRepositoryPolicyOp(
       request: SetRepositoryPolicyRequest
     ) extends EcrOp[SetRepositoryPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[SetRepositoryPolicyResponse] =
         visitor.setRepositoryPolicy(request)
     }
 
-    final case class StartImageScan(
+    final case class StartImageScanOp(
       request: StartImageScanRequest
     ) extends EcrOp[StartImageScanResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartImageScanResponse] =
         visitor.startImageScan(request)
     }
 
-    final case class StartLifecyclePolicyPreview(
+    final case class StartLifecyclePolicyPreviewOp(
       request: StartLifecyclePolicyPreviewRequest
     ) extends EcrOp[StartLifecyclePolicyPreviewResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartLifecyclePolicyPreviewResponse] =
         visitor.startLifecyclePolicyPreview(request)
     }
 
-    final case class TagResource(
+    final case class TagResourceOp(
       request: TagResourceRequest
     ) extends EcrOp[TagResourceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[TagResourceResponse] =
         visitor.tagResource(request)
     }
 
-    final case class UntagResource(
+    final case class UntagResourceOp(
       request: UntagResourceRequest
     ) extends EcrOp[UntagResourceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UntagResourceResponse] =
         visitor.untagResource(request)
     }
 
-    final case class UploadLayerPart(
+    final case class UploadLayerPartOp(
       request: UploadLayerPartRequest
     ) extends EcrOp[UploadLayerPartResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UploadLayerPartResponse] =
@@ -606,170 +606,170 @@ object ecr { module =>
   def batchCheckLayerAvailability(
     request: BatchCheckLayerAvailabilityRequest
   ): EcrIO[BatchCheckLayerAvailabilityResponse] =
-    FF.liftF(BatchCheckLayerAvailability(request))
+    FF.liftF(BatchCheckLayerAvailabilityOp(request))
 
   def batchDeleteImage(
     request: BatchDeleteImageRequest
   ): EcrIO[BatchDeleteImageResponse] =
-    FF.liftF(BatchDeleteImage(request))
+    FF.liftF(BatchDeleteImageOp(request))
 
   def batchGetImage(
     request: BatchGetImageRequest
   ): EcrIO[BatchGetImageResponse] =
-    FF.liftF(BatchGetImage(request))
+    FF.liftF(BatchGetImageOp(request))
 
   def completeLayerUpload(
     request: CompleteLayerUploadRequest
   ): EcrIO[CompleteLayerUploadResponse] =
-    FF.liftF(CompleteLayerUpload(request))
+    FF.liftF(CompleteLayerUploadOp(request))
 
   def createRepository(
     request: CreateRepositoryRequest
   ): EcrIO[CreateRepositoryResponse] =
-    FF.liftF(CreateRepository(request))
+    FF.liftF(CreateRepositoryOp(request))
 
   def deleteLifecyclePolicy(
     request: DeleteLifecyclePolicyRequest
   ): EcrIO[DeleteLifecyclePolicyResponse] =
-    FF.liftF(DeleteLifecyclePolicy(request))
+    FF.liftF(DeleteLifecyclePolicyOp(request))
 
   def deleteRegistryPolicy(
     request: DeleteRegistryPolicyRequest
   ): EcrIO[DeleteRegistryPolicyResponse] =
-    FF.liftF(DeleteRegistryPolicy(request))
+    FF.liftF(DeleteRegistryPolicyOp(request))
 
   def deleteRepository(
     request: DeleteRepositoryRequest
   ): EcrIO[DeleteRepositoryResponse] =
-    FF.liftF(DeleteRepository(request))
+    FF.liftF(DeleteRepositoryOp(request))
 
   def deleteRepositoryPolicy(
     request: DeleteRepositoryPolicyRequest
   ): EcrIO[DeleteRepositoryPolicyResponse] =
-    FF.liftF(DeleteRepositoryPolicy(request))
+    FF.liftF(DeleteRepositoryPolicyOp(request))
 
   def describeImageScanFindings(
     request: DescribeImageScanFindingsRequest
   ): EcrIO[DescribeImageScanFindingsResponse] =
-    FF.liftF(DescribeImageScanFindings(request))
+    FF.liftF(DescribeImageScanFindingsOp(request))
 
   def describeImages(
     request: DescribeImagesRequest
   ): EcrIO[DescribeImagesResponse] =
-    FF.liftF(DescribeImages(request))
+    FF.liftF(DescribeImagesOp(request))
 
   def describeRegistry(
     request: DescribeRegistryRequest
   ): EcrIO[DescribeRegistryResponse] =
-    FF.liftF(DescribeRegistry(request))
+    FF.liftF(DescribeRegistryOp(request))
 
   def describeRepositories(
     request: DescribeRepositoriesRequest
   ): EcrIO[DescribeRepositoriesResponse] =
-    FF.liftF(DescribeRepositories(request))
+    FF.liftF(DescribeRepositoriesOp(request))
 
   def getAuthorizationToken(
     request: GetAuthorizationTokenRequest
   ): EcrIO[GetAuthorizationTokenResponse] =
-    FF.liftF(GetAuthorizationToken(request))
+    FF.liftF(GetAuthorizationTokenOp(request))
 
   def getDownloadUrlForLayer(
     request: GetDownloadUrlForLayerRequest
   ): EcrIO[GetDownloadUrlForLayerResponse] =
-    FF.liftF(GetDownloadUrlForLayer(request))
+    FF.liftF(GetDownloadUrlForLayerOp(request))
 
   def getLifecyclePolicy(
     request: GetLifecyclePolicyRequest
   ): EcrIO[GetLifecyclePolicyResponse] =
-    FF.liftF(GetLifecyclePolicy(request))
+    FF.liftF(GetLifecyclePolicyOp(request))
 
   def getLifecyclePolicyPreview(
     request: GetLifecyclePolicyPreviewRequest
   ): EcrIO[GetLifecyclePolicyPreviewResponse] =
-    FF.liftF(GetLifecyclePolicyPreview(request))
+    FF.liftF(GetLifecyclePolicyPreviewOp(request))
 
   def getRegistryPolicy(
     request: GetRegistryPolicyRequest
   ): EcrIO[GetRegistryPolicyResponse] =
-    FF.liftF(GetRegistryPolicy(request))
+    FF.liftF(GetRegistryPolicyOp(request))
 
   def getRepositoryPolicy(
     request: GetRepositoryPolicyRequest
   ): EcrIO[GetRepositoryPolicyResponse] =
-    FF.liftF(GetRepositoryPolicy(request))
+    FF.liftF(GetRepositoryPolicyOp(request))
 
   def initiateLayerUpload(
     request: InitiateLayerUploadRequest
   ): EcrIO[InitiateLayerUploadResponse] =
-    FF.liftF(InitiateLayerUpload(request))
+    FF.liftF(InitiateLayerUploadOp(request))
 
   def listImages(
     request: ListImagesRequest
   ): EcrIO[ListImagesResponse] =
-    FF.liftF(ListImages(request))
+    FF.liftF(ListImagesOp(request))
 
   def listTagsForResource(
     request: ListTagsForResourceRequest
   ): EcrIO[ListTagsForResourceResponse] =
-    FF.liftF(ListTagsForResource(request))
+    FF.liftF(ListTagsForResourceOp(request))
 
   def putImage(
     request: PutImageRequest
   ): EcrIO[PutImageResponse] =
-    FF.liftF(PutImage(request))
+    FF.liftF(PutImageOp(request))
 
   def putImageScanningConfiguration(
     request: PutImageScanningConfigurationRequest
   ): EcrIO[PutImageScanningConfigurationResponse] =
-    FF.liftF(PutImageScanningConfiguration(request))
+    FF.liftF(PutImageScanningConfigurationOp(request))
 
   def putImageTagMutability(
     request: PutImageTagMutabilityRequest
   ): EcrIO[PutImageTagMutabilityResponse] =
-    FF.liftF(PutImageTagMutability(request))
+    FF.liftF(PutImageTagMutabilityOp(request))
 
   def putLifecyclePolicy(
     request: PutLifecyclePolicyRequest
   ): EcrIO[PutLifecyclePolicyResponse] =
-    FF.liftF(PutLifecyclePolicy(request))
+    FF.liftF(PutLifecyclePolicyOp(request))
 
   def putRegistryPolicy(
     request: PutRegistryPolicyRequest
   ): EcrIO[PutRegistryPolicyResponse] =
-    FF.liftF(PutRegistryPolicy(request))
+    FF.liftF(PutRegistryPolicyOp(request))
 
   def putReplicationConfiguration(
     request: PutReplicationConfigurationRequest
   ): EcrIO[PutReplicationConfigurationResponse] =
-    FF.liftF(PutReplicationConfiguration(request))
+    FF.liftF(PutReplicationConfigurationOp(request))
 
   def setRepositoryPolicy(
     request: SetRepositoryPolicyRequest
   ): EcrIO[SetRepositoryPolicyResponse] =
-    FF.liftF(SetRepositoryPolicy(request))
+    FF.liftF(SetRepositoryPolicyOp(request))
 
   def startImageScan(
     request: StartImageScanRequest
   ): EcrIO[StartImageScanResponse] =
-    FF.liftF(StartImageScan(request))
+    FF.liftF(StartImageScanOp(request))
 
   def startLifecyclePolicyPreview(
     request: StartLifecyclePolicyPreviewRequest
   ): EcrIO[StartLifecyclePolicyPreviewResponse] =
-    FF.liftF(StartLifecyclePolicyPreview(request))
+    FF.liftF(StartLifecyclePolicyPreviewOp(request))
 
   def tagResource(
     request: TagResourceRequest
   ): EcrIO[TagResourceResponse] =
-    FF.liftF(TagResource(request))
+    FF.liftF(TagResourceOp(request))
 
   def untagResource(
     request: UntagResourceRequest
   ): EcrIO[UntagResourceResponse] =
-    FF.liftF(UntagResource(request))
+    FF.liftF(UntagResourceOp(request))
 
   def uploadLayerPart(
     request: UploadLayerPartRequest
   ): EcrIO[UploadLayerPartResponse] =
-    FF.liftF(UploadLayerPart(request))
+    FF.liftF(UploadLayerPartOp(request))
 }

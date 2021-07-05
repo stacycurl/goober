@@ -354,238 +354,238 @@ object athena { module =>
         visitor.embed(e)
     }
 
-    final case class BatchGetNamedQuery(
+    final case class BatchGetNamedQueryOp(
       request: BatchGetNamedQueryRequest
     ) extends AthenaOp[BatchGetNamedQueryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetNamedQueryResponse] =
         visitor.batchGetNamedQuery(request)
     }
 
-    final case class BatchGetQueryExecution(
+    final case class BatchGetQueryExecutionOp(
       request: BatchGetQueryExecutionRequest
     ) extends AthenaOp[BatchGetQueryExecutionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetQueryExecutionResponse] =
         visitor.batchGetQueryExecution(request)
     }
 
-    final case class CreateDataCatalog(
+    final case class CreateDataCatalogOp(
       request: CreateDataCatalogRequest
     ) extends AthenaOp[CreateDataCatalogResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateDataCatalogResponse] =
         visitor.createDataCatalog(request)
     }
 
-    final case class CreateNamedQuery(
+    final case class CreateNamedQueryOp(
       request: CreateNamedQueryRequest
     ) extends AthenaOp[CreateNamedQueryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNamedQueryResponse] =
         visitor.createNamedQuery(request)
     }
 
-    final case class CreatePreparedStatement(
+    final case class CreatePreparedStatementOp(
       request: CreatePreparedStatementRequest
     ) extends AthenaOp[CreatePreparedStatementResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreatePreparedStatementResponse] =
         visitor.createPreparedStatement(request)
     }
 
-    final case class CreateWorkGroup(
+    final case class CreateWorkGroupOp(
       request: CreateWorkGroupRequest
     ) extends AthenaOp[CreateWorkGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateWorkGroupResponse] =
         visitor.createWorkGroup(request)
     }
 
-    final case class DeleteDataCatalog(
+    final case class DeleteDataCatalogOp(
       request: DeleteDataCatalogRequest
     ) extends AthenaOp[DeleteDataCatalogResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteDataCatalogResponse] =
         visitor.deleteDataCatalog(request)
     }
 
-    final case class DeleteNamedQuery(
+    final case class DeleteNamedQueryOp(
       request: DeleteNamedQueryRequest
     ) extends AthenaOp[DeleteNamedQueryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNamedQueryResponse] =
         visitor.deleteNamedQuery(request)
     }
 
-    final case class DeletePreparedStatement(
+    final case class DeletePreparedStatementOp(
       request: DeletePreparedStatementRequest
     ) extends AthenaOp[DeletePreparedStatementResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeletePreparedStatementResponse] =
         visitor.deletePreparedStatement(request)
     }
 
-    final case class DeleteWorkGroup(
+    final case class DeleteWorkGroupOp(
       request: DeleteWorkGroupRequest
     ) extends AthenaOp[DeleteWorkGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteWorkGroupResponse] =
         visitor.deleteWorkGroup(request)
     }
 
-    final case class GetDataCatalog(
+    final case class GetDataCatalogOp(
       request: GetDataCatalogRequest
     ) extends AthenaOp[GetDataCatalogResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetDataCatalogResponse] =
         visitor.getDataCatalog(request)
     }
 
-    final case class GetDatabase(
+    final case class GetDatabaseOp(
       request: GetDatabaseRequest
     ) extends AthenaOp[GetDatabaseResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetDatabaseResponse] =
         visitor.getDatabase(request)
     }
 
-    final case class GetNamedQuery(
+    final case class GetNamedQueryOp(
       request: GetNamedQueryRequest
     ) extends AthenaOp[GetNamedQueryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetNamedQueryResponse] =
         visitor.getNamedQuery(request)
     }
 
-    final case class GetPreparedStatement(
+    final case class GetPreparedStatementOp(
       request: GetPreparedStatementRequest
     ) extends AthenaOp[GetPreparedStatementResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetPreparedStatementResponse] =
         visitor.getPreparedStatement(request)
     }
 
-    final case class GetQueryExecution(
+    final case class GetQueryExecutionOp(
       request: GetQueryExecutionRequest
     ) extends AthenaOp[GetQueryExecutionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetQueryExecutionResponse] =
         visitor.getQueryExecution(request)
     }
 
-    final case class GetQueryResults(
+    final case class GetQueryResultsOp(
       request: GetQueryResultsRequest
     ) extends AthenaOp[GetQueryResultsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetQueryResultsResponse] =
         visitor.getQueryResults(request)
     }
 
-    final case class GetTableMetadata(
+    final case class GetTableMetadataOp(
       request: GetTableMetadataRequest
     ) extends AthenaOp[GetTableMetadataResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetTableMetadataResponse] =
         visitor.getTableMetadata(request)
     }
 
-    final case class GetWorkGroup(
+    final case class GetWorkGroupOp(
       request: GetWorkGroupRequest
     ) extends AthenaOp[GetWorkGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetWorkGroupResponse] =
         visitor.getWorkGroup(request)
     }
 
-    final case class ListDataCatalogs(
+    final case class ListDataCatalogsOp(
       request: ListDataCatalogsRequest
     ) extends AthenaOp[ListDataCatalogsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListDataCatalogsResponse] =
         visitor.listDataCatalogs(request)
     }
 
-    final case class ListDatabases(
+    final case class ListDatabasesOp(
       request: ListDatabasesRequest
     ) extends AthenaOp[ListDatabasesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListDatabasesResponse] =
         visitor.listDatabases(request)
     }
 
-    final case class ListEngineVersions(
+    final case class ListEngineVersionsOp(
       request: ListEngineVersionsRequest
     ) extends AthenaOp[ListEngineVersionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListEngineVersionsResponse] =
         visitor.listEngineVersions(request)
     }
 
-    final case class ListNamedQueries(
+    final case class ListNamedQueriesOp(
       request: ListNamedQueriesRequest
     ) extends AthenaOp[ListNamedQueriesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListNamedQueriesResponse] =
         visitor.listNamedQueries(request)
     }
 
-    final case class ListPreparedStatements(
+    final case class ListPreparedStatementsOp(
       request: ListPreparedStatementsRequest
     ) extends AthenaOp[ListPreparedStatementsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListPreparedStatementsResponse] =
         visitor.listPreparedStatements(request)
     }
 
-    final case class ListQueryExecutions(
+    final case class ListQueryExecutionsOp(
       request: ListQueryExecutionsRequest
     ) extends AthenaOp[ListQueryExecutionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListQueryExecutionsResponse] =
         visitor.listQueryExecutions(request)
     }
 
-    final case class ListTableMetadata(
+    final case class ListTableMetadataOp(
       request: ListTableMetadataRequest
     ) extends AthenaOp[ListTableMetadataResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListTableMetadataResponse] =
         visitor.listTableMetadata(request)
     }
 
-    final case class ListTagsForResource(
+    final case class ListTagsForResourceOp(
       request: ListTagsForResourceRequest
     ) extends AthenaOp[ListTagsForResourceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListTagsForResourceResponse] =
         visitor.listTagsForResource(request)
     }
 
-    final case class ListWorkGroups(
+    final case class ListWorkGroupsOp(
       request: ListWorkGroupsRequest
     ) extends AthenaOp[ListWorkGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListWorkGroupsResponse] =
         visitor.listWorkGroups(request)
     }
 
-    final case class StartQueryExecution(
+    final case class StartQueryExecutionOp(
       request: StartQueryExecutionRequest
     ) extends AthenaOp[StartQueryExecutionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartQueryExecutionResponse] =
         visitor.startQueryExecution(request)
     }
 
-    final case class StopQueryExecution(
+    final case class StopQueryExecutionOp(
       request: StopQueryExecutionRequest
     ) extends AthenaOp[StopQueryExecutionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StopQueryExecutionResponse] =
         visitor.stopQueryExecution(request)
     }
 
-    final case class TagResource(
+    final case class TagResourceOp(
       request: TagResourceRequest
     ) extends AthenaOp[TagResourceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[TagResourceResponse] =
         visitor.tagResource(request)
     }
 
-    final case class UntagResource(
+    final case class UntagResourceOp(
       request: UntagResourceRequest
     ) extends AthenaOp[UntagResourceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UntagResourceResponse] =
         visitor.untagResource(request)
     }
 
-    final case class UpdateDataCatalog(
+    final case class UpdateDataCatalogOp(
       request: UpdateDataCatalogRequest
     ) extends AthenaOp[UpdateDataCatalogResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateDataCatalogResponse] =
         visitor.updateDataCatalog(request)
     }
 
-    final case class UpdatePreparedStatement(
+    final case class UpdatePreparedStatementOp(
       request: UpdatePreparedStatementRequest
     ) extends AthenaOp[UpdatePreparedStatementResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdatePreparedStatementResponse] =
         visitor.updatePreparedStatement(request)
     }
 
-    final case class UpdateWorkGroup(
+    final case class UpdateWorkGroupOp(
       request: UpdateWorkGroupRequest
     ) extends AthenaOp[UpdateWorkGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateWorkGroupResponse] =
@@ -606,170 +606,170 @@ object athena { module =>
   def batchGetNamedQuery(
     request: BatchGetNamedQueryRequest
   ): AthenaIO[BatchGetNamedQueryResponse] =
-    FF.liftF(BatchGetNamedQuery(request))
+    FF.liftF(BatchGetNamedQueryOp(request))
 
   def batchGetQueryExecution(
     request: BatchGetQueryExecutionRequest
   ): AthenaIO[BatchGetQueryExecutionResponse] =
-    FF.liftF(BatchGetQueryExecution(request))
+    FF.liftF(BatchGetQueryExecutionOp(request))
 
   def createDataCatalog(
     request: CreateDataCatalogRequest
   ): AthenaIO[CreateDataCatalogResponse] =
-    FF.liftF(CreateDataCatalog(request))
+    FF.liftF(CreateDataCatalogOp(request))
 
   def createNamedQuery(
     request: CreateNamedQueryRequest
   ): AthenaIO[CreateNamedQueryResponse] =
-    FF.liftF(CreateNamedQuery(request))
+    FF.liftF(CreateNamedQueryOp(request))
 
   def createPreparedStatement(
     request: CreatePreparedStatementRequest
   ): AthenaIO[CreatePreparedStatementResponse] =
-    FF.liftF(CreatePreparedStatement(request))
+    FF.liftF(CreatePreparedStatementOp(request))
 
   def createWorkGroup(
     request: CreateWorkGroupRequest
   ): AthenaIO[CreateWorkGroupResponse] =
-    FF.liftF(CreateWorkGroup(request))
+    FF.liftF(CreateWorkGroupOp(request))
 
   def deleteDataCatalog(
     request: DeleteDataCatalogRequest
   ): AthenaIO[DeleteDataCatalogResponse] =
-    FF.liftF(DeleteDataCatalog(request))
+    FF.liftF(DeleteDataCatalogOp(request))
 
   def deleteNamedQuery(
     request: DeleteNamedQueryRequest
   ): AthenaIO[DeleteNamedQueryResponse] =
-    FF.liftF(DeleteNamedQuery(request))
+    FF.liftF(DeleteNamedQueryOp(request))
 
   def deletePreparedStatement(
     request: DeletePreparedStatementRequest
   ): AthenaIO[DeletePreparedStatementResponse] =
-    FF.liftF(DeletePreparedStatement(request))
+    FF.liftF(DeletePreparedStatementOp(request))
 
   def deleteWorkGroup(
     request: DeleteWorkGroupRequest
   ): AthenaIO[DeleteWorkGroupResponse] =
-    FF.liftF(DeleteWorkGroup(request))
+    FF.liftF(DeleteWorkGroupOp(request))
 
   def getDataCatalog(
     request: GetDataCatalogRequest
   ): AthenaIO[GetDataCatalogResponse] =
-    FF.liftF(GetDataCatalog(request))
+    FF.liftF(GetDataCatalogOp(request))
 
   def getDatabase(
     request: GetDatabaseRequest
   ): AthenaIO[GetDatabaseResponse] =
-    FF.liftF(GetDatabase(request))
+    FF.liftF(GetDatabaseOp(request))
 
   def getNamedQuery(
     request: GetNamedQueryRequest
   ): AthenaIO[GetNamedQueryResponse] =
-    FF.liftF(GetNamedQuery(request))
+    FF.liftF(GetNamedQueryOp(request))
 
   def getPreparedStatement(
     request: GetPreparedStatementRequest
   ): AthenaIO[GetPreparedStatementResponse] =
-    FF.liftF(GetPreparedStatement(request))
+    FF.liftF(GetPreparedStatementOp(request))
 
   def getQueryExecution(
     request: GetQueryExecutionRequest
   ): AthenaIO[GetQueryExecutionResponse] =
-    FF.liftF(GetQueryExecution(request))
+    FF.liftF(GetQueryExecutionOp(request))
 
   def getQueryResults(
     request: GetQueryResultsRequest
   ): AthenaIO[GetQueryResultsResponse] =
-    FF.liftF(GetQueryResults(request))
+    FF.liftF(GetQueryResultsOp(request))
 
   def getTableMetadata(
     request: GetTableMetadataRequest
   ): AthenaIO[GetTableMetadataResponse] =
-    FF.liftF(GetTableMetadata(request))
+    FF.liftF(GetTableMetadataOp(request))
 
   def getWorkGroup(
     request: GetWorkGroupRequest
   ): AthenaIO[GetWorkGroupResponse] =
-    FF.liftF(GetWorkGroup(request))
+    FF.liftF(GetWorkGroupOp(request))
 
   def listDataCatalogs(
     request: ListDataCatalogsRequest
   ): AthenaIO[ListDataCatalogsResponse] =
-    FF.liftF(ListDataCatalogs(request))
+    FF.liftF(ListDataCatalogsOp(request))
 
   def listDatabases(
     request: ListDatabasesRequest
   ): AthenaIO[ListDatabasesResponse] =
-    FF.liftF(ListDatabases(request))
+    FF.liftF(ListDatabasesOp(request))
 
   def listEngineVersions(
     request: ListEngineVersionsRequest
   ): AthenaIO[ListEngineVersionsResponse] =
-    FF.liftF(ListEngineVersions(request))
+    FF.liftF(ListEngineVersionsOp(request))
 
   def listNamedQueries(
     request: ListNamedQueriesRequest
   ): AthenaIO[ListNamedQueriesResponse] =
-    FF.liftF(ListNamedQueries(request))
+    FF.liftF(ListNamedQueriesOp(request))
 
   def listPreparedStatements(
     request: ListPreparedStatementsRequest
   ): AthenaIO[ListPreparedStatementsResponse] =
-    FF.liftF(ListPreparedStatements(request))
+    FF.liftF(ListPreparedStatementsOp(request))
 
   def listQueryExecutions(
     request: ListQueryExecutionsRequest
   ): AthenaIO[ListQueryExecutionsResponse] =
-    FF.liftF(ListQueryExecutions(request))
+    FF.liftF(ListQueryExecutionsOp(request))
 
   def listTableMetadata(
     request: ListTableMetadataRequest
   ): AthenaIO[ListTableMetadataResponse] =
-    FF.liftF(ListTableMetadata(request))
+    FF.liftF(ListTableMetadataOp(request))
 
   def listTagsForResource(
     request: ListTagsForResourceRequest
   ): AthenaIO[ListTagsForResourceResponse] =
-    FF.liftF(ListTagsForResource(request))
+    FF.liftF(ListTagsForResourceOp(request))
 
   def listWorkGroups(
     request: ListWorkGroupsRequest
   ): AthenaIO[ListWorkGroupsResponse] =
-    FF.liftF(ListWorkGroups(request))
+    FF.liftF(ListWorkGroupsOp(request))
 
   def startQueryExecution(
     request: StartQueryExecutionRequest
   ): AthenaIO[StartQueryExecutionResponse] =
-    FF.liftF(StartQueryExecution(request))
+    FF.liftF(StartQueryExecutionOp(request))
 
   def stopQueryExecution(
     request: StopQueryExecutionRequest
   ): AthenaIO[StopQueryExecutionResponse] =
-    FF.liftF(StopQueryExecution(request))
+    FF.liftF(StopQueryExecutionOp(request))
 
   def tagResource(
     request: TagResourceRequest
   ): AthenaIO[TagResourceResponse] =
-    FF.liftF(TagResource(request))
+    FF.liftF(TagResourceOp(request))
 
   def untagResource(
     request: UntagResourceRequest
   ): AthenaIO[UntagResourceResponse] =
-    FF.liftF(UntagResource(request))
+    FF.liftF(UntagResourceOp(request))
 
   def updateDataCatalog(
     request: UpdateDataCatalogRequest
   ): AthenaIO[UpdateDataCatalogResponse] =
-    FF.liftF(UpdateDataCatalog(request))
+    FF.liftF(UpdateDataCatalogOp(request))
 
   def updatePreparedStatement(
     request: UpdatePreparedStatementRequest
   ): AthenaIO[UpdatePreparedStatementResponse] =
-    FF.liftF(UpdatePreparedStatement(request))
+    FF.liftF(UpdatePreparedStatementOp(request))
 
   def updateWorkGroup(
     request: UpdateWorkGroupRequest
   ): AthenaIO[UpdateWorkGroupResponse] =
-    FF.liftF(UpdateWorkGroup(request))
+    FF.liftF(UpdateWorkGroupOp(request))
 }

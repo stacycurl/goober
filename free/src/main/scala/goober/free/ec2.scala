@@ -4107,3157 +4107,3157 @@ object ec2 { module =>
         visitor.embed(e)
     }
 
-    final case class AcceptReservedInstancesExchangeQuote(
+    final case class AcceptReservedInstancesExchangeQuoteOp(
       request: AcceptReservedInstancesExchangeQuoteRequest
     ) extends Ec2Op[AcceptReservedInstancesExchangeQuoteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptReservedInstancesExchangeQuoteResponse] =
         visitor.acceptReservedInstancesExchangeQuote(request)
     }
 
-    final case class AcceptTransitGatewayMulticastDomainAssociations(
+    final case class AcceptTransitGatewayMulticastDomainAssociationsOp(
       request: AcceptTransitGatewayMulticastDomainAssociationsRequest
     ) extends Ec2Op[AcceptTransitGatewayMulticastDomainAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptTransitGatewayMulticastDomainAssociationsResponse] =
         visitor.acceptTransitGatewayMulticastDomainAssociations(request)
     }
 
-    final case class AcceptTransitGatewayPeeringAttachment(
+    final case class AcceptTransitGatewayPeeringAttachmentOp(
       request: AcceptTransitGatewayPeeringAttachmentRequest
     ) extends Ec2Op[AcceptTransitGatewayPeeringAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptTransitGatewayPeeringAttachmentResponse] =
         visitor.acceptTransitGatewayPeeringAttachment(request)
     }
 
-    final case class AcceptTransitGatewayVpcAttachment(
+    final case class AcceptTransitGatewayVpcAttachmentOp(
       request: AcceptTransitGatewayVpcAttachmentRequest
     ) extends Ec2Op[AcceptTransitGatewayVpcAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptTransitGatewayVpcAttachmentResponse] =
         visitor.acceptTransitGatewayVpcAttachment(request)
     }
 
-    final case class AcceptVpcEndpointConnections(
+    final case class AcceptVpcEndpointConnectionsOp(
       request: AcceptVpcEndpointConnectionsRequest
     ) extends Ec2Op[AcceptVpcEndpointConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptVpcEndpointConnectionsResponse] =
         visitor.acceptVpcEndpointConnections(request)
     }
 
-    final case class AcceptVpcPeeringConnection(
+    final case class AcceptVpcPeeringConnectionOp(
       request: AcceptVpcPeeringConnectionRequest
     ) extends Ec2Op[AcceptVpcPeeringConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptVpcPeeringConnectionResponse] =
         visitor.acceptVpcPeeringConnection(request)
     }
 
-    final case class AdvertiseByoipCidr(
+    final case class AdvertiseByoipCidrOp(
       request: AdvertiseByoipCidrRequest
     ) extends Ec2Op[AdvertiseByoipCidrResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AdvertiseByoipCidrResponse] =
         visitor.advertiseByoipCidr(request)
     }
 
-    final case class AllocateAddress(
+    final case class AllocateAddressOp(
       request: AllocateAddressRequest
     ) extends Ec2Op[AllocateAddressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AllocateAddressResponse] =
         visitor.allocateAddress(request)
     }
 
-    final case class AllocateHosts(
+    final case class AllocateHostsOp(
       request: AllocateHostsRequest
     ) extends Ec2Op[AllocateHostsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AllocateHostsResponse] =
         visitor.allocateHosts(request)
     }
 
-    final case class ApplySecurityGroupsToClientVpnTargetNetwork(
+    final case class ApplySecurityGroupsToClientVpnTargetNetworkOp(
       request: ApplySecurityGroupsToClientVpnTargetNetworkRequest
     ) extends Ec2Op[ApplySecurityGroupsToClientVpnTargetNetworkResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ApplySecurityGroupsToClientVpnTargetNetworkResponse] =
         visitor.applySecurityGroupsToClientVpnTargetNetwork(request)
     }
 
-    final case class AssignIpv6Addresses(
+    final case class AssignIpv6AddressesOp(
       request: AssignIpv6AddressesRequest
     ) extends Ec2Op[AssignIpv6AddressesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssignIpv6AddressesResponse] =
         visitor.assignIpv6Addresses(request)
     }
 
-    final case class AssignPrivateIpAddresses(
+    final case class AssignPrivateIpAddressesOp(
       request: AssignPrivateIpAddressesRequest
     ) extends Ec2Op[AssignPrivateIpAddressesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssignPrivateIpAddressesResponse] =
         visitor.assignPrivateIpAddresses(request)
     }
 
-    final case class AssociateAddress(
+    final case class AssociateAddressOp(
       request: AssociateAddressRequest
     ) extends Ec2Op[AssociateAddressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateAddressResponse] =
         visitor.associateAddress(request)
     }
 
-    final case class AssociateClientVpnTargetNetwork(
+    final case class AssociateClientVpnTargetNetworkOp(
       request: AssociateClientVpnTargetNetworkRequest
     ) extends Ec2Op[AssociateClientVpnTargetNetworkResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateClientVpnTargetNetworkResponse] =
         visitor.associateClientVpnTargetNetwork(request)
     }
 
-    final case class AssociateDhcpOptions(
+    final case class AssociateDhcpOptionsOp(
       request: AssociateDhcpOptionsRequest
     ) extends Ec2Op[AssociateDhcpOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateDhcpOptionsResponse] =
         visitor.associateDhcpOptions(request)
     }
 
-    final case class AssociateEnclaveCertificateIamRole(
+    final case class AssociateEnclaveCertificateIamRoleOp(
       request: AssociateEnclaveCertificateIamRoleRequest
     ) extends Ec2Op[AssociateEnclaveCertificateIamRoleResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateEnclaveCertificateIamRoleResponse] =
         visitor.associateEnclaveCertificateIamRole(request)
     }
 
-    final case class AssociateIamInstanceProfile(
+    final case class AssociateIamInstanceProfileOp(
       request: AssociateIamInstanceProfileRequest
     ) extends Ec2Op[AssociateIamInstanceProfileResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateIamInstanceProfileResponse] =
         visitor.associateIamInstanceProfile(request)
     }
 
-    final case class AssociateRouteTable(
+    final case class AssociateRouteTableOp(
       request: AssociateRouteTableRequest
     ) extends Ec2Op[AssociateRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateRouteTableResponse] =
         visitor.associateRouteTable(request)
     }
 
-    final case class AssociateSubnetCidrBlock(
+    final case class AssociateSubnetCidrBlockOp(
       request: AssociateSubnetCidrBlockRequest
     ) extends Ec2Op[AssociateSubnetCidrBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateSubnetCidrBlockResponse] =
         visitor.associateSubnetCidrBlock(request)
     }
 
-    final case class AssociateTransitGatewayMulticastDomain(
+    final case class AssociateTransitGatewayMulticastDomainOp(
       request: AssociateTransitGatewayMulticastDomainRequest
     ) extends Ec2Op[AssociateTransitGatewayMulticastDomainResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateTransitGatewayMulticastDomainResponse] =
         visitor.associateTransitGatewayMulticastDomain(request)
     }
 
-    final case class AssociateTransitGatewayRouteTable(
+    final case class AssociateTransitGatewayRouteTableOp(
       request: AssociateTransitGatewayRouteTableRequest
     ) extends Ec2Op[AssociateTransitGatewayRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateTransitGatewayRouteTableResponse] =
         visitor.associateTransitGatewayRouteTable(request)
     }
 
-    final case class AssociateVpcCidrBlock(
+    final case class AssociateVpcCidrBlockOp(
       request: AssociateVpcCidrBlockRequest
     ) extends Ec2Op[AssociateVpcCidrBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AssociateVpcCidrBlockResponse] =
         visitor.associateVpcCidrBlock(request)
     }
 
-    final case class AttachClassicLinkVpc(
+    final case class AttachClassicLinkVpcOp(
       request: AttachClassicLinkVpcRequest
     ) extends Ec2Op[AttachClassicLinkVpcResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AttachClassicLinkVpcResponse] =
         visitor.attachClassicLinkVpc(request)
     }
 
-    final case class AttachInternetGateway(
+    final case class AttachInternetGatewayOp(
       request: AttachInternetGatewayRequest
     ) extends Ec2Op[AttachInternetGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AttachInternetGatewayResponse] =
         visitor.attachInternetGateway(request)
     }
 
-    final case class AttachNetworkInterface(
+    final case class AttachNetworkInterfaceOp(
       request: AttachNetworkInterfaceRequest
     ) extends Ec2Op[AttachNetworkInterfaceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AttachNetworkInterfaceResponse] =
         visitor.attachNetworkInterface(request)
     }
 
-    final case class AttachVolume(
+    final case class AttachVolumeOp(
       request: AttachVolumeRequest
     ) extends Ec2Op[AttachVolumeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AttachVolumeResponse] =
         visitor.attachVolume(request)
     }
 
-    final case class AttachVpnGateway(
+    final case class AttachVpnGatewayOp(
       request: AttachVpnGatewayRequest
     ) extends Ec2Op[AttachVpnGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AttachVpnGatewayResponse] =
         visitor.attachVpnGateway(request)
     }
 
-    final case class AuthorizeClientVpnIngress(
+    final case class AuthorizeClientVpnIngressOp(
       request: AuthorizeClientVpnIngressRequest
     ) extends Ec2Op[AuthorizeClientVpnIngressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AuthorizeClientVpnIngressResponse] =
         visitor.authorizeClientVpnIngress(request)
     }
 
-    final case class AuthorizeSecurityGroupEgress(
+    final case class AuthorizeSecurityGroupEgressOp(
       request: AuthorizeSecurityGroupEgressRequest
     ) extends Ec2Op[AuthorizeSecurityGroupEgressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AuthorizeSecurityGroupEgressResponse] =
         visitor.authorizeSecurityGroupEgress(request)
     }
 
-    final case class AuthorizeSecurityGroupIngress(
+    final case class AuthorizeSecurityGroupIngressOp(
       request: AuthorizeSecurityGroupIngressRequest
     ) extends Ec2Op[AuthorizeSecurityGroupIngressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AuthorizeSecurityGroupIngressResponse] =
         visitor.authorizeSecurityGroupIngress(request)
     }
 
-    final case class BundleInstance(
+    final case class BundleInstanceOp(
       request: BundleInstanceRequest
     ) extends Ec2Op[BundleInstanceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BundleInstanceResponse] =
         visitor.bundleInstance(request)
     }
 
-    final case class CancelBundleTask(
+    final case class CancelBundleTaskOp(
       request: CancelBundleTaskRequest
     ) extends Ec2Op[CancelBundleTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelBundleTaskResponse] =
         visitor.cancelBundleTask(request)
     }
 
-    final case class CancelCapacityReservation(
+    final case class CancelCapacityReservationOp(
       request: CancelCapacityReservationRequest
     ) extends Ec2Op[CancelCapacityReservationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelCapacityReservationResponse] =
         visitor.cancelCapacityReservation(request)
     }
 
-    final case class CancelConversionTask(
+    final case class CancelConversionTaskOp(
       request: CancelConversionTaskRequest
     ) extends Ec2Op[CancelConversionTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelConversionTaskResponse] =
         visitor.cancelConversionTask(request)
     }
 
-    final case class CancelExportTask(
+    final case class CancelExportTaskOp(
       request: CancelExportTaskRequest
     ) extends Ec2Op[CancelExportTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelExportTaskResponse] =
         visitor.cancelExportTask(request)
     }
 
-    final case class CancelImportTask(
+    final case class CancelImportTaskOp(
       request: CancelImportTaskRequest
     ) extends Ec2Op[CancelImportTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelImportTaskResponse] =
         visitor.cancelImportTask(request)
     }
 
-    final case class CancelReservedInstancesListing(
+    final case class CancelReservedInstancesListingOp(
       request: CancelReservedInstancesListingRequest
     ) extends Ec2Op[CancelReservedInstancesListingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelReservedInstancesListingResponse] =
         visitor.cancelReservedInstancesListing(request)
     }
 
-    final case class CancelSpotFleetRequests(
+    final case class CancelSpotFleetRequestsOp(
       request: CancelSpotFleetRequestsRequest
     ) extends Ec2Op[CancelSpotFleetRequestsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelSpotFleetRequestsResponse] =
         visitor.cancelSpotFleetRequests(request)
     }
 
-    final case class CancelSpotInstanceRequests(
+    final case class CancelSpotInstanceRequestsOp(
       request: CancelSpotInstanceRequestsRequest
     ) extends Ec2Op[CancelSpotInstanceRequestsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CancelSpotInstanceRequestsResponse] =
         visitor.cancelSpotInstanceRequests(request)
     }
 
-    final case class ConfirmProductInstance(
+    final case class ConfirmProductInstanceOp(
       request: ConfirmProductInstanceRequest
     ) extends Ec2Op[ConfirmProductInstanceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ConfirmProductInstanceResponse] =
         visitor.confirmProductInstance(request)
     }
 
-    final case class CopyFpgaImage(
+    final case class CopyFpgaImageOp(
       request: CopyFpgaImageRequest
     ) extends Ec2Op[CopyFpgaImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CopyFpgaImageResponse] =
         visitor.copyFpgaImage(request)
     }
 
-    final case class CopyImage(
+    final case class CopyImageOp(
       request: CopyImageRequest
     ) extends Ec2Op[CopyImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CopyImageResponse] =
         visitor.copyImage(request)
     }
 
-    final case class CopySnapshot(
+    final case class CopySnapshotOp(
       request: CopySnapshotRequest
     ) extends Ec2Op[CopySnapshotResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CopySnapshotResponse] =
         visitor.copySnapshot(request)
     }
 
-    final case class CreateCapacityReservation(
+    final case class CreateCapacityReservationOp(
       request: CreateCapacityReservationRequest
     ) extends Ec2Op[CreateCapacityReservationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateCapacityReservationResponse] =
         visitor.createCapacityReservation(request)
     }
 
-    final case class CreateCarrierGateway(
+    final case class CreateCarrierGatewayOp(
       request: CreateCarrierGatewayRequest
     ) extends Ec2Op[CreateCarrierGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateCarrierGatewayResponse] =
         visitor.createCarrierGateway(request)
     }
 
-    final case class CreateClientVpnEndpoint(
+    final case class CreateClientVpnEndpointOp(
       request: CreateClientVpnEndpointRequest
     ) extends Ec2Op[CreateClientVpnEndpointResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateClientVpnEndpointResponse] =
         visitor.createClientVpnEndpoint(request)
     }
 
-    final case class CreateClientVpnRoute(
+    final case class CreateClientVpnRouteOp(
       request: CreateClientVpnRouteRequest
     ) extends Ec2Op[CreateClientVpnRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateClientVpnRouteResponse] =
         visitor.createClientVpnRoute(request)
     }
 
-    final case class CreateCustomerGateway(
+    final case class CreateCustomerGatewayOp(
       request: CreateCustomerGatewayRequest
     ) extends Ec2Op[CreateCustomerGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateCustomerGatewayResponse] =
         visitor.createCustomerGateway(request)
     }
 
-    final case class CreateDefaultSubnet(
+    final case class CreateDefaultSubnetOp(
       request: CreateDefaultSubnetRequest
     ) extends Ec2Op[CreateDefaultSubnetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateDefaultSubnetResponse] =
         visitor.createDefaultSubnet(request)
     }
 
-    final case class CreateDefaultVpc(
+    final case class CreateDefaultVpcOp(
       request: CreateDefaultVpcRequest
     ) extends Ec2Op[CreateDefaultVpcResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateDefaultVpcResponse] =
         visitor.createDefaultVpc(request)
     }
 
-    final case class CreateDhcpOptions(
+    final case class CreateDhcpOptionsOp(
       request: CreateDhcpOptionsRequest
     ) extends Ec2Op[CreateDhcpOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateDhcpOptionsResponse] =
         visitor.createDhcpOptions(request)
     }
 
-    final case class CreateEgressOnlyInternetGateway(
+    final case class CreateEgressOnlyInternetGatewayOp(
       request: CreateEgressOnlyInternetGatewayRequest
     ) extends Ec2Op[CreateEgressOnlyInternetGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateEgressOnlyInternetGatewayResponse] =
         visitor.createEgressOnlyInternetGateway(request)
     }
 
-    final case class CreateFleet(
+    final case class CreateFleetOp(
       request: CreateFleetRequest
     ) extends Ec2Op[CreateFleetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateFleetResponse] =
         visitor.createFleet(request)
     }
 
-    final case class CreateFlowLogs(
+    final case class CreateFlowLogsOp(
       request: CreateFlowLogsRequest
     ) extends Ec2Op[CreateFlowLogsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateFlowLogsResponse] =
         visitor.createFlowLogs(request)
     }
 
-    final case class CreateFpgaImage(
+    final case class CreateFpgaImageOp(
       request: CreateFpgaImageRequest
     ) extends Ec2Op[CreateFpgaImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateFpgaImageResponse] =
         visitor.createFpgaImage(request)
     }
 
-    final case class CreateImage(
+    final case class CreateImageOp(
       request: CreateImageRequest
     ) extends Ec2Op[CreateImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateImageResponse] =
         visitor.createImage(request)
     }
 
-    final case class CreateInstanceExportTask(
+    final case class CreateInstanceExportTaskOp(
       request: CreateInstanceExportTaskRequest
     ) extends Ec2Op[CreateInstanceExportTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateInstanceExportTaskResponse] =
         visitor.createInstanceExportTask(request)
     }
 
-    final case class CreateInternetGateway(
+    final case class CreateInternetGatewayOp(
       request: CreateInternetGatewayRequest
     ) extends Ec2Op[CreateInternetGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateInternetGatewayResponse] =
         visitor.createInternetGateway(request)
     }
 
-    final case class CreateKeyPair(
+    final case class CreateKeyPairOp(
       request: CreateKeyPairRequest
     ) extends Ec2Op[CreateKeyPairResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateKeyPairResponse] =
         visitor.createKeyPair(request)
     }
 
-    final case class CreateLaunchTemplate(
+    final case class CreateLaunchTemplateOp(
       request: CreateLaunchTemplateRequest
     ) extends Ec2Op[CreateLaunchTemplateResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateLaunchTemplateResponse] =
         visitor.createLaunchTemplate(request)
     }
 
-    final case class CreateLaunchTemplateVersion(
+    final case class CreateLaunchTemplateVersionOp(
       request: CreateLaunchTemplateVersionRequest
     ) extends Ec2Op[CreateLaunchTemplateVersionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateLaunchTemplateVersionResponse] =
         visitor.createLaunchTemplateVersion(request)
     }
 
-    final case class CreateLocalGatewayRoute(
+    final case class CreateLocalGatewayRouteOp(
       request: CreateLocalGatewayRouteRequest
     ) extends Ec2Op[CreateLocalGatewayRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateLocalGatewayRouteResponse] =
         visitor.createLocalGatewayRoute(request)
     }
 
-    final case class CreateLocalGatewayRouteTableVpcAssociation(
+    final case class CreateLocalGatewayRouteTableVpcAssociationOp(
       request: CreateLocalGatewayRouteTableVpcAssociationRequest
     ) extends Ec2Op[CreateLocalGatewayRouteTableVpcAssociationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateLocalGatewayRouteTableVpcAssociationResponse] =
         visitor.createLocalGatewayRouteTableVpcAssociation(request)
     }
 
-    final case class CreateManagedPrefixList(
+    final case class CreateManagedPrefixListOp(
       request: CreateManagedPrefixListRequest
     ) extends Ec2Op[CreateManagedPrefixListResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateManagedPrefixListResponse] =
         visitor.createManagedPrefixList(request)
     }
 
-    final case class CreateNatGateway(
+    final case class CreateNatGatewayOp(
       request: CreateNatGatewayRequest
     ) extends Ec2Op[CreateNatGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNatGatewayResponse] =
         visitor.createNatGateway(request)
     }
 
-    final case class CreateNetworkAcl(
+    final case class CreateNetworkAclOp(
       request: CreateNetworkAclRequest
     ) extends Ec2Op[CreateNetworkAclResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNetworkAclResponse] =
         visitor.createNetworkAcl(request)
     }
 
-    final case class CreateNetworkAclEntry(
+    final case class CreateNetworkAclEntryOp(
       request: CreateNetworkAclEntryRequest
     ) extends Ec2Op[CreateNetworkAclEntryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNetworkAclEntryResponse] =
         visitor.createNetworkAclEntry(request)
     }
 
-    final case class CreateNetworkInsightsPath(
+    final case class CreateNetworkInsightsPathOp(
       request: CreateNetworkInsightsPathRequest
     ) extends Ec2Op[CreateNetworkInsightsPathResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNetworkInsightsPathResponse] =
         visitor.createNetworkInsightsPath(request)
     }
 
-    final case class CreateNetworkInterface(
+    final case class CreateNetworkInterfaceOp(
       request: CreateNetworkInterfaceRequest
     ) extends Ec2Op[CreateNetworkInterfaceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNetworkInterfaceResponse] =
         visitor.createNetworkInterface(request)
     }
 
-    final case class CreateNetworkInterfacePermission(
+    final case class CreateNetworkInterfacePermissionOp(
       request: CreateNetworkInterfacePermissionRequest
     ) extends Ec2Op[CreateNetworkInterfacePermissionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateNetworkInterfacePermissionResponse] =
         visitor.createNetworkInterfacePermission(request)
     }
 
-    final case class CreatePlacementGroup(
+    final case class CreatePlacementGroupOp(
       request: CreatePlacementGroupRequest
     ) extends Ec2Op[CreatePlacementGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreatePlacementGroupResponse] =
         visitor.createPlacementGroup(request)
     }
 
-    final case class CreateReplaceRootVolumeTask(
+    final case class CreateReplaceRootVolumeTaskOp(
       request: CreateReplaceRootVolumeTaskRequest
     ) extends Ec2Op[CreateReplaceRootVolumeTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateReplaceRootVolumeTaskResponse] =
         visitor.createReplaceRootVolumeTask(request)
     }
 
-    final case class CreateReservedInstancesListing(
+    final case class CreateReservedInstancesListingOp(
       request: CreateReservedInstancesListingRequest
     ) extends Ec2Op[CreateReservedInstancesListingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateReservedInstancesListingResponse] =
         visitor.createReservedInstancesListing(request)
     }
 
-    final case class CreateRestoreImageTask(
+    final case class CreateRestoreImageTaskOp(
       request: CreateRestoreImageTaskRequest
     ) extends Ec2Op[CreateRestoreImageTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateRestoreImageTaskResponse] =
         visitor.createRestoreImageTask(request)
     }
 
-    final case class CreateRoute(
+    final case class CreateRouteOp(
       request: CreateRouteRequest
     ) extends Ec2Op[CreateRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateRouteResponse] =
         visitor.createRoute(request)
     }
 
-    final case class CreateRouteTable(
+    final case class CreateRouteTableOp(
       request: CreateRouteTableRequest
     ) extends Ec2Op[CreateRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateRouteTableResponse] =
         visitor.createRouteTable(request)
     }
 
-    final case class CreateSecurityGroup(
+    final case class CreateSecurityGroupOp(
       request: CreateSecurityGroupRequest
     ) extends Ec2Op[CreateSecurityGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateSecurityGroupResponse] =
         visitor.createSecurityGroup(request)
     }
 
-    final case class CreateSnapshot(
+    final case class CreateSnapshotOp(
       request: CreateSnapshotRequest
     ) extends Ec2Op[CreateSnapshotResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateSnapshotResponse] =
         visitor.createSnapshot(request)
     }
 
-    final case class CreateSnapshots(
+    final case class CreateSnapshotsOp(
       request: CreateSnapshotsRequest
     ) extends Ec2Op[CreateSnapshotsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateSnapshotsResponse] =
         visitor.createSnapshots(request)
     }
 
-    final case class CreateSpotDatafeedSubscription(
+    final case class CreateSpotDatafeedSubscriptionOp(
       request: CreateSpotDatafeedSubscriptionRequest
     ) extends Ec2Op[CreateSpotDatafeedSubscriptionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateSpotDatafeedSubscriptionResponse] =
         visitor.createSpotDatafeedSubscription(request)
     }
 
-    final case class CreateStoreImageTask(
+    final case class CreateStoreImageTaskOp(
       request: CreateStoreImageTaskRequest
     ) extends Ec2Op[CreateStoreImageTaskResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateStoreImageTaskResponse] =
         visitor.createStoreImageTask(request)
     }
 
-    final case class CreateSubnet(
+    final case class CreateSubnetOp(
       request: CreateSubnetRequest
     ) extends Ec2Op[CreateSubnetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateSubnetResponse] =
         visitor.createSubnet(request)
     }
 
-    final case class CreateTags(
+    final case class CreateTagsOp(
       request: CreateTagsRequest
     ) extends Ec2Op[CreateTagsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTagsResponse] =
         visitor.createTags(request)
     }
 
-    final case class CreateTrafficMirrorFilter(
+    final case class CreateTrafficMirrorFilterOp(
       request: CreateTrafficMirrorFilterRequest
     ) extends Ec2Op[CreateTrafficMirrorFilterResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTrafficMirrorFilterResponse] =
         visitor.createTrafficMirrorFilter(request)
     }
 
-    final case class CreateTrafficMirrorFilterRule(
+    final case class CreateTrafficMirrorFilterRuleOp(
       request: CreateTrafficMirrorFilterRuleRequest
     ) extends Ec2Op[CreateTrafficMirrorFilterRuleResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTrafficMirrorFilterRuleResponse] =
         visitor.createTrafficMirrorFilterRule(request)
     }
 
-    final case class CreateTrafficMirrorSession(
+    final case class CreateTrafficMirrorSessionOp(
       request: CreateTrafficMirrorSessionRequest
     ) extends Ec2Op[CreateTrafficMirrorSessionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTrafficMirrorSessionResponse] =
         visitor.createTrafficMirrorSession(request)
     }
 
-    final case class CreateTrafficMirrorTarget(
+    final case class CreateTrafficMirrorTargetOp(
       request: CreateTrafficMirrorTargetRequest
     ) extends Ec2Op[CreateTrafficMirrorTargetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTrafficMirrorTargetResponse] =
         visitor.createTrafficMirrorTarget(request)
     }
 
-    final case class CreateTransitGateway(
+    final case class CreateTransitGatewayOp(
       request: CreateTransitGatewayRequest
     ) extends Ec2Op[CreateTransitGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayResponse] =
         visitor.createTransitGateway(request)
     }
 
-    final case class CreateTransitGatewayConnect(
+    final case class CreateTransitGatewayConnectOp(
       request: CreateTransitGatewayConnectRequest
     ) extends Ec2Op[CreateTransitGatewayConnectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayConnectResponse] =
         visitor.createTransitGatewayConnect(request)
     }
 
-    final case class CreateTransitGatewayConnectPeer(
+    final case class CreateTransitGatewayConnectPeerOp(
       request: CreateTransitGatewayConnectPeerRequest
     ) extends Ec2Op[CreateTransitGatewayConnectPeerResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayConnectPeerResponse] =
         visitor.createTransitGatewayConnectPeer(request)
     }
 
-    final case class CreateTransitGatewayMulticastDomain(
+    final case class CreateTransitGatewayMulticastDomainOp(
       request: CreateTransitGatewayMulticastDomainRequest
     ) extends Ec2Op[CreateTransitGatewayMulticastDomainResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayMulticastDomainResponse] =
         visitor.createTransitGatewayMulticastDomain(request)
     }
 
-    final case class CreateTransitGatewayPeeringAttachment(
+    final case class CreateTransitGatewayPeeringAttachmentOp(
       request: CreateTransitGatewayPeeringAttachmentRequest
     ) extends Ec2Op[CreateTransitGatewayPeeringAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayPeeringAttachmentResponse] =
         visitor.createTransitGatewayPeeringAttachment(request)
     }
 
-    final case class CreateTransitGatewayPrefixListReference(
+    final case class CreateTransitGatewayPrefixListReferenceOp(
       request: CreateTransitGatewayPrefixListReferenceRequest
     ) extends Ec2Op[CreateTransitGatewayPrefixListReferenceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayPrefixListReferenceResponse] =
         visitor.createTransitGatewayPrefixListReference(request)
     }
 
-    final case class CreateTransitGatewayRoute(
+    final case class CreateTransitGatewayRouteOp(
       request: CreateTransitGatewayRouteRequest
     ) extends Ec2Op[CreateTransitGatewayRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayRouteResponse] =
         visitor.createTransitGatewayRoute(request)
     }
 
-    final case class CreateTransitGatewayRouteTable(
+    final case class CreateTransitGatewayRouteTableOp(
       request: CreateTransitGatewayRouteTableRequest
     ) extends Ec2Op[CreateTransitGatewayRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayRouteTableResponse] =
         visitor.createTransitGatewayRouteTable(request)
     }
 
-    final case class CreateTransitGatewayVpcAttachment(
+    final case class CreateTransitGatewayVpcAttachmentOp(
       request: CreateTransitGatewayVpcAttachmentRequest
     ) extends Ec2Op[CreateTransitGatewayVpcAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateTransitGatewayVpcAttachmentResponse] =
         visitor.createTransitGatewayVpcAttachment(request)
     }
 
-    final case class CreateVolume(
+    final case class CreateVolumeOp(
       request: CreateVolumeRequest
     ) extends Ec2Op[CreateVolumeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVolumeResponse] =
         visitor.createVolume(request)
     }
 
-    final case class CreateVpc(
+    final case class CreateVpcOp(
       request: CreateVpcRequest
     ) extends Ec2Op[CreateVpcResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpcResponse] =
         visitor.createVpc(request)
     }
 
-    final case class CreateVpcEndpoint(
+    final case class CreateVpcEndpointOp(
       request: CreateVpcEndpointRequest
     ) extends Ec2Op[CreateVpcEndpointResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpcEndpointResponse] =
         visitor.createVpcEndpoint(request)
     }
 
-    final case class CreateVpcEndpointConnectionNotification(
+    final case class CreateVpcEndpointConnectionNotificationOp(
       request: CreateVpcEndpointConnectionNotificationRequest
     ) extends Ec2Op[CreateVpcEndpointConnectionNotificationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpcEndpointConnectionNotificationResponse] =
         visitor.createVpcEndpointConnectionNotification(request)
     }
 
-    final case class CreateVpcEndpointServiceConfiguration(
+    final case class CreateVpcEndpointServiceConfigurationOp(
       request: CreateVpcEndpointServiceConfigurationRequest
     ) extends Ec2Op[CreateVpcEndpointServiceConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpcEndpointServiceConfigurationResponse] =
         visitor.createVpcEndpointServiceConfiguration(request)
     }
 
-    final case class CreateVpcPeeringConnection(
+    final case class CreateVpcPeeringConnectionOp(
       request: CreateVpcPeeringConnectionRequest
     ) extends Ec2Op[CreateVpcPeeringConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpcPeeringConnectionResponse] =
         visitor.createVpcPeeringConnection(request)
     }
 
-    final case class CreateVpnConnection(
+    final case class CreateVpnConnectionOp(
       request: CreateVpnConnectionRequest
     ) extends Ec2Op[CreateVpnConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpnConnectionResponse] =
         visitor.createVpnConnection(request)
     }
 
-    final case class CreateVpnConnectionRoute(
+    final case class CreateVpnConnectionRouteOp(
       request: CreateVpnConnectionRouteRequest
     ) extends Ec2Op[CreateVpnConnectionRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpnConnectionRouteResponse] =
         visitor.createVpnConnectionRoute(request)
     }
 
-    final case class CreateVpnGateway(
+    final case class CreateVpnGatewayOp(
       request: CreateVpnGatewayRequest
     ) extends Ec2Op[CreateVpnGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateVpnGatewayResponse] =
         visitor.createVpnGateway(request)
     }
 
-    final case class DeleteCarrierGateway(
+    final case class DeleteCarrierGatewayOp(
       request: DeleteCarrierGatewayRequest
     ) extends Ec2Op[DeleteCarrierGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteCarrierGatewayResponse] =
         visitor.deleteCarrierGateway(request)
     }
 
-    final case class DeleteClientVpnEndpoint(
+    final case class DeleteClientVpnEndpointOp(
       request: DeleteClientVpnEndpointRequest
     ) extends Ec2Op[DeleteClientVpnEndpointResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteClientVpnEndpointResponse] =
         visitor.deleteClientVpnEndpoint(request)
     }
 
-    final case class DeleteClientVpnRoute(
+    final case class DeleteClientVpnRouteOp(
       request: DeleteClientVpnRouteRequest
     ) extends Ec2Op[DeleteClientVpnRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteClientVpnRouteResponse] =
         visitor.deleteClientVpnRoute(request)
     }
 
-    final case class DeleteCustomerGateway(
+    final case class DeleteCustomerGatewayOp(
       request: DeleteCustomerGatewayRequest
     ) extends Ec2Op[DeleteCustomerGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteCustomerGatewayResponse] =
         visitor.deleteCustomerGateway(request)
     }
 
-    final case class DeleteDhcpOptions(
+    final case class DeleteDhcpOptionsOp(
       request: DeleteDhcpOptionsRequest
     ) extends Ec2Op[DeleteDhcpOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteDhcpOptionsResponse] =
         visitor.deleteDhcpOptions(request)
     }
 
-    final case class DeleteEgressOnlyInternetGateway(
+    final case class DeleteEgressOnlyInternetGatewayOp(
       request: DeleteEgressOnlyInternetGatewayRequest
     ) extends Ec2Op[DeleteEgressOnlyInternetGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteEgressOnlyInternetGatewayResponse] =
         visitor.deleteEgressOnlyInternetGateway(request)
     }
 
-    final case class DeleteFleets(
+    final case class DeleteFleetsOp(
       request: DeleteFleetsRequest
     ) extends Ec2Op[DeleteFleetsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteFleetsResponse] =
         visitor.deleteFleets(request)
     }
 
-    final case class DeleteFlowLogs(
+    final case class DeleteFlowLogsOp(
       request: DeleteFlowLogsRequest
     ) extends Ec2Op[DeleteFlowLogsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteFlowLogsResponse] =
         visitor.deleteFlowLogs(request)
     }
 
-    final case class DeleteFpgaImage(
+    final case class DeleteFpgaImageOp(
       request: DeleteFpgaImageRequest
     ) extends Ec2Op[DeleteFpgaImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteFpgaImageResponse] =
         visitor.deleteFpgaImage(request)
     }
 
-    final case class DeleteInternetGateway(
+    final case class DeleteInternetGatewayOp(
       request: DeleteInternetGatewayRequest
     ) extends Ec2Op[DeleteInternetGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteInternetGatewayResponse] =
         visitor.deleteInternetGateway(request)
     }
 
-    final case class DeleteKeyPair(
+    final case class DeleteKeyPairOp(
       request: DeleteKeyPairRequest
     ) extends Ec2Op[DeleteKeyPairResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteKeyPairResponse] =
         visitor.deleteKeyPair(request)
     }
 
-    final case class DeleteLaunchTemplate(
+    final case class DeleteLaunchTemplateOp(
       request: DeleteLaunchTemplateRequest
     ) extends Ec2Op[DeleteLaunchTemplateResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteLaunchTemplateResponse] =
         visitor.deleteLaunchTemplate(request)
     }
 
-    final case class DeleteLaunchTemplateVersions(
+    final case class DeleteLaunchTemplateVersionsOp(
       request: DeleteLaunchTemplateVersionsRequest
     ) extends Ec2Op[DeleteLaunchTemplateVersionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteLaunchTemplateVersionsResponse] =
         visitor.deleteLaunchTemplateVersions(request)
     }
 
-    final case class DeleteLocalGatewayRoute(
+    final case class DeleteLocalGatewayRouteOp(
       request: DeleteLocalGatewayRouteRequest
     ) extends Ec2Op[DeleteLocalGatewayRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteLocalGatewayRouteResponse] =
         visitor.deleteLocalGatewayRoute(request)
     }
 
-    final case class DeleteLocalGatewayRouteTableVpcAssociation(
+    final case class DeleteLocalGatewayRouteTableVpcAssociationOp(
       request: DeleteLocalGatewayRouteTableVpcAssociationRequest
     ) extends Ec2Op[DeleteLocalGatewayRouteTableVpcAssociationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
         visitor.deleteLocalGatewayRouteTableVpcAssociation(request)
     }
 
-    final case class DeleteManagedPrefixList(
+    final case class DeleteManagedPrefixListOp(
       request: DeleteManagedPrefixListRequest
     ) extends Ec2Op[DeleteManagedPrefixListResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteManagedPrefixListResponse] =
         visitor.deleteManagedPrefixList(request)
     }
 
-    final case class DeleteNatGateway(
+    final case class DeleteNatGatewayOp(
       request: DeleteNatGatewayRequest
     ) extends Ec2Op[DeleteNatGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNatGatewayResponse] =
         visitor.deleteNatGateway(request)
     }
 
-    final case class DeleteNetworkAcl(
+    final case class DeleteNetworkAclOp(
       request: DeleteNetworkAclRequest
     ) extends Ec2Op[DeleteNetworkAclResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNetworkAclResponse] =
         visitor.deleteNetworkAcl(request)
     }
 
-    final case class DeleteNetworkAclEntry(
+    final case class DeleteNetworkAclEntryOp(
       request: DeleteNetworkAclEntryRequest
     ) extends Ec2Op[DeleteNetworkAclEntryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNetworkAclEntryResponse] =
         visitor.deleteNetworkAclEntry(request)
     }
 
-    final case class DeleteNetworkInsightsAnalysis(
+    final case class DeleteNetworkInsightsAnalysisOp(
       request: DeleteNetworkInsightsAnalysisRequest
     ) extends Ec2Op[DeleteNetworkInsightsAnalysisResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNetworkInsightsAnalysisResponse] =
         visitor.deleteNetworkInsightsAnalysis(request)
     }
 
-    final case class DeleteNetworkInsightsPath(
+    final case class DeleteNetworkInsightsPathOp(
       request: DeleteNetworkInsightsPathRequest
     ) extends Ec2Op[DeleteNetworkInsightsPathResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNetworkInsightsPathResponse] =
         visitor.deleteNetworkInsightsPath(request)
     }
 
-    final case class DeleteNetworkInterface(
+    final case class DeleteNetworkInterfaceOp(
       request: DeleteNetworkInterfaceRequest
     ) extends Ec2Op[DeleteNetworkInterfaceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNetworkInterfaceResponse] =
         visitor.deleteNetworkInterface(request)
     }
 
-    final case class DeleteNetworkInterfacePermission(
+    final case class DeleteNetworkInterfacePermissionOp(
       request: DeleteNetworkInterfacePermissionRequest
     ) extends Ec2Op[DeleteNetworkInterfacePermissionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteNetworkInterfacePermissionResponse] =
         visitor.deleteNetworkInterfacePermission(request)
     }
 
-    final case class DeletePlacementGroup(
+    final case class DeletePlacementGroupOp(
       request: DeletePlacementGroupRequest
     ) extends Ec2Op[DeletePlacementGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeletePlacementGroupResponse] =
         visitor.deletePlacementGroup(request)
     }
 
-    final case class DeleteQueuedReservedInstances(
+    final case class DeleteQueuedReservedInstancesOp(
       request: DeleteQueuedReservedInstancesRequest
     ) extends Ec2Op[DeleteQueuedReservedInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteQueuedReservedInstancesResponse] =
         visitor.deleteQueuedReservedInstances(request)
     }
 
-    final case class DeleteRoute(
+    final case class DeleteRouteOp(
       request: DeleteRouteRequest
     ) extends Ec2Op[DeleteRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteRouteResponse] =
         visitor.deleteRoute(request)
     }
 
-    final case class DeleteRouteTable(
+    final case class DeleteRouteTableOp(
       request: DeleteRouteTableRequest
     ) extends Ec2Op[DeleteRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteRouteTableResponse] =
         visitor.deleteRouteTable(request)
     }
 
-    final case class DeleteSecurityGroup(
+    final case class DeleteSecurityGroupOp(
       request: DeleteSecurityGroupRequest
     ) extends Ec2Op[DeleteSecurityGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteSecurityGroupResponse] =
         visitor.deleteSecurityGroup(request)
     }
 
-    final case class DeleteSnapshot(
+    final case class DeleteSnapshotOp(
       request: DeleteSnapshotRequest
     ) extends Ec2Op[DeleteSnapshotResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteSnapshotResponse] =
         visitor.deleteSnapshot(request)
     }
 
-    final case class DeleteSpotDatafeedSubscription(
+    final case class DeleteSpotDatafeedSubscriptionOp(
       request: DeleteSpotDatafeedSubscriptionRequest
     ) extends Ec2Op[DeleteSpotDatafeedSubscriptionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteSpotDatafeedSubscriptionResponse] =
         visitor.deleteSpotDatafeedSubscription(request)
     }
 
-    final case class DeleteSubnet(
+    final case class DeleteSubnetOp(
       request: DeleteSubnetRequest
     ) extends Ec2Op[DeleteSubnetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteSubnetResponse] =
         visitor.deleteSubnet(request)
     }
 
-    final case class DeleteTags(
+    final case class DeleteTagsOp(
       request: DeleteTagsRequest
     ) extends Ec2Op[DeleteTagsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTagsResponse] =
         visitor.deleteTags(request)
     }
 
-    final case class DeleteTrafficMirrorFilter(
+    final case class DeleteTrafficMirrorFilterOp(
       request: DeleteTrafficMirrorFilterRequest
     ) extends Ec2Op[DeleteTrafficMirrorFilterResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTrafficMirrorFilterResponse] =
         visitor.deleteTrafficMirrorFilter(request)
     }
 
-    final case class DeleteTrafficMirrorFilterRule(
+    final case class DeleteTrafficMirrorFilterRuleOp(
       request: DeleteTrafficMirrorFilterRuleRequest
     ) extends Ec2Op[DeleteTrafficMirrorFilterRuleResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTrafficMirrorFilterRuleResponse] =
         visitor.deleteTrafficMirrorFilterRule(request)
     }
 
-    final case class DeleteTrafficMirrorSession(
+    final case class DeleteTrafficMirrorSessionOp(
       request: DeleteTrafficMirrorSessionRequest
     ) extends Ec2Op[DeleteTrafficMirrorSessionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTrafficMirrorSessionResponse] =
         visitor.deleteTrafficMirrorSession(request)
     }
 
-    final case class DeleteTrafficMirrorTarget(
+    final case class DeleteTrafficMirrorTargetOp(
       request: DeleteTrafficMirrorTargetRequest
     ) extends Ec2Op[DeleteTrafficMirrorTargetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTrafficMirrorTargetResponse] =
         visitor.deleteTrafficMirrorTarget(request)
     }
 
-    final case class DeleteTransitGateway(
+    final case class DeleteTransitGatewayOp(
       request: DeleteTransitGatewayRequest
     ) extends Ec2Op[DeleteTransitGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayResponse] =
         visitor.deleteTransitGateway(request)
     }
 
-    final case class DeleteTransitGatewayConnect(
+    final case class DeleteTransitGatewayConnectOp(
       request: DeleteTransitGatewayConnectRequest
     ) extends Ec2Op[DeleteTransitGatewayConnectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayConnectResponse] =
         visitor.deleteTransitGatewayConnect(request)
     }
 
-    final case class DeleteTransitGatewayConnectPeer(
+    final case class DeleteTransitGatewayConnectPeerOp(
       request: DeleteTransitGatewayConnectPeerRequest
     ) extends Ec2Op[DeleteTransitGatewayConnectPeerResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayConnectPeerResponse] =
         visitor.deleteTransitGatewayConnectPeer(request)
     }
 
-    final case class DeleteTransitGatewayMulticastDomain(
+    final case class DeleteTransitGatewayMulticastDomainOp(
       request: DeleteTransitGatewayMulticastDomainRequest
     ) extends Ec2Op[DeleteTransitGatewayMulticastDomainResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayMulticastDomainResponse] =
         visitor.deleteTransitGatewayMulticastDomain(request)
     }
 
-    final case class DeleteTransitGatewayPeeringAttachment(
+    final case class DeleteTransitGatewayPeeringAttachmentOp(
       request: DeleteTransitGatewayPeeringAttachmentRequest
     ) extends Ec2Op[DeleteTransitGatewayPeeringAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayPeeringAttachmentResponse] =
         visitor.deleteTransitGatewayPeeringAttachment(request)
     }
 
-    final case class DeleteTransitGatewayPrefixListReference(
+    final case class DeleteTransitGatewayPrefixListReferenceOp(
       request: DeleteTransitGatewayPrefixListReferenceRequest
     ) extends Ec2Op[DeleteTransitGatewayPrefixListReferenceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayPrefixListReferenceResponse] =
         visitor.deleteTransitGatewayPrefixListReference(request)
     }
 
-    final case class DeleteTransitGatewayRoute(
+    final case class DeleteTransitGatewayRouteOp(
       request: DeleteTransitGatewayRouteRequest
     ) extends Ec2Op[DeleteTransitGatewayRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayRouteResponse] =
         visitor.deleteTransitGatewayRoute(request)
     }
 
-    final case class DeleteTransitGatewayRouteTable(
+    final case class DeleteTransitGatewayRouteTableOp(
       request: DeleteTransitGatewayRouteTableRequest
     ) extends Ec2Op[DeleteTransitGatewayRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayRouteTableResponse] =
         visitor.deleteTransitGatewayRouteTable(request)
     }
 
-    final case class DeleteTransitGatewayVpcAttachment(
+    final case class DeleteTransitGatewayVpcAttachmentOp(
       request: DeleteTransitGatewayVpcAttachmentRequest
     ) extends Ec2Op[DeleteTransitGatewayVpcAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteTransitGatewayVpcAttachmentResponse] =
         visitor.deleteTransitGatewayVpcAttachment(request)
     }
 
-    final case class DeleteVolume(
+    final case class DeleteVolumeOp(
       request: DeleteVolumeRequest
     ) extends Ec2Op[DeleteVolumeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVolumeResponse] =
         visitor.deleteVolume(request)
     }
 
-    final case class DeleteVpc(
+    final case class DeleteVpcOp(
       request: DeleteVpcRequest
     ) extends Ec2Op[DeleteVpcResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpcResponse] =
         visitor.deleteVpc(request)
     }
 
-    final case class DeleteVpcEndpointConnectionNotifications(
+    final case class DeleteVpcEndpointConnectionNotificationsOp(
       request: DeleteVpcEndpointConnectionNotificationsRequest
     ) extends Ec2Op[DeleteVpcEndpointConnectionNotificationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpcEndpointConnectionNotificationsResponse] =
         visitor.deleteVpcEndpointConnectionNotifications(request)
     }
 
-    final case class DeleteVpcEndpointServiceConfigurations(
+    final case class DeleteVpcEndpointServiceConfigurationsOp(
       request: DeleteVpcEndpointServiceConfigurationsRequest
     ) extends Ec2Op[DeleteVpcEndpointServiceConfigurationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpcEndpointServiceConfigurationsResponse] =
         visitor.deleteVpcEndpointServiceConfigurations(request)
     }
 
-    final case class DeleteVpcEndpoints(
+    final case class DeleteVpcEndpointsOp(
       request: DeleteVpcEndpointsRequest
     ) extends Ec2Op[DeleteVpcEndpointsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpcEndpointsResponse] =
         visitor.deleteVpcEndpoints(request)
     }
 
-    final case class DeleteVpcPeeringConnection(
+    final case class DeleteVpcPeeringConnectionOp(
       request: DeleteVpcPeeringConnectionRequest
     ) extends Ec2Op[DeleteVpcPeeringConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpcPeeringConnectionResponse] =
         visitor.deleteVpcPeeringConnection(request)
     }
 
-    final case class DeleteVpnConnection(
+    final case class DeleteVpnConnectionOp(
       request: DeleteVpnConnectionRequest
     ) extends Ec2Op[DeleteVpnConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpnConnectionResponse] =
         visitor.deleteVpnConnection(request)
     }
 
-    final case class DeleteVpnConnectionRoute(
+    final case class DeleteVpnConnectionRouteOp(
       request: DeleteVpnConnectionRouteRequest
     ) extends Ec2Op[DeleteVpnConnectionRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpnConnectionRouteResponse] =
         visitor.deleteVpnConnectionRoute(request)
     }
 
-    final case class DeleteVpnGateway(
+    final case class DeleteVpnGatewayOp(
       request: DeleteVpnGatewayRequest
     ) extends Ec2Op[DeleteVpnGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteVpnGatewayResponse] =
         visitor.deleteVpnGateway(request)
     }
 
-    final case class DeprovisionByoipCidr(
+    final case class DeprovisionByoipCidrOp(
       request: DeprovisionByoipCidrRequest
     ) extends Ec2Op[DeprovisionByoipCidrResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeprovisionByoipCidrResponse] =
         visitor.deprovisionByoipCidr(request)
     }
 
-    final case class DeregisterImage(
+    final case class DeregisterImageOp(
       request: DeregisterImageRequest
     ) extends Ec2Op[DeregisterImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeregisterImageResponse] =
         visitor.deregisterImage(request)
     }
 
-    final case class DeregisterInstanceEventNotificationAttributes(
+    final case class DeregisterInstanceEventNotificationAttributesOp(
       request: DeregisterInstanceEventNotificationAttributesRequest
     ) extends Ec2Op[DeregisterInstanceEventNotificationAttributesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeregisterInstanceEventNotificationAttributesResponse] =
         visitor.deregisterInstanceEventNotificationAttributes(request)
     }
 
-    final case class DeregisterTransitGatewayMulticastGroupMembers(
+    final case class DeregisterTransitGatewayMulticastGroupMembersOp(
       request: DeregisterTransitGatewayMulticastGroupMembersRequest
     ) extends Ec2Op[DeregisterTransitGatewayMulticastGroupMembersResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeregisterTransitGatewayMulticastGroupMembersResponse] =
         visitor.deregisterTransitGatewayMulticastGroupMembers(request)
     }
 
-    final case class DeregisterTransitGatewayMulticastGroupSources(
+    final case class DeregisterTransitGatewayMulticastGroupSourcesOp(
       request: DeregisterTransitGatewayMulticastGroupSourcesRequest
     ) extends Ec2Op[DeregisterTransitGatewayMulticastGroupSourcesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeregisterTransitGatewayMulticastGroupSourcesResponse] =
         visitor.deregisterTransitGatewayMulticastGroupSources(request)
     }
 
-    final case class DescribeAccountAttributes(
+    final case class DescribeAccountAttributesOp(
       request: DescribeAccountAttributesRequest
     ) extends Ec2Op[DescribeAccountAttributesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeAccountAttributesResponse] =
         visitor.describeAccountAttributes(request)
     }
 
-    final case class DescribeAddresses(
+    final case class DescribeAddressesOp(
       request: DescribeAddressesRequest
     ) extends Ec2Op[DescribeAddressesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeAddressesResponse] =
         visitor.describeAddresses(request)
     }
 
-    final case class DescribeAddressesAttribute(
+    final case class DescribeAddressesAttributeOp(
       request: DescribeAddressesAttributeRequest
     ) extends Ec2Op[DescribeAddressesAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeAddressesAttributeResponse] =
         visitor.describeAddressesAttribute(request)
     }
 
-    final case class DescribeAggregateIdFormat(
+    final case class DescribeAggregateIdFormatOp(
       request: DescribeAggregateIdFormatRequest
     ) extends Ec2Op[DescribeAggregateIdFormatResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeAggregateIdFormatResponse] =
         visitor.describeAggregateIdFormat(request)
     }
 
-    final case class DescribeAvailabilityZones(
+    final case class DescribeAvailabilityZonesOp(
       request: DescribeAvailabilityZonesRequest
     ) extends Ec2Op[DescribeAvailabilityZonesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeAvailabilityZonesResponse] =
         visitor.describeAvailabilityZones(request)
     }
 
-    final case class DescribeBundleTasks(
+    final case class DescribeBundleTasksOp(
       request: DescribeBundleTasksRequest
     ) extends Ec2Op[DescribeBundleTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeBundleTasksResponse] =
         visitor.describeBundleTasks(request)
     }
 
-    final case class DescribeByoipCidrs(
+    final case class DescribeByoipCidrsOp(
       request: DescribeByoipCidrsRequest
     ) extends Ec2Op[DescribeByoipCidrsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeByoipCidrsResponse] =
         visitor.describeByoipCidrs(request)
     }
 
-    final case class DescribeCapacityReservations(
+    final case class DescribeCapacityReservationsOp(
       request: DescribeCapacityReservationsRequest
     ) extends Ec2Op[DescribeCapacityReservationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeCapacityReservationsResponse] =
         visitor.describeCapacityReservations(request)
     }
 
-    final case class DescribeCarrierGateways(
+    final case class DescribeCarrierGatewaysOp(
       request: DescribeCarrierGatewaysRequest
     ) extends Ec2Op[DescribeCarrierGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeCarrierGatewaysResponse] =
         visitor.describeCarrierGateways(request)
     }
 
-    final case class DescribeClassicLinkInstances(
+    final case class DescribeClassicLinkInstancesOp(
       request: DescribeClassicLinkInstancesRequest
     ) extends Ec2Op[DescribeClassicLinkInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeClassicLinkInstancesResponse] =
         visitor.describeClassicLinkInstances(request)
     }
 
-    final case class DescribeClientVpnAuthorizationRules(
+    final case class DescribeClientVpnAuthorizationRulesOp(
       request: DescribeClientVpnAuthorizationRulesRequest
     ) extends Ec2Op[DescribeClientVpnAuthorizationRulesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeClientVpnAuthorizationRulesResponse] =
         visitor.describeClientVpnAuthorizationRules(request)
     }
 
-    final case class DescribeClientVpnConnections(
+    final case class DescribeClientVpnConnectionsOp(
       request: DescribeClientVpnConnectionsRequest
     ) extends Ec2Op[DescribeClientVpnConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeClientVpnConnectionsResponse] =
         visitor.describeClientVpnConnections(request)
     }
 
-    final case class DescribeClientVpnEndpoints(
+    final case class DescribeClientVpnEndpointsOp(
       request: DescribeClientVpnEndpointsRequest
     ) extends Ec2Op[DescribeClientVpnEndpointsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeClientVpnEndpointsResponse] =
         visitor.describeClientVpnEndpoints(request)
     }
 
-    final case class DescribeClientVpnRoutes(
+    final case class DescribeClientVpnRoutesOp(
       request: DescribeClientVpnRoutesRequest
     ) extends Ec2Op[DescribeClientVpnRoutesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeClientVpnRoutesResponse] =
         visitor.describeClientVpnRoutes(request)
     }
 
-    final case class DescribeClientVpnTargetNetworks(
+    final case class DescribeClientVpnTargetNetworksOp(
       request: DescribeClientVpnTargetNetworksRequest
     ) extends Ec2Op[DescribeClientVpnTargetNetworksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeClientVpnTargetNetworksResponse] =
         visitor.describeClientVpnTargetNetworks(request)
     }
 
-    final case class DescribeCoipPools(
+    final case class DescribeCoipPoolsOp(
       request: DescribeCoipPoolsRequest
     ) extends Ec2Op[DescribeCoipPoolsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeCoipPoolsResponse] =
         visitor.describeCoipPools(request)
     }
 
-    final case class DescribeConversionTasks(
+    final case class DescribeConversionTasksOp(
       request: DescribeConversionTasksRequest
     ) extends Ec2Op[DescribeConversionTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeConversionTasksResponse] =
         visitor.describeConversionTasks(request)
     }
 
-    final case class DescribeCustomerGateways(
+    final case class DescribeCustomerGatewaysOp(
       request: DescribeCustomerGatewaysRequest
     ) extends Ec2Op[DescribeCustomerGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeCustomerGatewaysResponse] =
         visitor.describeCustomerGateways(request)
     }
 
-    final case class DescribeDhcpOptions(
+    final case class DescribeDhcpOptionsOp(
       request: DescribeDhcpOptionsRequest
     ) extends Ec2Op[DescribeDhcpOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeDhcpOptionsResponse] =
         visitor.describeDhcpOptions(request)
     }
 
-    final case class DescribeEgressOnlyInternetGateways(
+    final case class DescribeEgressOnlyInternetGatewaysOp(
       request: DescribeEgressOnlyInternetGatewaysRequest
     ) extends Ec2Op[DescribeEgressOnlyInternetGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeEgressOnlyInternetGatewaysResponse] =
         visitor.describeEgressOnlyInternetGateways(request)
     }
 
-    final case class DescribeElasticGpus(
+    final case class DescribeElasticGpusOp(
       request: DescribeElasticGpusRequest
     ) extends Ec2Op[DescribeElasticGpusResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeElasticGpusResponse] =
         visitor.describeElasticGpus(request)
     }
 
-    final case class DescribeExportImageTasks(
+    final case class DescribeExportImageTasksOp(
       request: DescribeExportImageTasksRequest
     ) extends Ec2Op[DescribeExportImageTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeExportImageTasksResponse] =
         visitor.describeExportImageTasks(request)
     }
 
-    final case class DescribeExportTasks(
+    final case class DescribeExportTasksOp(
       request: DescribeExportTasksRequest
     ) extends Ec2Op[DescribeExportTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeExportTasksResponse] =
         visitor.describeExportTasks(request)
     }
 
-    final case class DescribeFastSnapshotRestores(
+    final case class DescribeFastSnapshotRestoresOp(
       request: DescribeFastSnapshotRestoresRequest
     ) extends Ec2Op[DescribeFastSnapshotRestoresResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFastSnapshotRestoresResponse] =
         visitor.describeFastSnapshotRestores(request)
     }
 
-    final case class DescribeFleetHistory(
+    final case class DescribeFleetHistoryOp(
       request: DescribeFleetHistoryRequest
     ) extends Ec2Op[DescribeFleetHistoryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFleetHistoryResponse] =
         visitor.describeFleetHistory(request)
     }
 
-    final case class DescribeFleetInstances(
+    final case class DescribeFleetInstancesOp(
       request: DescribeFleetInstancesRequest
     ) extends Ec2Op[DescribeFleetInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFleetInstancesResponse] =
         visitor.describeFleetInstances(request)
     }
 
-    final case class DescribeFleets(
+    final case class DescribeFleetsOp(
       request: DescribeFleetsRequest
     ) extends Ec2Op[DescribeFleetsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFleetsResponse] =
         visitor.describeFleets(request)
     }
 
-    final case class DescribeFlowLogs(
+    final case class DescribeFlowLogsOp(
       request: DescribeFlowLogsRequest
     ) extends Ec2Op[DescribeFlowLogsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFlowLogsResponse] =
         visitor.describeFlowLogs(request)
     }
 
-    final case class DescribeFpgaImageAttribute(
+    final case class DescribeFpgaImageAttributeOp(
       request: DescribeFpgaImageAttributeRequest
     ) extends Ec2Op[DescribeFpgaImageAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFpgaImageAttributeResponse] =
         visitor.describeFpgaImageAttribute(request)
     }
 
-    final case class DescribeFpgaImages(
+    final case class DescribeFpgaImagesOp(
       request: DescribeFpgaImagesRequest
     ) extends Ec2Op[DescribeFpgaImagesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeFpgaImagesResponse] =
         visitor.describeFpgaImages(request)
     }
 
-    final case class DescribeHostReservationOfferings(
+    final case class DescribeHostReservationOfferingsOp(
       request: DescribeHostReservationOfferingsRequest
     ) extends Ec2Op[DescribeHostReservationOfferingsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeHostReservationOfferingsResponse] =
         visitor.describeHostReservationOfferings(request)
     }
 
-    final case class DescribeHostReservations(
+    final case class DescribeHostReservationsOp(
       request: DescribeHostReservationsRequest
     ) extends Ec2Op[DescribeHostReservationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeHostReservationsResponse] =
         visitor.describeHostReservations(request)
     }
 
-    final case class DescribeHosts(
+    final case class DescribeHostsOp(
       request: DescribeHostsRequest
     ) extends Ec2Op[DescribeHostsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeHostsResponse] =
         visitor.describeHosts(request)
     }
 
-    final case class DescribeIamInstanceProfileAssociations(
+    final case class DescribeIamInstanceProfileAssociationsOp(
       request: DescribeIamInstanceProfileAssociationsRequest
     ) extends Ec2Op[DescribeIamInstanceProfileAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeIamInstanceProfileAssociationsResponse] =
         visitor.describeIamInstanceProfileAssociations(request)
     }
 
-    final case class DescribeIdFormat(
+    final case class DescribeIdFormatOp(
       request: DescribeIdFormatRequest
     ) extends Ec2Op[DescribeIdFormatResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeIdFormatResponse] =
         visitor.describeIdFormat(request)
     }
 
-    final case class DescribeIdentityIdFormat(
+    final case class DescribeIdentityIdFormatOp(
       request: DescribeIdentityIdFormatRequest
     ) extends Ec2Op[DescribeIdentityIdFormatResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeIdentityIdFormatResponse] =
         visitor.describeIdentityIdFormat(request)
     }
 
-    final case class DescribeImageAttribute(
+    final case class DescribeImageAttributeOp(
       request: DescribeImageAttributeRequest
     ) extends Ec2Op[DescribeImageAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeImageAttributeResponse] =
         visitor.describeImageAttribute(request)
     }
 
-    final case class DescribeImages(
+    final case class DescribeImagesOp(
       request: DescribeImagesRequest
     ) extends Ec2Op[DescribeImagesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeImagesResponse] =
         visitor.describeImages(request)
     }
 
-    final case class DescribeImportImageTasks(
+    final case class DescribeImportImageTasksOp(
       request: DescribeImportImageTasksRequest
     ) extends Ec2Op[DescribeImportImageTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeImportImageTasksResponse] =
         visitor.describeImportImageTasks(request)
     }
 
-    final case class DescribeImportSnapshotTasks(
+    final case class DescribeImportSnapshotTasksOp(
       request: DescribeImportSnapshotTasksRequest
     ) extends Ec2Op[DescribeImportSnapshotTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeImportSnapshotTasksResponse] =
         visitor.describeImportSnapshotTasks(request)
     }
 
-    final case class DescribeInstanceAttribute(
+    final case class DescribeInstanceAttributeOp(
       request: DescribeInstanceAttributeRequest
     ) extends Ec2Op[DescribeInstanceAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstanceAttributeResponse] =
         visitor.describeInstanceAttribute(request)
     }
 
-    final case class DescribeInstanceCreditSpecifications(
+    final case class DescribeInstanceCreditSpecificationsOp(
       request: DescribeInstanceCreditSpecificationsRequest
     ) extends Ec2Op[DescribeInstanceCreditSpecificationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstanceCreditSpecificationsResponse] =
         visitor.describeInstanceCreditSpecifications(request)
     }
 
-    final case class DescribeInstanceEventNotificationAttributes(
+    final case class DescribeInstanceEventNotificationAttributesOp(
       request: DescribeInstanceEventNotificationAttributesRequest
     ) extends Ec2Op[DescribeInstanceEventNotificationAttributesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstanceEventNotificationAttributesResponse] =
         visitor.describeInstanceEventNotificationAttributes(request)
     }
 
-    final case class DescribeInstanceStatus(
+    final case class DescribeInstanceStatusOp(
       request: DescribeInstanceStatusRequest
     ) extends Ec2Op[DescribeInstanceStatusResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstanceStatusResponse] =
         visitor.describeInstanceStatus(request)
     }
 
-    final case class DescribeInstanceTypeOfferings(
+    final case class DescribeInstanceTypeOfferingsOp(
       request: DescribeInstanceTypeOfferingsRequest
     ) extends Ec2Op[DescribeInstanceTypeOfferingsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstanceTypeOfferingsResponse] =
         visitor.describeInstanceTypeOfferings(request)
     }
 
-    final case class DescribeInstanceTypes(
+    final case class DescribeInstanceTypesOp(
       request: DescribeInstanceTypesRequest
     ) extends Ec2Op[DescribeInstanceTypesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstanceTypesResponse] =
         visitor.describeInstanceTypes(request)
     }
 
-    final case class DescribeInstances(
+    final case class DescribeInstancesOp(
       request: DescribeInstancesRequest
     ) extends Ec2Op[DescribeInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInstancesResponse] =
         visitor.describeInstances(request)
     }
 
-    final case class DescribeInternetGateways(
+    final case class DescribeInternetGatewaysOp(
       request: DescribeInternetGatewaysRequest
     ) extends Ec2Op[DescribeInternetGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInternetGatewaysResponse] =
         visitor.describeInternetGateways(request)
     }
 
-    final case class DescribeIpv6Pools(
+    final case class DescribeIpv6PoolsOp(
       request: DescribeIpv6PoolsRequest
     ) extends Ec2Op[DescribeIpv6PoolsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeIpv6PoolsResponse] =
         visitor.describeIpv6Pools(request)
     }
 
-    final case class DescribeKeyPairs(
+    final case class DescribeKeyPairsOp(
       request: DescribeKeyPairsRequest
     ) extends Ec2Op[DescribeKeyPairsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeKeyPairsResponse] =
         visitor.describeKeyPairs(request)
     }
 
-    final case class DescribeLaunchTemplateVersions(
+    final case class DescribeLaunchTemplateVersionsOp(
       request: DescribeLaunchTemplateVersionsRequest
     ) extends Ec2Op[DescribeLaunchTemplateVersionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLaunchTemplateVersionsResponse] =
         visitor.describeLaunchTemplateVersions(request)
     }
 
-    final case class DescribeLaunchTemplates(
+    final case class DescribeLaunchTemplatesOp(
       request: DescribeLaunchTemplatesRequest
     ) extends Ec2Op[DescribeLaunchTemplatesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLaunchTemplatesResponse] =
         visitor.describeLaunchTemplates(request)
     }
 
-    final case class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
+    final case class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOp(
       request: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
     ) extends Ec2Op[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] =
         visitor.describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(request)
     }
 
-    final case class DescribeLocalGatewayRouteTableVpcAssociations(
+    final case class DescribeLocalGatewayRouteTableVpcAssociationsOp(
       request: DescribeLocalGatewayRouteTableVpcAssociationsRequest
     ) extends Ec2Op[DescribeLocalGatewayRouteTableVpcAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
         visitor.describeLocalGatewayRouteTableVpcAssociations(request)
     }
 
-    final case class DescribeLocalGatewayRouteTables(
+    final case class DescribeLocalGatewayRouteTablesOp(
       request: DescribeLocalGatewayRouteTablesRequest
     ) extends Ec2Op[DescribeLocalGatewayRouteTablesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLocalGatewayRouteTablesResponse] =
         visitor.describeLocalGatewayRouteTables(request)
     }
 
-    final case class DescribeLocalGatewayVirtualInterfaceGroups(
+    final case class DescribeLocalGatewayVirtualInterfaceGroupsOp(
       request: DescribeLocalGatewayVirtualInterfaceGroupsRequest
     ) extends Ec2Op[DescribeLocalGatewayVirtualInterfaceGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
         visitor.describeLocalGatewayVirtualInterfaceGroups(request)
     }
 
-    final case class DescribeLocalGatewayVirtualInterfaces(
+    final case class DescribeLocalGatewayVirtualInterfacesOp(
       request: DescribeLocalGatewayVirtualInterfacesRequest
     ) extends Ec2Op[DescribeLocalGatewayVirtualInterfacesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLocalGatewayVirtualInterfacesResponse] =
         visitor.describeLocalGatewayVirtualInterfaces(request)
     }
 
-    final case class DescribeLocalGateways(
+    final case class DescribeLocalGatewaysOp(
       request: DescribeLocalGatewaysRequest
     ) extends Ec2Op[DescribeLocalGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeLocalGatewaysResponse] =
         visitor.describeLocalGateways(request)
     }
 
-    final case class DescribeManagedPrefixLists(
+    final case class DescribeManagedPrefixListsOp(
       request: DescribeManagedPrefixListsRequest
     ) extends Ec2Op[DescribeManagedPrefixListsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeManagedPrefixListsResponse] =
         visitor.describeManagedPrefixLists(request)
     }
 
-    final case class DescribeMovingAddresses(
+    final case class DescribeMovingAddressesOp(
       request: DescribeMovingAddressesRequest
     ) extends Ec2Op[DescribeMovingAddressesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeMovingAddressesResponse] =
         visitor.describeMovingAddresses(request)
     }
 
-    final case class DescribeNatGateways(
+    final case class DescribeNatGatewaysOp(
       request: DescribeNatGatewaysRequest
     ) extends Ec2Op[DescribeNatGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNatGatewaysResponse] =
         visitor.describeNatGateways(request)
     }
 
-    final case class DescribeNetworkAcls(
+    final case class DescribeNetworkAclsOp(
       request: DescribeNetworkAclsRequest
     ) extends Ec2Op[DescribeNetworkAclsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNetworkAclsResponse] =
         visitor.describeNetworkAcls(request)
     }
 
-    final case class DescribeNetworkInsightsAnalyses(
+    final case class DescribeNetworkInsightsAnalysesOp(
       request: DescribeNetworkInsightsAnalysesRequest
     ) extends Ec2Op[DescribeNetworkInsightsAnalysesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNetworkInsightsAnalysesResponse] =
         visitor.describeNetworkInsightsAnalyses(request)
     }
 
-    final case class DescribeNetworkInsightsPaths(
+    final case class DescribeNetworkInsightsPathsOp(
       request: DescribeNetworkInsightsPathsRequest
     ) extends Ec2Op[DescribeNetworkInsightsPathsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNetworkInsightsPathsResponse] =
         visitor.describeNetworkInsightsPaths(request)
     }
 
-    final case class DescribeNetworkInterfaceAttribute(
+    final case class DescribeNetworkInterfaceAttributeOp(
       request: DescribeNetworkInterfaceAttributeRequest
     ) extends Ec2Op[DescribeNetworkInterfaceAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNetworkInterfaceAttributeResponse] =
         visitor.describeNetworkInterfaceAttribute(request)
     }
 
-    final case class DescribeNetworkInterfacePermissions(
+    final case class DescribeNetworkInterfacePermissionsOp(
       request: DescribeNetworkInterfacePermissionsRequest
     ) extends Ec2Op[DescribeNetworkInterfacePermissionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNetworkInterfacePermissionsResponse] =
         visitor.describeNetworkInterfacePermissions(request)
     }
 
-    final case class DescribeNetworkInterfaces(
+    final case class DescribeNetworkInterfacesOp(
       request: DescribeNetworkInterfacesRequest
     ) extends Ec2Op[DescribeNetworkInterfacesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeNetworkInterfacesResponse] =
         visitor.describeNetworkInterfaces(request)
     }
 
-    final case class DescribePlacementGroups(
+    final case class DescribePlacementGroupsOp(
       request: DescribePlacementGroupsRequest
     ) extends Ec2Op[DescribePlacementGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribePlacementGroupsResponse] =
         visitor.describePlacementGroups(request)
     }
 
-    final case class DescribePrefixLists(
+    final case class DescribePrefixListsOp(
       request: DescribePrefixListsRequest
     ) extends Ec2Op[DescribePrefixListsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribePrefixListsResponse] =
         visitor.describePrefixLists(request)
     }
 
-    final case class DescribePrincipalIdFormat(
+    final case class DescribePrincipalIdFormatOp(
       request: DescribePrincipalIdFormatRequest
     ) extends Ec2Op[DescribePrincipalIdFormatResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribePrincipalIdFormatResponse] =
         visitor.describePrincipalIdFormat(request)
     }
 
-    final case class DescribePublicIpv4Pools(
+    final case class DescribePublicIpv4PoolsOp(
       request: DescribePublicIpv4PoolsRequest
     ) extends Ec2Op[DescribePublicIpv4PoolsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribePublicIpv4PoolsResponse] =
         visitor.describePublicIpv4Pools(request)
     }
 
-    final case class DescribeRegions(
+    final case class DescribeRegionsOp(
       request: DescribeRegionsRequest
     ) extends Ec2Op[DescribeRegionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeRegionsResponse] =
         visitor.describeRegions(request)
     }
 
-    final case class DescribeReplaceRootVolumeTasks(
+    final case class DescribeReplaceRootVolumeTasksOp(
       request: DescribeReplaceRootVolumeTasksRequest
     ) extends Ec2Op[DescribeReplaceRootVolumeTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeReplaceRootVolumeTasksResponse] =
         visitor.describeReplaceRootVolumeTasks(request)
     }
 
-    final case class DescribeReservedInstances(
+    final case class DescribeReservedInstancesOp(
       request: DescribeReservedInstancesRequest
     ) extends Ec2Op[DescribeReservedInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeReservedInstancesResponse] =
         visitor.describeReservedInstances(request)
     }
 
-    final case class DescribeReservedInstancesListings(
+    final case class DescribeReservedInstancesListingsOp(
       request: DescribeReservedInstancesListingsRequest
     ) extends Ec2Op[DescribeReservedInstancesListingsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeReservedInstancesListingsResponse] =
         visitor.describeReservedInstancesListings(request)
     }
 
-    final case class DescribeReservedInstancesModifications(
+    final case class DescribeReservedInstancesModificationsOp(
       request: DescribeReservedInstancesModificationsRequest
     ) extends Ec2Op[DescribeReservedInstancesModificationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeReservedInstancesModificationsResponse] =
         visitor.describeReservedInstancesModifications(request)
     }
 
-    final case class DescribeReservedInstancesOfferings(
+    final case class DescribeReservedInstancesOfferingsOp(
       request: DescribeReservedInstancesOfferingsRequest
     ) extends Ec2Op[DescribeReservedInstancesOfferingsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeReservedInstancesOfferingsResponse] =
         visitor.describeReservedInstancesOfferings(request)
     }
 
-    final case class DescribeRouteTables(
+    final case class DescribeRouteTablesOp(
       request: DescribeRouteTablesRequest
     ) extends Ec2Op[DescribeRouteTablesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeRouteTablesResponse] =
         visitor.describeRouteTables(request)
     }
 
-    final case class DescribeScheduledInstanceAvailability(
+    final case class DescribeScheduledInstanceAvailabilityOp(
       request: DescribeScheduledInstanceAvailabilityRequest
     ) extends Ec2Op[DescribeScheduledInstanceAvailabilityResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeScheduledInstanceAvailabilityResponse] =
         visitor.describeScheduledInstanceAvailability(request)
     }
 
-    final case class DescribeScheduledInstances(
+    final case class DescribeScheduledInstancesOp(
       request: DescribeScheduledInstancesRequest
     ) extends Ec2Op[DescribeScheduledInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeScheduledInstancesResponse] =
         visitor.describeScheduledInstances(request)
     }
 
-    final case class DescribeSecurityGroupReferences(
+    final case class DescribeSecurityGroupReferencesOp(
       request: DescribeSecurityGroupReferencesRequest
     ) extends Ec2Op[DescribeSecurityGroupReferencesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSecurityGroupReferencesResponse] =
         visitor.describeSecurityGroupReferences(request)
     }
 
-    final case class DescribeSecurityGroups(
+    final case class DescribeSecurityGroupsOp(
       request: DescribeSecurityGroupsRequest
     ) extends Ec2Op[DescribeSecurityGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSecurityGroupsResponse] =
         visitor.describeSecurityGroups(request)
     }
 
-    final case class DescribeSnapshotAttribute(
+    final case class DescribeSnapshotAttributeOp(
       request: DescribeSnapshotAttributeRequest
     ) extends Ec2Op[DescribeSnapshotAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSnapshotAttributeResponse] =
         visitor.describeSnapshotAttribute(request)
     }
 
-    final case class DescribeSnapshots(
+    final case class DescribeSnapshotsOp(
       request: DescribeSnapshotsRequest
     ) extends Ec2Op[DescribeSnapshotsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSnapshotsResponse] =
         visitor.describeSnapshots(request)
     }
 
-    final case class DescribeSpotDatafeedSubscription(
+    final case class DescribeSpotDatafeedSubscriptionOp(
       request: DescribeSpotDatafeedSubscriptionRequest
     ) extends Ec2Op[DescribeSpotDatafeedSubscriptionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSpotDatafeedSubscriptionResponse] =
         visitor.describeSpotDatafeedSubscription(request)
     }
 
-    final case class DescribeSpotFleetInstances(
+    final case class DescribeSpotFleetInstancesOp(
       request: DescribeSpotFleetInstancesRequest
     ) extends Ec2Op[DescribeSpotFleetInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSpotFleetInstancesResponse] =
         visitor.describeSpotFleetInstances(request)
     }
 
-    final case class DescribeSpotFleetRequestHistory(
+    final case class DescribeSpotFleetRequestHistoryOp(
       request: DescribeSpotFleetRequestHistoryRequest
     ) extends Ec2Op[DescribeSpotFleetRequestHistoryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSpotFleetRequestHistoryResponse] =
         visitor.describeSpotFleetRequestHistory(request)
     }
 
-    final case class DescribeSpotFleetRequests(
+    final case class DescribeSpotFleetRequestsOp(
       request: DescribeSpotFleetRequestsRequest
     ) extends Ec2Op[DescribeSpotFleetRequestsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSpotFleetRequestsResponse] =
         visitor.describeSpotFleetRequests(request)
     }
 
-    final case class DescribeSpotInstanceRequests(
+    final case class DescribeSpotInstanceRequestsOp(
       request: DescribeSpotInstanceRequestsRequest
     ) extends Ec2Op[DescribeSpotInstanceRequestsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSpotInstanceRequestsResponse] =
         visitor.describeSpotInstanceRequests(request)
     }
 
-    final case class DescribeSpotPriceHistory(
+    final case class DescribeSpotPriceHistoryOp(
       request: DescribeSpotPriceHistoryRequest
     ) extends Ec2Op[DescribeSpotPriceHistoryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSpotPriceHistoryResponse] =
         visitor.describeSpotPriceHistory(request)
     }
 
-    final case class DescribeStaleSecurityGroups(
+    final case class DescribeStaleSecurityGroupsOp(
       request: DescribeStaleSecurityGroupsRequest
     ) extends Ec2Op[DescribeStaleSecurityGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeStaleSecurityGroupsResponse] =
         visitor.describeStaleSecurityGroups(request)
     }
 
-    final case class DescribeStoreImageTasks(
+    final case class DescribeStoreImageTasksOp(
       request: DescribeStoreImageTasksRequest
     ) extends Ec2Op[DescribeStoreImageTasksResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeStoreImageTasksResponse] =
         visitor.describeStoreImageTasks(request)
     }
 
-    final case class DescribeSubnets(
+    final case class DescribeSubnetsOp(
       request: DescribeSubnetsRequest
     ) extends Ec2Op[DescribeSubnetsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeSubnetsResponse] =
         visitor.describeSubnets(request)
     }
 
-    final case class DescribeTags(
+    final case class DescribeTagsOp(
       request: DescribeTagsRequest
     ) extends Ec2Op[DescribeTagsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTagsResponse] =
         visitor.describeTags(request)
     }
 
-    final case class DescribeTrafficMirrorFilters(
+    final case class DescribeTrafficMirrorFiltersOp(
       request: DescribeTrafficMirrorFiltersRequest
     ) extends Ec2Op[DescribeTrafficMirrorFiltersResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTrafficMirrorFiltersResponse] =
         visitor.describeTrafficMirrorFilters(request)
     }
 
-    final case class DescribeTrafficMirrorSessions(
+    final case class DescribeTrafficMirrorSessionsOp(
       request: DescribeTrafficMirrorSessionsRequest
     ) extends Ec2Op[DescribeTrafficMirrorSessionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTrafficMirrorSessionsResponse] =
         visitor.describeTrafficMirrorSessions(request)
     }
 
-    final case class DescribeTrafficMirrorTargets(
+    final case class DescribeTrafficMirrorTargetsOp(
       request: DescribeTrafficMirrorTargetsRequest
     ) extends Ec2Op[DescribeTrafficMirrorTargetsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTrafficMirrorTargetsResponse] =
         visitor.describeTrafficMirrorTargets(request)
     }
 
-    final case class DescribeTransitGatewayAttachments(
+    final case class DescribeTransitGatewayAttachmentsOp(
       request: DescribeTransitGatewayAttachmentsRequest
     ) extends Ec2Op[DescribeTransitGatewayAttachmentsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayAttachmentsResponse] =
         visitor.describeTransitGatewayAttachments(request)
     }
 
-    final case class DescribeTransitGatewayConnectPeers(
+    final case class DescribeTransitGatewayConnectPeersOp(
       request: DescribeTransitGatewayConnectPeersRequest
     ) extends Ec2Op[DescribeTransitGatewayConnectPeersResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayConnectPeersResponse] =
         visitor.describeTransitGatewayConnectPeers(request)
     }
 
-    final case class DescribeTransitGatewayConnects(
+    final case class DescribeTransitGatewayConnectsOp(
       request: DescribeTransitGatewayConnectsRequest
     ) extends Ec2Op[DescribeTransitGatewayConnectsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayConnectsResponse] =
         visitor.describeTransitGatewayConnects(request)
     }
 
-    final case class DescribeTransitGatewayMulticastDomains(
+    final case class DescribeTransitGatewayMulticastDomainsOp(
       request: DescribeTransitGatewayMulticastDomainsRequest
     ) extends Ec2Op[DescribeTransitGatewayMulticastDomainsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayMulticastDomainsResponse] =
         visitor.describeTransitGatewayMulticastDomains(request)
     }
 
-    final case class DescribeTransitGatewayPeeringAttachments(
+    final case class DescribeTransitGatewayPeeringAttachmentsOp(
       request: DescribeTransitGatewayPeeringAttachmentsRequest
     ) extends Ec2Op[DescribeTransitGatewayPeeringAttachmentsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayPeeringAttachmentsResponse] =
         visitor.describeTransitGatewayPeeringAttachments(request)
     }
 
-    final case class DescribeTransitGatewayRouteTables(
+    final case class DescribeTransitGatewayRouteTablesOp(
       request: DescribeTransitGatewayRouteTablesRequest
     ) extends Ec2Op[DescribeTransitGatewayRouteTablesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayRouteTablesResponse] =
         visitor.describeTransitGatewayRouteTables(request)
     }
 
-    final case class DescribeTransitGatewayVpcAttachments(
+    final case class DescribeTransitGatewayVpcAttachmentsOp(
       request: DescribeTransitGatewayVpcAttachmentsRequest
     ) extends Ec2Op[DescribeTransitGatewayVpcAttachmentsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewayVpcAttachmentsResponse] =
         visitor.describeTransitGatewayVpcAttachments(request)
     }
 
-    final case class DescribeTransitGateways(
+    final case class DescribeTransitGatewaysOp(
       request: DescribeTransitGatewaysRequest
     ) extends Ec2Op[DescribeTransitGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTransitGatewaysResponse] =
         visitor.describeTransitGateways(request)
     }
 
-    final case class DescribeVolumeAttribute(
+    final case class DescribeVolumeAttributeOp(
       request: DescribeVolumeAttributeRequest
     ) extends Ec2Op[DescribeVolumeAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVolumeAttributeResponse] =
         visitor.describeVolumeAttribute(request)
     }
 
-    final case class DescribeVolumeStatus(
+    final case class DescribeVolumeStatusOp(
       request: DescribeVolumeStatusRequest
     ) extends Ec2Op[DescribeVolumeStatusResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVolumeStatusResponse] =
         visitor.describeVolumeStatus(request)
     }
 
-    final case class DescribeVolumes(
+    final case class DescribeVolumesOp(
       request: DescribeVolumesRequest
     ) extends Ec2Op[DescribeVolumesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVolumesResponse] =
         visitor.describeVolumes(request)
     }
 
-    final case class DescribeVolumesModifications(
+    final case class DescribeVolumesModificationsOp(
       request: DescribeVolumesModificationsRequest
     ) extends Ec2Op[DescribeVolumesModificationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVolumesModificationsResponse] =
         visitor.describeVolumesModifications(request)
     }
 
-    final case class DescribeVpcAttribute(
+    final case class DescribeVpcAttributeOp(
       request: DescribeVpcAttributeRequest
     ) extends Ec2Op[DescribeVpcAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcAttributeResponse] =
         visitor.describeVpcAttribute(request)
     }
 
-    final case class DescribeVpcClassicLink(
+    final case class DescribeVpcClassicLinkOp(
       request: DescribeVpcClassicLinkRequest
     ) extends Ec2Op[DescribeVpcClassicLinkResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcClassicLinkResponse] =
         visitor.describeVpcClassicLink(request)
     }
 
-    final case class DescribeVpcClassicLinkDnsSupport(
+    final case class DescribeVpcClassicLinkDnsSupportOp(
       request: DescribeVpcClassicLinkDnsSupportRequest
     ) extends Ec2Op[DescribeVpcClassicLinkDnsSupportResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcClassicLinkDnsSupportResponse] =
         visitor.describeVpcClassicLinkDnsSupport(request)
     }
 
-    final case class DescribeVpcEndpointConnectionNotifications(
+    final case class DescribeVpcEndpointConnectionNotificationsOp(
       request: DescribeVpcEndpointConnectionNotificationsRequest
     ) extends Ec2Op[DescribeVpcEndpointConnectionNotificationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcEndpointConnectionNotificationsResponse] =
         visitor.describeVpcEndpointConnectionNotifications(request)
     }
 
-    final case class DescribeVpcEndpointConnections(
+    final case class DescribeVpcEndpointConnectionsOp(
       request: DescribeVpcEndpointConnectionsRequest
     ) extends Ec2Op[DescribeVpcEndpointConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcEndpointConnectionsResponse] =
         visitor.describeVpcEndpointConnections(request)
     }
 
-    final case class DescribeVpcEndpointServiceConfigurations(
+    final case class DescribeVpcEndpointServiceConfigurationsOp(
       request: DescribeVpcEndpointServiceConfigurationsRequest
     ) extends Ec2Op[DescribeVpcEndpointServiceConfigurationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcEndpointServiceConfigurationsResponse] =
         visitor.describeVpcEndpointServiceConfigurations(request)
     }
 
-    final case class DescribeVpcEndpointServicePermissions(
+    final case class DescribeVpcEndpointServicePermissionsOp(
       request: DescribeVpcEndpointServicePermissionsRequest
     ) extends Ec2Op[DescribeVpcEndpointServicePermissionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcEndpointServicePermissionsResponse] =
         visitor.describeVpcEndpointServicePermissions(request)
     }
 
-    final case class DescribeVpcEndpointServices(
+    final case class DescribeVpcEndpointServicesOp(
       request: DescribeVpcEndpointServicesRequest
     ) extends Ec2Op[DescribeVpcEndpointServicesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcEndpointServicesResponse] =
         visitor.describeVpcEndpointServices(request)
     }
 
-    final case class DescribeVpcEndpoints(
+    final case class DescribeVpcEndpointsOp(
       request: DescribeVpcEndpointsRequest
     ) extends Ec2Op[DescribeVpcEndpointsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcEndpointsResponse] =
         visitor.describeVpcEndpoints(request)
     }
 
-    final case class DescribeVpcPeeringConnections(
+    final case class DescribeVpcPeeringConnectionsOp(
       request: DescribeVpcPeeringConnectionsRequest
     ) extends Ec2Op[DescribeVpcPeeringConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcPeeringConnectionsResponse] =
         visitor.describeVpcPeeringConnections(request)
     }
 
-    final case class DescribeVpcs(
+    final case class DescribeVpcsOp(
       request: DescribeVpcsRequest
     ) extends Ec2Op[DescribeVpcsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpcsResponse] =
         visitor.describeVpcs(request)
     }
 
-    final case class DescribeVpnConnections(
+    final case class DescribeVpnConnectionsOp(
       request: DescribeVpnConnectionsRequest
     ) extends Ec2Op[DescribeVpnConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpnConnectionsResponse] =
         visitor.describeVpnConnections(request)
     }
 
-    final case class DescribeVpnGateways(
+    final case class DescribeVpnGatewaysOp(
       request: DescribeVpnGatewaysRequest
     ) extends Ec2Op[DescribeVpnGatewaysResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeVpnGatewaysResponse] =
         visitor.describeVpnGateways(request)
     }
 
-    final case class DetachClassicLinkVpc(
+    final case class DetachClassicLinkVpcOp(
       request: DetachClassicLinkVpcRequest
     ) extends Ec2Op[DetachClassicLinkVpcResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DetachClassicLinkVpcResponse] =
         visitor.detachClassicLinkVpc(request)
     }
 
-    final case class DetachInternetGateway(
+    final case class DetachInternetGatewayOp(
       request: DetachInternetGatewayRequest
     ) extends Ec2Op[DetachInternetGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DetachInternetGatewayResponse] =
         visitor.detachInternetGateway(request)
     }
 
-    final case class DetachNetworkInterface(
+    final case class DetachNetworkInterfaceOp(
       request: DetachNetworkInterfaceRequest
     ) extends Ec2Op[DetachNetworkInterfaceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DetachNetworkInterfaceResponse] =
         visitor.detachNetworkInterface(request)
     }
 
-    final case class DetachVolume(
+    final case class DetachVolumeOp(
       request: DetachVolumeRequest
     ) extends Ec2Op[DetachVolumeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DetachVolumeResponse] =
         visitor.detachVolume(request)
     }
 
-    final case class DetachVpnGateway(
+    final case class DetachVpnGatewayOp(
       request: DetachVpnGatewayRequest
     ) extends Ec2Op[DetachVpnGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DetachVpnGatewayResponse] =
         visitor.detachVpnGateway(request)
     }
 
-    final case class DisableEbsEncryptionByDefault(
+    final case class DisableEbsEncryptionByDefaultOp(
       request: DisableEbsEncryptionByDefaultRequest
     ) extends Ec2Op[DisableEbsEncryptionByDefaultResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableEbsEncryptionByDefaultResponse] =
         visitor.disableEbsEncryptionByDefault(request)
     }
 
-    final case class DisableFastSnapshotRestores(
+    final case class DisableFastSnapshotRestoresOp(
       request: DisableFastSnapshotRestoresRequest
     ) extends Ec2Op[DisableFastSnapshotRestoresResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableFastSnapshotRestoresResponse] =
         visitor.disableFastSnapshotRestores(request)
     }
 
-    final case class DisableImageDeprecation(
+    final case class DisableImageDeprecationOp(
       request: DisableImageDeprecationRequest
     ) extends Ec2Op[DisableImageDeprecationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableImageDeprecationResponse] =
         visitor.disableImageDeprecation(request)
     }
 
-    final case class DisableSerialConsoleAccess(
+    final case class DisableSerialConsoleAccessOp(
       request: DisableSerialConsoleAccessRequest
     ) extends Ec2Op[DisableSerialConsoleAccessResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableSerialConsoleAccessResponse] =
         visitor.disableSerialConsoleAccess(request)
     }
 
-    final case class DisableTransitGatewayRouteTablePropagation(
+    final case class DisableTransitGatewayRouteTablePropagationOp(
       request: DisableTransitGatewayRouteTablePropagationRequest
     ) extends Ec2Op[DisableTransitGatewayRouteTablePropagationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableTransitGatewayRouteTablePropagationResponse] =
         visitor.disableTransitGatewayRouteTablePropagation(request)
     }
 
-    final case class DisableVgwRoutePropagation(
+    final case class DisableVgwRoutePropagationOp(
       request: DisableVgwRoutePropagationRequest
     ) extends Ec2Op[DisableVgwRoutePropagationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableVgwRoutePropagationResponse] =
         visitor.disableVgwRoutePropagation(request)
     }
 
-    final case class DisableVpcClassicLink(
+    final case class DisableVpcClassicLinkOp(
       request: DisableVpcClassicLinkRequest
     ) extends Ec2Op[DisableVpcClassicLinkResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableVpcClassicLinkResponse] =
         visitor.disableVpcClassicLink(request)
     }
 
-    final case class DisableVpcClassicLinkDnsSupport(
+    final case class DisableVpcClassicLinkDnsSupportOp(
       request: DisableVpcClassicLinkDnsSupportRequest
     ) extends Ec2Op[DisableVpcClassicLinkDnsSupportResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisableVpcClassicLinkDnsSupportResponse] =
         visitor.disableVpcClassicLinkDnsSupport(request)
     }
 
-    final case class DisassociateAddress(
+    final case class DisassociateAddressOp(
       request: DisassociateAddressRequest
     ) extends Ec2Op[DisassociateAddressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateAddressResponse] =
         visitor.disassociateAddress(request)
     }
 
-    final case class DisassociateClientVpnTargetNetwork(
+    final case class DisassociateClientVpnTargetNetworkOp(
       request: DisassociateClientVpnTargetNetworkRequest
     ) extends Ec2Op[DisassociateClientVpnTargetNetworkResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateClientVpnTargetNetworkResponse] =
         visitor.disassociateClientVpnTargetNetwork(request)
     }
 
-    final case class DisassociateEnclaveCertificateIamRole(
+    final case class DisassociateEnclaveCertificateIamRoleOp(
       request: DisassociateEnclaveCertificateIamRoleRequest
     ) extends Ec2Op[DisassociateEnclaveCertificateIamRoleResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateEnclaveCertificateIamRoleResponse] =
         visitor.disassociateEnclaveCertificateIamRole(request)
     }
 
-    final case class DisassociateIamInstanceProfile(
+    final case class DisassociateIamInstanceProfileOp(
       request: DisassociateIamInstanceProfileRequest
     ) extends Ec2Op[DisassociateIamInstanceProfileResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateIamInstanceProfileResponse] =
         visitor.disassociateIamInstanceProfile(request)
     }
 
-    final case class DisassociateRouteTable(
+    final case class DisassociateRouteTableOp(
       request: DisassociateRouteTableRequest
     ) extends Ec2Op[DisassociateRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateRouteTableResponse] =
         visitor.disassociateRouteTable(request)
     }
 
-    final case class DisassociateSubnetCidrBlock(
+    final case class DisassociateSubnetCidrBlockOp(
       request: DisassociateSubnetCidrBlockRequest
     ) extends Ec2Op[DisassociateSubnetCidrBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateSubnetCidrBlockResponse] =
         visitor.disassociateSubnetCidrBlock(request)
     }
 
-    final case class DisassociateTransitGatewayMulticastDomain(
+    final case class DisassociateTransitGatewayMulticastDomainOp(
       request: DisassociateTransitGatewayMulticastDomainRequest
     ) extends Ec2Op[DisassociateTransitGatewayMulticastDomainResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateTransitGatewayMulticastDomainResponse] =
         visitor.disassociateTransitGatewayMulticastDomain(request)
     }
 
-    final case class DisassociateTransitGatewayRouteTable(
+    final case class DisassociateTransitGatewayRouteTableOp(
       request: DisassociateTransitGatewayRouteTableRequest
     ) extends Ec2Op[DisassociateTransitGatewayRouteTableResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateTransitGatewayRouteTableResponse] =
         visitor.disassociateTransitGatewayRouteTable(request)
     }
 
-    final case class DisassociateVpcCidrBlock(
+    final case class DisassociateVpcCidrBlockOp(
       request: DisassociateVpcCidrBlockRequest
     ) extends Ec2Op[DisassociateVpcCidrBlockResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DisassociateVpcCidrBlockResponse] =
         visitor.disassociateVpcCidrBlock(request)
     }
 
-    final case class EnableEbsEncryptionByDefault(
+    final case class EnableEbsEncryptionByDefaultOp(
       request: EnableEbsEncryptionByDefaultRequest
     ) extends Ec2Op[EnableEbsEncryptionByDefaultResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableEbsEncryptionByDefaultResponse] =
         visitor.enableEbsEncryptionByDefault(request)
     }
 
-    final case class EnableFastSnapshotRestores(
+    final case class EnableFastSnapshotRestoresOp(
       request: EnableFastSnapshotRestoresRequest
     ) extends Ec2Op[EnableFastSnapshotRestoresResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableFastSnapshotRestoresResponse] =
         visitor.enableFastSnapshotRestores(request)
     }
 
-    final case class EnableImageDeprecation(
+    final case class EnableImageDeprecationOp(
       request: EnableImageDeprecationRequest
     ) extends Ec2Op[EnableImageDeprecationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableImageDeprecationResponse] =
         visitor.enableImageDeprecation(request)
     }
 
-    final case class EnableSerialConsoleAccess(
+    final case class EnableSerialConsoleAccessOp(
       request: EnableSerialConsoleAccessRequest
     ) extends Ec2Op[EnableSerialConsoleAccessResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableSerialConsoleAccessResponse] =
         visitor.enableSerialConsoleAccess(request)
     }
 
-    final case class EnableTransitGatewayRouteTablePropagation(
+    final case class EnableTransitGatewayRouteTablePropagationOp(
       request: EnableTransitGatewayRouteTablePropagationRequest
     ) extends Ec2Op[EnableTransitGatewayRouteTablePropagationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableTransitGatewayRouteTablePropagationResponse] =
         visitor.enableTransitGatewayRouteTablePropagation(request)
     }
 
-    final case class EnableVgwRoutePropagation(
+    final case class EnableVgwRoutePropagationOp(
       request: EnableVgwRoutePropagationRequest
     ) extends Ec2Op[EnableVgwRoutePropagationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableVgwRoutePropagationResponse] =
         visitor.enableVgwRoutePropagation(request)
     }
 
-    final case class EnableVolumeIO(
+    final case class EnableVolumeIOOp(
       request: EnableVolumeIoRequest
     ) extends Ec2Op[EnableVolumeIoResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableVolumeIoResponse] =
         visitor.enableVolumeIO(request)
     }
 
-    final case class EnableVpcClassicLink(
+    final case class EnableVpcClassicLinkOp(
       request: EnableVpcClassicLinkRequest
     ) extends Ec2Op[EnableVpcClassicLinkResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableVpcClassicLinkResponse] =
         visitor.enableVpcClassicLink(request)
     }
 
-    final case class EnableVpcClassicLinkDnsSupport(
+    final case class EnableVpcClassicLinkDnsSupportOp(
       request: EnableVpcClassicLinkDnsSupportRequest
     ) extends Ec2Op[EnableVpcClassicLinkDnsSupportResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[EnableVpcClassicLinkDnsSupportResponse] =
         visitor.enableVpcClassicLinkDnsSupport(request)
     }
 
-    final case class ExportClientVpnClientCertificateRevocationList(
+    final case class ExportClientVpnClientCertificateRevocationListOp(
       request: ExportClientVpnClientCertificateRevocationListRequest
     ) extends Ec2Op[ExportClientVpnClientCertificateRevocationListResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ExportClientVpnClientCertificateRevocationListResponse] =
         visitor.exportClientVpnClientCertificateRevocationList(request)
     }
 
-    final case class ExportClientVpnClientConfiguration(
+    final case class ExportClientVpnClientConfigurationOp(
       request: ExportClientVpnClientConfigurationRequest
     ) extends Ec2Op[ExportClientVpnClientConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ExportClientVpnClientConfigurationResponse] =
         visitor.exportClientVpnClientConfiguration(request)
     }
 
-    final case class ExportImage(
+    final case class ExportImageOp(
       request: ExportImageRequest
     ) extends Ec2Op[ExportImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ExportImageResponse] =
         visitor.exportImage(request)
     }
 
-    final case class ExportTransitGatewayRoutes(
+    final case class ExportTransitGatewayRoutesOp(
       request: ExportTransitGatewayRoutesRequest
     ) extends Ec2Op[ExportTransitGatewayRoutesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ExportTransitGatewayRoutesResponse] =
         visitor.exportTransitGatewayRoutes(request)
     }
 
-    final case class GetAssociatedEnclaveCertificateIamRoles(
+    final case class GetAssociatedEnclaveCertificateIamRolesOp(
       request: GetAssociatedEnclaveCertificateIamRolesRequest
     ) extends Ec2Op[GetAssociatedEnclaveCertificateIamRolesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetAssociatedEnclaveCertificateIamRolesResponse] =
         visitor.getAssociatedEnclaveCertificateIamRoles(request)
     }
 
-    final case class GetAssociatedIpv6PoolCidrs(
+    final case class GetAssociatedIpv6PoolCidrsOp(
       request: GetAssociatedIpv6PoolCidrsRequest
     ) extends Ec2Op[GetAssociatedIpv6PoolCidrsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetAssociatedIpv6PoolCidrsResponse] =
         visitor.getAssociatedIpv6PoolCidrs(request)
     }
 
-    final case class GetCapacityReservationUsage(
+    final case class GetCapacityReservationUsageOp(
       request: GetCapacityReservationUsageRequest
     ) extends Ec2Op[GetCapacityReservationUsageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetCapacityReservationUsageResponse] =
         visitor.getCapacityReservationUsage(request)
     }
 
-    final case class GetCoipPoolUsage(
+    final case class GetCoipPoolUsageOp(
       request: GetCoipPoolUsageRequest
     ) extends Ec2Op[GetCoipPoolUsageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetCoipPoolUsageResponse] =
         visitor.getCoipPoolUsage(request)
     }
 
-    final case class GetConsoleOutput(
+    final case class GetConsoleOutputOp(
       request: GetConsoleOutputRequest
     ) extends Ec2Op[GetConsoleOutputResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetConsoleOutputResponse] =
         visitor.getConsoleOutput(request)
     }
 
-    final case class GetConsoleScreenshot(
+    final case class GetConsoleScreenshotOp(
       request: GetConsoleScreenshotRequest
     ) extends Ec2Op[GetConsoleScreenshotResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetConsoleScreenshotResponse] =
         visitor.getConsoleScreenshot(request)
     }
 
-    final case class GetDefaultCreditSpecification(
+    final case class GetDefaultCreditSpecificationOp(
       request: GetDefaultCreditSpecificationRequest
     ) extends Ec2Op[GetDefaultCreditSpecificationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetDefaultCreditSpecificationResponse] =
         visitor.getDefaultCreditSpecification(request)
     }
 
-    final case class GetEbsDefaultKmsKeyId(
+    final case class GetEbsDefaultKmsKeyIdOp(
       request: GetEbsDefaultKmsKeyIdRequest
     ) extends Ec2Op[GetEbsDefaultKmsKeyIdResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetEbsDefaultKmsKeyIdResponse] =
         visitor.getEbsDefaultKmsKeyId(request)
     }
 
-    final case class GetEbsEncryptionByDefault(
+    final case class GetEbsEncryptionByDefaultOp(
       request: GetEbsEncryptionByDefaultRequest
     ) extends Ec2Op[GetEbsEncryptionByDefaultResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetEbsEncryptionByDefaultResponse] =
         visitor.getEbsEncryptionByDefault(request)
     }
 
-    final case class GetFlowLogsIntegrationTemplate(
+    final case class GetFlowLogsIntegrationTemplateOp(
       request: GetFlowLogsIntegrationTemplateRequest
     ) extends Ec2Op[GetFlowLogsIntegrationTemplateResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetFlowLogsIntegrationTemplateResponse] =
         visitor.getFlowLogsIntegrationTemplate(request)
     }
 
-    final case class GetGroupsForCapacityReservation(
+    final case class GetGroupsForCapacityReservationOp(
       request: GetGroupsForCapacityReservationRequest
     ) extends Ec2Op[GetGroupsForCapacityReservationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetGroupsForCapacityReservationResponse] =
         visitor.getGroupsForCapacityReservation(request)
     }
 
-    final case class GetHostReservationPurchasePreview(
+    final case class GetHostReservationPurchasePreviewOp(
       request: GetHostReservationPurchasePreviewRequest
     ) extends Ec2Op[GetHostReservationPurchasePreviewResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetHostReservationPurchasePreviewResponse] =
         visitor.getHostReservationPurchasePreview(request)
     }
 
-    final case class GetLaunchTemplateData(
+    final case class GetLaunchTemplateDataOp(
       request: GetLaunchTemplateDataRequest
     ) extends Ec2Op[GetLaunchTemplateDataResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetLaunchTemplateDataResponse] =
         visitor.getLaunchTemplateData(request)
     }
 
-    final case class GetManagedPrefixListAssociations(
+    final case class GetManagedPrefixListAssociationsOp(
       request: GetManagedPrefixListAssociationsRequest
     ) extends Ec2Op[GetManagedPrefixListAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetManagedPrefixListAssociationsResponse] =
         visitor.getManagedPrefixListAssociations(request)
     }
 
-    final case class GetManagedPrefixListEntries(
+    final case class GetManagedPrefixListEntriesOp(
       request: GetManagedPrefixListEntriesRequest
     ) extends Ec2Op[GetManagedPrefixListEntriesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetManagedPrefixListEntriesResponse] =
         visitor.getManagedPrefixListEntries(request)
     }
 
-    final case class GetPasswordData(
+    final case class GetPasswordDataOp(
       request: GetPasswordDataRequest
     ) extends Ec2Op[GetPasswordDataResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetPasswordDataResponse] =
         visitor.getPasswordData(request)
     }
 
-    final case class GetReservedInstancesExchangeQuote(
+    final case class GetReservedInstancesExchangeQuoteOp(
       request: GetReservedInstancesExchangeQuoteRequest
     ) extends Ec2Op[GetReservedInstancesExchangeQuoteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetReservedInstancesExchangeQuoteResponse] =
         visitor.getReservedInstancesExchangeQuote(request)
     }
 
-    final case class GetSerialConsoleAccessStatus(
+    final case class GetSerialConsoleAccessStatusOp(
       request: GetSerialConsoleAccessStatusRequest
     ) extends Ec2Op[GetSerialConsoleAccessStatusResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetSerialConsoleAccessStatusResponse] =
         visitor.getSerialConsoleAccessStatus(request)
     }
 
-    final case class GetTransitGatewayAttachmentPropagations(
+    final case class GetTransitGatewayAttachmentPropagationsOp(
       request: GetTransitGatewayAttachmentPropagationsRequest
     ) extends Ec2Op[GetTransitGatewayAttachmentPropagationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetTransitGatewayAttachmentPropagationsResponse] =
         visitor.getTransitGatewayAttachmentPropagations(request)
     }
 
-    final case class GetTransitGatewayMulticastDomainAssociations(
+    final case class GetTransitGatewayMulticastDomainAssociationsOp(
       request: GetTransitGatewayMulticastDomainAssociationsRequest
     ) extends Ec2Op[GetTransitGatewayMulticastDomainAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetTransitGatewayMulticastDomainAssociationsResponse] =
         visitor.getTransitGatewayMulticastDomainAssociations(request)
     }
 
-    final case class GetTransitGatewayPrefixListReferences(
+    final case class GetTransitGatewayPrefixListReferencesOp(
       request: GetTransitGatewayPrefixListReferencesRequest
     ) extends Ec2Op[GetTransitGatewayPrefixListReferencesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetTransitGatewayPrefixListReferencesResponse] =
         visitor.getTransitGatewayPrefixListReferences(request)
     }
 
-    final case class GetTransitGatewayRouteTableAssociations(
+    final case class GetTransitGatewayRouteTableAssociationsOp(
       request: GetTransitGatewayRouteTableAssociationsRequest
     ) extends Ec2Op[GetTransitGatewayRouteTableAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetTransitGatewayRouteTableAssociationsResponse] =
         visitor.getTransitGatewayRouteTableAssociations(request)
     }
 
-    final case class GetTransitGatewayRouteTablePropagations(
+    final case class GetTransitGatewayRouteTablePropagationsOp(
       request: GetTransitGatewayRouteTablePropagationsRequest
     ) extends Ec2Op[GetTransitGatewayRouteTablePropagationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetTransitGatewayRouteTablePropagationsResponse] =
         visitor.getTransitGatewayRouteTablePropagations(request)
     }
 
-    final case class ImportClientVpnClientCertificateRevocationList(
+    final case class ImportClientVpnClientCertificateRevocationListOp(
       request: ImportClientVpnClientCertificateRevocationListRequest
     ) extends Ec2Op[ImportClientVpnClientCertificateRevocationListResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportClientVpnClientCertificateRevocationListResponse] =
         visitor.importClientVpnClientCertificateRevocationList(request)
     }
 
-    final case class ImportImage(
+    final case class ImportImageOp(
       request: ImportImageRequest
     ) extends Ec2Op[ImportImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportImageResponse] =
         visitor.importImage(request)
     }
 
-    final case class ImportInstance(
+    final case class ImportInstanceOp(
       request: ImportInstanceRequest
     ) extends Ec2Op[ImportInstanceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportInstanceResponse] =
         visitor.importInstance(request)
     }
 
-    final case class ImportKeyPair(
+    final case class ImportKeyPairOp(
       request: ImportKeyPairRequest
     ) extends Ec2Op[ImportKeyPairResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportKeyPairResponse] =
         visitor.importKeyPair(request)
     }
 
-    final case class ImportSnapshot(
+    final case class ImportSnapshotOp(
       request: ImportSnapshotRequest
     ) extends Ec2Op[ImportSnapshotResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportSnapshotResponse] =
         visitor.importSnapshot(request)
     }
 
-    final case class ImportVolume(
+    final case class ImportVolumeOp(
       request: ImportVolumeRequest
     ) extends Ec2Op[ImportVolumeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportVolumeResponse] =
         visitor.importVolume(request)
     }
 
-    final case class ModifyAddressAttribute(
+    final case class ModifyAddressAttributeOp(
       request: ModifyAddressAttributeRequest
     ) extends Ec2Op[ModifyAddressAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyAddressAttributeResponse] =
         visitor.modifyAddressAttribute(request)
     }
 
-    final case class ModifyAvailabilityZoneGroup(
+    final case class ModifyAvailabilityZoneGroupOp(
       request: ModifyAvailabilityZoneGroupRequest
     ) extends Ec2Op[ModifyAvailabilityZoneGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyAvailabilityZoneGroupResponse] =
         visitor.modifyAvailabilityZoneGroup(request)
     }
 
-    final case class ModifyCapacityReservation(
+    final case class ModifyCapacityReservationOp(
       request: ModifyCapacityReservationRequest
     ) extends Ec2Op[ModifyCapacityReservationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyCapacityReservationResponse] =
         visitor.modifyCapacityReservation(request)
     }
 
-    final case class ModifyClientVpnEndpoint(
+    final case class ModifyClientVpnEndpointOp(
       request: ModifyClientVpnEndpointRequest
     ) extends Ec2Op[ModifyClientVpnEndpointResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyClientVpnEndpointResponse] =
         visitor.modifyClientVpnEndpoint(request)
     }
 
-    final case class ModifyDefaultCreditSpecification(
+    final case class ModifyDefaultCreditSpecificationOp(
       request: ModifyDefaultCreditSpecificationRequest
     ) extends Ec2Op[ModifyDefaultCreditSpecificationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyDefaultCreditSpecificationResponse] =
         visitor.modifyDefaultCreditSpecification(request)
     }
 
-    final case class ModifyEbsDefaultKmsKeyId(
+    final case class ModifyEbsDefaultKmsKeyIdOp(
       request: ModifyEbsDefaultKmsKeyIdRequest
     ) extends Ec2Op[ModifyEbsDefaultKmsKeyIdResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyEbsDefaultKmsKeyIdResponse] =
         visitor.modifyEbsDefaultKmsKeyId(request)
     }
 
-    final case class ModifyFleet(
+    final case class ModifyFleetOp(
       request: ModifyFleetRequest
     ) extends Ec2Op[ModifyFleetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyFleetResponse] =
         visitor.modifyFleet(request)
     }
 
-    final case class ModifyFpgaImageAttribute(
+    final case class ModifyFpgaImageAttributeOp(
       request: ModifyFpgaImageAttributeRequest
     ) extends Ec2Op[ModifyFpgaImageAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyFpgaImageAttributeResponse] =
         visitor.modifyFpgaImageAttribute(request)
     }
 
-    final case class ModifyHosts(
+    final case class ModifyHostsOp(
       request: ModifyHostsRequest
     ) extends Ec2Op[ModifyHostsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyHostsResponse] =
         visitor.modifyHosts(request)
     }
 
-    final case class ModifyIdFormat(
+    final case class ModifyIdFormatOp(
       request: ModifyIdFormatRequest
     ) extends Ec2Op[ModifyIdFormatResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyIdFormatResponse] =
         visitor.modifyIdFormat(request)
     }
 
-    final case class ModifyIdentityIdFormat(
+    final case class ModifyIdentityIdFormatOp(
       request: ModifyIdentityIdFormatRequest
     ) extends Ec2Op[ModifyIdentityIdFormatResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyIdentityIdFormatResponse] =
         visitor.modifyIdentityIdFormat(request)
     }
 
-    final case class ModifyImageAttribute(
+    final case class ModifyImageAttributeOp(
       request: ModifyImageAttributeRequest
     ) extends Ec2Op[ModifyImageAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyImageAttributeResponse] =
         visitor.modifyImageAttribute(request)
     }
 
-    final case class ModifyInstanceAttribute(
+    final case class ModifyInstanceAttributeOp(
       request: ModifyInstanceAttributeRequest
     ) extends Ec2Op[ModifyInstanceAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyInstanceAttributeResponse] =
         visitor.modifyInstanceAttribute(request)
     }
 
-    final case class ModifyInstanceCapacityReservationAttributes(
+    final case class ModifyInstanceCapacityReservationAttributesOp(
       request: ModifyInstanceCapacityReservationAttributesRequest
     ) extends Ec2Op[ModifyInstanceCapacityReservationAttributesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyInstanceCapacityReservationAttributesResponse] =
         visitor.modifyInstanceCapacityReservationAttributes(request)
     }
 
-    final case class ModifyInstanceCreditSpecification(
+    final case class ModifyInstanceCreditSpecificationOp(
       request: ModifyInstanceCreditSpecificationRequest
     ) extends Ec2Op[ModifyInstanceCreditSpecificationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyInstanceCreditSpecificationResponse] =
         visitor.modifyInstanceCreditSpecification(request)
     }
 
-    final case class ModifyInstanceEventStartTime(
+    final case class ModifyInstanceEventStartTimeOp(
       request: ModifyInstanceEventStartTimeRequest
     ) extends Ec2Op[ModifyInstanceEventStartTimeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyInstanceEventStartTimeResponse] =
         visitor.modifyInstanceEventStartTime(request)
     }
 
-    final case class ModifyInstanceMetadataOptions(
+    final case class ModifyInstanceMetadataOptionsOp(
       request: ModifyInstanceMetadataOptionsRequest
     ) extends Ec2Op[ModifyInstanceMetadataOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyInstanceMetadataOptionsResponse] =
         visitor.modifyInstanceMetadataOptions(request)
     }
 
-    final case class ModifyInstancePlacement(
+    final case class ModifyInstancePlacementOp(
       request: ModifyInstancePlacementRequest
     ) extends Ec2Op[ModifyInstancePlacementResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyInstancePlacementResponse] =
         visitor.modifyInstancePlacement(request)
     }
 
-    final case class ModifyLaunchTemplate(
+    final case class ModifyLaunchTemplateOp(
       request: ModifyLaunchTemplateRequest
     ) extends Ec2Op[ModifyLaunchTemplateResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyLaunchTemplateResponse] =
         visitor.modifyLaunchTemplate(request)
     }
 
-    final case class ModifyManagedPrefixList(
+    final case class ModifyManagedPrefixListOp(
       request: ModifyManagedPrefixListRequest
     ) extends Ec2Op[ModifyManagedPrefixListResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyManagedPrefixListResponse] =
         visitor.modifyManagedPrefixList(request)
     }
 
-    final case class ModifyNetworkInterfaceAttribute(
+    final case class ModifyNetworkInterfaceAttributeOp(
       request: ModifyNetworkInterfaceAttributeRequest
     ) extends Ec2Op[ModifyNetworkInterfaceAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyNetworkInterfaceAttributeResponse] =
         visitor.modifyNetworkInterfaceAttribute(request)
     }
 
-    final case class ModifyReservedInstances(
+    final case class ModifyReservedInstancesOp(
       request: ModifyReservedInstancesRequest
     ) extends Ec2Op[ModifyReservedInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyReservedInstancesResponse] =
         visitor.modifyReservedInstances(request)
     }
 
-    final case class ModifySnapshotAttribute(
+    final case class ModifySnapshotAttributeOp(
       request: ModifySnapshotAttributeRequest
     ) extends Ec2Op[ModifySnapshotAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifySnapshotAttributeResponse] =
         visitor.modifySnapshotAttribute(request)
     }
 
-    final case class ModifySpotFleetRequest(
+    final case class ModifySpotFleetRequestOp(
       request: ModifySpotFleetRequestRequest
     ) extends Ec2Op[ModifySpotFleetRequestResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifySpotFleetRequestResponse] =
         visitor.modifySpotFleetRequest(request)
     }
 
-    final case class ModifySubnetAttribute(
+    final case class ModifySubnetAttributeOp(
       request: ModifySubnetAttributeRequest
     ) extends Ec2Op[ModifySubnetAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifySubnetAttributeResponse] =
         visitor.modifySubnetAttribute(request)
     }
 
-    final case class ModifyTrafficMirrorFilterNetworkServices(
+    final case class ModifyTrafficMirrorFilterNetworkServicesOp(
       request: ModifyTrafficMirrorFilterNetworkServicesRequest
     ) extends Ec2Op[ModifyTrafficMirrorFilterNetworkServicesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyTrafficMirrorFilterNetworkServicesResponse] =
         visitor.modifyTrafficMirrorFilterNetworkServices(request)
     }
 
-    final case class ModifyTrafficMirrorFilterRule(
+    final case class ModifyTrafficMirrorFilterRuleOp(
       request: ModifyTrafficMirrorFilterRuleRequest
     ) extends Ec2Op[ModifyTrafficMirrorFilterRuleResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyTrafficMirrorFilterRuleResponse] =
         visitor.modifyTrafficMirrorFilterRule(request)
     }
 
-    final case class ModifyTrafficMirrorSession(
+    final case class ModifyTrafficMirrorSessionOp(
       request: ModifyTrafficMirrorSessionRequest
     ) extends Ec2Op[ModifyTrafficMirrorSessionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyTrafficMirrorSessionResponse] =
         visitor.modifyTrafficMirrorSession(request)
     }
 
-    final case class ModifyTransitGateway(
+    final case class ModifyTransitGatewayOp(
       request: ModifyTransitGatewayRequest
     ) extends Ec2Op[ModifyTransitGatewayResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyTransitGatewayResponse] =
         visitor.modifyTransitGateway(request)
     }
 
-    final case class ModifyTransitGatewayPrefixListReference(
+    final case class ModifyTransitGatewayPrefixListReferenceOp(
       request: ModifyTransitGatewayPrefixListReferenceRequest
     ) extends Ec2Op[ModifyTransitGatewayPrefixListReferenceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyTransitGatewayPrefixListReferenceResponse] =
         visitor.modifyTransitGatewayPrefixListReference(request)
     }
 
-    final case class ModifyTransitGatewayVpcAttachment(
+    final case class ModifyTransitGatewayVpcAttachmentOp(
       request: ModifyTransitGatewayVpcAttachmentRequest
     ) extends Ec2Op[ModifyTransitGatewayVpcAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyTransitGatewayVpcAttachmentResponse] =
         visitor.modifyTransitGatewayVpcAttachment(request)
     }
 
-    final case class ModifyVolume(
+    final case class ModifyVolumeOp(
       request: ModifyVolumeRequest
     ) extends Ec2Op[ModifyVolumeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVolumeResponse] =
         visitor.modifyVolume(request)
     }
 
-    final case class ModifyVolumeAttribute(
+    final case class ModifyVolumeAttributeOp(
       request: ModifyVolumeAttributeRequest
     ) extends Ec2Op[ModifyVolumeAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVolumeAttributeResponse] =
         visitor.modifyVolumeAttribute(request)
     }
 
-    final case class ModifyVpcAttribute(
+    final case class ModifyVpcAttributeOp(
       request: ModifyVpcAttributeRequest
     ) extends Ec2Op[ModifyVpcAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcAttributeResponse] =
         visitor.modifyVpcAttribute(request)
     }
 
-    final case class ModifyVpcEndpoint(
+    final case class ModifyVpcEndpointOp(
       request: ModifyVpcEndpointRequest
     ) extends Ec2Op[ModifyVpcEndpointResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcEndpointResponse] =
         visitor.modifyVpcEndpoint(request)
     }
 
-    final case class ModifyVpcEndpointConnectionNotification(
+    final case class ModifyVpcEndpointConnectionNotificationOp(
       request: ModifyVpcEndpointConnectionNotificationRequest
     ) extends Ec2Op[ModifyVpcEndpointConnectionNotificationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcEndpointConnectionNotificationResponse] =
         visitor.modifyVpcEndpointConnectionNotification(request)
     }
 
-    final case class ModifyVpcEndpointServiceConfiguration(
+    final case class ModifyVpcEndpointServiceConfigurationOp(
       request: ModifyVpcEndpointServiceConfigurationRequest
     ) extends Ec2Op[ModifyVpcEndpointServiceConfigurationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcEndpointServiceConfigurationResponse] =
         visitor.modifyVpcEndpointServiceConfiguration(request)
     }
 
-    final case class ModifyVpcEndpointServicePermissions(
+    final case class ModifyVpcEndpointServicePermissionsOp(
       request: ModifyVpcEndpointServicePermissionsRequest
     ) extends Ec2Op[ModifyVpcEndpointServicePermissionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcEndpointServicePermissionsResponse] =
         visitor.modifyVpcEndpointServicePermissions(request)
     }
 
-    final case class ModifyVpcPeeringConnectionOptions(
+    final case class ModifyVpcPeeringConnectionOptionsOp(
       request: ModifyVpcPeeringConnectionOptionsRequest
     ) extends Ec2Op[ModifyVpcPeeringConnectionOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcPeeringConnectionOptionsResponse] =
         visitor.modifyVpcPeeringConnectionOptions(request)
     }
 
-    final case class ModifyVpcTenancy(
+    final case class ModifyVpcTenancyOp(
       request: ModifyVpcTenancyRequest
     ) extends Ec2Op[ModifyVpcTenancyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpcTenancyResponse] =
         visitor.modifyVpcTenancy(request)
     }
 
-    final case class ModifyVpnConnection(
+    final case class ModifyVpnConnectionOp(
       request: ModifyVpnConnectionRequest
     ) extends Ec2Op[ModifyVpnConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpnConnectionResponse] =
         visitor.modifyVpnConnection(request)
     }
 
-    final case class ModifyVpnConnectionOptions(
+    final case class ModifyVpnConnectionOptionsOp(
       request: ModifyVpnConnectionOptionsRequest
     ) extends Ec2Op[ModifyVpnConnectionOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpnConnectionOptionsResponse] =
         visitor.modifyVpnConnectionOptions(request)
     }
 
-    final case class ModifyVpnTunnelCertificate(
+    final case class ModifyVpnTunnelCertificateOp(
       request: ModifyVpnTunnelCertificateRequest
     ) extends Ec2Op[ModifyVpnTunnelCertificateResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpnTunnelCertificateResponse] =
         visitor.modifyVpnTunnelCertificate(request)
     }
 
-    final case class ModifyVpnTunnelOptions(
+    final case class ModifyVpnTunnelOptionsOp(
       request: ModifyVpnTunnelOptionsRequest
     ) extends Ec2Op[ModifyVpnTunnelOptionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ModifyVpnTunnelOptionsResponse] =
         visitor.modifyVpnTunnelOptions(request)
     }
 
-    final case class MonitorInstances(
+    final case class MonitorInstancesOp(
       request: MonitorInstancesRequest
     ) extends Ec2Op[MonitorInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[MonitorInstancesResponse] =
         visitor.monitorInstances(request)
     }
 
-    final case class MoveAddressToVpc(
+    final case class MoveAddressToVpcOp(
       request: MoveAddressToVpcRequest
     ) extends Ec2Op[MoveAddressToVpcResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[MoveAddressToVpcResponse] =
         visitor.moveAddressToVpc(request)
     }
 
-    final case class ProvisionByoipCidr(
+    final case class ProvisionByoipCidrOp(
       request: ProvisionByoipCidrRequest
     ) extends Ec2Op[ProvisionByoipCidrResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ProvisionByoipCidrResponse] =
         visitor.provisionByoipCidr(request)
     }
 
-    final case class PurchaseHostReservation(
+    final case class PurchaseHostReservationOp(
       request: PurchaseHostReservationRequest
     ) extends Ec2Op[PurchaseHostReservationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PurchaseHostReservationResponse] =
         visitor.purchaseHostReservation(request)
     }
 
-    final case class PurchaseReservedInstancesOffering(
+    final case class PurchaseReservedInstancesOfferingOp(
       request: PurchaseReservedInstancesOfferingRequest
     ) extends Ec2Op[PurchaseReservedInstancesOfferingResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PurchaseReservedInstancesOfferingResponse] =
         visitor.purchaseReservedInstancesOffering(request)
     }
 
-    final case class PurchaseScheduledInstances(
+    final case class PurchaseScheduledInstancesOp(
       request: PurchaseScheduledInstancesRequest
     ) extends Ec2Op[PurchaseScheduledInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PurchaseScheduledInstancesResponse] =
         visitor.purchaseScheduledInstances(request)
     }
 
-    final case class RebootInstances(
+    final case class RebootInstancesOp(
       request: RebootInstancesRequest
     ) extends Ec2Op[RebootInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RebootInstancesResponse] =
         visitor.rebootInstances(request)
     }
 
-    final case class RegisterImage(
+    final case class RegisterImageOp(
       request: RegisterImageRequest
     ) extends Ec2Op[RegisterImageResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RegisterImageResponse] =
         visitor.registerImage(request)
     }
 
-    final case class RegisterInstanceEventNotificationAttributes(
+    final case class RegisterInstanceEventNotificationAttributesOp(
       request: RegisterInstanceEventNotificationAttributesRequest
     ) extends Ec2Op[RegisterInstanceEventNotificationAttributesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RegisterInstanceEventNotificationAttributesResponse] =
         visitor.registerInstanceEventNotificationAttributes(request)
     }
 
-    final case class RegisterTransitGatewayMulticastGroupMembers(
+    final case class RegisterTransitGatewayMulticastGroupMembersOp(
       request: RegisterTransitGatewayMulticastGroupMembersRequest
     ) extends Ec2Op[RegisterTransitGatewayMulticastGroupMembersResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RegisterTransitGatewayMulticastGroupMembersResponse] =
         visitor.registerTransitGatewayMulticastGroupMembers(request)
     }
 
-    final case class RegisterTransitGatewayMulticastGroupSources(
+    final case class RegisterTransitGatewayMulticastGroupSourcesOp(
       request: RegisterTransitGatewayMulticastGroupSourcesRequest
     ) extends Ec2Op[RegisterTransitGatewayMulticastGroupSourcesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RegisterTransitGatewayMulticastGroupSourcesResponse] =
         visitor.registerTransitGatewayMulticastGroupSources(request)
     }
 
-    final case class RejectTransitGatewayMulticastDomainAssociations(
+    final case class RejectTransitGatewayMulticastDomainAssociationsOp(
       request: RejectTransitGatewayMulticastDomainAssociationsRequest
     ) extends Ec2Op[RejectTransitGatewayMulticastDomainAssociationsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RejectTransitGatewayMulticastDomainAssociationsResponse] =
         visitor.rejectTransitGatewayMulticastDomainAssociations(request)
     }
 
-    final case class RejectTransitGatewayPeeringAttachment(
+    final case class RejectTransitGatewayPeeringAttachmentOp(
       request: RejectTransitGatewayPeeringAttachmentRequest
     ) extends Ec2Op[RejectTransitGatewayPeeringAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RejectTransitGatewayPeeringAttachmentResponse] =
         visitor.rejectTransitGatewayPeeringAttachment(request)
     }
 
-    final case class RejectTransitGatewayVpcAttachment(
+    final case class RejectTransitGatewayVpcAttachmentOp(
       request: RejectTransitGatewayVpcAttachmentRequest
     ) extends Ec2Op[RejectTransitGatewayVpcAttachmentResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RejectTransitGatewayVpcAttachmentResponse] =
         visitor.rejectTransitGatewayVpcAttachment(request)
     }
 
-    final case class RejectVpcEndpointConnections(
+    final case class RejectVpcEndpointConnectionsOp(
       request: RejectVpcEndpointConnectionsRequest
     ) extends Ec2Op[RejectVpcEndpointConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RejectVpcEndpointConnectionsResponse] =
         visitor.rejectVpcEndpointConnections(request)
     }
 
-    final case class RejectVpcPeeringConnection(
+    final case class RejectVpcPeeringConnectionOp(
       request: RejectVpcPeeringConnectionRequest
     ) extends Ec2Op[RejectVpcPeeringConnectionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RejectVpcPeeringConnectionResponse] =
         visitor.rejectVpcPeeringConnection(request)
     }
 
-    final case class ReleaseAddress(
+    final case class ReleaseAddressOp(
       request: ReleaseAddressRequest
     ) extends Ec2Op[ReleaseAddressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReleaseAddressResponse] =
         visitor.releaseAddress(request)
     }
 
-    final case class ReleaseHosts(
+    final case class ReleaseHostsOp(
       request: ReleaseHostsRequest
     ) extends Ec2Op[ReleaseHostsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReleaseHostsResponse] =
         visitor.releaseHosts(request)
     }
 
-    final case class ReplaceIamInstanceProfileAssociation(
+    final case class ReplaceIamInstanceProfileAssociationOp(
       request: ReplaceIamInstanceProfileAssociationRequest
     ) extends Ec2Op[ReplaceIamInstanceProfileAssociationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReplaceIamInstanceProfileAssociationResponse] =
         visitor.replaceIamInstanceProfileAssociation(request)
     }
 
-    final case class ReplaceNetworkAclAssociation(
+    final case class ReplaceNetworkAclAssociationOp(
       request: ReplaceNetworkAclAssociationRequest
     ) extends Ec2Op[ReplaceNetworkAclAssociationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReplaceNetworkAclAssociationResponse] =
         visitor.replaceNetworkAclAssociation(request)
     }
 
-    final case class ReplaceNetworkAclEntry(
+    final case class ReplaceNetworkAclEntryOp(
       request: ReplaceNetworkAclEntryRequest
     ) extends Ec2Op[ReplaceNetworkAclEntryResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReplaceNetworkAclEntryResponse] =
         visitor.replaceNetworkAclEntry(request)
     }
 
-    final case class ReplaceRoute(
+    final case class ReplaceRouteOp(
       request: ReplaceRouteRequest
     ) extends Ec2Op[ReplaceRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReplaceRouteResponse] =
         visitor.replaceRoute(request)
     }
 
-    final case class ReplaceRouteTableAssociation(
+    final case class ReplaceRouteTableAssociationOp(
       request: ReplaceRouteTableAssociationRequest
     ) extends Ec2Op[ReplaceRouteTableAssociationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReplaceRouteTableAssociationResponse] =
         visitor.replaceRouteTableAssociation(request)
     }
 
-    final case class ReplaceTransitGatewayRoute(
+    final case class ReplaceTransitGatewayRouteOp(
       request: ReplaceTransitGatewayRouteRequest
     ) extends Ec2Op[ReplaceTransitGatewayRouteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReplaceTransitGatewayRouteResponse] =
         visitor.replaceTransitGatewayRoute(request)
     }
 
-    final case class ReportInstanceStatus(
+    final case class ReportInstanceStatusOp(
       request: ReportInstanceStatusRequest
     ) extends Ec2Op[ReportInstanceStatusResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ReportInstanceStatusResponse] =
         visitor.reportInstanceStatus(request)
     }
 
-    final case class RequestSpotFleet(
+    final case class RequestSpotFleetOp(
       request: RequestSpotFleetRequest
     ) extends Ec2Op[RequestSpotFleetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RequestSpotFleetResponse] =
         visitor.requestSpotFleet(request)
     }
 
-    final case class RequestSpotInstances(
+    final case class RequestSpotInstancesOp(
       request: RequestSpotInstancesRequest
     ) extends Ec2Op[RequestSpotInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RequestSpotInstancesResponse] =
         visitor.requestSpotInstances(request)
     }
 
-    final case class ResetAddressAttribute(
+    final case class ResetAddressAttributeOp(
       request: ResetAddressAttributeRequest
     ) extends Ec2Op[ResetAddressAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetAddressAttributeResponse] =
         visitor.resetAddressAttribute(request)
     }
 
-    final case class ResetEbsDefaultKmsKeyId(
+    final case class ResetEbsDefaultKmsKeyIdOp(
       request: ResetEbsDefaultKmsKeyIdRequest
     ) extends Ec2Op[ResetEbsDefaultKmsKeyIdResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetEbsDefaultKmsKeyIdResponse] =
         visitor.resetEbsDefaultKmsKeyId(request)
     }
 
-    final case class ResetFpgaImageAttribute(
+    final case class ResetFpgaImageAttributeOp(
       request: ResetFpgaImageAttributeRequest
     ) extends Ec2Op[ResetFpgaImageAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetFpgaImageAttributeResponse] =
         visitor.resetFpgaImageAttribute(request)
     }
 
-    final case class ResetImageAttribute(
+    final case class ResetImageAttributeOp(
       request: ResetImageAttributeRequest
     ) extends Ec2Op[ResetImageAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetImageAttributeResponse] =
         visitor.resetImageAttribute(request)
     }
 
-    final case class ResetInstanceAttribute(
+    final case class ResetInstanceAttributeOp(
       request: ResetInstanceAttributeRequest
     ) extends Ec2Op[ResetInstanceAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetInstanceAttributeResponse] =
         visitor.resetInstanceAttribute(request)
     }
 
-    final case class ResetNetworkInterfaceAttribute(
+    final case class ResetNetworkInterfaceAttributeOp(
       request: ResetNetworkInterfaceAttributeRequest
     ) extends Ec2Op[ResetNetworkInterfaceAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetNetworkInterfaceAttributeResponse] =
         visitor.resetNetworkInterfaceAttribute(request)
     }
 
-    final case class ResetSnapshotAttribute(
+    final case class ResetSnapshotAttributeOp(
       request: ResetSnapshotAttributeRequest
     ) extends Ec2Op[ResetSnapshotAttributeResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ResetSnapshotAttributeResponse] =
         visitor.resetSnapshotAttribute(request)
     }
 
-    final case class RestoreAddressToClassic(
+    final case class RestoreAddressToClassicOp(
       request: RestoreAddressToClassicRequest
     ) extends Ec2Op[RestoreAddressToClassicResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RestoreAddressToClassicResponse] =
         visitor.restoreAddressToClassic(request)
     }
 
-    final case class RestoreManagedPrefixListVersion(
+    final case class RestoreManagedPrefixListVersionOp(
       request: RestoreManagedPrefixListVersionRequest
     ) extends Ec2Op[RestoreManagedPrefixListVersionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RestoreManagedPrefixListVersionResponse] =
         visitor.restoreManagedPrefixListVersion(request)
     }
 
-    final case class RevokeClientVpnIngress(
+    final case class RevokeClientVpnIngressOp(
       request: RevokeClientVpnIngressRequest
     ) extends Ec2Op[RevokeClientVpnIngressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RevokeClientVpnIngressResponse] =
         visitor.revokeClientVpnIngress(request)
     }
 
-    final case class RevokeSecurityGroupEgress(
+    final case class RevokeSecurityGroupEgressOp(
       request: RevokeSecurityGroupEgressRequest
     ) extends Ec2Op[RevokeSecurityGroupEgressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RevokeSecurityGroupEgressResponse] =
         visitor.revokeSecurityGroupEgress(request)
     }
 
-    final case class RevokeSecurityGroupIngress(
+    final case class RevokeSecurityGroupIngressOp(
       request: RevokeSecurityGroupIngressRequest
     ) extends Ec2Op[RevokeSecurityGroupIngressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RevokeSecurityGroupIngressResponse] =
         visitor.revokeSecurityGroupIngress(request)
     }
 
-    final case class RunInstances(
+    final case class RunInstancesOp(
       request: RunInstancesRequest
     ) extends Ec2Op[RunInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RunInstancesResponse] =
         visitor.runInstances(request)
     }
 
-    final case class RunScheduledInstances(
+    final case class RunScheduledInstancesOp(
       request: RunScheduledInstancesRequest
     ) extends Ec2Op[RunScheduledInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RunScheduledInstancesResponse] =
         visitor.runScheduledInstances(request)
     }
 
-    final case class SearchLocalGatewayRoutes(
+    final case class SearchLocalGatewayRoutesOp(
       request: SearchLocalGatewayRoutesRequest
     ) extends Ec2Op[SearchLocalGatewayRoutesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[SearchLocalGatewayRoutesResponse] =
         visitor.searchLocalGatewayRoutes(request)
     }
 
-    final case class SearchTransitGatewayMulticastGroups(
+    final case class SearchTransitGatewayMulticastGroupsOp(
       request: SearchTransitGatewayMulticastGroupsRequest
     ) extends Ec2Op[SearchTransitGatewayMulticastGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[SearchTransitGatewayMulticastGroupsResponse] =
         visitor.searchTransitGatewayMulticastGroups(request)
     }
 
-    final case class SearchTransitGatewayRoutes(
+    final case class SearchTransitGatewayRoutesOp(
       request: SearchTransitGatewayRoutesRequest
     ) extends Ec2Op[SearchTransitGatewayRoutesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[SearchTransitGatewayRoutesResponse] =
         visitor.searchTransitGatewayRoutes(request)
     }
 
-    final case class SendDiagnosticInterrupt(
+    final case class SendDiagnosticInterruptOp(
       request: SendDiagnosticInterruptRequest
     ) extends Ec2Op[SendDiagnosticInterruptResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[SendDiagnosticInterruptResponse] =
         visitor.sendDiagnosticInterrupt(request)
     }
 
-    final case class StartInstances(
+    final case class StartInstancesOp(
       request: StartInstancesRequest
     ) extends Ec2Op[StartInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartInstancesResponse] =
         visitor.startInstances(request)
     }
 
-    final case class StartNetworkInsightsAnalysis(
+    final case class StartNetworkInsightsAnalysisOp(
       request: StartNetworkInsightsAnalysisRequest
     ) extends Ec2Op[StartNetworkInsightsAnalysisResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartNetworkInsightsAnalysisResponse] =
         visitor.startNetworkInsightsAnalysis(request)
     }
 
-    final case class StartVpcEndpointServicePrivateDnsVerification(
+    final case class StartVpcEndpointServicePrivateDnsVerificationOp(
       request: StartVpcEndpointServicePrivateDnsVerificationRequest
     ) extends Ec2Op[StartVpcEndpointServicePrivateDnsVerificationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartVpcEndpointServicePrivateDnsVerificationResponse] =
         visitor.startVpcEndpointServicePrivateDnsVerification(request)
     }
 
-    final case class StopInstances(
+    final case class StopInstancesOp(
       request: StopInstancesRequest
     ) extends Ec2Op[StopInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StopInstancesResponse] =
         visitor.stopInstances(request)
     }
 
-    final case class TerminateClientVpnConnections(
+    final case class TerminateClientVpnConnectionsOp(
       request: TerminateClientVpnConnectionsRequest
     ) extends Ec2Op[TerminateClientVpnConnectionsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[TerminateClientVpnConnectionsResponse] =
         visitor.terminateClientVpnConnections(request)
     }
 
-    final case class TerminateInstances(
+    final case class TerminateInstancesOp(
       request: TerminateInstancesRequest
     ) extends Ec2Op[TerminateInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[TerminateInstancesResponse] =
         visitor.terminateInstances(request)
     }
 
-    final case class UnassignIpv6Addresses(
+    final case class UnassignIpv6AddressesOp(
       request: UnassignIpv6AddressesRequest
     ) extends Ec2Op[UnassignIpv6AddressesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UnassignIpv6AddressesResponse] =
         visitor.unassignIpv6Addresses(request)
     }
 
-    final case class UnassignPrivateIpAddresses(
+    final case class UnassignPrivateIpAddressesOp(
       request: UnassignPrivateIpAddressesRequest
     ) extends Ec2Op[UnassignPrivateIpAddressesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UnassignPrivateIpAddressesResponse] =
         visitor.unassignPrivateIpAddresses(request)
     }
 
-    final case class UnmonitorInstances(
+    final case class UnmonitorInstancesOp(
       request: UnmonitorInstancesRequest
     ) extends Ec2Op[UnmonitorInstancesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UnmonitorInstancesResponse] =
         visitor.unmonitorInstances(request)
     }
 
-    final case class UpdateSecurityGroupRuleDescriptionsEgress(
+    final case class UpdateSecurityGroupRuleDescriptionsEgressOp(
       request: UpdateSecurityGroupRuleDescriptionsEgressRequest
     ) extends Ec2Op[UpdateSecurityGroupRuleDescriptionsEgressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateSecurityGroupRuleDescriptionsEgressResponse] =
         visitor.updateSecurityGroupRuleDescriptionsEgress(request)
     }
 
-    final case class UpdateSecurityGroupRuleDescriptionsIngress(
+    final case class UpdateSecurityGroupRuleDescriptionsIngressOp(
       request: UpdateSecurityGroupRuleDescriptionsIngressRequest
     ) extends Ec2Op[UpdateSecurityGroupRuleDescriptionsIngressResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateSecurityGroupRuleDescriptionsIngressResponse] =
         visitor.updateSecurityGroupRuleDescriptionsIngress(request)
     }
 
-    final case class WithdrawByoipCidr(
+    final case class WithdrawByoipCidrOp(
       request: WithdrawByoipCidrRequest
     ) extends Ec2Op[WithdrawByoipCidrResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[WithdrawByoipCidrResponse] =
@@ -7278,2255 +7278,2255 @@ object ec2 { module =>
   def acceptReservedInstancesExchangeQuote(
     request: AcceptReservedInstancesExchangeQuoteRequest
   ): Ec2IO[AcceptReservedInstancesExchangeQuoteResponse] =
-    FF.liftF(AcceptReservedInstancesExchangeQuote(request))
+    FF.liftF(AcceptReservedInstancesExchangeQuoteOp(request))
 
   def acceptTransitGatewayMulticastDomainAssociations(
     request: AcceptTransitGatewayMulticastDomainAssociationsRequest
   ): Ec2IO[AcceptTransitGatewayMulticastDomainAssociationsResponse] =
-    FF.liftF(AcceptTransitGatewayMulticastDomainAssociations(request))
+    FF.liftF(AcceptTransitGatewayMulticastDomainAssociationsOp(request))
 
   def acceptTransitGatewayPeeringAttachment(
     request: AcceptTransitGatewayPeeringAttachmentRequest
   ): Ec2IO[AcceptTransitGatewayPeeringAttachmentResponse] =
-    FF.liftF(AcceptTransitGatewayPeeringAttachment(request))
+    FF.liftF(AcceptTransitGatewayPeeringAttachmentOp(request))
 
   def acceptTransitGatewayVpcAttachment(
     request: AcceptTransitGatewayVpcAttachmentRequest
   ): Ec2IO[AcceptTransitGatewayVpcAttachmentResponse] =
-    FF.liftF(AcceptTransitGatewayVpcAttachment(request))
+    FF.liftF(AcceptTransitGatewayVpcAttachmentOp(request))
 
   def acceptVpcEndpointConnections(
     request: AcceptVpcEndpointConnectionsRequest
   ): Ec2IO[AcceptVpcEndpointConnectionsResponse] =
-    FF.liftF(AcceptVpcEndpointConnections(request))
+    FF.liftF(AcceptVpcEndpointConnectionsOp(request))
 
   def acceptVpcPeeringConnection(
     request: AcceptVpcPeeringConnectionRequest
   ): Ec2IO[AcceptVpcPeeringConnectionResponse] =
-    FF.liftF(AcceptVpcPeeringConnection(request))
+    FF.liftF(AcceptVpcPeeringConnectionOp(request))
 
   def advertiseByoipCidr(
     request: AdvertiseByoipCidrRequest
   ): Ec2IO[AdvertiseByoipCidrResponse] =
-    FF.liftF(AdvertiseByoipCidr(request))
+    FF.liftF(AdvertiseByoipCidrOp(request))
 
   def allocateAddress(
     request: AllocateAddressRequest
   ): Ec2IO[AllocateAddressResponse] =
-    FF.liftF(AllocateAddress(request))
+    FF.liftF(AllocateAddressOp(request))
 
   def allocateHosts(
     request: AllocateHostsRequest
   ): Ec2IO[AllocateHostsResponse] =
-    FF.liftF(AllocateHosts(request))
+    FF.liftF(AllocateHostsOp(request))
 
   def applySecurityGroupsToClientVpnTargetNetwork(
     request: ApplySecurityGroupsToClientVpnTargetNetworkRequest
   ): Ec2IO[ApplySecurityGroupsToClientVpnTargetNetworkResponse] =
-    FF.liftF(ApplySecurityGroupsToClientVpnTargetNetwork(request))
+    FF.liftF(ApplySecurityGroupsToClientVpnTargetNetworkOp(request))
 
   def assignIpv6Addresses(
     request: AssignIpv6AddressesRequest
   ): Ec2IO[AssignIpv6AddressesResponse] =
-    FF.liftF(AssignIpv6Addresses(request))
+    FF.liftF(AssignIpv6AddressesOp(request))
 
   def assignPrivateIpAddresses(
     request: AssignPrivateIpAddressesRequest
   ): Ec2IO[AssignPrivateIpAddressesResponse] =
-    FF.liftF(AssignPrivateIpAddresses(request))
+    FF.liftF(AssignPrivateIpAddressesOp(request))
 
   def associateAddress(
     request: AssociateAddressRequest
   ): Ec2IO[AssociateAddressResponse] =
-    FF.liftF(AssociateAddress(request))
+    FF.liftF(AssociateAddressOp(request))
 
   def associateClientVpnTargetNetwork(
     request: AssociateClientVpnTargetNetworkRequest
   ): Ec2IO[AssociateClientVpnTargetNetworkResponse] =
-    FF.liftF(AssociateClientVpnTargetNetwork(request))
+    FF.liftF(AssociateClientVpnTargetNetworkOp(request))
 
   def associateDhcpOptions(
     request: AssociateDhcpOptionsRequest
   ): Ec2IO[AssociateDhcpOptionsResponse] =
-    FF.liftF(AssociateDhcpOptions(request))
+    FF.liftF(AssociateDhcpOptionsOp(request))
 
   def associateEnclaveCertificateIamRole(
     request: AssociateEnclaveCertificateIamRoleRequest
   ): Ec2IO[AssociateEnclaveCertificateIamRoleResponse] =
-    FF.liftF(AssociateEnclaveCertificateIamRole(request))
+    FF.liftF(AssociateEnclaveCertificateIamRoleOp(request))
 
   def associateIamInstanceProfile(
     request: AssociateIamInstanceProfileRequest
   ): Ec2IO[AssociateIamInstanceProfileResponse] =
-    FF.liftF(AssociateIamInstanceProfile(request))
+    FF.liftF(AssociateIamInstanceProfileOp(request))
 
   def associateRouteTable(
     request: AssociateRouteTableRequest
   ): Ec2IO[AssociateRouteTableResponse] =
-    FF.liftF(AssociateRouteTable(request))
+    FF.liftF(AssociateRouteTableOp(request))
 
   def associateSubnetCidrBlock(
     request: AssociateSubnetCidrBlockRequest
   ): Ec2IO[AssociateSubnetCidrBlockResponse] =
-    FF.liftF(AssociateSubnetCidrBlock(request))
+    FF.liftF(AssociateSubnetCidrBlockOp(request))
 
   def associateTransitGatewayMulticastDomain(
     request: AssociateTransitGatewayMulticastDomainRequest
   ): Ec2IO[AssociateTransitGatewayMulticastDomainResponse] =
-    FF.liftF(AssociateTransitGatewayMulticastDomain(request))
+    FF.liftF(AssociateTransitGatewayMulticastDomainOp(request))
 
   def associateTransitGatewayRouteTable(
     request: AssociateTransitGatewayRouteTableRequest
   ): Ec2IO[AssociateTransitGatewayRouteTableResponse] =
-    FF.liftF(AssociateTransitGatewayRouteTable(request))
+    FF.liftF(AssociateTransitGatewayRouteTableOp(request))
 
   def associateVpcCidrBlock(
     request: AssociateVpcCidrBlockRequest
   ): Ec2IO[AssociateVpcCidrBlockResponse] =
-    FF.liftF(AssociateVpcCidrBlock(request))
+    FF.liftF(AssociateVpcCidrBlockOp(request))
 
   def attachClassicLinkVpc(
     request: AttachClassicLinkVpcRequest
   ): Ec2IO[AttachClassicLinkVpcResponse] =
-    FF.liftF(AttachClassicLinkVpc(request))
+    FF.liftF(AttachClassicLinkVpcOp(request))
 
   def attachInternetGateway(
     request: AttachInternetGatewayRequest
   ): Ec2IO[AttachInternetGatewayResponse] =
-    FF.liftF(AttachInternetGateway(request))
+    FF.liftF(AttachInternetGatewayOp(request))
 
   def attachNetworkInterface(
     request: AttachNetworkInterfaceRequest
   ): Ec2IO[AttachNetworkInterfaceResponse] =
-    FF.liftF(AttachNetworkInterface(request))
+    FF.liftF(AttachNetworkInterfaceOp(request))
 
   def attachVolume(
     request: AttachVolumeRequest
   ): Ec2IO[AttachVolumeResponse] =
-    FF.liftF(AttachVolume(request))
+    FF.liftF(AttachVolumeOp(request))
 
   def attachVpnGateway(
     request: AttachVpnGatewayRequest
   ): Ec2IO[AttachVpnGatewayResponse] =
-    FF.liftF(AttachVpnGateway(request))
+    FF.liftF(AttachVpnGatewayOp(request))
 
   def authorizeClientVpnIngress(
     request: AuthorizeClientVpnIngressRequest
   ): Ec2IO[AuthorizeClientVpnIngressResponse] =
-    FF.liftF(AuthorizeClientVpnIngress(request))
+    FF.liftF(AuthorizeClientVpnIngressOp(request))
 
   def authorizeSecurityGroupEgress(
     request: AuthorizeSecurityGroupEgressRequest
   ): Ec2IO[AuthorizeSecurityGroupEgressResponse] =
-    FF.liftF(AuthorizeSecurityGroupEgress(request))
+    FF.liftF(AuthorizeSecurityGroupEgressOp(request))
 
   def authorizeSecurityGroupIngress(
     request: AuthorizeSecurityGroupIngressRequest
   ): Ec2IO[AuthorizeSecurityGroupIngressResponse] =
-    FF.liftF(AuthorizeSecurityGroupIngress(request))
+    FF.liftF(AuthorizeSecurityGroupIngressOp(request))
 
   def bundleInstance(
     request: BundleInstanceRequest
   ): Ec2IO[BundleInstanceResponse] =
-    FF.liftF(BundleInstance(request))
+    FF.liftF(BundleInstanceOp(request))
 
   def cancelBundleTask(
     request: CancelBundleTaskRequest
   ): Ec2IO[CancelBundleTaskResponse] =
-    FF.liftF(CancelBundleTask(request))
+    FF.liftF(CancelBundleTaskOp(request))
 
   def cancelCapacityReservation(
     request: CancelCapacityReservationRequest
   ): Ec2IO[CancelCapacityReservationResponse] =
-    FF.liftF(CancelCapacityReservation(request))
+    FF.liftF(CancelCapacityReservationOp(request))
 
   def cancelConversionTask(
     request: CancelConversionTaskRequest
   ): Ec2IO[CancelConversionTaskResponse] =
-    FF.liftF(CancelConversionTask(request))
+    FF.liftF(CancelConversionTaskOp(request))
 
   def cancelExportTask(
     request: CancelExportTaskRequest
   ): Ec2IO[CancelExportTaskResponse] =
-    FF.liftF(CancelExportTask(request))
+    FF.liftF(CancelExportTaskOp(request))
 
   def cancelImportTask(
     request: CancelImportTaskRequest
   ): Ec2IO[CancelImportTaskResponse] =
-    FF.liftF(CancelImportTask(request))
+    FF.liftF(CancelImportTaskOp(request))
 
   def cancelReservedInstancesListing(
     request: CancelReservedInstancesListingRequest
   ): Ec2IO[CancelReservedInstancesListingResponse] =
-    FF.liftF(CancelReservedInstancesListing(request))
+    FF.liftF(CancelReservedInstancesListingOp(request))
 
   def cancelSpotFleetRequests(
     request: CancelSpotFleetRequestsRequest
   ): Ec2IO[CancelSpotFleetRequestsResponse] =
-    FF.liftF(CancelSpotFleetRequests(request))
+    FF.liftF(CancelSpotFleetRequestsOp(request))
 
   def cancelSpotInstanceRequests(
     request: CancelSpotInstanceRequestsRequest
   ): Ec2IO[CancelSpotInstanceRequestsResponse] =
-    FF.liftF(CancelSpotInstanceRequests(request))
+    FF.liftF(CancelSpotInstanceRequestsOp(request))
 
   def confirmProductInstance(
     request: ConfirmProductInstanceRequest
   ): Ec2IO[ConfirmProductInstanceResponse] =
-    FF.liftF(ConfirmProductInstance(request))
+    FF.liftF(ConfirmProductInstanceOp(request))
 
   def copyFpgaImage(
     request: CopyFpgaImageRequest
   ): Ec2IO[CopyFpgaImageResponse] =
-    FF.liftF(CopyFpgaImage(request))
+    FF.liftF(CopyFpgaImageOp(request))
 
   def copyImage(
     request: CopyImageRequest
   ): Ec2IO[CopyImageResponse] =
-    FF.liftF(CopyImage(request))
+    FF.liftF(CopyImageOp(request))
 
   def copySnapshot(
     request: CopySnapshotRequest
   ): Ec2IO[CopySnapshotResponse] =
-    FF.liftF(CopySnapshot(request))
+    FF.liftF(CopySnapshotOp(request))
 
   def createCapacityReservation(
     request: CreateCapacityReservationRequest
   ): Ec2IO[CreateCapacityReservationResponse] =
-    FF.liftF(CreateCapacityReservation(request))
+    FF.liftF(CreateCapacityReservationOp(request))
 
   def createCarrierGateway(
     request: CreateCarrierGatewayRequest
   ): Ec2IO[CreateCarrierGatewayResponse] =
-    FF.liftF(CreateCarrierGateway(request))
+    FF.liftF(CreateCarrierGatewayOp(request))
 
   def createClientVpnEndpoint(
     request: CreateClientVpnEndpointRequest
   ): Ec2IO[CreateClientVpnEndpointResponse] =
-    FF.liftF(CreateClientVpnEndpoint(request))
+    FF.liftF(CreateClientVpnEndpointOp(request))
 
   def createClientVpnRoute(
     request: CreateClientVpnRouteRequest
   ): Ec2IO[CreateClientVpnRouteResponse] =
-    FF.liftF(CreateClientVpnRoute(request))
+    FF.liftF(CreateClientVpnRouteOp(request))
 
   def createCustomerGateway(
     request: CreateCustomerGatewayRequest
   ): Ec2IO[CreateCustomerGatewayResponse] =
-    FF.liftF(CreateCustomerGateway(request))
+    FF.liftF(CreateCustomerGatewayOp(request))
 
   def createDefaultSubnet(
     request: CreateDefaultSubnetRequest
   ): Ec2IO[CreateDefaultSubnetResponse] =
-    FF.liftF(CreateDefaultSubnet(request))
+    FF.liftF(CreateDefaultSubnetOp(request))
 
   def createDefaultVpc(
     request: CreateDefaultVpcRequest
   ): Ec2IO[CreateDefaultVpcResponse] =
-    FF.liftF(CreateDefaultVpc(request))
+    FF.liftF(CreateDefaultVpcOp(request))
 
   def createDhcpOptions(
     request: CreateDhcpOptionsRequest
   ): Ec2IO[CreateDhcpOptionsResponse] =
-    FF.liftF(CreateDhcpOptions(request))
+    FF.liftF(CreateDhcpOptionsOp(request))
 
   def createEgressOnlyInternetGateway(
     request: CreateEgressOnlyInternetGatewayRequest
   ): Ec2IO[CreateEgressOnlyInternetGatewayResponse] =
-    FF.liftF(CreateEgressOnlyInternetGateway(request))
+    FF.liftF(CreateEgressOnlyInternetGatewayOp(request))
 
   def createFleet(
     request: CreateFleetRequest
   ): Ec2IO[CreateFleetResponse] =
-    FF.liftF(CreateFleet(request))
+    FF.liftF(CreateFleetOp(request))
 
   def createFlowLogs(
     request: CreateFlowLogsRequest
   ): Ec2IO[CreateFlowLogsResponse] =
-    FF.liftF(CreateFlowLogs(request))
+    FF.liftF(CreateFlowLogsOp(request))
 
   def createFpgaImage(
     request: CreateFpgaImageRequest
   ): Ec2IO[CreateFpgaImageResponse] =
-    FF.liftF(CreateFpgaImage(request))
+    FF.liftF(CreateFpgaImageOp(request))
 
   def createImage(
     request: CreateImageRequest
   ): Ec2IO[CreateImageResponse] =
-    FF.liftF(CreateImage(request))
+    FF.liftF(CreateImageOp(request))
 
   def createInstanceExportTask(
     request: CreateInstanceExportTaskRequest
   ): Ec2IO[CreateInstanceExportTaskResponse] =
-    FF.liftF(CreateInstanceExportTask(request))
+    FF.liftF(CreateInstanceExportTaskOp(request))
 
   def createInternetGateway(
     request: CreateInternetGatewayRequest
   ): Ec2IO[CreateInternetGatewayResponse] =
-    FF.liftF(CreateInternetGateway(request))
+    FF.liftF(CreateInternetGatewayOp(request))
 
   def createKeyPair(
     request: CreateKeyPairRequest
   ): Ec2IO[CreateKeyPairResponse] =
-    FF.liftF(CreateKeyPair(request))
+    FF.liftF(CreateKeyPairOp(request))
 
   def createLaunchTemplate(
     request: CreateLaunchTemplateRequest
   ): Ec2IO[CreateLaunchTemplateResponse] =
-    FF.liftF(CreateLaunchTemplate(request))
+    FF.liftF(CreateLaunchTemplateOp(request))
 
   def createLaunchTemplateVersion(
     request: CreateLaunchTemplateVersionRequest
   ): Ec2IO[CreateLaunchTemplateVersionResponse] =
-    FF.liftF(CreateLaunchTemplateVersion(request))
+    FF.liftF(CreateLaunchTemplateVersionOp(request))
 
   def createLocalGatewayRoute(
     request: CreateLocalGatewayRouteRequest
   ): Ec2IO[CreateLocalGatewayRouteResponse] =
-    FF.liftF(CreateLocalGatewayRoute(request))
+    FF.liftF(CreateLocalGatewayRouteOp(request))
 
   def createLocalGatewayRouteTableVpcAssociation(
     request: CreateLocalGatewayRouteTableVpcAssociationRequest
   ): Ec2IO[CreateLocalGatewayRouteTableVpcAssociationResponse] =
-    FF.liftF(CreateLocalGatewayRouteTableVpcAssociation(request))
+    FF.liftF(CreateLocalGatewayRouteTableVpcAssociationOp(request))
 
   def createManagedPrefixList(
     request: CreateManagedPrefixListRequest
   ): Ec2IO[CreateManagedPrefixListResponse] =
-    FF.liftF(CreateManagedPrefixList(request))
+    FF.liftF(CreateManagedPrefixListOp(request))
 
   def createNatGateway(
     request: CreateNatGatewayRequest
   ): Ec2IO[CreateNatGatewayResponse] =
-    FF.liftF(CreateNatGateway(request))
+    FF.liftF(CreateNatGatewayOp(request))
 
   def createNetworkAcl(
     request: CreateNetworkAclRequest
   ): Ec2IO[CreateNetworkAclResponse] =
-    FF.liftF(CreateNetworkAcl(request))
+    FF.liftF(CreateNetworkAclOp(request))
 
   def createNetworkAclEntry(
     request: CreateNetworkAclEntryRequest
   ): Ec2IO[CreateNetworkAclEntryResponse] =
-    FF.liftF(CreateNetworkAclEntry(request))
+    FF.liftF(CreateNetworkAclEntryOp(request))
 
   def createNetworkInsightsPath(
     request: CreateNetworkInsightsPathRequest
   ): Ec2IO[CreateNetworkInsightsPathResponse] =
-    FF.liftF(CreateNetworkInsightsPath(request))
+    FF.liftF(CreateNetworkInsightsPathOp(request))
 
   def createNetworkInterface(
     request: CreateNetworkInterfaceRequest
   ): Ec2IO[CreateNetworkInterfaceResponse] =
-    FF.liftF(CreateNetworkInterface(request))
+    FF.liftF(CreateNetworkInterfaceOp(request))
 
   def createNetworkInterfacePermission(
     request: CreateNetworkInterfacePermissionRequest
   ): Ec2IO[CreateNetworkInterfacePermissionResponse] =
-    FF.liftF(CreateNetworkInterfacePermission(request))
+    FF.liftF(CreateNetworkInterfacePermissionOp(request))
 
   def createPlacementGroup(
     request: CreatePlacementGroupRequest
   ): Ec2IO[CreatePlacementGroupResponse] =
-    FF.liftF(CreatePlacementGroup(request))
+    FF.liftF(CreatePlacementGroupOp(request))
 
   def createReplaceRootVolumeTask(
     request: CreateReplaceRootVolumeTaskRequest
   ): Ec2IO[CreateReplaceRootVolumeTaskResponse] =
-    FF.liftF(CreateReplaceRootVolumeTask(request))
+    FF.liftF(CreateReplaceRootVolumeTaskOp(request))
 
   def createReservedInstancesListing(
     request: CreateReservedInstancesListingRequest
   ): Ec2IO[CreateReservedInstancesListingResponse] =
-    FF.liftF(CreateReservedInstancesListing(request))
+    FF.liftF(CreateReservedInstancesListingOp(request))
 
   def createRestoreImageTask(
     request: CreateRestoreImageTaskRequest
   ): Ec2IO[CreateRestoreImageTaskResponse] =
-    FF.liftF(CreateRestoreImageTask(request))
+    FF.liftF(CreateRestoreImageTaskOp(request))
 
   def createRoute(
     request: CreateRouteRequest
   ): Ec2IO[CreateRouteResponse] =
-    FF.liftF(CreateRoute(request))
+    FF.liftF(CreateRouteOp(request))
 
   def createRouteTable(
     request: CreateRouteTableRequest
   ): Ec2IO[CreateRouteTableResponse] =
-    FF.liftF(CreateRouteTable(request))
+    FF.liftF(CreateRouteTableOp(request))
 
   def createSecurityGroup(
     request: CreateSecurityGroupRequest
   ): Ec2IO[CreateSecurityGroupResponse] =
-    FF.liftF(CreateSecurityGroup(request))
+    FF.liftF(CreateSecurityGroupOp(request))
 
   def createSnapshot(
     request: CreateSnapshotRequest
   ): Ec2IO[CreateSnapshotResponse] =
-    FF.liftF(CreateSnapshot(request))
+    FF.liftF(CreateSnapshotOp(request))
 
   def createSnapshots(
     request: CreateSnapshotsRequest
   ): Ec2IO[CreateSnapshotsResponse] =
-    FF.liftF(CreateSnapshots(request))
+    FF.liftF(CreateSnapshotsOp(request))
 
   def createSpotDatafeedSubscription(
     request: CreateSpotDatafeedSubscriptionRequest
   ): Ec2IO[CreateSpotDatafeedSubscriptionResponse] =
-    FF.liftF(CreateSpotDatafeedSubscription(request))
+    FF.liftF(CreateSpotDatafeedSubscriptionOp(request))
 
   def createStoreImageTask(
     request: CreateStoreImageTaskRequest
   ): Ec2IO[CreateStoreImageTaskResponse] =
-    FF.liftF(CreateStoreImageTask(request))
+    FF.liftF(CreateStoreImageTaskOp(request))
 
   def createSubnet(
     request: CreateSubnetRequest
   ): Ec2IO[CreateSubnetResponse] =
-    FF.liftF(CreateSubnet(request))
+    FF.liftF(CreateSubnetOp(request))
 
   def createTags(
     request: CreateTagsRequest
   ): Ec2IO[CreateTagsResponse] =
-    FF.liftF(CreateTags(request))
+    FF.liftF(CreateTagsOp(request))
 
   def createTrafficMirrorFilter(
     request: CreateTrafficMirrorFilterRequest
   ): Ec2IO[CreateTrafficMirrorFilterResponse] =
-    FF.liftF(CreateTrafficMirrorFilter(request))
+    FF.liftF(CreateTrafficMirrorFilterOp(request))
 
   def createTrafficMirrorFilterRule(
     request: CreateTrafficMirrorFilterRuleRequest
   ): Ec2IO[CreateTrafficMirrorFilterRuleResponse] =
-    FF.liftF(CreateTrafficMirrorFilterRule(request))
+    FF.liftF(CreateTrafficMirrorFilterRuleOp(request))
 
   def createTrafficMirrorSession(
     request: CreateTrafficMirrorSessionRequest
   ): Ec2IO[CreateTrafficMirrorSessionResponse] =
-    FF.liftF(CreateTrafficMirrorSession(request))
+    FF.liftF(CreateTrafficMirrorSessionOp(request))
 
   def createTrafficMirrorTarget(
     request: CreateTrafficMirrorTargetRequest
   ): Ec2IO[CreateTrafficMirrorTargetResponse] =
-    FF.liftF(CreateTrafficMirrorTarget(request))
+    FF.liftF(CreateTrafficMirrorTargetOp(request))
 
   def createTransitGateway(
     request: CreateTransitGatewayRequest
   ): Ec2IO[CreateTransitGatewayResponse] =
-    FF.liftF(CreateTransitGateway(request))
+    FF.liftF(CreateTransitGatewayOp(request))
 
   def createTransitGatewayConnect(
     request: CreateTransitGatewayConnectRequest
   ): Ec2IO[CreateTransitGatewayConnectResponse] =
-    FF.liftF(CreateTransitGatewayConnect(request))
+    FF.liftF(CreateTransitGatewayConnectOp(request))
 
   def createTransitGatewayConnectPeer(
     request: CreateTransitGatewayConnectPeerRequest
   ): Ec2IO[CreateTransitGatewayConnectPeerResponse] =
-    FF.liftF(CreateTransitGatewayConnectPeer(request))
+    FF.liftF(CreateTransitGatewayConnectPeerOp(request))
 
   def createTransitGatewayMulticastDomain(
     request: CreateTransitGatewayMulticastDomainRequest
   ): Ec2IO[CreateTransitGatewayMulticastDomainResponse] =
-    FF.liftF(CreateTransitGatewayMulticastDomain(request))
+    FF.liftF(CreateTransitGatewayMulticastDomainOp(request))
 
   def createTransitGatewayPeeringAttachment(
     request: CreateTransitGatewayPeeringAttachmentRequest
   ): Ec2IO[CreateTransitGatewayPeeringAttachmentResponse] =
-    FF.liftF(CreateTransitGatewayPeeringAttachment(request))
+    FF.liftF(CreateTransitGatewayPeeringAttachmentOp(request))
 
   def createTransitGatewayPrefixListReference(
     request: CreateTransitGatewayPrefixListReferenceRequest
   ): Ec2IO[CreateTransitGatewayPrefixListReferenceResponse] =
-    FF.liftF(CreateTransitGatewayPrefixListReference(request))
+    FF.liftF(CreateTransitGatewayPrefixListReferenceOp(request))
 
   def createTransitGatewayRoute(
     request: CreateTransitGatewayRouteRequest
   ): Ec2IO[CreateTransitGatewayRouteResponse] =
-    FF.liftF(CreateTransitGatewayRoute(request))
+    FF.liftF(CreateTransitGatewayRouteOp(request))
 
   def createTransitGatewayRouteTable(
     request: CreateTransitGatewayRouteTableRequest
   ): Ec2IO[CreateTransitGatewayRouteTableResponse] =
-    FF.liftF(CreateTransitGatewayRouteTable(request))
+    FF.liftF(CreateTransitGatewayRouteTableOp(request))
 
   def createTransitGatewayVpcAttachment(
     request: CreateTransitGatewayVpcAttachmentRequest
   ): Ec2IO[CreateTransitGatewayVpcAttachmentResponse] =
-    FF.liftF(CreateTransitGatewayVpcAttachment(request))
+    FF.liftF(CreateTransitGatewayVpcAttachmentOp(request))
 
   def createVolume(
     request: CreateVolumeRequest
   ): Ec2IO[CreateVolumeResponse] =
-    FF.liftF(CreateVolume(request))
+    FF.liftF(CreateVolumeOp(request))
 
   def createVpc(
     request: CreateVpcRequest
   ): Ec2IO[CreateVpcResponse] =
-    FF.liftF(CreateVpc(request))
+    FF.liftF(CreateVpcOp(request))
 
   def createVpcEndpoint(
     request: CreateVpcEndpointRequest
   ): Ec2IO[CreateVpcEndpointResponse] =
-    FF.liftF(CreateVpcEndpoint(request))
+    FF.liftF(CreateVpcEndpointOp(request))
 
   def createVpcEndpointConnectionNotification(
     request: CreateVpcEndpointConnectionNotificationRequest
   ): Ec2IO[CreateVpcEndpointConnectionNotificationResponse] =
-    FF.liftF(CreateVpcEndpointConnectionNotification(request))
+    FF.liftF(CreateVpcEndpointConnectionNotificationOp(request))
 
   def createVpcEndpointServiceConfiguration(
     request: CreateVpcEndpointServiceConfigurationRequest
   ): Ec2IO[CreateVpcEndpointServiceConfigurationResponse] =
-    FF.liftF(CreateVpcEndpointServiceConfiguration(request))
+    FF.liftF(CreateVpcEndpointServiceConfigurationOp(request))
 
   def createVpcPeeringConnection(
     request: CreateVpcPeeringConnectionRequest
   ): Ec2IO[CreateVpcPeeringConnectionResponse] =
-    FF.liftF(CreateVpcPeeringConnection(request))
+    FF.liftF(CreateVpcPeeringConnectionOp(request))
 
   def createVpnConnection(
     request: CreateVpnConnectionRequest
   ): Ec2IO[CreateVpnConnectionResponse] =
-    FF.liftF(CreateVpnConnection(request))
+    FF.liftF(CreateVpnConnectionOp(request))
 
   def createVpnConnectionRoute(
     request: CreateVpnConnectionRouteRequest
   ): Ec2IO[CreateVpnConnectionRouteResponse] =
-    FF.liftF(CreateVpnConnectionRoute(request))
+    FF.liftF(CreateVpnConnectionRouteOp(request))
 
   def createVpnGateway(
     request: CreateVpnGatewayRequest
   ): Ec2IO[CreateVpnGatewayResponse] =
-    FF.liftF(CreateVpnGateway(request))
+    FF.liftF(CreateVpnGatewayOp(request))
 
   def deleteCarrierGateway(
     request: DeleteCarrierGatewayRequest
   ): Ec2IO[DeleteCarrierGatewayResponse] =
-    FF.liftF(DeleteCarrierGateway(request))
+    FF.liftF(DeleteCarrierGatewayOp(request))
 
   def deleteClientVpnEndpoint(
     request: DeleteClientVpnEndpointRequest
   ): Ec2IO[DeleteClientVpnEndpointResponse] =
-    FF.liftF(DeleteClientVpnEndpoint(request))
+    FF.liftF(DeleteClientVpnEndpointOp(request))
 
   def deleteClientVpnRoute(
     request: DeleteClientVpnRouteRequest
   ): Ec2IO[DeleteClientVpnRouteResponse] =
-    FF.liftF(DeleteClientVpnRoute(request))
+    FF.liftF(DeleteClientVpnRouteOp(request))
 
   def deleteCustomerGateway(
     request: DeleteCustomerGatewayRequest
   ): Ec2IO[DeleteCustomerGatewayResponse] =
-    FF.liftF(DeleteCustomerGateway(request))
+    FF.liftF(DeleteCustomerGatewayOp(request))
 
   def deleteDhcpOptions(
     request: DeleteDhcpOptionsRequest
   ): Ec2IO[DeleteDhcpOptionsResponse] =
-    FF.liftF(DeleteDhcpOptions(request))
+    FF.liftF(DeleteDhcpOptionsOp(request))
 
   def deleteEgressOnlyInternetGateway(
     request: DeleteEgressOnlyInternetGatewayRequest
   ): Ec2IO[DeleteEgressOnlyInternetGatewayResponse] =
-    FF.liftF(DeleteEgressOnlyInternetGateway(request))
+    FF.liftF(DeleteEgressOnlyInternetGatewayOp(request))
 
   def deleteFleets(
     request: DeleteFleetsRequest
   ): Ec2IO[DeleteFleetsResponse] =
-    FF.liftF(DeleteFleets(request))
+    FF.liftF(DeleteFleetsOp(request))
 
   def deleteFlowLogs(
     request: DeleteFlowLogsRequest
   ): Ec2IO[DeleteFlowLogsResponse] =
-    FF.liftF(DeleteFlowLogs(request))
+    FF.liftF(DeleteFlowLogsOp(request))
 
   def deleteFpgaImage(
     request: DeleteFpgaImageRequest
   ): Ec2IO[DeleteFpgaImageResponse] =
-    FF.liftF(DeleteFpgaImage(request))
+    FF.liftF(DeleteFpgaImageOp(request))
 
   def deleteInternetGateway(
     request: DeleteInternetGatewayRequest
   ): Ec2IO[DeleteInternetGatewayResponse] =
-    FF.liftF(DeleteInternetGateway(request))
+    FF.liftF(DeleteInternetGatewayOp(request))
 
   def deleteKeyPair(
     request: DeleteKeyPairRequest
   ): Ec2IO[DeleteKeyPairResponse] =
-    FF.liftF(DeleteKeyPair(request))
+    FF.liftF(DeleteKeyPairOp(request))
 
   def deleteLaunchTemplate(
     request: DeleteLaunchTemplateRequest
   ): Ec2IO[DeleteLaunchTemplateResponse] =
-    FF.liftF(DeleteLaunchTemplate(request))
+    FF.liftF(DeleteLaunchTemplateOp(request))
 
   def deleteLaunchTemplateVersions(
     request: DeleteLaunchTemplateVersionsRequest
   ): Ec2IO[DeleteLaunchTemplateVersionsResponse] =
-    FF.liftF(DeleteLaunchTemplateVersions(request))
+    FF.liftF(DeleteLaunchTemplateVersionsOp(request))
 
   def deleteLocalGatewayRoute(
     request: DeleteLocalGatewayRouteRequest
   ): Ec2IO[DeleteLocalGatewayRouteResponse] =
-    FF.liftF(DeleteLocalGatewayRoute(request))
+    FF.liftF(DeleteLocalGatewayRouteOp(request))
 
   def deleteLocalGatewayRouteTableVpcAssociation(
     request: DeleteLocalGatewayRouteTableVpcAssociationRequest
   ): Ec2IO[DeleteLocalGatewayRouteTableVpcAssociationResponse] =
-    FF.liftF(DeleteLocalGatewayRouteTableVpcAssociation(request))
+    FF.liftF(DeleteLocalGatewayRouteTableVpcAssociationOp(request))
 
   def deleteManagedPrefixList(
     request: DeleteManagedPrefixListRequest
   ): Ec2IO[DeleteManagedPrefixListResponse] =
-    FF.liftF(DeleteManagedPrefixList(request))
+    FF.liftF(DeleteManagedPrefixListOp(request))
 
   def deleteNatGateway(
     request: DeleteNatGatewayRequest
   ): Ec2IO[DeleteNatGatewayResponse] =
-    FF.liftF(DeleteNatGateway(request))
+    FF.liftF(DeleteNatGatewayOp(request))
 
   def deleteNetworkAcl(
     request: DeleteNetworkAclRequest
   ): Ec2IO[DeleteNetworkAclResponse] =
-    FF.liftF(DeleteNetworkAcl(request))
+    FF.liftF(DeleteNetworkAclOp(request))
 
   def deleteNetworkAclEntry(
     request: DeleteNetworkAclEntryRequest
   ): Ec2IO[DeleteNetworkAclEntryResponse] =
-    FF.liftF(DeleteNetworkAclEntry(request))
+    FF.liftF(DeleteNetworkAclEntryOp(request))
 
   def deleteNetworkInsightsAnalysis(
     request: DeleteNetworkInsightsAnalysisRequest
   ): Ec2IO[DeleteNetworkInsightsAnalysisResponse] =
-    FF.liftF(DeleteNetworkInsightsAnalysis(request))
+    FF.liftF(DeleteNetworkInsightsAnalysisOp(request))
 
   def deleteNetworkInsightsPath(
     request: DeleteNetworkInsightsPathRequest
   ): Ec2IO[DeleteNetworkInsightsPathResponse] =
-    FF.liftF(DeleteNetworkInsightsPath(request))
+    FF.liftF(DeleteNetworkInsightsPathOp(request))
 
   def deleteNetworkInterface(
     request: DeleteNetworkInterfaceRequest
   ): Ec2IO[DeleteNetworkInterfaceResponse] =
-    FF.liftF(DeleteNetworkInterface(request))
+    FF.liftF(DeleteNetworkInterfaceOp(request))
 
   def deleteNetworkInterfacePermission(
     request: DeleteNetworkInterfacePermissionRequest
   ): Ec2IO[DeleteNetworkInterfacePermissionResponse] =
-    FF.liftF(DeleteNetworkInterfacePermission(request))
+    FF.liftF(DeleteNetworkInterfacePermissionOp(request))
 
   def deletePlacementGroup(
     request: DeletePlacementGroupRequest
   ): Ec2IO[DeletePlacementGroupResponse] =
-    FF.liftF(DeletePlacementGroup(request))
+    FF.liftF(DeletePlacementGroupOp(request))
 
   def deleteQueuedReservedInstances(
     request: DeleteQueuedReservedInstancesRequest
   ): Ec2IO[DeleteQueuedReservedInstancesResponse] =
-    FF.liftF(DeleteQueuedReservedInstances(request))
+    FF.liftF(DeleteQueuedReservedInstancesOp(request))
 
   def deleteRoute(
     request: DeleteRouteRequest
   ): Ec2IO[DeleteRouteResponse] =
-    FF.liftF(DeleteRoute(request))
+    FF.liftF(DeleteRouteOp(request))
 
   def deleteRouteTable(
     request: DeleteRouteTableRequest
   ): Ec2IO[DeleteRouteTableResponse] =
-    FF.liftF(DeleteRouteTable(request))
+    FF.liftF(DeleteRouteTableOp(request))
 
   def deleteSecurityGroup(
     request: DeleteSecurityGroupRequest
   ): Ec2IO[DeleteSecurityGroupResponse] =
-    FF.liftF(DeleteSecurityGroup(request))
+    FF.liftF(DeleteSecurityGroupOp(request))
 
   def deleteSnapshot(
     request: DeleteSnapshotRequest
   ): Ec2IO[DeleteSnapshotResponse] =
-    FF.liftF(DeleteSnapshot(request))
+    FF.liftF(DeleteSnapshotOp(request))
 
   def deleteSpotDatafeedSubscription(
     request: DeleteSpotDatafeedSubscriptionRequest
   ): Ec2IO[DeleteSpotDatafeedSubscriptionResponse] =
-    FF.liftF(DeleteSpotDatafeedSubscription(request))
+    FF.liftF(DeleteSpotDatafeedSubscriptionOp(request))
 
   def deleteSubnet(
     request: DeleteSubnetRequest
   ): Ec2IO[DeleteSubnetResponse] =
-    FF.liftF(DeleteSubnet(request))
+    FF.liftF(DeleteSubnetOp(request))
 
   def deleteTags(
     request: DeleteTagsRequest
   ): Ec2IO[DeleteTagsResponse] =
-    FF.liftF(DeleteTags(request))
+    FF.liftF(DeleteTagsOp(request))
 
   def deleteTrafficMirrorFilter(
     request: DeleteTrafficMirrorFilterRequest
   ): Ec2IO[DeleteTrafficMirrorFilterResponse] =
-    FF.liftF(DeleteTrafficMirrorFilter(request))
+    FF.liftF(DeleteTrafficMirrorFilterOp(request))
 
   def deleteTrafficMirrorFilterRule(
     request: DeleteTrafficMirrorFilterRuleRequest
   ): Ec2IO[DeleteTrafficMirrorFilterRuleResponse] =
-    FF.liftF(DeleteTrafficMirrorFilterRule(request))
+    FF.liftF(DeleteTrafficMirrorFilterRuleOp(request))
 
   def deleteTrafficMirrorSession(
     request: DeleteTrafficMirrorSessionRequest
   ): Ec2IO[DeleteTrafficMirrorSessionResponse] =
-    FF.liftF(DeleteTrafficMirrorSession(request))
+    FF.liftF(DeleteTrafficMirrorSessionOp(request))
 
   def deleteTrafficMirrorTarget(
     request: DeleteTrafficMirrorTargetRequest
   ): Ec2IO[DeleteTrafficMirrorTargetResponse] =
-    FF.liftF(DeleteTrafficMirrorTarget(request))
+    FF.liftF(DeleteTrafficMirrorTargetOp(request))
 
   def deleteTransitGateway(
     request: DeleteTransitGatewayRequest
   ): Ec2IO[DeleteTransitGatewayResponse] =
-    FF.liftF(DeleteTransitGateway(request))
+    FF.liftF(DeleteTransitGatewayOp(request))
 
   def deleteTransitGatewayConnect(
     request: DeleteTransitGatewayConnectRequest
   ): Ec2IO[DeleteTransitGatewayConnectResponse] =
-    FF.liftF(DeleteTransitGatewayConnect(request))
+    FF.liftF(DeleteTransitGatewayConnectOp(request))
 
   def deleteTransitGatewayConnectPeer(
     request: DeleteTransitGatewayConnectPeerRequest
   ): Ec2IO[DeleteTransitGatewayConnectPeerResponse] =
-    FF.liftF(DeleteTransitGatewayConnectPeer(request))
+    FF.liftF(DeleteTransitGatewayConnectPeerOp(request))
 
   def deleteTransitGatewayMulticastDomain(
     request: DeleteTransitGatewayMulticastDomainRequest
   ): Ec2IO[DeleteTransitGatewayMulticastDomainResponse] =
-    FF.liftF(DeleteTransitGatewayMulticastDomain(request))
+    FF.liftF(DeleteTransitGatewayMulticastDomainOp(request))
 
   def deleteTransitGatewayPeeringAttachment(
     request: DeleteTransitGatewayPeeringAttachmentRequest
   ): Ec2IO[DeleteTransitGatewayPeeringAttachmentResponse] =
-    FF.liftF(DeleteTransitGatewayPeeringAttachment(request))
+    FF.liftF(DeleteTransitGatewayPeeringAttachmentOp(request))
 
   def deleteTransitGatewayPrefixListReference(
     request: DeleteTransitGatewayPrefixListReferenceRequest
   ): Ec2IO[DeleteTransitGatewayPrefixListReferenceResponse] =
-    FF.liftF(DeleteTransitGatewayPrefixListReference(request))
+    FF.liftF(DeleteTransitGatewayPrefixListReferenceOp(request))
 
   def deleteTransitGatewayRoute(
     request: DeleteTransitGatewayRouteRequest
   ): Ec2IO[DeleteTransitGatewayRouteResponse] =
-    FF.liftF(DeleteTransitGatewayRoute(request))
+    FF.liftF(DeleteTransitGatewayRouteOp(request))
 
   def deleteTransitGatewayRouteTable(
     request: DeleteTransitGatewayRouteTableRequest
   ): Ec2IO[DeleteTransitGatewayRouteTableResponse] =
-    FF.liftF(DeleteTransitGatewayRouteTable(request))
+    FF.liftF(DeleteTransitGatewayRouteTableOp(request))
 
   def deleteTransitGatewayVpcAttachment(
     request: DeleteTransitGatewayVpcAttachmentRequest
   ): Ec2IO[DeleteTransitGatewayVpcAttachmentResponse] =
-    FF.liftF(DeleteTransitGatewayVpcAttachment(request))
+    FF.liftF(DeleteTransitGatewayVpcAttachmentOp(request))
 
   def deleteVolume(
     request: DeleteVolumeRequest
   ): Ec2IO[DeleteVolumeResponse] =
-    FF.liftF(DeleteVolume(request))
+    FF.liftF(DeleteVolumeOp(request))
 
   def deleteVpc(
     request: DeleteVpcRequest
   ): Ec2IO[DeleteVpcResponse] =
-    FF.liftF(DeleteVpc(request))
+    FF.liftF(DeleteVpcOp(request))
 
   def deleteVpcEndpointConnectionNotifications(
     request: DeleteVpcEndpointConnectionNotificationsRequest
   ): Ec2IO[DeleteVpcEndpointConnectionNotificationsResponse] =
-    FF.liftF(DeleteVpcEndpointConnectionNotifications(request))
+    FF.liftF(DeleteVpcEndpointConnectionNotificationsOp(request))
 
   def deleteVpcEndpointServiceConfigurations(
     request: DeleteVpcEndpointServiceConfigurationsRequest
   ): Ec2IO[DeleteVpcEndpointServiceConfigurationsResponse] =
-    FF.liftF(DeleteVpcEndpointServiceConfigurations(request))
+    FF.liftF(DeleteVpcEndpointServiceConfigurationsOp(request))
 
   def deleteVpcEndpoints(
     request: DeleteVpcEndpointsRequest
   ): Ec2IO[DeleteVpcEndpointsResponse] =
-    FF.liftF(DeleteVpcEndpoints(request))
+    FF.liftF(DeleteVpcEndpointsOp(request))
 
   def deleteVpcPeeringConnection(
     request: DeleteVpcPeeringConnectionRequest
   ): Ec2IO[DeleteVpcPeeringConnectionResponse] =
-    FF.liftF(DeleteVpcPeeringConnection(request))
+    FF.liftF(DeleteVpcPeeringConnectionOp(request))
 
   def deleteVpnConnection(
     request: DeleteVpnConnectionRequest
   ): Ec2IO[DeleteVpnConnectionResponse] =
-    FF.liftF(DeleteVpnConnection(request))
+    FF.liftF(DeleteVpnConnectionOp(request))
 
   def deleteVpnConnectionRoute(
     request: DeleteVpnConnectionRouteRequest
   ): Ec2IO[DeleteVpnConnectionRouteResponse] =
-    FF.liftF(DeleteVpnConnectionRoute(request))
+    FF.liftF(DeleteVpnConnectionRouteOp(request))
 
   def deleteVpnGateway(
     request: DeleteVpnGatewayRequest
   ): Ec2IO[DeleteVpnGatewayResponse] =
-    FF.liftF(DeleteVpnGateway(request))
+    FF.liftF(DeleteVpnGatewayOp(request))
 
   def deprovisionByoipCidr(
     request: DeprovisionByoipCidrRequest
   ): Ec2IO[DeprovisionByoipCidrResponse] =
-    FF.liftF(DeprovisionByoipCidr(request))
+    FF.liftF(DeprovisionByoipCidrOp(request))
 
   def deregisterImage(
     request: DeregisterImageRequest
   ): Ec2IO[DeregisterImageResponse] =
-    FF.liftF(DeregisterImage(request))
+    FF.liftF(DeregisterImageOp(request))
 
   def deregisterInstanceEventNotificationAttributes(
     request: DeregisterInstanceEventNotificationAttributesRequest
   ): Ec2IO[DeregisterInstanceEventNotificationAttributesResponse] =
-    FF.liftF(DeregisterInstanceEventNotificationAttributes(request))
+    FF.liftF(DeregisterInstanceEventNotificationAttributesOp(request))
 
   def deregisterTransitGatewayMulticastGroupMembers(
     request: DeregisterTransitGatewayMulticastGroupMembersRequest
   ): Ec2IO[DeregisterTransitGatewayMulticastGroupMembersResponse] =
-    FF.liftF(DeregisterTransitGatewayMulticastGroupMembers(request))
+    FF.liftF(DeregisterTransitGatewayMulticastGroupMembersOp(request))
 
   def deregisterTransitGatewayMulticastGroupSources(
     request: DeregisterTransitGatewayMulticastGroupSourcesRequest
   ): Ec2IO[DeregisterTransitGatewayMulticastGroupSourcesResponse] =
-    FF.liftF(DeregisterTransitGatewayMulticastGroupSources(request))
+    FF.liftF(DeregisterTransitGatewayMulticastGroupSourcesOp(request))
 
   def describeAccountAttributes(
     request: DescribeAccountAttributesRequest
   ): Ec2IO[DescribeAccountAttributesResponse] =
-    FF.liftF(DescribeAccountAttributes(request))
+    FF.liftF(DescribeAccountAttributesOp(request))
 
   def describeAddresses(
     request: DescribeAddressesRequest
   ): Ec2IO[DescribeAddressesResponse] =
-    FF.liftF(DescribeAddresses(request))
+    FF.liftF(DescribeAddressesOp(request))
 
   def describeAddressesAttribute(
     request: DescribeAddressesAttributeRequest
   ): Ec2IO[DescribeAddressesAttributeResponse] =
-    FF.liftF(DescribeAddressesAttribute(request))
+    FF.liftF(DescribeAddressesAttributeOp(request))
 
   def describeAggregateIdFormat(
     request: DescribeAggregateIdFormatRequest
   ): Ec2IO[DescribeAggregateIdFormatResponse] =
-    FF.liftF(DescribeAggregateIdFormat(request))
+    FF.liftF(DescribeAggregateIdFormatOp(request))
 
   def describeAvailabilityZones(
     request: DescribeAvailabilityZonesRequest
   ): Ec2IO[DescribeAvailabilityZonesResponse] =
-    FF.liftF(DescribeAvailabilityZones(request))
+    FF.liftF(DescribeAvailabilityZonesOp(request))
 
   def describeBundleTasks(
     request: DescribeBundleTasksRequest
   ): Ec2IO[DescribeBundleTasksResponse] =
-    FF.liftF(DescribeBundleTasks(request))
+    FF.liftF(DescribeBundleTasksOp(request))
 
   def describeByoipCidrs(
     request: DescribeByoipCidrsRequest
   ): Ec2IO[DescribeByoipCidrsResponse] =
-    FF.liftF(DescribeByoipCidrs(request))
+    FF.liftF(DescribeByoipCidrsOp(request))
 
   def describeCapacityReservations(
     request: DescribeCapacityReservationsRequest
   ): Ec2IO[DescribeCapacityReservationsResponse] =
-    FF.liftF(DescribeCapacityReservations(request))
+    FF.liftF(DescribeCapacityReservationsOp(request))
 
   def describeCarrierGateways(
     request: DescribeCarrierGatewaysRequest
   ): Ec2IO[DescribeCarrierGatewaysResponse] =
-    FF.liftF(DescribeCarrierGateways(request))
+    FF.liftF(DescribeCarrierGatewaysOp(request))
 
   def describeClassicLinkInstances(
     request: DescribeClassicLinkInstancesRequest
   ): Ec2IO[DescribeClassicLinkInstancesResponse] =
-    FF.liftF(DescribeClassicLinkInstances(request))
+    FF.liftF(DescribeClassicLinkInstancesOp(request))
 
   def describeClientVpnAuthorizationRules(
     request: DescribeClientVpnAuthorizationRulesRequest
   ): Ec2IO[DescribeClientVpnAuthorizationRulesResponse] =
-    FF.liftF(DescribeClientVpnAuthorizationRules(request))
+    FF.liftF(DescribeClientVpnAuthorizationRulesOp(request))
 
   def describeClientVpnConnections(
     request: DescribeClientVpnConnectionsRequest
   ): Ec2IO[DescribeClientVpnConnectionsResponse] =
-    FF.liftF(DescribeClientVpnConnections(request))
+    FF.liftF(DescribeClientVpnConnectionsOp(request))
 
   def describeClientVpnEndpoints(
     request: DescribeClientVpnEndpointsRequest
   ): Ec2IO[DescribeClientVpnEndpointsResponse] =
-    FF.liftF(DescribeClientVpnEndpoints(request))
+    FF.liftF(DescribeClientVpnEndpointsOp(request))
 
   def describeClientVpnRoutes(
     request: DescribeClientVpnRoutesRequest
   ): Ec2IO[DescribeClientVpnRoutesResponse] =
-    FF.liftF(DescribeClientVpnRoutes(request))
+    FF.liftF(DescribeClientVpnRoutesOp(request))
 
   def describeClientVpnTargetNetworks(
     request: DescribeClientVpnTargetNetworksRequest
   ): Ec2IO[DescribeClientVpnTargetNetworksResponse] =
-    FF.liftF(DescribeClientVpnTargetNetworks(request))
+    FF.liftF(DescribeClientVpnTargetNetworksOp(request))
 
   def describeCoipPools(
     request: DescribeCoipPoolsRequest
   ): Ec2IO[DescribeCoipPoolsResponse] =
-    FF.liftF(DescribeCoipPools(request))
+    FF.liftF(DescribeCoipPoolsOp(request))
 
   def describeConversionTasks(
     request: DescribeConversionTasksRequest
   ): Ec2IO[DescribeConversionTasksResponse] =
-    FF.liftF(DescribeConversionTasks(request))
+    FF.liftF(DescribeConversionTasksOp(request))
 
   def describeCustomerGateways(
     request: DescribeCustomerGatewaysRequest
   ): Ec2IO[DescribeCustomerGatewaysResponse] =
-    FF.liftF(DescribeCustomerGateways(request))
+    FF.liftF(DescribeCustomerGatewaysOp(request))
 
   def describeDhcpOptions(
     request: DescribeDhcpOptionsRequest
   ): Ec2IO[DescribeDhcpOptionsResponse] =
-    FF.liftF(DescribeDhcpOptions(request))
+    FF.liftF(DescribeDhcpOptionsOp(request))
 
   def describeEgressOnlyInternetGateways(
     request: DescribeEgressOnlyInternetGatewaysRequest
   ): Ec2IO[DescribeEgressOnlyInternetGatewaysResponse] =
-    FF.liftF(DescribeEgressOnlyInternetGateways(request))
+    FF.liftF(DescribeEgressOnlyInternetGatewaysOp(request))
 
   def describeElasticGpus(
     request: DescribeElasticGpusRequest
   ): Ec2IO[DescribeElasticGpusResponse] =
-    FF.liftF(DescribeElasticGpus(request))
+    FF.liftF(DescribeElasticGpusOp(request))
 
   def describeExportImageTasks(
     request: DescribeExportImageTasksRequest
   ): Ec2IO[DescribeExportImageTasksResponse] =
-    FF.liftF(DescribeExportImageTasks(request))
+    FF.liftF(DescribeExportImageTasksOp(request))
 
   def describeExportTasks(
     request: DescribeExportTasksRequest
   ): Ec2IO[DescribeExportTasksResponse] =
-    FF.liftF(DescribeExportTasks(request))
+    FF.liftF(DescribeExportTasksOp(request))
 
   def describeFastSnapshotRestores(
     request: DescribeFastSnapshotRestoresRequest
   ): Ec2IO[DescribeFastSnapshotRestoresResponse] =
-    FF.liftF(DescribeFastSnapshotRestores(request))
+    FF.liftF(DescribeFastSnapshotRestoresOp(request))
 
   def describeFleetHistory(
     request: DescribeFleetHistoryRequest
   ): Ec2IO[DescribeFleetHistoryResponse] =
-    FF.liftF(DescribeFleetHistory(request))
+    FF.liftF(DescribeFleetHistoryOp(request))
 
   def describeFleetInstances(
     request: DescribeFleetInstancesRequest
   ): Ec2IO[DescribeFleetInstancesResponse] =
-    FF.liftF(DescribeFleetInstances(request))
+    FF.liftF(DescribeFleetInstancesOp(request))
 
   def describeFleets(
     request: DescribeFleetsRequest
   ): Ec2IO[DescribeFleetsResponse] =
-    FF.liftF(DescribeFleets(request))
+    FF.liftF(DescribeFleetsOp(request))
 
   def describeFlowLogs(
     request: DescribeFlowLogsRequest
   ): Ec2IO[DescribeFlowLogsResponse] =
-    FF.liftF(DescribeFlowLogs(request))
+    FF.liftF(DescribeFlowLogsOp(request))
 
   def describeFpgaImageAttribute(
     request: DescribeFpgaImageAttributeRequest
   ): Ec2IO[DescribeFpgaImageAttributeResponse] =
-    FF.liftF(DescribeFpgaImageAttribute(request))
+    FF.liftF(DescribeFpgaImageAttributeOp(request))
 
   def describeFpgaImages(
     request: DescribeFpgaImagesRequest
   ): Ec2IO[DescribeFpgaImagesResponse] =
-    FF.liftF(DescribeFpgaImages(request))
+    FF.liftF(DescribeFpgaImagesOp(request))
 
   def describeHostReservationOfferings(
     request: DescribeHostReservationOfferingsRequest
   ): Ec2IO[DescribeHostReservationOfferingsResponse] =
-    FF.liftF(DescribeHostReservationOfferings(request))
+    FF.liftF(DescribeHostReservationOfferingsOp(request))
 
   def describeHostReservations(
     request: DescribeHostReservationsRequest
   ): Ec2IO[DescribeHostReservationsResponse] =
-    FF.liftF(DescribeHostReservations(request))
+    FF.liftF(DescribeHostReservationsOp(request))
 
   def describeHosts(
     request: DescribeHostsRequest
   ): Ec2IO[DescribeHostsResponse] =
-    FF.liftF(DescribeHosts(request))
+    FF.liftF(DescribeHostsOp(request))
 
   def describeIamInstanceProfileAssociations(
     request: DescribeIamInstanceProfileAssociationsRequest
   ): Ec2IO[DescribeIamInstanceProfileAssociationsResponse] =
-    FF.liftF(DescribeIamInstanceProfileAssociations(request))
+    FF.liftF(DescribeIamInstanceProfileAssociationsOp(request))
 
   def describeIdFormat(
     request: DescribeIdFormatRequest
   ): Ec2IO[DescribeIdFormatResponse] =
-    FF.liftF(DescribeIdFormat(request))
+    FF.liftF(DescribeIdFormatOp(request))
 
   def describeIdentityIdFormat(
     request: DescribeIdentityIdFormatRequest
   ): Ec2IO[DescribeIdentityIdFormatResponse] =
-    FF.liftF(DescribeIdentityIdFormat(request))
+    FF.liftF(DescribeIdentityIdFormatOp(request))
 
   def describeImageAttribute(
     request: DescribeImageAttributeRequest
   ): Ec2IO[DescribeImageAttributeResponse] =
-    FF.liftF(DescribeImageAttribute(request))
+    FF.liftF(DescribeImageAttributeOp(request))
 
   def describeImages(
     request: DescribeImagesRequest
   ): Ec2IO[DescribeImagesResponse] =
-    FF.liftF(DescribeImages(request))
+    FF.liftF(DescribeImagesOp(request))
 
   def describeImportImageTasks(
     request: DescribeImportImageTasksRequest
   ): Ec2IO[DescribeImportImageTasksResponse] =
-    FF.liftF(DescribeImportImageTasks(request))
+    FF.liftF(DescribeImportImageTasksOp(request))
 
   def describeImportSnapshotTasks(
     request: DescribeImportSnapshotTasksRequest
   ): Ec2IO[DescribeImportSnapshotTasksResponse] =
-    FF.liftF(DescribeImportSnapshotTasks(request))
+    FF.liftF(DescribeImportSnapshotTasksOp(request))
 
   def describeInstanceAttribute(
     request: DescribeInstanceAttributeRequest
   ): Ec2IO[DescribeInstanceAttributeResponse] =
-    FF.liftF(DescribeInstanceAttribute(request))
+    FF.liftF(DescribeInstanceAttributeOp(request))
 
   def describeInstanceCreditSpecifications(
     request: DescribeInstanceCreditSpecificationsRequest
   ): Ec2IO[DescribeInstanceCreditSpecificationsResponse] =
-    FF.liftF(DescribeInstanceCreditSpecifications(request))
+    FF.liftF(DescribeInstanceCreditSpecificationsOp(request))
 
   def describeInstanceEventNotificationAttributes(
     request: DescribeInstanceEventNotificationAttributesRequest
   ): Ec2IO[DescribeInstanceEventNotificationAttributesResponse] =
-    FF.liftF(DescribeInstanceEventNotificationAttributes(request))
+    FF.liftF(DescribeInstanceEventNotificationAttributesOp(request))
 
   def describeInstanceStatus(
     request: DescribeInstanceStatusRequest
   ): Ec2IO[DescribeInstanceStatusResponse] =
-    FF.liftF(DescribeInstanceStatus(request))
+    FF.liftF(DescribeInstanceStatusOp(request))
 
   def describeInstanceTypeOfferings(
     request: DescribeInstanceTypeOfferingsRequest
   ): Ec2IO[DescribeInstanceTypeOfferingsResponse] =
-    FF.liftF(DescribeInstanceTypeOfferings(request))
+    FF.liftF(DescribeInstanceTypeOfferingsOp(request))
 
   def describeInstanceTypes(
     request: DescribeInstanceTypesRequest
   ): Ec2IO[DescribeInstanceTypesResponse] =
-    FF.liftF(DescribeInstanceTypes(request))
+    FF.liftF(DescribeInstanceTypesOp(request))
 
   def describeInstances(
     request: DescribeInstancesRequest
   ): Ec2IO[DescribeInstancesResponse] =
-    FF.liftF(DescribeInstances(request))
+    FF.liftF(DescribeInstancesOp(request))
 
   def describeInternetGateways(
     request: DescribeInternetGatewaysRequest
   ): Ec2IO[DescribeInternetGatewaysResponse] =
-    FF.liftF(DescribeInternetGateways(request))
+    FF.liftF(DescribeInternetGatewaysOp(request))
 
   def describeIpv6Pools(
     request: DescribeIpv6PoolsRequest
   ): Ec2IO[DescribeIpv6PoolsResponse] =
-    FF.liftF(DescribeIpv6Pools(request))
+    FF.liftF(DescribeIpv6PoolsOp(request))
 
   def describeKeyPairs(
     request: DescribeKeyPairsRequest
   ): Ec2IO[DescribeKeyPairsResponse] =
-    FF.liftF(DescribeKeyPairs(request))
+    FF.liftF(DescribeKeyPairsOp(request))
 
   def describeLaunchTemplateVersions(
     request: DescribeLaunchTemplateVersionsRequest
   ): Ec2IO[DescribeLaunchTemplateVersionsResponse] =
-    FF.liftF(DescribeLaunchTemplateVersions(request))
+    FF.liftF(DescribeLaunchTemplateVersionsOp(request))
 
   def describeLaunchTemplates(
     request: DescribeLaunchTemplatesRequest
   ): Ec2IO[DescribeLaunchTemplatesResponse] =
-    FF.liftF(DescribeLaunchTemplates(request))
+    FF.liftF(DescribeLaunchTemplatesOp(request))
 
   def describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     request: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
   ): Ec2IO[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse] =
-    FF.liftF(DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(request))
+    FF.liftF(DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOp(request))
 
   def describeLocalGatewayRouteTableVpcAssociations(
     request: DescribeLocalGatewayRouteTableVpcAssociationsRequest
   ): Ec2IO[DescribeLocalGatewayRouteTableVpcAssociationsResponse] =
-    FF.liftF(DescribeLocalGatewayRouteTableVpcAssociations(request))
+    FF.liftF(DescribeLocalGatewayRouteTableVpcAssociationsOp(request))
 
   def describeLocalGatewayRouteTables(
     request: DescribeLocalGatewayRouteTablesRequest
   ): Ec2IO[DescribeLocalGatewayRouteTablesResponse] =
-    FF.liftF(DescribeLocalGatewayRouteTables(request))
+    FF.liftF(DescribeLocalGatewayRouteTablesOp(request))
 
   def describeLocalGatewayVirtualInterfaceGroups(
     request: DescribeLocalGatewayVirtualInterfaceGroupsRequest
   ): Ec2IO[DescribeLocalGatewayVirtualInterfaceGroupsResponse] =
-    FF.liftF(DescribeLocalGatewayVirtualInterfaceGroups(request))
+    FF.liftF(DescribeLocalGatewayVirtualInterfaceGroupsOp(request))
 
   def describeLocalGatewayVirtualInterfaces(
     request: DescribeLocalGatewayVirtualInterfacesRequest
   ): Ec2IO[DescribeLocalGatewayVirtualInterfacesResponse] =
-    FF.liftF(DescribeLocalGatewayVirtualInterfaces(request))
+    FF.liftF(DescribeLocalGatewayVirtualInterfacesOp(request))
 
   def describeLocalGateways(
     request: DescribeLocalGatewaysRequest
   ): Ec2IO[DescribeLocalGatewaysResponse] =
-    FF.liftF(DescribeLocalGateways(request))
+    FF.liftF(DescribeLocalGatewaysOp(request))
 
   def describeManagedPrefixLists(
     request: DescribeManagedPrefixListsRequest
   ): Ec2IO[DescribeManagedPrefixListsResponse] =
-    FF.liftF(DescribeManagedPrefixLists(request))
+    FF.liftF(DescribeManagedPrefixListsOp(request))
 
   def describeMovingAddresses(
     request: DescribeMovingAddressesRequest
   ): Ec2IO[DescribeMovingAddressesResponse] =
-    FF.liftF(DescribeMovingAddresses(request))
+    FF.liftF(DescribeMovingAddressesOp(request))
 
   def describeNatGateways(
     request: DescribeNatGatewaysRequest
   ): Ec2IO[DescribeNatGatewaysResponse] =
-    FF.liftF(DescribeNatGateways(request))
+    FF.liftF(DescribeNatGatewaysOp(request))
 
   def describeNetworkAcls(
     request: DescribeNetworkAclsRequest
   ): Ec2IO[DescribeNetworkAclsResponse] =
-    FF.liftF(DescribeNetworkAcls(request))
+    FF.liftF(DescribeNetworkAclsOp(request))
 
   def describeNetworkInsightsAnalyses(
     request: DescribeNetworkInsightsAnalysesRequest
   ): Ec2IO[DescribeNetworkInsightsAnalysesResponse] =
-    FF.liftF(DescribeNetworkInsightsAnalyses(request))
+    FF.liftF(DescribeNetworkInsightsAnalysesOp(request))
 
   def describeNetworkInsightsPaths(
     request: DescribeNetworkInsightsPathsRequest
   ): Ec2IO[DescribeNetworkInsightsPathsResponse] =
-    FF.liftF(DescribeNetworkInsightsPaths(request))
+    FF.liftF(DescribeNetworkInsightsPathsOp(request))
 
   def describeNetworkInterfaceAttribute(
     request: DescribeNetworkInterfaceAttributeRequest
   ): Ec2IO[DescribeNetworkInterfaceAttributeResponse] =
-    FF.liftF(DescribeNetworkInterfaceAttribute(request))
+    FF.liftF(DescribeNetworkInterfaceAttributeOp(request))
 
   def describeNetworkInterfacePermissions(
     request: DescribeNetworkInterfacePermissionsRequest
   ): Ec2IO[DescribeNetworkInterfacePermissionsResponse] =
-    FF.liftF(DescribeNetworkInterfacePermissions(request))
+    FF.liftF(DescribeNetworkInterfacePermissionsOp(request))
 
   def describeNetworkInterfaces(
     request: DescribeNetworkInterfacesRequest
   ): Ec2IO[DescribeNetworkInterfacesResponse] =
-    FF.liftF(DescribeNetworkInterfaces(request))
+    FF.liftF(DescribeNetworkInterfacesOp(request))
 
   def describePlacementGroups(
     request: DescribePlacementGroupsRequest
   ): Ec2IO[DescribePlacementGroupsResponse] =
-    FF.liftF(DescribePlacementGroups(request))
+    FF.liftF(DescribePlacementGroupsOp(request))
 
   def describePrefixLists(
     request: DescribePrefixListsRequest
   ): Ec2IO[DescribePrefixListsResponse] =
-    FF.liftF(DescribePrefixLists(request))
+    FF.liftF(DescribePrefixListsOp(request))
 
   def describePrincipalIdFormat(
     request: DescribePrincipalIdFormatRequest
   ): Ec2IO[DescribePrincipalIdFormatResponse] =
-    FF.liftF(DescribePrincipalIdFormat(request))
+    FF.liftF(DescribePrincipalIdFormatOp(request))
 
   def describePublicIpv4Pools(
     request: DescribePublicIpv4PoolsRequest
   ): Ec2IO[DescribePublicIpv4PoolsResponse] =
-    FF.liftF(DescribePublicIpv4Pools(request))
+    FF.liftF(DescribePublicIpv4PoolsOp(request))
 
   def describeRegions(
     request: DescribeRegionsRequest
   ): Ec2IO[DescribeRegionsResponse] =
-    FF.liftF(DescribeRegions(request))
+    FF.liftF(DescribeRegionsOp(request))
 
   def describeReplaceRootVolumeTasks(
     request: DescribeReplaceRootVolumeTasksRequest
   ): Ec2IO[DescribeReplaceRootVolumeTasksResponse] =
-    FF.liftF(DescribeReplaceRootVolumeTasks(request))
+    FF.liftF(DescribeReplaceRootVolumeTasksOp(request))
 
   def describeReservedInstances(
     request: DescribeReservedInstancesRequest
   ): Ec2IO[DescribeReservedInstancesResponse] =
-    FF.liftF(DescribeReservedInstances(request))
+    FF.liftF(DescribeReservedInstancesOp(request))
 
   def describeReservedInstancesListings(
     request: DescribeReservedInstancesListingsRequest
   ): Ec2IO[DescribeReservedInstancesListingsResponse] =
-    FF.liftF(DescribeReservedInstancesListings(request))
+    FF.liftF(DescribeReservedInstancesListingsOp(request))
 
   def describeReservedInstancesModifications(
     request: DescribeReservedInstancesModificationsRequest
   ): Ec2IO[DescribeReservedInstancesModificationsResponse] =
-    FF.liftF(DescribeReservedInstancesModifications(request))
+    FF.liftF(DescribeReservedInstancesModificationsOp(request))
 
   def describeReservedInstancesOfferings(
     request: DescribeReservedInstancesOfferingsRequest
   ): Ec2IO[DescribeReservedInstancesOfferingsResponse] =
-    FF.liftF(DescribeReservedInstancesOfferings(request))
+    FF.liftF(DescribeReservedInstancesOfferingsOp(request))
 
   def describeRouteTables(
     request: DescribeRouteTablesRequest
   ): Ec2IO[DescribeRouteTablesResponse] =
-    FF.liftF(DescribeRouteTables(request))
+    FF.liftF(DescribeRouteTablesOp(request))
 
   def describeScheduledInstanceAvailability(
     request: DescribeScheduledInstanceAvailabilityRequest
   ): Ec2IO[DescribeScheduledInstanceAvailabilityResponse] =
-    FF.liftF(DescribeScheduledInstanceAvailability(request))
+    FF.liftF(DescribeScheduledInstanceAvailabilityOp(request))
 
   def describeScheduledInstances(
     request: DescribeScheduledInstancesRequest
   ): Ec2IO[DescribeScheduledInstancesResponse] =
-    FF.liftF(DescribeScheduledInstances(request))
+    FF.liftF(DescribeScheduledInstancesOp(request))
 
   def describeSecurityGroupReferences(
     request: DescribeSecurityGroupReferencesRequest
   ): Ec2IO[DescribeSecurityGroupReferencesResponse] =
-    FF.liftF(DescribeSecurityGroupReferences(request))
+    FF.liftF(DescribeSecurityGroupReferencesOp(request))
 
   def describeSecurityGroups(
     request: DescribeSecurityGroupsRequest
   ): Ec2IO[DescribeSecurityGroupsResponse] =
-    FF.liftF(DescribeSecurityGroups(request))
+    FF.liftF(DescribeSecurityGroupsOp(request))
 
   def describeSnapshotAttribute(
     request: DescribeSnapshotAttributeRequest
   ): Ec2IO[DescribeSnapshotAttributeResponse] =
-    FF.liftF(DescribeSnapshotAttribute(request))
+    FF.liftF(DescribeSnapshotAttributeOp(request))
 
   def describeSnapshots(
     request: DescribeSnapshotsRequest
   ): Ec2IO[DescribeSnapshotsResponse] =
-    FF.liftF(DescribeSnapshots(request))
+    FF.liftF(DescribeSnapshotsOp(request))
 
   def describeSpotDatafeedSubscription(
     request: DescribeSpotDatafeedSubscriptionRequest
   ): Ec2IO[DescribeSpotDatafeedSubscriptionResponse] =
-    FF.liftF(DescribeSpotDatafeedSubscription(request))
+    FF.liftF(DescribeSpotDatafeedSubscriptionOp(request))
 
   def describeSpotFleetInstances(
     request: DescribeSpotFleetInstancesRequest
   ): Ec2IO[DescribeSpotFleetInstancesResponse] =
-    FF.liftF(DescribeSpotFleetInstances(request))
+    FF.liftF(DescribeSpotFleetInstancesOp(request))
 
   def describeSpotFleetRequestHistory(
     request: DescribeSpotFleetRequestHistoryRequest
   ): Ec2IO[DescribeSpotFleetRequestHistoryResponse] =
-    FF.liftF(DescribeSpotFleetRequestHistory(request))
+    FF.liftF(DescribeSpotFleetRequestHistoryOp(request))
 
   def describeSpotFleetRequests(
     request: DescribeSpotFleetRequestsRequest
   ): Ec2IO[DescribeSpotFleetRequestsResponse] =
-    FF.liftF(DescribeSpotFleetRequests(request))
+    FF.liftF(DescribeSpotFleetRequestsOp(request))
 
   def describeSpotInstanceRequests(
     request: DescribeSpotInstanceRequestsRequest
   ): Ec2IO[DescribeSpotInstanceRequestsResponse] =
-    FF.liftF(DescribeSpotInstanceRequests(request))
+    FF.liftF(DescribeSpotInstanceRequestsOp(request))
 
   def describeSpotPriceHistory(
     request: DescribeSpotPriceHistoryRequest
   ): Ec2IO[DescribeSpotPriceHistoryResponse] =
-    FF.liftF(DescribeSpotPriceHistory(request))
+    FF.liftF(DescribeSpotPriceHistoryOp(request))
 
   def describeStaleSecurityGroups(
     request: DescribeStaleSecurityGroupsRequest
   ): Ec2IO[DescribeStaleSecurityGroupsResponse] =
-    FF.liftF(DescribeStaleSecurityGroups(request))
+    FF.liftF(DescribeStaleSecurityGroupsOp(request))
 
   def describeStoreImageTasks(
     request: DescribeStoreImageTasksRequest
   ): Ec2IO[DescribeStoreImageTasksResponse] =
-    FF.liftF(DescribeStoreImageTasks(request))
+    FF.liftF(DescribeStoreImageTasksOp(request))
 
   def describeSubnets(
     request: DescribeSubnetsRequest
   ): Ec2IO[DescribeSubnetsResponse] =
-    FF.liftF(DescribeSubnets(request))
+    FF.liftF(DescribeSubnetsOp(request))
 
   def describeTags(
     request: DescribeTagsRequest
   ): Ec2IO[DescribeTagsResponse] =
-    FF.liftF(DescribeTags(request))
+    FF.liftF(DescribeTagsOp(request))
 
   def describeTrafficMirrorFilters(
     request: DescribeTrafficMirrorFiltersRequest
   ): Ec2IO[DescribeTrafficMirrorFiltersResponse] =
-    FF.liftF(DescribeTrafficMirrorFilters(request))
+    FF.liftF(DescribeTrafficMirrorFiltersOp(request))
 
   def describeTrafficMirrorSessions(
     request: DescribeTrafficMirrorSessionsRequest
   ): Ec2IO[DescribeTrafficMirrorSessionsResponse] =
-    FF.liftF(DescribeTrafficMirrorSessions(request))
+    FF.liftF(DescribeTrafficMirrorSessionsOp(request))
 
   def describeTrafficMirrorTargets(
     request: DescribeTrafficMirrorTargetsRequest
   ): Ec2IO[DescribeTrafficMirrorTargetsResponse] =
-    FF.liftF(DescribeTrafficMirrorTargets(request))
+    FF.liftF(DescribeTrafficMirrorTargetsOp(request))
 
   def describeTransitGatewayAttachments(
     request: DescribeTransitGatewayAttachmentsRequest
   ): Ec2IO[DescribeTransitGatewayAttachmentsResponse] =
-    FF.liftF(DescribeTransitGatewayAttachments(request))
+    FF.liftF(DescribeTransitGatewayAttachmentsOp(request))
 
   def describeTransitGatewayConnectPeers(
     request: DescribeTransitGatewayConnectPeersRequest
   ): Ec2IO[DescribeTransitGatewayConnectPeersResponse] =
-    FF.liftF(DescribeTransitGatewayConnectPeers(request))
+    FF.liftF(DescribeTransitGatewayConnectPeersOp(request))
 
   def describeTransitGatewayConnects(
     request: DescribeTransitGatewayConnectsRequest
   ): Ec2IO[DescribeTransitGatewayConnectsResponse] =
-    FF.liftF(DescribeTransitGatewayConnects(request))
+    FF.liftF(DescribeTransitGatewayConnectsOp(request))
 
   def describeTransitGatewayMulticastDomains(
     request: DescribeTransitGatewayMulticastDomainsRequest
   ): Ec2IO[DescribeTransitGatewayMulticastDomainsResponse] =
-    FF.liftF(DescribeTransitGatewayMulticastDomains(request))
+    FF.liftF(DescribeTransitGatewayMulticastDomainsOp(request))
 
   def describeTransitGatewayPeeringAttachments(
     request: DescribeTransitGatewayPeeringAttachmentsRequest
   ): Ec2IO[DescribeTransitGatewayPeeringAttachmentsResponse] =
-    FF.liftF(DescribeTransitGatewayPeeringAttachments(request))
+    FF.liftF(DescribeTransitGatewayPeeringAttachmentsOp(request))
 
   def describeTransitGatewayRouteTables(
     request: DescribeTransitGatewayRouteTablesRequest
   ): Ec2IO[DescribeTransitGatewayRouteTablesResponse] =
-    FF.liftF(DescribeTransitGatewayRouteTables(request))
+    FF.liftF(DescribeTransitGatewayRouteTablesOp(request))
 
   def describeTransitGatewayVpcAttachments(
     request: DescribeTransitGatewayVpcAttachmentsRequest
   ): Ec2IO[DescribeTransitGatewayVpcAttachmentsResponse] =
-    FF.liftF(DescribeTransitGatewayVpcAttachments(request))
+    FF.liftF(DescribeTransitGatewayVpcAttachmentsOp(request))
 
   def describeTransitGateways(
     request: DescribeTransitGatewaysRequest
   ): Ec2IO[DescribeTransitGatewaysResponse] =
-    FF.liftF(DescribeTransitGateways(request))
+    FF.liftF(DescribeTransitGatewaysOp(request))
 
   def describeVolumeAttribute(
     request: DescribeVolumeAttributeRequest
   ): Ec2IO[DescribeVolumeAttributeResponse] =
-    FF.liftF(DescribeVolumeAttribute(request))
+    FF.liftF(DescribeVolumeAttributeOp(request))
 
   def describeVolumeStatus(
     request: DescribeVolumeStatusRequest
   ): Ec2IO[DescribeVolumeStatusResponse] =
-    FF.liftF(DescribeVolumeStatus(request))
+    FF.liftF(DescribeVolumeStatusOp(request))
 
   def describeVolumes(
     request: DescribeVolumesRequest
   ): Ec2IO[DescribeVolumesResponse] =
-    FF.liftF(DescribeVolumes(request))
+    FF.liftF(DescribeVolumesOp(request))
 
   def describeVolumesModifications(
     request: DescribeVolumesModificationsRequest
   ): Ec2IO[DescribeVolumesModificationsResponse] =
-    FF.liftF(DescribeVolumesModifications(request))
+    FF.liftF(DescribeVolumesModificationsOp(request))
 
   def describeVpcAttribute(
     request: DescribeVpcAttributeRequest
   ): Ec2IO[DescribeVpcAttributeResponse] =
-    FF.liftF(DescribeVpcAttribute(request))
+    FF.liftF(DescribeVpcAttributeOp(request))
 
   def describeVpcClassicLink(
     request: DescribeVpcClassicLinkRequest
   ): Ec2IO[DescribeVpcClassicLinkResponse] =
-    FF.liftF(DescribeVpcClassicLink(request))
+    FF.liftF(DescribeVpcClassicLinkOp(request))
 
   def describeVpcClassicLinkDnsSupport(
     request: DescribeVpcClassicLinkDnsSupportRequest
   ): Ec2IO[DescribeVpcClassicLinkDnsSupportResponse] =
-    FF.liftF(DescribeVpcClassicLinkDnsSupport(request))
+    FF.liftF(DescribeVpcClassicLinkDnsSupportOp(request))
 
   def describeVpcEndpointConnectionNotifications(
     request: DescribeVpcEndpointConnectionNotificationsRequest
   ): Ec2IO[DescribeVpcEndpointConnectionNotificationsResponse] =
-    FF.liftF(DescribeVpcEndpointConnectionNotifications(request))
+    FF.liftF(DescribeVpcEndpointConnectionNotificationsOp(request))
 
   def describeVpcEndpointConnections(
     request: DescribeVpcEndpointConnectionsRequest
   ): Ec2IO[DescribeVpcEndpointConnectionsResponse] =
-    FF.liftF(DescribeVpcEndpointConnections(request))
+    FF.liftF(DescribeVpcEndpointConnectionsOp(request))
 
   def describeVpcEndpointServiceConfigurations(
     request: DescribeVpcEndpointServiceConfigurationsRequest
   ): Ec2IO[DescribeVpcEndpointServiceConfigurationsResponse] =
-    FF.liftF(DescribeVpcEndpointServiceConfigurations(request))
+    FF.liftF(DescribeVpcEndpointServiceConfigurationsOp(request))
 
   def describeVpcEndpointServicePermissions(
     request: DescribeVpcEndpointServicePermissionsRequest
   ): Ec2IO[DescribeVpcEndpointServicePermissionsResponse] =
-    FF.liftF(DescribeVpcEndpointServicePermissions(request))
+    FF.liftF(DescribeVpcEndpointServicePermissionsOp(request))
 
   def describeVpcEndpointServices(
     request: DescribeVpcEndpointServicesRequest
   ): Ec2IO[DescribeVpcEndpointServicesResponse] =
-    FF.liftF(DescribeVpcEndpointServices(request))
+    FF.liftF(DescribeVpcEndpointServicesOp(request))
 
   def describeVpcEndpoints(
     request: DescribeVpcEndpointsRequest
   ): Ec2IO[DescribeVpcEndpointsResponse] =
-    FF.liftF(DescribeVpcEndpoints(request))
+    FF.liftF(DescribeVpcEndpointsOp(request))
 
   def describeVpcPeeringConnections(
     request: DescribeVpcPeeringConnectionsRequest
   ): Ec2IO[DescribeVpcPeeringConnectionsResponse] =
-    FF.liftF(DescribeVpcPeeringConnections(request))
+    FF.liftF(DescribeVpcPeeringConnectionsOp(request))
 
   def describeVpcs(
     request: DescribeVpcsRequest
   ): Ec2IO[DescribeVpcsResponse] =
-    FF.liftF(DescribeVpcs(request))
+    FF.liftF(DescribeVpcsOp(request))
 
   def describeVpnConnections(
     request: DescribeVpnConnectionsRequest
   ): Ec2IO[DescribeVpnConnectionsResponse] =
-    FF.liftF(DescribeVpnConnections(request))
+    FF.liftF(DescribeVpnConnectionsOp(request))
 
   def describeVpnGateways(
     request: DescribeVpnGatewaysRequest
   ): Ec2IO[DescribeVpnGatewaysResponse] =
-    FF.liftF(DescribeVpnGateways(request))
+    FF.liftF(DescribeVpnGatewaysOp(request))
 
   def detachClassicLinkVpc(
     request: DetachClassicLinkVpcRequest
   ): Ec2IO[DetachClassicLinkVpcResponse] =
-    FF.liftF(DetachClassicLinkVpc(request))
+    FF.liftF(DetachClassicLinkVpcOp(request))
 
   def detachInternetGateway(
     request: DetachInternetGatewayRequest
   ): Ec2IO[DetachInternetGatewayResponse] =
-    FF.liftF(DetachInternetGateway(request))
+    FF.liftF(DetachInternetGatewayOp(request))
 
   def detachNetworkInterface(
     request: DetachNetworkInterfaceRequest
   ): Ec2IO[DetachNetworkInterfaceResponse] =
-    FF.liftF(DetachNetworkInterface(request))
+    FF.liftF(DetachNetworkInterfaceOp(request))
 
   def detachVolume(
     request: DetachVolumeRequest
   ): Ec2IO[DetachVolumeResponse] =
-    FF.liftF(DetachVolume(request))
+    FF.liftF(DetachVolumeOp(request))
 
   def detachVpnGateway(
     request: DetachVpnGatewayRequest
   ): Ec2IO[DetachVpnGatewayResponse] =
-    FF.liftF(DetachVpnGateway(request))
+    FF.liftF(DetachVpnGatewayOp(request))
 
   def disableEbsEncryptionByDefault(
     request: DisableEbsEncryptionByDefaultRequest
   ): Ec2IO[DisableEbsEncryptionByDefaultResponse] =
-    FF.liftF(DisableEbsEncryptionByDefault(request))
+    FF.liftF(DisableEbsEncryptionByDefaultOp(request))
 
   def disableFastSnapshotRestores(
     request: DisableFastSnapshotRestoresRequest
   ): Ec2IO[DisableFastSnapshotRestoresResponse] =
-    FF.liftF(DisableFastSnapshotRestores(request))
+    FF.liftF(DisableFastSnapshotRestoresOp(request))
 
   def disableImageDeprecation(
     request: DisableImageDeprecationRequest
   ): Ec2IO[DisableImageDeprecationResponse] =
-    FF.liftF(DisableImageDeprecation(request))
+    FF.liftF(DisableImageDeprecationOp(request))
 
   def disableSerialConsoleAccess(
     request: DisableSerialConsoleAccessRequest
   ): Ec2IO[DisableSerialConsoleAccessResponse] =
-    FF.liftF(DisableSerialConsoleAccess(request))
+    FF.liftF(DisableSerialConsoleAccessOp(request))
 
   def disableTransitGatewayRouteTablePropagation(
     request: DisableTransitGatewayRouteTablePropagationRequest
   ): Ec2IO[DisableTransitGatewayRouteTablePropagationResponse] =
-    FF.liftF(DisableTransitGatewayRouteTablePropagation(request))
+    FF.liftF(DisableTransitGatewayRouteTablePropagationOp(request))
 
   def disableVgwRoutePropagation(
     request: DisableVgwRoutePropagationRequest
   ): Ec2IO[DisableVgwRoutePropagationResponse] =
-    FF.liftF(DisableVgwRoutePropagation(request))
+    FF.liftF(DisableVgwRoutePropagationOp(request))
 
   def disableVpcClassicLink(
     request: DisableVpcClassicLinkRequest
   ): Ec2IO[DisableVpcClassicLinkResponse] =
-    FF.liftF(DisableVpcClassicLink(request))
+    FF.liftF(DisableVpcClassicLinkOp(request))
 
   def disableVpcClassicLinkDnsSupport(
     request: DisableVpcClassicLinkDnsSupportRequest
   ): Ec2IO[DisableVpcClassicLinkDnsSupportResponse] =
-    FF.liftF(DisableVpcClassicLinkDnsSupport(request))
+    FF.liftF(DisableVpcClassicLinkDnsSupportOp(request))
 
   def disassociateAddress(
     request: DisassociateAddressRequest
   ): Ec2IO[DisassociateAddressResponse] =
-    FF.liftF(DisassociateAddress(request))
+    FF.liftF(DisassociateAddressOp(request))
 
   def disassociateClientVpnTargetNetwork(
     request: DisassociateClientVpnTargetNetworkRequest
   ): Ec2IO[DisassociateClientVpnTargetNetworkResponse] =
-    FF.liftF(DisassociateClientVpnTargetNetwork(request))
+    FF.liftF(DisassociateClientVpnTargetNetworkOp(request))
 
   def disassociateEnclaveCertificateIamRole(
     request: DisassociateEnclaveCertificateIamRoleRequest
   ): Ec2IO[DisassociateEnclaveCertificateIamRoleResponse] =
-    FF.liftF(DisassociateEnclaveCertificateIamRole(request))
+    FF.liftF(DisassociateEnclaveCertificateIamRoleOp(request))
 
   def disassociateIamInstanceProfile(
     request: DisassociateIamInstanceProfileRequest
   ): Ec2IO[DisassociateIamInstanceProfileResponse] =
-    FF.liftF(DisassociateIamInstanceProfile(request))
+    FF.liftF(DisassociateIamInstanceProfileOp(request))
 
   def disassociateRouteTable(
     request: DisassociateRouteTableRequest
   ): Ec2IO[DisassociateRouteTableResponse] =
-    FF.liftF(DisassociateRouteTable(request))
+    FF.liftF(DisassociateRouteTableOp(request))
 
   def disassociateSubnetCidrBlock(
     request: DisassociateSubnetCidrBlockRequest
   ): Ec2IO[DisassociateSubnetCidrBlockResponse] =
-    FF.liftF(DisassociateSubnetCidrBlock(request))
+    FF.liftF(DisassociateSubnetCidrBlockOp(request))
 
   def disassociateTransitGatewayMulticastDomain(
     request: DisassociateTransitGatewayMulticastDomainRequest
   ): Ec2IO[DisassociateTransitGatewayMulticastDomainResponse] =
-    FF.liftF(DisassociateTransitGatewayMulticastDomain(request))
+    FF.liftF(DisassociateTransitGatewayMulticastDomainOp(request))
 
   def disassociateTransitGatewayRouteTable(
     request: DisassociateTransitGatewayRouteTableRequest
   ): Ec2IO[DisassociateTransitGatewayRouteTableResponse] =
-    FF.liftF(DisassociateTransitGatewayRouteTable(request))
+    FF.liftF(DisassociateTransitGatewayRouteTableOp(request))
 
   def disassociateVpcCidrBlock(
     request: DisassociateVpcCidrBlockRequest
   ): Ec2IO[DisassociateVpcCidrBlockResponse] =
-    FF.liftF(DisassociateVpcCidrBlock(request))
+    FF.liftF(DisassociateVpcCidrBlockOp(request))
 
   def enableEbsEncryptionByDefault(
     request: EnableEbsEncryptionByDefaultRequest
   ): Ec2IO[EnableEbsEncryptionByDefaultResponse] =
-    FF.liftF(EnableEbsEncryptionByDefault(request))
+    FF.liftF(EnableEbsEncryptionByDefaultOp(request))
 
   def enableFastSnapshotRestores(
     request: EnableFastSnapshotRestoresRequest
   ): Ec2IO[EnableFastSnapshotRestoresResponse] =
-    FF.liftF(EnableFastSnapshotRestores(request))
+    FF.liftF(EnableFastSnapshotRestoresOp(request))
 
   def enableImageDeprecation(
     request: EnableImageDeprecationRequest
   ): Ec2IO[EnableImageDeprecationResponse] =
-    FF.liftF(EnableImageDeprecation(request))
+    FF.liftF(EnableImageDeprecationOp(request))
 
   def enableSerialConsoleAccess(
     request: EnableSerialConsoleAccessRequest
   ): Ec2IO[EnableSerialConsoleAccessResponse] =
-    FF.liftF(EnableSerialConsoleAccess(request))
+    FF.liftF(EnableSerialConsoleAccessOp(request))
 
   def enableTransitGatewayRouteTablePropagation(
     request: EnableTransitGatewayRouteTablePropagationRequest
   ): Ec2IO[EnableTransitGatewayRouteTablePropagationResponse] =
-    FF.liftF(EnableTransitGatewayRouteTablePropagation(request))
+    FF.liftF(EnableTransitGatewayRouteTablePropagationOp(request))
 
   def enableVgwRoutePropagation(
     request: EnableVgwRoutePropagationRequest
   ): Ec2IO[EnableVgwRoutePropagationResponse] =
-    FF.liftF(EnableVgwRoutePropagation(request))
+    FF.liftF(EnableVgwRoutePropagationOp(request))
 
   def enableVolumeIO(
     request: EnableVolumeIoRequest
   ): Ec2IO[EnableVolumeIoResponse] =
-    FF.liftF(EnableVolumeIO(request))
+    FF.liftF(EnableVolumeIOOp(request))
 
   def enableVpcClassicLink(
     request: EnableVpcClassicLinkRequest
   ): Ec2IO[EnableVpcClassicLinkResponse] =
-    FF.liftF(EnableVpcClassicLink(request))
+    FF.liftF(EnableVpcClassicLinkOp(request))
 
   def enableVpcClassicLinkDnsSupport(
     request: EnableVpcClassicLinkDnsSupportRequest
   ): Ec2IO[EnableVpcClassicLinkDnsSupportResponse] =
-    FF.liftF(EnableVpcClassicLinkDnsSupport(request))
+    FF.liftF(EnableVpcClassicLinkDnsSupportOp(request))
 
   def exportClientVpnClientCertificateRevocationList(
     request: ExportClientVpnClientCertificateRevocationListRequest
   ): Ec2IO[ExportClientVpnClientCertificateRevocationListResponse] =
-    FF.liftF(ExportClientVpnClientCertificateRevocationList(request))
+    FF.liftF(ExportClientVpnClientCertificateRevocationListOp(request))
 
   def exportClientVpnClientConfiguration(
     request: ExportClientVpnClientConfigurationRequest
   ): Ec2IO[ExportClientVpnClientConfigurationResponse] =
-    FF.liftF(ExportClientVpnClientConfiguration(request))
+    FF.liftF(ExportClientVpnClientConfigurationOp(request))
 
   def exportImage(
     request: ExportImageRequest
   ): Ec2IO[ExportImageResponse] =
-    FF.liftF(ExportImage(request))
+    FF.liftF(ExportImageOp(request))
 
   def exportTransitGatewayRoutes(
     request: ExportTransitGatewayRoutesRequest
   ): Ec2IO[ExportTransitGatewayRoutesResponse] =
-    FF.liftF(ExportTransitGatewayRoutes(request))
+    FF.liftF(ExportTransitGatewayRoutesOp(request))
 
   def getAssociatedEnclaveCertificateIamRoles(
     request: GetAssociatedEnclaveCertificateIamRolesRequest
   ): Ec2IO[GetAssociatedEnclaveCertificateIamRolesResponse] =
-    FF.liftF(GetAssociatedEnclaveCertificateIamRoles(request))
+    FF.liftF(GetAssociatedEnclaveCertificateIamRolesOp(request))
 
   def getAssociatedIpv6PoolCidrs(
     request: GetAssociatedIpv6PoolCidrsRequest
   ): Ec2IO[GetAssociatedIpv6PoolCidrsResponse] =
-    FF.liftF(GetAssociatedIpv6PoolCidrs(request))
+    FF.liftF(GetAssociatedIpv6PoolCidrsOp(request))
 
   def getCapacityReservationUsage(
     request: GetCapacityReservationUsageRequest
   ): Ec2IO[GetCapacityReservationUsageResponse] =
-    FF.liftF(GetCapacityReservationUsage(request))
+    FF.liftF(GetCapacityReservationUsageOp(request))
 
   def getCoipPoolUsage(
     request: GetCoipPoolUsageRequest
   ): Ec2IO[GetCoipPoolUsageResponse] =
-    FF.liftF(GetCoipPoolUsage(request))
+    FF.liftF(GetCoipPoolUsageOp(request))
 
   def getConsoleOutput(
     request: GetConsoleOutputRequest
   ): Ec2IO[GetConsoleOutputResponse] =
-    FF.liftF(GetConsoleOutput(request))
+    FF.liftF(GetConsoleOutputOp(request))
 
   def getConsoleScreenshot(
     request: GetConsoleScreenshotRequest
   ): Ec2IO[GetConsoleScreenshotResponse] =
-    FF.liftF(GetConsoleScreenshot(request))
+    FF.liftF(GetConsoleScreenshotOp(request))
 
   def getDefaultCreditSpecification(
     request: GetDefaultCreditSpecificationRequest
   ): Ec2IO[GetDefaultCreditSpecificationResponse] =
-    FF.liftF(GetDefaultCreditSpecification(request))
+    FF.liftF(GetDefaultCreditSpecificationOp(request))
 
   def getEbsDefaultKmsKeyId(
     request: GetEbsDefaultKmsKeyIdRequest
   ): Ec2IO[GetEbsDefaultKmsKeyIdResponse] =
-    FF.liftF(GetEbsDefaultKmsKeyId(request))
+    FF.liftF(GetEbsDefaultKmsKeyIdOp(request))
 
   def getEbsEncryptionByDefault(
     request: GetEbsEncryptionByDefaultRequest
   ): Ec2IO[GetEbsEncryptionByDefaultResponse] =
-    FF.liftF(GetEbsEncryptionByDefault(request))
+    FF.liftF(GetEbsEncryptionByDefaultOp(request))
 
   def getFlowLogsIntegrationTemplate(
     request: GetFlowLogsIntegrationTemplateRequest
   ): Ec2IO[GetFlowLogsIntegrationTemplateResponse] =
-    FF.liftF(GetFlowLogsIntegrationTemplate(request))
+    FF.liftF(GetFlowLogsIntegrationTemplateOp(request))
 
   def getGroupsForCapacityReservation(
     request: GetGroupsForCapacityReservationRequest
   ): Ec2IO[GetGroupsForCapacityReservationResponse] =
-    FF.liftF(GetGroupsForCapacityReservation(request))
+    FF.liftF(GetGroupsForCapacityReservationOp(request))
 
   def getHostReservationPurchasePreview(
     request: GetHostReservationPurchasePreviewRequest
   ): Ec2IO[GetHostReservationPurchasePreviewResponse] =
-    FF.liftF(GetHostReservationPurchasePreview(request))
+    FF.liftF(GetHostReservationPurchasePreviewOp(request))
 
   def getLaunchTemplateData(
     request: GetLaunchTemplateDataRequest
   ): Ec2IO[GetLaunchTemplateDataResponse] =
-    FF.liftF(GetLaunchTemplateData(request))
+    FF.liftF(GetLaunchTemplateDataOp(request))
 
   def getManagedPrefixListAssociations(
     request: GetManagedPrefixListAssociationsRequest
   ): Ec2IO[GetManagedPrefixListAssociationsResponse] =
-    FF.liftF(GetManagedPrefixListAssociations(request))
+    FF.liftF(GetManagedPrefixListAssociationsOp(request))
 
   def getManagedPrefixListEntries(
     request: GetManagedPrefixListEntriesRequest
   ): Ec2IO[GetManagedPrefixListEntriesResponse] =
-    FF.liftF(GetManagedPrefixListEntries(request))
+    FF.liftF(GetManagedPrefixListEntriesOp(request))
 
   def getPasswordData(
     request: GetPasswordDataRequest
   ): Ec2IO[GetPasswordDataResponse] =
-    FF.liftF(GetPasswordData(request))
+    FF.liftF(GetPasswordDataOp(request))
 
   def getReservedInstancesExchangeQuote(
     request: GetReservedInstancesExchangeQuoteRequest
   ): Ec2IO[GetReservedInstancesExchangeQuoteResponse] =
-    FF.liftF(GetReservedInstancesExchangeQuote(request))
+    FF.liftF(GetReservedInstancesExchangeQuoteOp(request))
 
   def getSerialConsoleAccessStatus(
     request: GetSerialConsoleAccessStatusRequest
   ): Ec2IO[GetSerialConsoleAccessStatusResponse] =
-    FF.liftF(GetSerialConsoleAccessStatus(request))
+    FF.liftF(GetSerialConsoleAccessStatusOp(request))
 
   def getTransitGatewayAttachmentPropagations(
     request: GetTransitGatewayAttachmentPropagationsRequest
   ): Ec2IO[GetTransitGatewayAttachmentPropagationsResponse] =
-    FF.liftF(GetTransitGatewayAttachmentPropagations(request))
+    FF.liftF(GetTransitGatewayAttachmentPropagationsOp(request))
 
   def getTransitGatewayMulticastDomainAssociations(
     request: GetTransitGatewayMulticastDomainAssociationsRequest
   ): Ec2IO[GetTransitGatewayMulticastDomainAssociationsResponse] =
-    FF.liftF(GetTransitGatewayMulticastDomainAssociations(request))
+    FF.liftF(GetTransitGatewayMulticastDomainAssociationsOp(request))
 
   def getTransitGatewayPrefixListReferences(
     request: GetTransitGatewayPrefixListReferencesRequest
   ): Ec2IO[GetTransitGatewayPrefixListReferencesResponse] =
-    FF.liftF(GetTransitGatewayPrefixListReferences(request))
+    FF.liftF(GetTransitGatewayPrefixListReferencesOp(request))
 
   def getTransitGatewayRouteTableAssociations(
     request: GetTransitGatewayRouteTableAssociationsRequest
   ): Ec2IO[GetTransitGatewayRouteTableAssociationsResponse] =
-    FF.liftF(GetTransitGatewayRouteTableAssociations(request))
+    FF.liftF(GetTransitGatewayRouteTableAssociationsOp(request))
 
   def getTransitGatewayRouteTablePropagations(
     request: GetTransitGatewayRouteTablePropagationsRequest
   ): Ec2IO[GetTransitGatewayRouteTablePropagationsResponse] =
-    FF.liftF(GetTransitGatewayRouteTablePropagations(request))
+    FF.liftF(GetTransitGatewayRouteTablePropagationsOp(request))
 
   def importClientVpnClientCertificateRevocationList(
     request: ImportClientVpnClientCertificateRevocationListRequest
   ): Ec2IO[ImportClientVpnClientCertificateRevocationListResponse] =
-    FF.liftF(ImportClientVpnClientCertificateRevocationList(request))
+    FF.liftF(ImportClientVpnClientCertificateRevocationListOp(request))
 
   def importImage(
     request: ImportImageRequest
   ): Ec2IO[ImportImageResponse] =
-    FF.liftF(ImportImage(request))
+    FF.liftF(ImportImageOp(request))
 
   def importInstance(
     request: ImportInstanceRequest
   ): Ec2IO[ImportInstanceResponse] =
-    FF.liftF(ImportInstance(request))
+    FF.liftF(ImportInstanceOp(request))
 
   def importKeyPair(
     request: ImportKeyPairRequest
   ): Ec2IO[ImportKeyPairResponse] =
-    FF.liftF(ImportKeyPair(request))
+    FF.liftF(ImportKeyPairOp(request))
 
   def importSnapshot(
     request: ImportSnapshotRequest
   ): Ec2IO[ImportSnapshotResponse] =
-    FF.liftF(ImportSnapshot(request))
+    FF.liftF(ImportSnapshotOp(request))
 
   def importVolume(
     request: ImportVolumeRequest
   ): Ec2IO[ImportVolumeResponse] =
-    FF.liftF(ImportVolume(request))
+    FF.liftF(ImportVolumeOp(request))
 
   def modifyAddressAttribute(
     request: ModifyAddressAttributeRequest
   ): Ec2IO[ModifyAddressAttributeResponse] =
-    FF.liftF(ModifyAddressAttribute(request))
+    FF.liftF(ModifyAddressAttributeOp(request))
 
   def modifyAvailabilityZoneGroup(
     request: ModifyAvailabilityZoneGroupRequest
   ): Ec2IO[ModifyAvailabilityZoneGroupResponse] =
-    FF.liftF(ModifyAvailabilityZoneGroup(request))
+    FF.liftF(ModifyAvailabilityZoneGroupOp(request))
 
   def modifyCapacityReservation(
     request: ModifyCapacityReservationRequest
   ): Ec2IO[ModifyCapacityReservationResponse] =
-    FF.liftF(ModifyCapacityReservation(request))
+    FF.liftF(ModifyCapacityReservationOp(request))
 
   def modifyClientVpnEndpoint(
     request: ModifyClientVpnEndpointRequest
   ): Ec2IO[ModifyClientVpnEndpointResponse] =
-    FF.liftF(ModifyClientVpnEndpoint(request))
+    FF.liftF(ModifyClientVpnEndpointOp(request))
 
   def modifyDefaultCreditSpecification(
     request: ModifyDefaultCreditSpecificationRequest
   ): Ec2IO[ModifyDefaultCreditSpecificationResponse] =
-    FF.liftF(ModifyDefaultCreditSpecification(request))
+    FF.liftF(ModifyDefaultCreditSpecificationOp(request))
 
   def modifyEbsDefaultKmsKeyId(
     request: ModifyEbsDefaultKmsKeyIdRequest
   ): Ec2IO[ModifyEbsDefaultKmsKeyIdResponse] =
-    FF.liftF(ModifyEbsDefaultKmsKeyId(request))
+    FF.liftF(ModifyEbsDefaultKmsKeyIdOp(request))
 
   def modifyFleet(
     request: ModifyFleetRequest
   ): Ec2IO[ModifyFleetResponse] =
-    FF.liftF(ModifyFleet(request))
+    FF.liftF(ModifyFleetOp(request))
 
   def modifyFpgaImageAttribute(
     request: ModifyFpgaImageAttributeRequest
   ): Ec2IO[ModifyFpgaImageAttributeResponse] =
-    FF.liftF(ModifyFpgaImageAttribute(request))
+    FF.liftF(ModifyFpgaImageAttributeOp(request))
 
   def modifyHosts(
     request: ModifyHostsRequest
   ): Ec2IO[ModifyHostsResponse] =
-    FF.liftF(ModifyHosts(request))
+    FF.liftF(ModifyHostsOp(request))
 
   def modifyIdFormat(
     request: ModifyIdFormatRequest
   ): Ec2IO[ModifyIdFormatResponse] =
-    FF.liftF(ModifyIdFormat(request))
+    FF.liftF(ModifyIdFormatOp(request))
 
   def modifyIdentityIdFormat(
     request: ModifyIdentityIdFormatRequest
   ): Ec2IO[ModifyIdentityIdFormatResponse] =
-    FF.liftF(ModifyIdentityIdFormat(request))
+    FF.liftF(ModifyIdentityIdFormatOp(request))
 
   def modifyImageAttribute(
     request: ModifyImageAttributeRequest
   ): Ec2IO[ModifyImageAttributeResponse] =
-    FF.liftF(ModifyImageAttribute(request))
+    FF.liftF(ModifyImageAttributeOp(request))
 
   def modifyInstanceAttribute(
     request: ModifyInstanceAttributeRequest
   ): Ec2IO[ModifyInstanceAttributeResponse] =
-    FF.liftF(ModifyInstanceAttribute(request))
+    FF.liftF(ModifyInstanceAttributeOp(request))
 
   def modifyInstanceCapacityReservationAttributes(
     request: ModifyInstanceCapacityReservationAttributesRequest
   ): Ec2IO[ModifyInstanceCapacityReservationAttributesResponse] =
-    FF.liftF(ModifyInstanceCapacityReservationAttributes(request))
+    FF.liftF(ModifyInstanceCapacityReservationAttributesOp(request))
 
   def modifyInstanceCreditSpecification(
     request: ModifyInstanceCreditSpecificationRequest
   ): Ec2IO[ModifyInstanceCreditSpecificationResponse] =
-    FF.liftF(ModifyInstanceCreditSpecification(request))
+    FF.liftF(ModifyInstanceCreditSpecificationOp(request))
 
   def modifyInstanceEventStartTime(
     request: ModifyInstanceEventStartTimeRequest
   ): Ec2IO[ModifyInstanceEventStartTimeResponse] =
-    FF.liftF(ModifyInstanceEventStartTime(request))
+    FF.liftF(ModifyInstanceEventStartTimeOp(request))
 
   def modifyInstanceMetadataOptions(
     request: ModifyInstanceMetadataOptionsRequest
   ): Ec2IO[ModifyInstanceMetadataOptionsResponse] =
-    FF.liftF(ModifyInstanceMetadataOptions(request))
+    FF.liftF(ModifyInstanceMetadataOptionsOp(request))
 
   def modifyInstancePlacement(
     request: ModifyInstancePlacementRequest
   ): Ec2IO[ModifyInstancePlacementResponse] =
-    FF.liftF(ModifyInstancePlacement(request))
+    FF.liftF(ModifyInstancePlacementOp(request))
 
   def modifyLaunchTemplate(
     request: ModifyLaunchTemplateRequest
   ): Ec2IO[ModifyLaunchTemplateResponse] =
-    FF.liftF(ModifyLaunchTemplate(request))
+    FF.liftF(ModifyLaunchTemplateOp(request))
 
   def modifyManagedPrefixList(
     request: ModifyManagedPrefixListRequest
   ): Ec2IO[ModifyManagedPrefixListResponse] =
-    FF.liftF(ModifyManagedPrefixList(request))
+    FF.liftF(ModifyManagedPrefixListOp(request))
 
   def modifyNetworkInterfaceAttribute(
     request: ModifyNetworkInterfaceAttributeRequest
   ): Ec2IO[ModifyNetworkInterfaceAttributeResponse] =
-    FF.liftF(ModifyNetworkInterfaceAttribute(request))
+    FF.liftF(ModifyNetworkInterfaceAttributeOp(request))
 
   def modifyReservedInstances(
     request: ModifyReservedInstancesRequest
   ): Ec2IO[ModifyReservedInstancesResponse] =
-    FF.liftF(ModifyReservedInstances(request))
+    FF.liftF(ModifyReservedInstancesOp(request))
 
   def modifySnapshotAttribute(
     request: ModifySnapshotAttributeRequest
   ): Ec2IO[ModifySnapshotAttributeResponse] =
-    FF.liftF(ModifySnapshotAttribute(request))
+    FF.liftF(ModifySnapshotAttributeOp(request))
 
   def modifySpotFleetRequest(
     request: ModifySpotFleetRequestRequest
   ): Ec2IO[ModifySpotFleetRequestResponse] =
-    FF.liftF(ModifySpotFleetRequest(request))
+    FF.liftF(ModifySpotFleetRequestOp(request))
 
   def modifySubnetAttribute(
     request: ModifySubnetAttributeRequest
   ): Ec2IO[ModifySubnetAttributeResponse] =
-    FF.liftF(ModifySubnetAttribute(request))
+    FF.liftF(ModifySubnetAttributeOp(request))
 
   def modifyTrafficMirrorFilterNetworkServices(
     request: ModifyTrafficMirrorFilterNetworkServicesRequest
   ): Ec2IO[ModifyTrafficMirrorFilterNetworkServicesResponse] =
-    FF.liftF(ModifyTrafficMirrorFilterNetworkServices(request))
+    FF.liftF(ModifyTrafficMirrorFilterNetworkServicesOp(request))
 
   def modifyTrafficMirrorFilterRule(
     request: ModifyTrafficMirrorFilterRuleRequest
   ): Ec2IO[ModifyTrafficMirrorFilterRuleResponse] =
-    FF.liftF(ModifyTrafficMirrorFilterRule(request))
+    FF.liftF(ModifyTrafficMirrorFilterRuleOp(request))
 
   def modifyTrafficMirrorSession(
     request: ModifyTrafficMirrorSessionRequest
   ): Ec2IO[ModifyTrafficMirrorSessionResponse] =
-    FF.liftF(ModifyTrafficMirrorSession(request))
+    FF.liftF(ModifyTrafficMirrorSessionOp(request))
 
   def modifyTransitGateway(
     request: ModifyTransitGatewayRequest
   ): Ec2IO[ModifyTransitGatewayResponse] =
-    FF.liftF(ModifyTransitGateway(request))
+    FF.liftF(ModifyTransitGatewayOp(request))
 
   def modifyTransitGatewayPrefixListReference(
     request: ModifyTransitGatewayPrefixListReferenceRequest
   ): Ec2IO[ModifyTransitGatewayPrefixListReferenceResponse] =
-    FF.liftF(ModifyTransitGatewayPrefixListReference(request))
+    FF.liftF(ModifyTransitGatewayPrefixListReferenceOp(request))
 
   def modifyTransitGatewayVpcAttachment(
     request: ModifyTransitGatewayVpcAttachmentRequest
   ): Ec2IO[ModifyTransitGatewayVpcAttachmentResponse] =
-    FF.liftF(ModifyTransitGatewayVpcAttachment(request))
+    FF.liftF(ModifyTransitGatewayVpcAttachmentOp(request))
 
   def modifyVolume(
     request: ModifyVolumeRequest
   ): Ec2IO[ModifyVolumeResponse] =
-    FF.liftF(ModifyVolume(request))
+    FF.liftF(ModifyVolumeOp(request))
 
   def modifyVolumeAttribute(
     request: ModifyVolumeAttributeRequest
   ): Ec2IO[ModifyVolumeAttributeResponse] =
-    FF.liftF(ModifyVolumeAttribute(request))
+    FF.liftF(ModifyVolumeAttributeOp(request))
 
   def modifyVpcAttribute(
     request: ModifyVpcAttributeRequest
   ): Ec2IO[ModifyVpcAttributeResponse] =
-    FF.liftF(ModifyVpcAttribute(request))
+    FF.liftF(ModifyVpcAttributeOp(request))
 
   def modifyVpcEndpoint(
     request: ModifyVpcEndpointRequest
   ): Ec2IO[ModifyVpcEndpointResponse] =
-    FF.liftF(ModifyVpcEndpoint(request))
+    FF.liftF(ModifyVpcEndpointOp(request))
 
   def modifyVpcEndpointConnectionNotification(
     request: ModifyVpcEndpointConnectionNotificationRequest
   ): Ec2IO[ModifyVpcEndpointConnectionNotificationResponse] =
-    FF.liftF(ModifyVpcEndpointConnectionNotification(request))
+    FF.liftF(ModifyVpcEndpointConnectionNotificationOp(request))
 
   def modifyVpcEndpointServiceConfiguration(
     request: ModifyVpcEndpointServiceConfigurationRequest
   ): Ec2IO[ModifyVpcEndpointServiceConfigurationResponse] =
-    FF.liftF(ModifyVpcEndpointServiceConfiguration(request))
+    FF.liftF(ModifyVpcEndpointServiceConfigurationOp(request))
 
   def modifyVpcEndpointServicePermissions(
     request: ModifyVpcEndpointServicePermissionsRequest
   ): Ec2IO[ModifyVpcEndpointServicePermissionsResponse] =
-    FF.liftF(ModifyVpcEndpointServicePermissions(request))
+    FF.liftF(ModifyVpcEndpointServicePermissionsOp(request))
 
   def modifyVpcPeeringConnectionOptions(
     request: ModifyVpcPeeringConnectionOptionsRequest
   ): Ec2IO[ModifyVpcPeeringConnectionOptionsResponse] =
-    FF.liftF(ModifyVpcPeeringConnectionOptions(request))
+    FF.liftF(ModifyVpcPeeringConnectionOptionsOp(request))
 
   def modifyVpcTenancy(
     request: ModifyVpcTenancyRequest
   ): Ec2IO[ModifyVpcTenancyResponse] =
-    FF.liftF(ModifyVpcTenancy(request))
+    FF.liftF(ModifyVpcTenancyOp(request))
 
   def modifyVpnConnection(
     request: ModifyVpnConnectionRequest
   ): Ec2IO[ModifyVpnConnectionResponse] =
-    FF.liftF(ModifyVpnConnection(request))
+    FF.liftF(ModifyVpnConnectionOp(request))
 
   def modifyVpnConnectionOptions(
     request: ModifyVpnConnectionOptionsRequest
   ): Ec2IO[ModifyVpnConnectionOptionsResponse] =
-    FF.liftF(ModifyVpnConnectionOptions(request))
+    FF.liftF(ModifyVpnConnectionOptionsOp(request))
 
   def modifyVpnTunnelCertificate(
     request: ModifyVpnTunnelCertificateRequest
   ): Ec2IO[ModifyVpnTunnelCertificateResponse] =
-    FF.liftF(ModifyVpnTunnelCertificate(request))
+    FF.liftF(ModifyVpnTunnelCertificateOp(request))
 
   def modifyVpnTunnelOptions(
     request: ModifyVpnTunnelOptionsRequest
   ): Ec2IO[ModifyVpnTunnelOptionsResponse] =
-    FF.liftF(ModifyVpnTunnelOptions(request))
+    FF.liftF(ModifyVpnTunnelOptionsOp(request))
 
   def monitorInstances(
     request: MonitorInstancesRequest
   ): Ec2IO[MonitorInstancesResponse] =
-    FF.liftF(MonitorInstances(request))
+    FF.liftF(MonitorInstancesOp(request))
 
   def moveAddressToVpc(
     request: MoveAddressToVpcRequest
   ): Ec2IO[MoveAddressToVpcResponse] =
-    FF.liftF(MoveAddressToVpc(request))
+    FF.liftF(MoveAddressToVpcOp(request))
 
   def provisionByoipCidr(
     request: ProvisionByoipCidrRequest
   ): Ec2IO[ProvisionByoipCidrResponse] =
-    FF.liftF(ProvisionByoipCidr(request))
+    FF.liftF(ProvisionByoipCidrOp(request))
 
   def purchaseHostReservation(
     request: PurchaseHostReservationRequest
   ): Ec2IO[PurchaseHostReservationResponse] =
-    FF.liftF(PurchaseHostReservation(request))
+    FF.liftF(PurchaseHostReservationOp(request))
 
   def purchaseReservedInstancesOffering(
     request: PurchaseReservedInstancesOfferingRequest
   ): Ec2IO[PurchaseReservedInstancesOfferingResponse] =
-    FF.liftF(PurchaseReservedInstancesOffering(request))
+    FF.liftF(PurchaseReservedInstancesOfferingOp(request))
 
   def purchaseScheduledInstances(
     request: PurchaseScheduledInstancesRequest
   ): Ec2IO[PurchaseScheduledInstancesResponse] =
-    FF.liftF(PurchaseScheduledInstances(request))
+    FF.liftF(PurchaseScheduledInstancesOp(request))
 
   def rebootInstances(
     request: RebootInstancesRequest
   ): Ec2IO[RebootInstancesResponse] =
-    FF.liftF(RebootInstances(request))
+    FF.liftF(RebootInstancesOp(request))
 
   def registerImage(
     request: RegisterImageRequest
   ): Ec2IO[RegisterImageResponse] =
-    FF.liftF(RegisterImage(request))
+    FF.liftF(RegisterImageOp(request))
 
   def registerInstanceEventNotificationAttributes(
     request: RegisterInstanceEventNotificationAttributesRequest
   ): Ec2IO[RegisterInstanceEventNotificationAttributesResponse] =
-    FF.liftF(RegisterInstanceEventNotificationAttributes(request))
+    FF.liftF(RegisterInstanceEventNotificationAttributesOp(request))
 
   def registerTransitGatewayMulticastGroupMembers(
     request: RegisterTransitGatewayMulticastGroupMembersRequest
   ): Ec2IO[RegisterTransitGatewayMulticastGroupMembersResponse] =
-    FF.liftF(RegisterTransitGatewayMulticastGroupMembers(request))
+    FF.liftF(RegisterTransitGatewayMulticastGroupMembersOp(request))
 
   def registerTransitGatewayMulticastGroupSources(
     request: RegisterTransitGatewayMulticastGroupSourcesRequest
   ): Ec2IO[RegisterTransitGatewayMulticastGroupSourcesResponse] =
-    FF.liftF(RegisterTransitGatewayMulticastGroupSources(request))
+    FF.liftF(RegisterTransitGatewayMulticastGroupSourcesOp(request))
 
   def rejectTransitGatewayMulticastDomainAssociations(
     request: RejectTransitGatewayMulticastDomainAssociationsRequest
   ): Ec2IO[RejectTransitGatewayMulticastDomainAssociationsResponse] =
-    FF.liftF(RejectTransitGatewayMulticastDomainAssociations(request))
+    FF.liftF(RejectTransitGatewayMulticastDomainAssociationsOp(request))
 
   def rejectTransitGatewayPeeringAttachment(
     request: RejectTransitGatewayPeeringAttachmentRequest
   ): Ec2IO[RejectTransitGatewayPeeringAttachmentResponse] =
-    FF.liftF(RejectTransitGatewayPeeringAttachment(request))
+    FF.liftF(RejectTransitGatewayPeeringAttachmentOp(request))
 
   def rejectTransitGatewayVpcAttachment(
     request: RejectTransitGatewayVpcAttachmentRequest
   ): Ec2IO[RejectTransitGatewayVpcAttachmentResponse] =
-    FF.liftF(RejectTransitGatewayVpcAttachment(request))
+    FF.liftF(RejectTransitGatewayVpcAttachmentOp(request))
 
   def rejectVpcEndpointConnections(
     request: RejectVpcEndpointConnectionsRequest
   ): Ec2IO[RejectVpcEndpointConnectionsResponse] =
-    FF.liftF(RejectVpcEndpointConnections(request))
+    FF.liftF(RejectVpcEndpointConnectionsOp(request))
 
   def rejectVpcPeeringConnection(
     request: RejectVpcPeeringConnectionRequest
   ): Ec2IO[RejectVpcPeeringConnectionResponse] =
-    FF.liftF(RejectVpcPeeringConnection(request))
+    FF.liftF(RejectVpcPeeringConnectionOp(request))
 
   def releaseAddress(
     request: ReleaseAddressRequest
   ): Ec2IO[ReleaseAddressResponse] =
-    FF.liftF(ReleaseAddress(request))
+    FF.liftF(ReleaseAddressOp(request))
 
   def releaseHosts(
     request: ReleaseHostsRequest
   ): Ec2IO[ReleaseHostsResponse] =
-    FF.liftF(ReleaseHosts(request))
+    FF.liftF(ReleaseHostsOp(request))
 
   def replaceIamInstanceProfileAssociation(
     request: ReplaceIamInstanceProfileAssociationRequest
   ): Ec2IO[ReplaceIamInstanceProfileAssociationResponse] =
-    FF.liftF(ReplaceIamInstanceProfileAssociation(request))
+    FF.liftF(ReplaceIamInstanceProfileAssociationOp(request))
 
   def replaceNetworkAclAssociation(
     request: ReplaceNetworkAclAssociationRequest
   ): Ec2IO[ReplaceNetworkAclAssociationResponse] =
-    FF.liftF(ReplaceNetworkAclAssociation(request))
+    FF.liftF(ReplaceNetworkAclAssociationOp(request))
 
   def replaceNetworkAclEntry(
     request: ReplaceNetworkAclEntryRequest
   ): Ec2IO[ReplaceNetworkAclEntryResponse] =
-    FF.liftF(ReplaceNetworkAclEntry(request))
+    FF.liftF(ReplaceNetworkAclEntryOp(request))
 
   def replaceRoute(
     request: ReplaceRouteRequest
   ): Ec2IO[ReplaceRouteResponse] =
-    FF.liftF(ReplaceRoute(request))
+    FF.liftF(ReplaceRouteOp(request))
 
   def replaceRouteTableAssociation(
     request: ReplaceRouteTableAssociationRequest
   ): Ec2IO[ReplaceRouteTableAssociationResponse] =
-    FF.liftF(ReplaceRouteTableAssociation(request))
+    FF.liftF(ReplaceRouteTableAssociationOp(request))
 
   def replaceTransitGatewayRoute(
     request: ReplaceTransitGatewayRouteRequest
   ): Ec2IO[ReplaceTransitGatewayRouteResponse] =
-    FF.liftF(ReplaceTransitGatewayRoute(request))
+    FF.liftF(ReplaceTransitGatewayRouteOp(request))
 
   def reportInstanceStatus(
     request: ReportInstanceStatusRequest
   ): Ec2IO[ReportInstanceStatusResponse] =
-    FF.liftF(ReportInstanceStatus(request))
+    FF.liftF(ReportInstanceStatusOp(request))
 
   def requestSpotFleet(
     request: RequestSpotFleetRequest
   ): Ec2IO[RequestSpotFleetResponse] =
-    FF.liftF(RequestSpotFleet(request))
+    FF.liftF(RequestSpotFleetOp(request))
 
   def requestSpotInstances(
     request: RequestSpotInstancesRequest
   ): Ec2IO[RequestSpotInstancesResponse] =
-    FF.liftF(RequestSpotInstances(request))
+    FF.liftF(RequestSpotInstancesOp(request))
 
   def resetAddressAttribute(
     request: ResetAddressAttributeRequest
   ): Ec2IO[ResetAddressAttributeResponse] =
-    FF.liftF(ResetAddressAttribute(request))
+    FF.liftF(ResetAddressAttributeOp(request))
 
   def resetEbsDefaultKmsKeyId(
     request: ResetEbsDefaultKmsKeyIdRequest
   ): Ec2IO[ResetEbsDefaultKmsKeyIdResponse] =
-    FF.liftF(ResetEbsDefaultKmsKeyId(request))
+    FF.liftF(ResetEbsDefaultKmsKeyIdOp(request))
 
   def resetFpgaImageAttribute(
     request: ResetFpgaImageAttributeRequest
   ): Ec2IO[ResetFpgaImageAttributeResponse] =
-    FF.liftF(ResetFpgaImageAttribute(request))
+    FF.liftF(ResetFpgaImageAttributeOp(request))
 
   def resetImageAttribute(
     request: ResetImageAttributeRequest
   ): Ec2IO[ResetImageAttributeResponse] =
-    FF.liftF(ResetImageAttribute(request))
+    FF.liftF(ResetImageAttributeOp(request))
 
   def resetInstanceAttribute(
     request: ResetInstanceAttributeRequest
   ): Ec2IO[ResetInstanceAttributeResponse] =
-    FF.liftF(ResetInstanceAttribute(request))
+    FF.liftF(ResetInstanceAttributeOp(request))
 
   def resetNetworkInterfaceAttribute(
     request: ResetNetworkInterfaceAttributeRequest
   ): Ec2IO[ResetNetworkInterfaceAttributeResponse] =
-    FF.liftF(ResetNetworkInterfaceAttribute(request))
+    FF.liftF(ResetNetworkInterfaceAttributeOp(request))
 
   def resetSnapshotAttribute(
     request: ResetSnapshotAttributeRequest
   ): Ec2IO[ResetSnapshotAttributeResponse] =
-    FF.liftF(ResetSnapshotAttribute(request))
+    FF.liftF(ResetSnapshotAttributeOp(request))
 
   def restoreAddressToClassic(
     request: RestoreAddressToClassicRequest
   ): Ec2IO[RestoreAddressToClassicResponse] =
-    FF.liftF(RestoreAddressToClassic(request))
+    FF.liftF(RestoreAddressToClassicOp(request))
 
   def restoreManagedPrefixListVersion(
     request: RestoreManagedPrefixListVersionRequest
   ): Ec2IO[RestoreManagedPrefixListVersionResponse] =
-    FF.liftF(RestoreManagedPrefixListVersion(request))
+    FF.liftF(RestoreManagedPrefixListVersionOp(request))
 
   def revokeClientVpnIngress(
     request: RevokeClientVpnIngressRequest
   ): Ec2IO[RevokeClientVpnIngressResponse] =
-    FF.liftF(RevokeClientVpnIngress(request))
+    FF.liftF(RevokeClientVpnIngressOp(request))
 
   def revokeSecurityGroupEgress(
     request: RevokeSecurityGroupEgressRequest
   ): Ec2IO[RevokeSecurityGroupEgressResponse] =
-    FF.liftF(RevokeSecurityGroupEgress(request))
+    FF.liftF(RevokeSecurityGroupEgressOp(request))
 
   def revokeSecurityGroupIngress(
     request: RevokeSecurityGroupIngressRequest
   ): Ec2IO[RevokeSecurityGroupIngressResponse] =
-    FF.liftF(RevokeSecurityGroupIngress(request))
+    FF.liftF(RevokeSecurityGroupIngressOp(request))
 
   def runInstances(
     request: RunInstancesRequest
   ): Ec2IO[RunInstancesResponse] =
-    FF.liftF(RunInstances(request))
+    FF.liftF(RunInstancesOp(request))
 
   def runScheduledInstances(
     request: RunScheduledInstancesRequest
   ): Ec2IO[RunScheduledInstancesResponse] =
-    FF.liftF(RunScheduledInstances(request))
+    FF.liftF(RunScheduledInstancesOp(request))
 
   def searchLocalGatewayRoutes(
     request: SearchLocalGatewayRoutesRequest
   ): Ec2IO[SearchLocalGatewayRoutesResponse] =
-    FF.liftF(SearchLocalGatewayRoutes(request))
+    FF.liftF(SearchLocalGatewayRoutesOp(request))
 
   def searchTransitGatewayMulticastGroups(
     request: SearchTransitGatewayMulticastGroupsRequest
   ): Ec2IO[SearchTransitGatewayMulticastGroupsResponse] =
-    FF.liftF(SearchTransitGatewayMulticastGroups(request))
+    FF.liftF(SearchTransitGatewayMulticastGroupsOp(request))
 
   def searchTransitGatewayRoutes(
     request: SearchTransitGatewayRoutesRequest
   ): Ec2IO[SearchTransitGatewayRoutesResponse] =
-    FF.liftF(SearchTransitGatewayRoutes(request))
+    FF.liftF(SearchTransitGatewayRoutesOp(request))
 
   def sendDiagnosticInterrupt(
     request: SendDiagnosticInterruptRequest
   ): Ec2IO[SendDiagnosticInterruptResponse] =
-    FF.liftF(SendDiagnosticInterrupt(request))
+    FF.liftF(SendDiagnosticInterruptOp(request))
 
   def startInstances(
     request: StartInstancesRequest
   ): Ec2IO[StartInstancesResponse] =
-    FF.liftF(StartInstances(request))
+    FF.liftF(StartInstancesOp(request))
 
   def startNetworkInsightsAnalysis(
     request: StartNetworkInsightsAnalysisRequest
   ): Ec2IO[StartNetworkInsightsAnalysisResponse] =
-    FF.liftF(StartNetworkInsightsAnalysis(request))
+    FF.liftF(StartNetworkInsightsAnalysisOp(request))
 
   def startVpcEndpointServicePrivateDnsVerification(
     request: StartVpcEndpointServicePrivateDnsVerificationRequest
   ): Ec2IO[StartVpcEndpointServicePrivateDnsVerificationResponse] =
-    FF.liftF(StartVpcEndpointServicePrivateDnsVerification(request))
+    FF.liftF(StartVpcEndpointServicePrivateDnsVerificationOp(request))
 
   def stopInstances(
     request: StopInstancesRequest
   ): Ec2IO[StopInstancesResponse] =
-    FF.liftF(StopInstances(request))
+    FF.liftF(StopInstancesOp(request))
 
   def terminateClientVpnConnections(
     request: TerminateClientVpnConnectionsRequest
   ): Ec2IO[TerminateClientVpnConnectionsResponse] =
-    FF.liftF(TerminateClientVpnConnections(request))
+    FF.liftF(TerminateClientVpnConnectionsOp(request))
 
   def terminateInstances(
     request: TerminateInstancesRequest
   ): Ec2IO[TerminateInstancesResponse] =
-    FF.liftF(TerminateInstances(request))
+    FF.liftF(TerminateInstancesOp(request))
 
   def unassignIpv6Addresses(
     request: UnassignIpv6AddressesRequest
   ): Ec2IO[UnassignIpv6AddressesResponse] =
-    FF.liftF(UnassignIpv6Addresses(request))
+    FF.liftF(UnassignIpv6AddressesOp(request))
 
   def unassignPrivateIpAddresses(
     request: UnassignPrivateIpAddressesRequest
   ): Ec2IO[UnassignPrivateIpAddressesResponse] =
-    FF.liftF(UnassignPrivateIpAddresses(request))
+    FF.liftF(UnassignPrivateIpAddressesOp(request))
 
   def unmonitorInstances(
     request: UnmonitorInstancesRequest
   ): Ec2IO[UnmonitorInstancesResponse] =
-    FF.liftF(UnmonitorInstances(request))
+    FF.liftF(UnmonitorInstancesOp(request))
 
   def updateSecurityGroupRuleDescriptionsEgress(
     request: UpdateSecurityGroupRuleDescriptionsEgressRequest
   ): Ec2IO[UpdateSecurityGroupRuleDescriptionsEgressResponse] =
-    FF.liftF(UpdateSecurityGroupRuleDescriptionsEgress(request))
+    FF.liftF(UpdateSecurityGroupRuleDescriptionsEgressOp(request))
 
   def updateSecurityGroupRuleDescriptionsIngress(
     request: UpdateSecurityGroupRuleDescriptionsIngressRequest
   ): Ec2IO[UpdateSecurityGroupRuleDescriptionsIngressResponse] =
-    FF.liftF(UpdateSecurityGroupRuleDescriptionsIngress(request))
+    FF.liftF(UpdateSecurityGroupRuleDescriptionsIngressOp(request))
 
   def withdrawByoipCidr(
     request: WithdrawByoipCidrRequest
   ): Ec2IO[WithdrawByoipCidrResponse] =
-    FF.liftF(WithdrawByoipCidr(request))
+    FF.liftF(WithdrawByoipCidrOp(request))
 }

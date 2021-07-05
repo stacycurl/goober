@@ -1,9 +1,12 @@
 import java.io.PrintWriter
+import java.lang.reflect.Parameter
 import java.lang.{reflect ⇒ R}
+import goober.free.Module
 import org.reflections.Reflections
 import sbt.Def.task
 import sbt.{Def, Task, TaskKey, taskKey}
 
+import scala.collection.JavaConverters._
 import scala.reflect.ClassTag
 
 object goober {
@@ -12,14 +15,20 @@ object goober {
       val generate: TaskKey[Unit] = taskKey[Unit]("generate")
 
       val generateTask: Def.Initialize[Task[Unit]] = task {
-        val reflections = new Reflections("software.amazon.awssdk.services")
+        val reflections =
+          new Reflections("software.amazon.awssdk.services")
+
+        val subTypes: List[Class[_]] =
+          reflections
+            .getSubTypesOf(classOf[software.amazon.awssdk.core.SdkClient])
+            .asScala
+            .toList
+            .filter(_.isInterface)
+            .filterNot(_.getSimpleName.endsWith("AsyncClient"))
+            .sortBy(_.getSimpleName)
 
         Modules.create(
-          Module.create[software.amazon.awssdk.services.athena.AthenaClient],
-          Module.create[software.amazon.awssdk.services.codebuild.CodeBuildClient],
-          Module.create[software.amazon.awssdk.services.ec2.Ec2Client],
-          Module.create[software.amazon.awssdk.services.ecr.EcrClient],
-          Module.create[software.amazon.awssdk.services.s3.S3Client]
+          subTypes.map(Module.create): _*
         ).writeTo("./free/src/main/scala/goober/free")
       }
     }
@@ -60,45 +69,53 @@ object goober {
     }
 
     object Module {
-      def create[Client: ClassTag]: Module = {
-        val clazz: Class[_] =
-          implicitly[ClassTag[Client]].runtimeClass
+      def create[Client: ClassTag]: Module =
+        create(implicitly[ClassTag[Client]].runtimeClass)
 
+      def create(clazz: Class[_]): Module = {
         val module =
-          clazz.getPackage.getName.split("\\.").last
+          customModules.getOrElse(clazz, parentPackage(clazz))
 
         val name =
           clazz.getSimpleName.stripSuffix("Client")
 
-        create[Client](
+        create(
+          clazz,
           Names(
-          module = module,
-          client = clazz.getSimpleName,
-          io = s"${name}IO",
-          op = s"${name}Op"
-        ))
-      }
-
-      def create[Client: ClassTag](names: Names): Module =
-        create(names, importsFor[Client], methodsIn[Client])
-
-      def create(names: Names, imports: Imports, methods: List[R.Method]): Module =
-        new Module(names, imports, Companion.create(names, methods), SmartConstructors.create(names, methods))
-
-      private def importsFor[A: ClassTag]: Imports = {
-        val clazz: Class[_] =
-          implicitly[ClassTag[A]].runtimeClass
-
-        Imports.create(
-          clazz.getName,
-          s"${clazz.getPackage.getName}.model._",
-          "java.nio.file.Path",
-          "software.amazon.awssdk.core.sync.RequestBody"
+            module = module,
+            clientImport = clazz.getName,
+            client = clazz.getSimpleName,
+            io = s"${name}IO",
+            op = s"${name}Op"
+          )
         )
       }
 
-      private def methodsIn[A: ClassTag]: List[R.Method] =
-        methodsIn(implicitly[ClassTag[A]].runtimeClass)
+      def create(clazz: Class[_], names: Names): Module =
+        create(names, importsFor(clazz), methodsIn(clazz))
+
+      def create(names: Names, imports: Imports, methods: List[R.Method]): Module =
+        Module(names, imports, Companion.create(names, methods), SmartConstructors.create(names, methods))
+
+      private def importsFor(clazz: Class[_]): Imports = Imports.create(
+        clazz.getName,
+        s"software.amazon.awssdk.services.${customModelPackages.getOrElse(clazz, parentPackage(clazz))}.model._",
+        "java.nio.file.Path",
+        "software.amazon.awssdk.core.sync.RequestBody"
+      )
+
+      def parentPackage(clazz: Class[_]): String =
+        clazz.getPackage.getName.split("\\.").last
+
+      private lazy val customModelPackages: Map[Class[_], String] = Map(
+        classOf[software.amazon.awssdk.services.dynamodb.streams.DynamoDbStreamsClient] → "dynamodb",
+        classOf[software.amazon.awssdk.services.waf.regional.WafRegionalClient] → "waf"
+      )
+
+      private lazy val customModules: Map[Class[_], String] = Map(
+        classOf[software.amazon.awssdk.services.dynamodb.streams.DynamoDbStreamsClient] → "dynamodbstreams",
+        classOf[software.amazon.awssdk.services.waf.regional.WafRegionalClient] → "wafregional"
+      )
 
       private def methodsIn(clazz: Class[_]): List[R.Method] = {
         clazz.getDeclaredMethods.toList
@@ -138,16 +155,16 @@ object goober {
         if (result == -1) Int.MaxValue else result
       })
 
-      private val excludedNames: Set[String] = Set("utilities")
+      private lazy val excludedNames: Set[String] = Set("utilities")
 
-      private val excludedTypes: Set[Class[_]] = Set(
+      private lazy val excludedTypes: Set[Class[_]] = Set(
         classOf[java.util.function.Consumer[_]],
         classOf[software.amazon.awssdk.core.ResponseBytes[_]],
         classOf[software.amazon.awssdk.core.ResponseInputStream[_]],
         classOf[software.amazon.awssdk.core.sync.ResponseTransformer[_, _]]
       )
 
-      private val preferredTypes: List[Class[_]] = List(
+      private lazy val preferredTypes: List[Class[_]] = List(
         classOf[software.amazon.awssdk.core.sync.RequestBody],
         classOf[java.nio.file.Path]
       )
@@ -247,7 +264,7 @@ object goober {
     case class KleisliVisitorMethod(names: Names, method: R.Method) {
       override def toString: String =
         s"""def ${method.getName}(
-           |  ${method.getParameterTypes.toList.map(parameter).mkString(",\n  ")}
+           |  ${parametersOf(method)}
            |): ${names.kleisliType(method.getReturnType.getSimpleName)} =
            |  primitive(_.${method.getName}(${parameterNames(method)}))""".stripMargin
     }
@@ -277,7 +294,7 @@ object goober {
     case class VMethod(method: R.Method) {
       override def toString: String =
         s"""def ${method.getName}(
-           |  ${method.getParameterTypes.toList.map(parameter).mkString(",\n  ")}
+           |  ${parametersOf(method)}
            |): F[${method.getReturnType.getSimpleName}]""".stripMargin
     }
 
@@ -301,8 +318,8 @@ object goober {
 
     case class Implementation(names: Names, method: R.Method) {
       override def toString: String =
-        s"""final case class ${method.getName.capitalize}(
-           |  ${method.getParameterTypes.toList.map(parameter).mkString(",\n  ")}
+        s"""final case class ${method.getName.capitalize}Op(
+           |  ${parametersOf(method)}
            |) extends ${names.op}[${method.getReturnType.getSimpleName}] {
            |  def visit[F[_]](visitor: Visitor[F]): F[${method.getReturnType.getSimpleName}] =
            |    visitor.${method.getName}(${parameterNames(method)})
@@ -333,31 +350,44 @@ object goober {
     case class SmartConstructor(names: Names, method: R.Method) {
       override def toString: String =
         s"""def ${method.getName}(
-           |  ${method.getParameterTypes.toList.map(parameter).mkString(",\n  ")}
+           |  ${parametersOf(method)}
            |): ${names.io}[${method.getReturnType.getSimpleName}] =
-           |  FF.liftF(${method.getName.capitalize}(${parameterNames(method)}))""".stripMargin
+           |  FF.liftF(${method.getName.capitalize}Op(${parameterNames(method)}))""".stripMargin
     }
 
-    case class Names(module: String, client: String, io: String, op: String) {
+    case class Names(module: String, clientImport: String, client: String, io: String, op: String) {
       def opImport: String = s"goober.free.$module.$op"
 
       def ioImport: String = s"goober.free.$module.$io"
-
-      def clientImport: String = s"software.amazon.awssdk.services.$module.$client"
 
       def embedded: String = client.stripSuffix("Client")
 
       def kleisliType(`type`: String): String = s"Kleisli[M, ${client}, ${`type`}]"
     }
 
+    private def parametersOf(method: R.Method): String = {
+      parameterNamesList(method).zip(method.getParameters.map(_.getType.getSimpleName)).map {
+        case (name, clazz) ⇒ s"$name: $clazz"
+      }.mkString(",\n  ")
+    }
+
     private def parameterNames(method: R.Method): String =
-      method.getParameterTypes.toList.map(parameterName).mkString(", ")
+      parameterNamesList(method).mkString(", ")
 
-    private def parameter(clazz: Class[_]): String =
-      s"${parameterName(clazz)}: ${clazz.getSimpleName}"
+    private def parameterNamesList(method: R.Method): List[String] = customParameterNames.getOrElse(
+      s"${method.getDeclaringClass.getSimpleName}.${method.getName}",
+      method.getParameters.toList.map(parameterName)
+    )
 
-    private def parameterName(clazz: Class[_]): String =
-      if (clazz.getSimpleName.endsWith("Request")) "request" else parameterNames.getOrElse(clazz, "DUNNO")
+    private def parameterName(parameter: Parameter): String =
+      if (parameter.getType.getSimpleName.endsWith("Request")) "request" else {
+        parameterNames.getOrElse(parameter.getType, parameter.getName)
+      }
+
+    private val customParameterNames: Map[String, List[String]] = Map(
+      "LexRuntimeClient.postContent"          → List("request", "sourcePath", "destinationPath"),
+      "LexRuntimeV2Client.recognizeUtterance" → List("request", "sourcePath", "destinationPath")
+    )
 
     private val parameterNames: Map[Class[_], String] = Map(
       classOf[software.amazon.awssdk.core.sync.RequestBody] → "body",

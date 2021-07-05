@@ -444,308 +444,308 @@ object codebuild { module =>
         visitor.embed(e)
     }
 
-    final case class BatchDeleteBuilds(
+    final case class BatchDeleteBuildsOp(
       request: BatchDeleteBuildsRequest
     ) extends CodeBuildOp[BatchDeleteBuildsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchDeleteBuildsResponse] =
         visitor.batchDeleteBuilds(request)
     }
 
-    final case class BatchGetBuildBatches(
+    final case class BatchGetBuildBatchesOp(
       request: BatchGetBuildBatchesRequest
     ) extends CodeBuildOp[BatchGetBuildBatchesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetBuildBatchesResponse] =
         visitor.batchGetBuildBatches(request)
     }
 
-    final case class BatchGetBuilds(
+    final case class BatchGetBuildsOp(
       request: BatchGetBuildsRequest
     ) extends CodeBuildOp[BatchGetBuildsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetBuildsResponse] =
         visitor.batchGetBuilds(request)
     }
 
-    final case class BatchGetProjects(
+    final case class BatchGetProjectsOp(
       request: BatchGetProjectsRequest
     ) extends CodeBuildOp[BatchGetProjectsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetProjectsResponse] =
         visitor.batchGetProjects(request)
     }
 
-    final case class BatchGetReportGroups(
+    final case class BatchGetReportGroupsOp(
       request: BatchGetReportGroupsRequest
     ) extends CodeBuildOp[BatchGetReportGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetReportGroupsResponse] =
         visitor.batchGetReportGroups(request)
     }
 
-    final case class BatchGetReports(
+    final case class BatchGetReportsOp(
       request: BatchGetReportsRequest
     ) extends CodeBuildOp[BatchGetReportsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[BatchGetReportsResponse] =
         visitor.batchGetReports(request)
     }
 
-    final case class CreateProject(
+    final case class CreateProjectOp(
       request: CreateProjectRequest
     ) extends CodeBuildOp[CreateProjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateProjectResponse] =
         visitor.createProject(request)
     }
 
-    final case class CreateReportGroup(
+    final case class CreateReportGroupOp(
       request: CreateReportGroupRequest
     ) extends CodeBuildOp[CreateReportGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateReportGroupResponse] =
         visitor.createReportGroup(request)
     }
 
-    final case class CreateWebhook(
+    final case class CreateWebhookOp(
       request: CreateWebhookRequest
     ) extends CodeBuildOp[CreateWebhookResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CreateWebhookResponse] =
         visitor.createWebhook(request)
     }
 
-    final case class DeleteBuildBatch(
+    final case class DeleteBuildBatchOp(
       request: DeleteBuildBatchRequest
     ) extends CodeBuildOp[DeleteBuildBatchResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteBuildBatchResponse] =
         visitor.deleteBuildBatch(request)
     }
 
-    final case class DeleteProject(
+    final case class DeleteProjectOp(
       request: DeleteProjectRequest
     ) extends CodeBuildOp[DeleteProjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteProjectResponse] =
         visitor.deleteProject(request)
     }
 
-    final case class DeleteReport(
+    final case class DeleteReportOp(
       request: DeleteReportRequest
     ) extends CodeBuildOp[DeleteReportResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteReportResponse] =
         visitor.deleteReport(request)
     }
 
-    final case class DeleteReportGroup(
+    final case class DeleteReportGroupOp(
       request: DeleteReportGroupRequest
     ) extends CodeBuildOp[DeleteReportGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteReportGroupResponse] =
         visitor.deleteReportGroup(request)
     }
 
-    final case class DeleteResourcePolicy(
+    final case class DeleteResourcePolicyOp(
       request: DeleteResourcePolicyRequest
     ) extends CodeBuildOp[DeleteResourcePolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteResourcePolicyResponse] =
         visitor.deleteResourcePolicy(request)
     }
 
-    final case class DeleteSourceCredentials(
+    final case class DeleteSourceCredentialsOp(
       request: DeleteSourceCredentialsRequest
     ) extends CodeBuildOp[DeleteSourceCredentialsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteSourceCredentialsResponse] =
         visitor.deleteSourceCredentials(request)
     }
 
-    final case class DeleteWebhook(
+    final case class DeleteWebhookOp(
       request: DeleteWebhookRequest
     ) extends CodeBuildOp[DeleteWebhookResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteWebhookResponse] =
         visitor.deleteWebhook(request)
     }
 
-    final case class DescribeCodeCoverages(
+    final case class DescribeCodeCoveragesOp(
       request: DescribeCodeCoveragesRequest
     ) extends CodeBuildOp[DescribeCodeCoveragesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeCodeCoveragesResponse] =
         visitor.describeCodeCoverages(request)
     }
 
-    final case class DescribeTestCases(
+    final case class DescribeTestCasesOp(
       request: DescribeTestCasesRequest
     ) extends CodeBuildOp[DescribeTestCasesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeTestCasesResponse] =
         visitor.describeTestCases(request)
     }
 
-    final case class GetReportGroupTrend(
+    final case class GetReportGroupTrendOp(
       request: GetReportGroupTrendRequest
     ) extends CodeBuildOp[GetReportGroupTrendResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetReportGroupTrendResponse] =
         visitor.getReportGroupTrend(request)
     }
 
-    final case class GetResourcePolicy(
+    final case class GetResourcePolicyOp(
       request: GetResourcePolicyRequest
     ) extends CodeBuildOp[GetResourcePolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetResourcePolicyResponse] =
         visitor.getResourcePolicy(request)
     }
 
-    final case class ImportSourceCredentials(
+    final case class ImportSourceCredentialsOp(
       request: ImportSourceCredentialsRequest
     ) extends CodeBuildOp[ImportSourceCredentialsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ImportSourceCredentialsResponse] =
         visitor.importSourceCredentials(request)
     }
 
-    final case class InvalidateProjectCache(
+    final case class InvalidateProjectCacheOp(
       request: InvalidateProjectCacheRequest
     ) extends CodeBuildOp[InvalidateProjectCacheResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[InvalidateProjectCacheResponse] =
         visitor.invalidateProjectCache(request)
     }
 
-    final case class ListBuildBatches(
+    final case class ListBuildBatchesOp(
       request: ListBuildBatchesRequest
     ) extends CodeBuildOp[ListBuildBatchesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBuildBatchesResponse] =
         visitor.listBuildBatches(request)
     }
 
-    final case class ListBuildBatchesForProject(
+    final case class ListBuildBatchesForProjectOp(
       request: ListBuildBatchesForProjectRequest
     ) extends CodeBuildOp[ListBuildBatchesForProjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBuildBatchesForProjectResponse] =
         visitor.listBuildBatchesForProject(request)
     }
 
-    final case class ListBuilds(
+    final case class ListBuildsOp(
       request: ListBuildsRequest
     ) extends CodeBuildOp[ListBuildsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBuildsResponse] =
         visitor.listBuilds(request)
     }
 
-    final case class ListBuildsForProject(
+    final case class ListBuildsForProjectOp(
       request: ListBuildsForProjectRequest
     ) extends CodeBuildOp[ListBuildsForProjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListBuildsForProjectResponse] =
         visitor.listBuildsForProject(request)
     }
 
-    final case class ListCuratedEnvironmentImages(
+    final case class ListCuratedEnvironmentImagesOp(
       request: ListCuratedEnvironmentImagesRequest
     ) extends CodeBuildOp[ListCuratedEnvironmentImagesResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListCuratedEnvironmentImagesResponse] =
         visitor.listCuratedEnvironmentImages(request)
     }
 
-    final case class ListProjects(
+    final case class ListProjectsOp(
       request: ListProjectsRequest
     ) extends CodeBuildOp[ListProjectsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListProjectsResponse] =
         visitor.listProjects(request)
     }
 
-    final case class ListReportGroups(
+    final case class ListReportGroupsOp(
       request: ListReportGroupsRequest
     ) extends CodeBuildOp[ListReportGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListReportGroupsResponse] =
         visitor.listReportGroups(request)
     }
 
-    final case class ListReports(
+    final case class ListReportsOp(
       request: ListReportsRequest
     ) extends CodeBuildOp[ListReportsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListReportsResponse] =
         visitor.listReports(request)
     }
 
-    final case class ListReportsForReportGroup(
+    final case class ListReportsForReportGroupOp(
       request: ListReportsForReportGroupRequest
     ) extends CodeBuildOp[ListReportsForReportGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListReportsForReportGroupResponse] =
         visitor.listReportsForReportGroup(request)
     }
 
-    final case class ListSharedProjects(
+    final case class ListSharedProjectsOp(
       request: ListSharedProjectsRequest
     ) extends CodeBuildOp[ListSharedProjectsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListSharedProjectsResponse] =
         visitor.listSharedProjects(request)
     }
 
-    final case class ListSharedReportGroups(
+    final case class ListSharedReportGroupsOp(
       request: ListSharedReportGroupsRequest
     ) extends CodeBuildOp[ListSharedReportGroupsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListSharedReportGroupsResponse] =
         visitor.listSharedReportGroups(request)
     }
 
-    final case class ListSourceCredentials(
+    final case class ListSourceCredentialsOp(
       request: ListSourceCredentialsRequest
     ) extends CodeBuildOp[ListSourceCredentialsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[ListSourceCredentialsResponse] =
         visitor.listSourceCredentials(request)
     }
 
-    final case class PutResourcePolicy(
+    final case class PutResourcePolicyOp(
       request: PutResourcePolicyRequest
     ) extends CodeBuildOp[PutResourcePolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PutResourcePolicyResponse] =
         visitor.putResourcePolicy(request)
     }
 
-    final case class RetryBuild(
+    final case class RetryBuildOp(
       request: RetryBuildRequest
     ) extends CodeBuildOp[RetryBuildResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RetryBuildResponse] =
         visitor.retryBuild(request)
     }
 
-    final case class RetryBuildBatch(
+    final case class RetryBuildBatchOp(
       request: RetryBuildBatchRequest
     ) extends CodeBuildOp[RetryBuildBatchResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RetryBuildBatchResponse] =
         visitor.retryBuildBatch(request)
     }
 
-    final case class StartBuild(
+    final case class StartBuildOp(
       request: StartBuildRequest
     ) extends CodeBuildOp[StartBuildResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartBuildResponse] =
         visitor.startBuild(request)
     }
 
-    final case class StartBuildBatch(
+    final case class StartBuildBatchOp(
       request: StartBuildBatchRequest
     ) extends CodeBuildOp[StartBuildBatchResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StartBuildBatchResponse] =
         visitor.startBuildBatch(request)
     }
 
-    final case class StopBuild(
+    final case class StopBuildOp(
       request: StopBuildRequest
     ) extends CodeBuildOp[StopBuildResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StopBuildResponse] =
         visitor.stopBuild(request)
     }
 
-    final case class StopBuildBatch(
+    final case class StopBuildBatchOp(
       request: StopBuildBatchRequest
     ) extends CodeBuildOp[StopBuildBatchResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[StopBuildBatchResponse] =
         visitor.stopBuildBatch(request)
     }
 
-    final case class UpdateProject(
+    final case class UpdateProjectOp(
       request: UpdateProjectRequest
     ) extends CodeBuildOp[UpdateProjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateProjectResponse] =
         visitor.updateProject(request)
     }
 
-    final case class UpdateReportGroup(
+    final case class UpdateReportGroupOp(
       request: UpdateReportGroupRequest
     ) extends CodeBuildOp[UpdateReportGroupResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateReportGroupResponse] =
         visitor.updateReportGroup(request)
     }
 
-    final case class UpdateWebhook(
+    final case class UpdateWebhookOp(
       request: UpdateWebhookRequest
     ) extends CodeBuildOp[UpdateWebhookResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[UpdateWebhookResponse] =
@@ -766,220 +766,220 @@ object codebuild { module =>
   def batchDeleteBuilds(
     request: BatchDeleteBuildsRequest
   ): CodeBuildIO[BatchDeleteBuildsResponse] =
-    FF.liftF(BatchDeleteBuilds(request))
+    FF.liftF(BatchDeleteBuildsOp(request))
 
   def batchGetBuildBatches(
     request: BatchGetBuildBatchesRequest
   ): CodeBuildIO[BatchGetBuildBatchesResponse] =
-    FF.liftF(BatchGetBuildBatches(request))
+    FF.liftF(BatchGetBuildBatchesOp(request))
 
   def batchGetBuilds(
     request: BatchGetBuildsRequest
   ): CodeBuildIO[BatchGetBuildsResponse] =
-    FF.liftF(BatchGetBuilds(request))
+    FF.liftF(BatchGetBuildsOp(request))
 
   def batchGetProjects(
     request: BatchGetProjectsRequest
   ): CodeBuildIO[BatchGetProjectsResponse] =
-    FF.liftF(BatchGetProjects(request))
+    FF.liftF(BatchGetProjectsOp(request))
 
   def batchGetReportGroups(
     request: BatchGetReportGroupsRequest
   ): CodeBuildIO[BatchGetReportGroupsResponse] =
-    FF.liftF(BatchGetReportGroups(request))
+    FF.liftF(BatchGetReportGroupsOp(request))
 
   def batchGetReports(
     request: BatchGetReportsRequest
   ): CodeBuildIO[BatchGetReportsResponse] =
-    FF.liftF(BatchGetReports(request))
+    FF.liftF(BatchGetReportsOp(request))
 
   def createProject(
     request: CreateProjectRequest
   ): CodeBuildIO[CreateProjectResponse] =
-    FF.liftF(CreateProject(request))
+    FF.liftF(CreateProjectOp(request))
 
   def createReportGroup(
     request: CreateReportGroupRequest
   ): CodeBuildIO[CreateReportGroupResponse] =
-    FF.liftF(CreateReportGroup(request))
+    FF.liftF(CreateReportGroupOp(request))
 
   def createWebhook(
     request: CreateWebhookRequest
   ): CodeBuildIO[CreateWebhookResponse] =
-    FF.liftF(CreateWebhook(request))
+    FF.liftF(CreateWebhookOp(request))
 
   def deleteBuildBatch(
     request: DeleteBuildBatchRequest
   ): CodeBuildIO[DeleteBuildBatchResponse] =
-    FF.liftF(DeleteBuildBatch(request))
+    FF.liftF(DeleteBuildBatchOp(request))
 
   def deleteProject(
     request: DeleteProjectRequest
   ): CodeBuildIO[DeleteProjectResponse] =
-    FF.liftF(DeleteProject(request))
+    FF.liftF(DeleteProjectOp(request))
 
   def deleteReport(
     request: DeleteReportRequest
   ): CodeBuildIO[DeleteReportResponse] =
-    FF.liftF(DeleteReport(request))
+    FF.liftF(DeleteReportOp(request))
 
   def deleteReportGroup(
     request: DeleteReportGroupRequest
   ): CodeBuildIO[DeleteReportGroupResponse] =
-    FF.liftF(DeleteReportGroup(request))
+    FF.liftF(DeleteReportGroupOp(request))
 
   def deleteResourcePolicy(
     request: DeleteResourcePolicyRequest
   ): CodeBuildIO[DeleteResourcePolicyResponse] =
-    FF.liftF(DeleteResourcePolicy(request))
+    FF.liftF(DeleteResourcePolicyOp(request))
 
   def deleteSourceCredentials(
     request: DeleteSourceCredentialsRequest
   ): CodeBuildIO[DeleteSourceCredentialsResponse] =
-    FF.liftF(DeleteSourceCredentials(request))
+    FF.liftF(DeleteSourceCredentialsOp(request))
 
   def deleteWebhook(
     request: DeleteWebhookRequest
   ): CodeBuildIO[DeleteWebhookResponse] =
-    FF.liftF(DeleteWebhook(request))
+    FF.liftF(DeleteWebhookOp(request))
 
   def describeCodeCoverages(
     request: DescribeCodeCoveragesRequest
   ): CodeBuildIO[DescribeCodeCoveragesResponse] =
-    FF.liftF(DescribeCodeCoverages(request))
+    FF.liftF(DescribeCodeCoveragesOp(request))
 
   def describeTestCases(
     request: DescribeTestCasesRequest
   ): CodeBuildIO[DescribeTestCasesResponse] =
-    FF.liftF(DescribeTestCases(request))
+    FF.liftF(DescribeTestCasesOp(request))
 
   def getReportGroupTrend(
     request: GetReportGroupTrendRequest
   ): CodeBuildIO[GetReportGroupTrendResponse] =
-    FF.liftF(GetReportGroupTrend(request))
+    FF.liftF(GetReportGroupTrendOp(request))
 
   def getResourcePolicy(
     request: GetResourcePolicyRequest
   ): CodeBuildIO[GetResourcePolicyResponse] =
-    FF.liftF(GetResourcePolicy(request))
+    FF.liftF(GetResourcePolicyOp(request))
 
   def importSourceCredentials(
     request: ImportSourceCredentialsRequest
   ): CodeBuildIO[ImportSourceCredentialsResponse] =
-    FF.liftF(ImportSourceCredentials(request))
+    FF.liftF(ImportSourceCredentialsOp(request))
 
   def invalidateProjectCache(
     request: InvalidateProjectCacheRequest
   ): CodeBuildIO[InvalidateProjectCacheResponse] =
-    FF.liftF(InvalidateProjectCache(request))
+    FF.liftF(InvalidateProjectCacheOp(request))
 
   def listBuildBatches(
     request: ListBuildBatchesRequest
   ): CodeBuildIO[ListBuildBatchesResponse] =
-    FF.liftF(ListBuildBatches(request))
+    FF.liftF(ListBuildBatchesOp(request))
 
   def listBuildBatchesForProject(
     request: ListBuildBatchesForProjectRequest
   ): CodeBuildIO[ListBuildBatchesForProjectResponse] =
-    FF.liftF(ListBuildBatchesForProject(request))
+    FF.liftF(ListBuildBatchesForProjectOp(request))
 
   def listBuilds(
     request: ListBuildsRequest
   ): CodeBuildIO[ListBuildsResponse] =
-    FF.liftF(ListBuilds(request))
+    FF.liftF(ListBuildsOp(request))
 
   def listBuildsForProject(
     request: ListBuildsForProjectRequest
   ): CodeBuildIO[ListBuildsForProjectResponse] =
-    FF.liftF(ListBuildsForProject(request))
+    FF.liftF(ListBuildsForProjectOp(request))
 
   def listCuratedEnvironmentImages(
     request: ListCuratedEnvironmentImagesRequest
   ): CodeBuildIO[ListCuratedEnvironmentImagesResponse] =
-    FF.liftF(ListCuratedEnvironmentImages(request))
+    FF.liftF(ListCuratedEnvironmentImagesOp(request))
 
   def listProjects(
     request: ListProjectsRequest
   ): CodeBuildIO[ListProjectsResponse] =
-    FF.liftF(ListProjects(request))
+    FF.liftF(ListProjectsOp(request))
 
   def listReportGroups(
     request: ListReportGroupsRequest
   ): CodeBuildIO[ListReportGroupsResponse] =
-    FF.liftF(ListReportGroups(request))
+    FF.liftF(ListReportGroupsOp(request))
 
   def listReports(
     request: ListReportsRequest
   ): CodeBuildIO[ListReportsResponse] =
-    FF.liftF(ListReports(request))
+    FF.liftF(ListReportsOp(request))
 
   def listReportsForReportGroup(
     request: ListReportsForReportGroupRequest
   ): CodeBuildIO[ListReportsForReportGroupResponse] =
-    FF.liftF(ListReportsForReportGroup(request))
+    FF.liftF(ListReportsForReportGroupOp(request))
 
   def listSharedProjects(
     request: ListSharedProjectsRequest
   ): CodeBuildIO[ListSharedProjectsResponse] =
-    FF.liftF(ListSharedProjects(request))
+    FF.liftF(ListSharedProjectsOp(request))
 
   def listSharedReportGroups(
     request: ListSharedReportGroupsRequest
   ): CodeBuildIO[ListSharedReportGroupsResponse] =
-    FF.liftF(ListSharedReportGroups(request))
+    FF.liftF(ListSharedReportGroupsOp(request))
 
   def listSourceCredentials(
     request: ListSourceCredentialsRequest
   ): CodeBuildIO[ListSourceCredentialsResponse] =
-    FF.liftF(ListSourceCredentials(request))
+    FF.liftF(ListSourceCredentialsOp(request))
 
   def putResourcePolicy(
     request: PutResourcePolicyRequest
   ): CodeBuildIO[PutResourcePolicyResponse] =
-    FF.liftF(PutResourcePolicy(request))
+    FF.liftF(PutResourcePolicyOp(request))
 
   def retryBuild(
     request: RetryBuildRequest
   ): CodeBuildIO[RetryBuildResponse] =
-    FF.liftF(RetryBuild(request))
+    FF.liftF(RetryBuildOp(request))
 
   def retryBuildBatch(
     request: RetryBuildBatchRequest
   ): CodeBuildIO[RetryBuildBatchResponse] =
-    FF.liftF(RetryBuildBatch(request))
+    FF.liftF(RetryBuildBatchOp(request))
 
   def startBuild(
     request: StartBuildRequest
   ): CodeBuildIO[StartBuildResponse] =
-    FF.liftF(StartBuild(request))
+    FF.liftF(StartBuildOp(request))
 
   def startBuildBatch(
     request: StartBuildBatchRequest
   ): CodeBuildIO[StartBuildBatchResponse] =
-    FF.liftF(StartBuildBatch(request))
+    FF.liftF(StartBuildBatchOp(request))
 
   def stopBuild(
     request: StopBuildRequest
   ): CodeBuildIO[StopBuildResponse] =
-    FF.liftF(StopBuild(request))
+    FF.liftF(StopBuildOp(request))
 
   def stopBuildBatch(
     request: StopBuildBatchRequest
   ): CodeBuildIO[StopBuildBatchResponse] =
-    FF.liftF(StopBuildBatch(request))
+    FF.liftF(StopBuildBatchOp(request))
 
   def updateProject(
     request: UpdateProjectRequest
   ): CodeBuildIO[UpdateProjectResponse] =
-    FF.liftF(UpdateProject(request))
+    FF.liftF(UpdateProjectOp(request))
 
   def updateReportGroup(
     request: UpdateReportGroupRequest
   ): CodeBuildIO[UpdateReportGroupResponse] =
-    FF.liftF(UpdateReportGroup(request))
+    FF.liftF(UpdateReportGroupOp(request))
 
   def updateWebhook(
     request: UpdateWebhookRequest
   ): CodeBuildIO[UpdateWebhookResponse] =
-    FF.liftF(UpdateWebhook(request))
+    FF.liftF(UpdateWebhookOp(request))
 }

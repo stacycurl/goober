@@ -1,0 +1,1132 @@
+package goober.free
+
+import scala.language.higherKinds
+
+import cats.free.{Free => FF}
+import cats.~>
+import cats.data.Kleisli
+import software.amazon.awssdk.services.cloudwatchevents.CloudWatchEventsClient
+import software.amazon.awssdk.services.cloudwatchevents.model._
+import java.nio.file.Path
+import software.amazon.awssdk.core.sync.RequestBody
+
+object cloudwatchevents { module =>
+
+  // Free monad over CloudWatchEventsOp
+  type CloudWatchEventsIO[A] = FF[CloudWatchEventsOp, A]
+
+  sealed trait CloudWatchEventsOp[A] {
+    def visit[F[_]](visitor: CloudWatchEventsOp.Visitor[F]): F[A]
+  }
+
+  object CloudWatchEventsOp {
+    // Given a CloudWatchEventsClient we can embed a CloudWatchEventsIO program in any algebra that understands embedding.
+    implicit val CloudWatchEventsOpEmbeddable: Embeddable[CloudWatchEventsOp, CloudWatchEventsClient] = new Embeddable[CloudWatchEventsOp, CloudWatchEventsClient] {
+      def embed[A](client: CloudWatchEventsClient, io: CloudWatchEventsIO[A]): Embedded[A] = Embedded.CloudWatchEvents(client, io)
+    }
+
+    object Visitor {
+      trait KleisliVisitor[M[_]] extends CloudWatchEventsOp.Visitor[Kleisli[M, CloudWatchEventsClient, *]] {
+        def activateEventSource(
+          request: ActivateEventSourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, ActivateEventSourceResponse] =
+          primitive(_.activateEventSource(request))
+
+        def cancelReplay(
+          request: CancelReplayRequest
+        ): Kleisli[M, CloudWatchEventsClient, CancelReplayResponse] =
+          primitive(_.cancelReplay(request))
+
+        def createApiDestination(
+          request: CreateApiDestinationRequest
+        ): Kleisli[M, CloudWatchEventsClient, CreateApiDestinationResponse] =
+          primitive(_.createApiDestination(request))
+
+        def createArchive(
+          request: CreateArchiveRequest
+        ): Kleisli[M, CloudWatchEventsClient, CreateArchiveResponse] =
+          primitive(_.createArchive(request))
+
+        def createConnection(
+          request: CreateConnectionRequest
+        ): Kleisli[M, CloudWatchEventsClient, CreateConnectionResponse] =
+          primitive(_.createConnection(request))
+
+        def createEventBus(
+          request: CreateEventBusRequest
+        ): Kleisli[M, CloudWatchEventsClient, CreateEventBusResponse] =
+          primitive(_.createEventBus(request))
+
+        def createPartnerEventSource(
+          request: CreatePartnerEventSourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, CreatePartnerEventSourceResponse] =
+          primitive(_.createPartnerEventSource(request))
+
+        def deactivateEventSource(
+          request: DeactivateEventSourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeactivateEventSourceResponse] =
+          primitive(_.deactivateEventSource(request))
+
+        def deauthorizeConnection(
+          request: DeauthorizeConnectionRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeauthorizeConnectionResponse] =
+          primitive(_.deauthorizeConnection(request))
+
+        def deleteApiDestination(
+          request: DeleteApiDestinationRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeleteApiDestinationResponse] =
+          primitive(_.deleteApiDestination(request))
+
+        def deleteArchive(
+          request: DeleteArchiveRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeleteArchiveResponse] =
+          primitive(_.deleteArchive(request))
+
+        def deleteConnection(
+          request: DeleteConnectionRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeleteConnectionResponse] =
+          primitive(_.deleteConnection(request))
+
+        def deleteEventBus(
+          request: DeleteEventBusRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeleteEventBusResponse] =
+          primitive(_.deleteEventBus(request))
+
+        def deletePartnerEventSource(
+          request: DeletePartnerEventSourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeletePartnerEventSourceResponse] =
+          primitive(_.deletePartnerEventSource(request))
+
+        def deleteRule(
+          request: DeleteRuleRequest
+        ): Kleisli[M, CloudWatchEventsClient, DeleteRuleResponse] =
+          primitive(_.deleteRule(request))
+
+        def describeApiDestination(
+          request: DescribeApiDestinationRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeApiDestinationResponse] =
+          primitive(_.describeApiDestination(request))
+
+        def describeArchive(
+          request: DescribeArchiveRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeArchiveResponse] =
+          primitive(_.describeArchive(request))
+
+        def describeConnection(
+          request: DescribeConnectionRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeConnectionResponse] =
+          primitive(_.describeConnection(request))
+
+        def describeEventBus(
+          request: DescribeEventBusRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeEventBusResponse] =
+          primitive(_.describeEventBus(request))
+
+        def describeEventSource(
+          request: DescribeEventSourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeEventSourceResponse] =
+          primitive(_.describeEventSource(request))
+
+        def describePartnerEventSource(
+          request: DescribePartnerEventSourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribePartnerEventSourceResponse] =
+          primitive(_.describePartnerEventSource(request))
+
+        def describeReplay(
+          request: DescribeReplayRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeReplayResponse] =
+          primitive(_.describeReplay(request))
+
+        def describeRule(
+          request: DescribeRuleRequest
+        ): Kleisli[M, CloudWatchEventsClient, DescribeRuleResponse] =
+          primitive(_.describeRule(request))
+
+        def disableRule(
+          request: DisableRuleRequest
+        ): Kleisli[M, CloudWatchEventsClient, DisableRuleResponse] =
+          primitive(_.disableRule(request))
+
+        def enableRule(
+          request: EnableRuleRequest
+        ): Kleisli[M, CloudWatchEventsClient, EnableRuleResponse] =
+          primitive(_.enableRule(request))
+
+        def listApiDestinations(
+          request: ListApiDestinationsRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListApiDestinationsResponse] =
+          primitive(_.listApiDestinations(request))
+
+        def listArchives(
+          request: ListArchivesRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListArchivesResponse] =
+          primitive(_.listArchives(request))
+
+        def listConnections(
+          request: ListConnectionsRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListConnectionsResponse] =
+          primitive(_.listConnections(request))
+
+        def listEventBuses(
+          request: ListEventBusesRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListEventBusesResponse] =
+          primitive(_.listEventBuses(request))
+
+        def listEventSources(
+          request: ListEventSourcesRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListEventSourcesResponse] =
+          primitive(_.listEventSources(request))
+
+        def listPartnerEventSourceAccounts(
+          request: ListPartnerEventSourceAccountsRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListPartnerEventSourceAccountsResponse] =
+          primitive(_.listPartnerEventSourceAccounts(request))
+
+        def listPartnerEventSources(
+          request: ListPartnerEventSourcesRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListPartnerEventSourcesResponse] =
+          primitive(_.listPartnerEventSources(request))
+
+        def listReplays(
+          request: ListReplaysRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListReplaysResponse] =
+          primitive(_.listReplays(request))
+
+        def listRuleNamesByTarget(
+          request: ListRuleNamesByTargetRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListRuleNamesByTargetResponse] =
+          primitive(_.listRuleNamesByTarget(request))
+
+        def listRules(
+          request: ListRulesRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListRulesResponse] =
+          primitive(_.listRules(request))
+
+        def listTagsForResource(
+          request: ListTagsForResourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListTagsForResourceResponse] =
+          primitive(_.listTagsForResource(request))
+
+        def listTargetsByRule(
+          request: ListTargetsByRuleRequest
+        ): Kleisli[M, CloudWatchEventsClient, ListTargetsByRuleResponse] =
+          primitive(_.listTargetsByRule(request))
+
+        def putEvents(
+          request: PutEventsRequest
+        ): Kleisli[M, CloudWatchEventsClient, PutEventsResponse] =
+          primitive(_.putEvents(request))
+
+        def putPartnerEvents(
+          request: PutPartnerEventsRequest
+        ): Kleisli[M, CloudWatchEventsClient, PutPartnerEventsResponse] =
+          primitive(_.putPartnerEvents(request))
+
+        def putPermission(
+          request: PutPermissionRequest
+        ): Kleisli[M, CloudWatchEventsClient, PutPermissionResponse] =
+          primitive(_.putPermission(request))
+
+        def putRule(
+          request: PutRuleRequest
+        ): Kleisli[M, CloudWatchEventsClient, PutRuleResponse] =
+          primitive(_.putRule(request))
+
+        def putTargets(
+          request: PutTargetsRequest
+        ): Kleisli[M, CloudWatchEventsClient, PutTargetsResponse] =
+          primitive(_.putTargets(request))
+
+        def removePermission(
+          request: RemovePermissionRequest
+        ): Kleisli[M, CloudWatchEventsClient, RemovePermissionResponse] =
+          primitive(_.removePermission(request))
+
+        def removeTargets(
+          request: RemoveTargetsRequest
+        ): Kleisli[M, CloudWatchEventsClient, RemoveTargetsResponse] =
+          primitive(_.removeTargets(request))
+
+        def startReplay(
+          request: StartReplayRequest
+        ): Kleisli[M, CloudWatchEventsClient, StartReplayResponse] =
+          primitive(_.startReplay(request))
+
+        def tagResource(
+          request: TagResourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, TagResourceResponse] =
+          primitive(_.tagResource(request))
+
+        def testEventPattern(
+          request: TestEventPatternRequest
+        ): Kleisli[M, CloudWatchEventsClient, TestEventPatternResponse] =
+          primitive(_.testEventPattern(request))
+
+        def untagResource(
+          request: UntagResourceRequest
+        ): Kleisli[M, CloudWatchEventsClient, UntagResourceResponse] =
+          primitive(_.untagResource(request))
+
+        def updateApiDestination(
+          request: UpdateApiDestinationRequest
+        ): Kleisli[M, CloudWatchEventsClient, UpdateApiDestinationResponse] =
+          primitive(_.updateApiDestination(request))
+
+        def updateArchive(
+          request: UpdateArchiveRequest
+        ): Kleisli[M, CloudWatchEventsClient, UpdateArchiveResponse] =
+          primitive(_.updateArchive(request))
+
+        def updateConnection(
+          request: UpdateConnectionRequest
+        ): Kleisli[M, CloudWatchEventsClient, UpdateConnectionResponse] =
+          primitive(_.updateConnection(request))
+
+        def primitive[A](
+          f: CloudWatchEventsClient => A
+        ): Kleisli[M, CloudWatchEventsClient, A]
+      }
+    }
+
+    trait Visitor[F[_]] extends (CloudWatchEventsOp ~> F) {
+      final def apply[A](op: CloudWatchEventsOp[A]): F[A] = op.visit(this)
+
+      def embed[A](
+        e: Embedded[A]
+      ): F[A]
+
+      def activateEventSource(
+        request: ActivateEventSourceRequest
+      ): F[ActivateEventSourceResponse]
+
+      def cancelReplay(
+        request: CancelReplayRequest
+      ): F[CancelReplayResponse]
+
+      def createApiDestination(
+        request: CreateApiDestinationRequest
+      ): F[CreateApiDestinationResponse]
+
+      def createArchive(
+        request: CreateArchiveRequest
+      ): F[CreateArchiveResponse]
+
+      def createConnection(
+        request: CreateConnectionRequest
+      ): F[CreateConnectionResponse]
+
+      def createEventBus(
+        request: CreateEventBusRequest
+      ): F[CreateEventBusResponse]
+
+      def createPartnerEventSource(
+        request: CreatePartnerEventSourceRequest
+      ): F[CreatePartnerEventSourceResponse]
+
+      def deactivateEventSource(
+        request: DeactivateEventSourceRequest
+      ): F[DeactivateEventSourceResponse]
+
+      def deauthorizeConnection(
+        request: DeauthorizeConnectionRequest
+      ): F[DeauthorizeConnectionResponse]
+
+      def deleteApiDestination(
+        request: DeleteApiDestinationRequest
+      ): F[DeleteApiDestinationResponse]
+
+      def deleteArchive(
+        request: DeleteArchiveRequest
+      ): F[DeleteArchiveResponse]
+
+      def deleteConnection(
+        request: DeleteConnectionRequest
+      ): F[DeleteConnectionResponse]
+
+      def deleteEventBus(
+        request: DeleteEventBusRequest
+      ): F[DeleteEventBusResponse]
+
+      def deletePartnerEventSource(
+        request: DeletePartnerEventSourceRequest
+      ): F[DeletePartnerEventSourceResponse]
+
+      def deleteRule(
+        request: DeleteRuleRequest
+      ): F[DeleteRuleResponse]
+
+      def describeApiDestination(
+        request: DescribeApiDestinationRequest
+      ): F[DescribeApiDestinationResponse]
+
+      def describeArchive(
+        request: DescribeArchiveRequest
+      ): F[DescribeArchiveResponse]
+
+      def describeConnection(
+        request: DescribeConnectionRequest
+      ): F[DescribeConnectionResponse]
+
+      def describeEventBus(
+        request: DescribeEventBusRequest
+      ): F[DescribeEventBusResponse]
+
+      def describeEventSource(
+        request: DescribeEventSourceRequest
+      ): F[DescribeEventSourceResponse]
+
+      def describePartnerEventSource(
+        request: DescribePartnerEventSourceRequest
+      ): F[DescribePartnerEventSourceResponse]
+
+      def describeReplay(
+        request: DescribeReplayRequest
+      ): F[DescribeReplayResponse]
+
+      def describeRule(
+        request: DescribeRuleRequest
+      ): F[DescribeRuleResponse]
+
+      def disableRule(
+        request: DisableRuleRequest
+      ): F[DisableRuleResponse]
+
+      def enableRule(
+        request: EnableRuleRequest
+      ): F[EnableRuleResponse]
+
+      def listApiDestinations(
+        request: ListApiDestinationsRequest
+      ): F[ListApiDestinationsResponse]
+
+      def listArchives(
+        request: ListArchivesRequest
+      ): F[ListArchivesResponse]
+
+      def listConnections(
+        request: ListConnectionsRequest
+      ): F[ListConnectionsResponse]
+
+      def listEventBuses(
+        request: ListEventBusesRequest
+      ): F[ListEventBusesResponse]
+
+      def listEventSources(
+        request: ListEventSourcesRequest
+      ): F[ListEventSourcesResponse]
+
+      def listPartnerEventSourceAccounts(
+        request: ListPartnerEventSourceAccountsRequest
+      ): F[ListPartnerEventSourceAccountsResponse]
+
+      def listPartnerEventSources(
+        request: ListPartnerEventSourcesRequest
+      ): F[ListPartnerEventSourcesResponse]
+
+      def listReplays(
+        request: ListReplaysRequest
+      ): F[ListReplaysResponse]
+
+      def listRuleNamesByTarget(
+        request: ListRuleNamesByTargetRequest
+      ): F[ListRuleNamesByTargetResponse]
+
+      def listRules(
+        request: ListRulesRequest
+      ): F[ListRulesResponse]
+
+      def listTagsForResource(
+        request: ListTagsForResourceRequest
+      ): F[ListTagsForResourceResponse]
+
+      def listTargetsByRule(
+        request: ListTargetsByRuleRequest
+      ): F[ListTargetsByRuleResponse]
+
+      def putEvents(
+        request: PutEventsRequest
+      ): F[PutEventsResponse]
+
+      def putPartnerEvents(
+        request: PutPartnerEventsRequest
+      ): F[PutPartnerEventsResponse]
+
+      def putPermission(
+        request: PutPermissionRequest
+      ): F[PutPermissionResponse]
+
+      def putRule(
+        request: PutRuleRequest
+      ): F[PutRuleResponse]
+
+      def putTargets(
+        request: PutTargetsRequest
+      ): F[PutTargetsResponse]
+
+      def removePermission(
+        request: RemovePermissionRequest
+      ): F[RemovePermissionResponse]
+
+      def removeTargets(
+        request: RemoveTargetsRequest
+      ): F[RemoveTargetsResponse]
+
+      def startReplay(
+        request: StartReplayRequest
+      ): F[StartReplayResponse]
+
+      def tagResource(
+        request: TagResourceRequest
+      ): F[TagResourceResponse]
+
+      def testEventPattern(
+        request: TestEventPatternRequest
+      ): F[TestEventPatternResponse]
+
+      def untagResource(
+        request: UntagResourceRequest
+      ): F[UntagResourceResponse]
+
+      def updateApiDestination(
+        request: UpdateApiDestinationRequest
+      ): F[UpdateApiDestinationResponse]
+
+      def updateArchive(
+        request: UpdateArchiveRequest
+      ): F[UpdateArchiveResponse]
+
+      def updateConnection(
+        request: UpdateConnectionRequest
+      ): F[UpdateConnectionResponse]
+    }
+
+    final case class Embed[A](
+      e: Embedded[A]
+    ) extends CloudWatchEventsOp[A] {
+      def visit[F[_]](visitor: Visitor[F]) =
+        visitor.embed(e)
+    }
+
+    final case class ActivateEventSourceOp(
+      request: ActivateEventSourceRequest
+    ) extends CloudWatchEventsOp[ActivateEventSourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ActivateEventSourceResponse] =
+        visitor.activateEventSource(request)
+    }
+
+    final case class CancelReplayOp(
+      request: CancelReplayRequest
+    ) extends CloudWatchEventsOp[CancelReplayResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[CancelReplayResponse] =
+        visitor.cancelReplay(request)
+    }
+
+    final case class CreateApiDestinationOp(
+      request: CreateApiDestinationRequest
+    ) extends CloudWatchEventsOp[CreateApiDestinationResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[CreateApiDestinationResponse] =
+        visitor.createApiDestination(request)
+    }
+
+    final case class CreateArchiveOp(
+      request: CreateArchiveRequest
+    ) extends CloudWatchEventsOp[CreateArchiveResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[CreateArchiveResponse] =
+        visitor.createArchive(request)
+    }
+
+    final case class CreateConnectionOp(
+      request: CreateConnectionRequest
+    ) extends CloudWatchEventsOp[CreateConnectionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[CreateConnectionResponse] =
+        visitor.createConnection(request)
+    }
+
+    final case class CreateEventBusOp(
+      request: CreateEventBusRequest
+    ) extends CloudWatchEventsOp[CreateEventBusResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[CreateEventBusResponse] =
+        visitor.createEventBus(request)
+    }
+
+    final case class CreatePartnerEventSourceOp(
+      request: CreatePartnerEventSourceRequest
+    ) extends CloudWatchEventsOp[CreatePartnerEventSourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[CreatePartnerEventSourceResponse] =
+        visitor.createPartnerEventSource(request)
+    }
+
+    final case class DeactivateEventSourceOp(
+      request: DeactivateEventSourceRequest
+    ) extends CloudWatchEventsOp[DeactivateEventSourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeactivateEventSourceResponse] =
+        visitor.deactivateEventSource(request)
+    }
+
+    final case class DeauthorizeConnectionOp(
+      request: DeauthorizeConnectionRequest
+    ) extends CloudWatchEventsOp[DeauthorizeConnectionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeauthorizeConnectionResponse] =
+        visitor.deauthorizeConnection(request)
+    }
+
+    final case class DeleteApiDestinationOp(
+      request: DeleteApiDestinationRequest
+    ) extends CloudWatchEventsOp[DeleteApiDestinationResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeleteApiDestinationResponse] =
+        visitor.deleteApiDestination(request)
+    }
+
+    final case class DeleteArchiveOp(
+      request: DeleteArchiveRequest
+    ) extends CloudWatchEventsOp[DeleteArchiveResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeleteArchiveResponse] =
+        visitor.deleteArchive(request)
+    }
+
+    final case class DeleteConnectionOp(
+      request: DeleteConnectionRequest
+    ) extends CloudWatchEventsOp[DeleteConnectionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeleteConnectionResponse] =
+        visitor.deleteConnection(request)
+    }
+
+    final case class DeleteEventBusOp(
+      request: DeleteEventBusRequest
+    ) extends CloudWatchEventsOp[DeleteEventBusResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeleteEventBusResponse] =
+        visitor.deleteEventBus(request)
+    }
+
+    final case class DeletePartnerEventSourceOp(
+      request: DeletePartnerEventSourceRequest
+    ) extends CloudWatchEventsOp[DeletePartnerEventSourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeletePartnerEventSourceResponse] =
+        visitor.deletePartnerEventSource(request)
+    }
+
+    final case class DeleteRuleOp(
+      request: DeleteRuleRequest
+    ) extends CloudWatchEventsOp[DeleteRuleResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DeleteRuleResponse] =
+        visitor.deleteRule(request)
+    }
+
+    final case class DescribeApiDestinationOp(
+      request: DescribeApiDestinationRequest
+    ) extends CloudWatchEventsOp[DescribeApiDestinationResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeApiDestinationResponse] =
+        visitor.describeApiDestination(request)
+    }
+
+    final case class DescribeArchiveOp(
+      request: DescribeArchiveRequest
+    ) extends CloudWatchEventsOp[DescribeArchiveResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeArchiveResponse] =
+        visitor.describeArchive(request)
+    }
+
+    final case class DescribeConnectionOp(
+      request: DescribeConnectionRequest
+    ) extends CloudWatchEventsOp[DescribeConnectionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeConnectionResponse] =
+        visitor.describeConnection(request)
+    }
+
+    final case class DescribeEventBusOp(
+      request: DescribeEventBusRequest
+    ) extends CloudWatchEventsOp[DescribeEventBusResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeEventBusResponse] =
+        visitor.describeEventBus(request)
+    }
+
+    final case class DescribeEventSourceOp(
+      request: DescribeEventSourceRequest
+    ) extends CloudWatchEventsOp[DescribeEventSourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeEventSourceResponse] =
+        visitor.describeEventSource(request)
+    }
+
+    final case class DescribePartnerEventSourceOp(
+      request: DescribePartnerEventSourceRequest
+    ) extends CloudWatchEventsOp[DescribePartnerEventSourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribePartnerEventSourceResponse] =
+        visitor.describePartnerEventSource(request)
+    }
+
+    final case class DescribeReplayOp(
+      request: DescribeReplayRequest
+    ) extends CloudWatchEventsOp[DescribeReplayResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeReplayResponse] =
+        visitor.describeReplay(request)
+    }
+
+    final case class DescribeRuleOp(
+      request: DescribeRuleRequest
+    ) extends CloudWatchEventsOp[DescribeRuleResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DescribeRuleResponse] =
+        visitor.describeRule(request)
+    }
+
+    final case class DisableRuleOp(
+      request: DisableRuleRequest
+    ) extends CloudWatchEventsOp[DisableRuleResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[DisableRuleResponse] =
+        visitor.disableRule(request)
+    }
+
+    final case class EnableRuleOp(
+      request: EnableRuleRequest
+    ) extends CloudWatchEventsOp[EnableRuleResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[EnableRuleResponse] =
+        visitor.enableRule(request)
+    }
+
+    final case class ListApiDestinationsOp(
+      request: ListApiDestinationsRequest
+    ) extends CloudWatchEventsOp[ListApiDestinationsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListApiDestinationsResponse] =
+        visitor.listApiDestinations(request)
+    }
+
+    final case class ListArchivesOp(
+      request: ListArchivesRequest
+    ) extends CloudWatchEventsOp[ListArchivesResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListArchivesResponse] =
+        visitor.listArchives(request)
+    }
+
+    final case class ListConnectionsOp(
+      request: ListConnectionsRequest
+    ) extends CloudWatchEventsOp[ListConnectionsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListConnectionsResponse] =
+        visitor.listConnections(request)
+    }
+
+    final case class ListEventBusesOp(
+      request: ListEventBusesRequest
+    ) extends CloudWatchEventsOp[ListEventBusesResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListEventBusesResponse] =
+        visitor.listEventBuses(request)
+    }
+
+    final case class ListEventSourcesOp(
+      request: ListEventSourcesRequest
+    ) extends CloudWatchEventsOp[ListEventSourcesResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListEventSourcesResponse] =
+        visitor.listEventSources(request)
+    }
+
+    final case class ListPartnerEventSourceAccountsOp(
+      request: ListPartnerEventSourceAccountsRequest
+    ) extends CloudWatchEventsOp[ListPartnerEventSourceAccountsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListPartnerEventSourceAccountsResponse] =
+        visitor.listPartnerEventSourceAccounts(request)
+    }
+
+    final case class ListPartnerEventSourcesOp(
+      request: ListPartnerEventSourcesRequest
+    ) extends CloudWatchEventsOp[ListPartnerEventSourcesResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListPartnerEventSourcesResponse] =
+        visitor.listPartnerEventSources(request)
+    }
+
+    final case class ListReplaysOp(
+      request: ListReplaysRequest
+    ) extends CloudWatchEventsOp[ListReplaysResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListReplaysResponse] =
+        visitor.listReplays(request)
+    }
+
+    final case class ListRuleNamesByTargetOp(
+      request: ListRuleNamesByTargetRequest
+    ) extends CloudWatchEventsOp[ListRuleNamesByTargetResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListRuleNamesByTargetResponse] =
+        visitor.listRuleNamesByTarget(request)
+    }
+
+    final case class ListRulesOp(
+      request: ListRulesRequest
+    ) extends CloudWatchEventsOp[ListRulesResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListRulesResponse] =
+        visitor.listRules(request)
+    }
+
+    final case class ListTagsForResourceOp(
+      request: ListTagsForResourceRequest
+    ) extends CloudWatchEventsOp[ListTagsForResourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListTagsForResourceResponse] =
+        visitor.listTagsForResource(request)
+    }
+
+    final case class ListTargetsByRuleOp(
+      request: ListTargetsByRuleRequest
+    ) extends CloudWatchEventsOp[ListTargetsByRuleResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[ListTargetsByRuleResponse] =
+        visitor.listTargetsByRule(request)
+    }
+
+    final case class PutEventsOp(
+      request: PutEventsRequest
+    ) extends CloudWatchEventsOp[PutEventsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[PutEventsResponse] =
+        visitor.putEvents(request)
+    }
+
+    final case class PutPartnerEventsOp(
+      request: PutPartnerEventsRequest
+    ) extends CloudWatchEventsOp[PutPartnerEventsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[PutPartnerEventsResponse] =
+        visitor.putPartnerEvents(request)
+    }
+
+    final case class PutPermissionOp(
+      request: PutPermissionRequest
+    ) extends CloudWatchEventsOp[PutPermissionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[PutPermissionResponse] =
+        visitor.putPermission(request)
+    }
+
+    final case class PutRuleOp(
+      request: PutRuleRequest
+    ) extends CloudWatchEventsOp[PutRuleResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[PutRuleResponse] =
+        visitor.putRule(request)
+    }
+
+    final case class PutTargetsOp(
+      request: PutTargetsRequest
+    ) extends CloudWatchEventsOp[PutTargetsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[PutTargetsResponse] =
+        visitor.putTargets(request)
+    }
+
+    final case class RemovePermissionOp(
+      request: RemovePermissionRequest
+    ) extends CloudWatchEventsOp[RemovePermissionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[RemovePermissionResponse] =
+        visitor.removePermission(request)
+    }
+
+    final case class RemoveTargetsOp(
+      request: RemoveTargetsRequest
+    ) extends CloudWatchEventsOp[RemoveTargetsResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[RemoveTargetsResponse] =
+        visitor.removeTargets(request)
+    }
+
+    final case class StartReplayOp(
+      request: StartReplayRequest
+    ) extends CloudWatchEventsOp[StartReplayResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[StartReplayResponse] =
+        visitor.startReplay(request)
+    }
+
+    final case class TagResourceOp(
+      request: TagResourceRequest
+    ) extends CloudWatchEventsOp[TagResourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[TagResourceResponse] =
+        visitor.tagResource(request)
+    }
+
+    final case class TestEventPatternOp(
+      request: TestEventPatternRequest
+    ) extends CloudWatchEventsOp[TestEventPatternResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[TestEventPatternResponse] =
+        visitor.testEventPattern(request)
+    }
+
+    final case class UntagResourceOp(
+      request: UntagResourceRequest
+    ) extends CloudWatchEventsOp[UntagResourceResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[UntagResourceResponse] =
+        visitor.untagResource(request)
+    }
+
+    final case class UpdateApiDestinationOp(
+      request: UpdateApiDestinationRequest
+    ) extends CloudWatchEventsOp[UpdateApiDestinationResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[UpdateApiDestinationResponse] =
+        visitor.updateApiDestination(request)
+    }
+
+    final case class UpdateArchiveOp(
+      request: UpdateArchiveRequest
+    ) extends CloudWatchEventsOp[UpdateArchiveResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[UpdateArchiveResponse] =
+        visitor.updateArchive(request)
+    }
+
+    final case class UpdateConnectionOp(
+      request: UpdateConnectionRequest
+    ) extends CloudWatchEventsOp[UpdateConnectionResponse] {
+      def visit[F[_]](visitor: Visitor[F]): F[UpdateConnectionResponse] =
+        visitor.updateConnection(request)
+    }
+  }
+
+  import CloudWatchEventsOp._
+
+  def embed[F[_], J, A](
+    j: J,
+    fa: FF[F, A]
+  )(implicit
+    ev: Embeddable[F, J]
+  ): FF[CloudWatchEventsOp, A] =
+    FF.liftF(Embed(ev.embed(j, fa)))
+
+  def activateEventSource(
+    request: ActivateEventSourceRequest
+  ): CloudWatchEventsIO[ActivateEventSourceResponse] =
+    FF.liftF(ActivateEventSourceOp(request))
+
+  def cancelReplay(
+    request: CancelReplayRequest
+  ): CloudWatchEventsIO[CancelReplayResponse] =
+    FF.liftF(CancelReplayOp(request))
+
+  def createApiDestination(
+    request: CreateApiDestinationRequest
+  ): CloudWatchEventsIO[CreateApiDestinationResponse] =
+    FF.liftF(CreateApiDestinationOp(request))
+
+  def createArchive(
+    request: CreateArchiveRequest
+  ): CloudWatchEventsIO[CreateArchiveResponse] =
+    FF.liftF(CreateArchiveOp(request))
+
+  def createConnection(
+    request: CreateConnectionRequest
+  ): CloudWatchEventsIO[CreateConnectionResponse] =
+    FF.liftF(CreateConnectionOp(request))
+
+  def createEventBus(
+    request: CreateEventBusRequest
+  ): CloudWatchEventsIO[CreateEventBusResponse] =
+    FF.liftF(CreateEventBusOp(request))
+
+  def createPartnerEventSource(
+    request: CreatePartnerEventSourceRequest
+  ): CloudWatchEventsIO[CreatePartnerEventSourceResponse] =
+    FF.liftF(CreatePartnerEventSourceOp(request))
+
+  def deactivateEventSource(
+    request: DeactivateEventSourceRequest
+  ): CloudWatchEventsIO[DeactivateEventSourceResponse] =
+    FF.liftF(DeactivateEventSourceOp(request))
+
+  def deauthorizeConnection(
+    request: DeauthorizeConnectionRequest
+  ): CloudWatchEventsIO[DeauthorizeConnectionResponse] =
+    FF.liftF(DeauthorizeConnectionOp(request))
+
+  def deleteApiDestination(
+    request: DeleteApiDestinationRequest
+  ): CloudWatchEventsIO[DeleteApiDestinationResponse] =
+    FF.liftF(DeleteApiDestinationOp(request))
+
+  def deleteArchive(
+    request: DeleteArchiveRequest
+  ): CloudWatchEventsIO[DeleteArchiveResponse] =
+    FF.liftF(DeleteArchiveOp(request))
+
+  def deleteConnection(
+    request: DeleteConnectionRequest
+  ): CloudWatchEventsIO[DeleteConnectionResponse] =
+    FF.liftF(DeleteConnectionOp(request))
+
+  def deleteEventBus(
+    request: DeleteEventBusRequest
+  ): CloudWatchEventsIO[DeleteEventBusResponse] =
+    FF.liftF(DeleteEventBusOp(request))
+
+  def deletePartnerEventSource(
+    request: DeletePartnerEventSourceRequest
+  ): CloudWatchEventsIO[DeletePartnerEventSourceResponse] =
+    FF.liftF(DeletePartnerEventSourceOp(request))
+
+  def deleteRule(
+    request: DeleteRuleRequest
+  ): CloudWatchEventsIO[DeleteRuleResponse] =
+    FF.liftF(DeleteRuleOp(request))
+
+  def describeApiDestination(
+    request: DescribeApiDestinationRequest
+  ): CloudWatchEventsIO[DescribeApiDestinationResponse] =
+    FF.liftF(DescribeApiDestinationOp(request))
+
+  def describeArchive(
+    request: DescribeArchiveRequest
+  ): CloudWatchEventsIO[DescribeArchiveResponse] =
+    FF.liftF(DescribeArchiveOp(request))
+
+  def describeConnection(
+    request: DescribeConnectionRequest
+  ): CloudWatchEventsIO[DescribeConnectionResponse] =
+    FF.liftF(DescribeConnectionOp(request))
+
+  def describeEventBus(
+    request: DescribeEventBusRequest
+  ): CloudWatchEventsIO[DescribeEventBusResponse] =
+    FF.liftF(DescribeEventBusOp(request))
+
+  def describeEventSource(
+    request: DescribeEventSourceRequest
+  ): CloudWatchEventsIO[DescribeEventSourceResponse] =
+    FF.liftF(DescribeEventSourceOp(request))
+
+  def describePartnerEventSource(
+    request: DescribePartnerEventSourceRequest
+  ): CloudWatchEventsIO[DescribePartnerEventSourceResponse] =
+    FF.liftF(DescribePartnerEventSourceOp(request))
+
+  def describeReplay(
+    request: DescribeReplayRequest
+  ): CloudWatchEventsIO[DescribeReplayResponse] =
+    FF.liftF(DescribeReplayOp(request))
+
+  def describeRule(
+    request: DescribeRuleRequest
+  ): CloudWatchEventsIO[DescribeRuleResponse] =
+    FF.liftF(DescribeRuleOp(request))
+
+  def disableRule(
+    request: DisableRuleRequest
+  ): CloudWatchEventsIO[DisableRuleResponse] =
+    FF.liftF(DisableRuleOp(request))
+
+  def enableRule(
+    request: EnableRuleRequest
+  ): CloudWatchEventsIO[EnableRuleResponse] =
+    FF.liftF(EnableRuleOp(request))
+
+  def listApiDestinations(
+    request: ListApiDestinationsRequest
+  ): CloudWatchEventsIO[ListApiDestinationsResponse] =
+    FF.liftF(ListApiDestinationsOp(request))
+
+  def listArchives(
+    request: ListArchivesRequest
+  ): CloudWatchEventsIO[ListArchivesResponse] =
+    FF.liftF(ListArchivesOp(request))
+
+  def listConnections(
+    request: ListConnectionsRequest
+  ): CloudWatchEventsIO[ListConnectionsResponse] =
+    FF.liftF(ListConnectionsOp(request))
+
+  def listEventBuses(
+    request: ListEventBusesRequest
+  ): CloudWatchEventsIO[ListEventBusesResponse] =
+    FF.liftF(ListEventBusesOp(request))
+
+  def listEventSources(
+    request: ListEventSourcesRequest
+  ): CloudWatchEventsIO[ListEventSourcesResponse] =
+    FF.liftF(ListEventSourcesOp(request))
+
+  def listPartnerEventSourceAccounts(
+    request: ListPartnerEventSourceAccountsRequest
+  ): CloudWatchEventsIO[ListPartnerEventSourceAccountsResponse] =
+    FF.liftF(ListPartnerEventSourceAccountsOp(request))
+
+  def listPartnerEventSources(
+    request: ListPartnerEventSourcesRequest
+  ): CloudWatchEventsIO[ListPartnerEventSourcesResponse] =
+    FF.liftF(ListPartnerEventSourcesOp(request))
+
+  def listReplays(
+    request: ListReplaysRequest
+  ): CloudWatchEventsIO[ListReplaysResponse] =
+    FF.liftF(ListReplaysOp(request))
+
+  def listRuleNamesByTarget(
+    request: ListRuleNamesByTargetRequest
+  ): CloudWatchEventsIO[ListRuleNamesByTargetResponse] =
+    FF.liftF(ListRuleNamesByTargetOp(request))
+
+  def listRules(
+    request: ListRulesRequest
+  ): CloudWatchEventsIO[ListRulesResponse] =
+    FF.liftF(ListRulesOp(request))
+
+  def listTagsForResource(
+    request: ListTagsForResourceRequest
+  ): CloudWatchEventsIO[ListTagsForResourceResponse] =
+    FF.liftF(ListTagsForResourceOp(request))
+
+  def listTargetsByRule(
+    request: ListTargetsByRuleRequest
+  ): CloudWatchEventsIO[ListTargetsByRuleResponse] =
+    FF.liftF(ListTargetsByRuleOp(request))
+
+  def putEvents(
+    request: PutEventsRequest
+  ): CloudWatchEventsIO[PutEventsResponse] =
+    FF.liftF(PutEventsOp(request))
+
+  def putPartnerEvents(
+    request: PutPartnerEventsRequest
+  ): CloudWatchEventsIO[PutPartnerEventsResponse] =
+    FF.liftF(PutPartnerEventsOp(request))
+
+  def putPermission(
+    request: PutPermissionRequest
+  ): CloudWatchEventsIO[PutPermissionResponse] =
+    FF.liftF(PutPermissionOp(request))
+
+  def putRule(
+    request: PutRuleRequest
+  ): CloudWatchEventsIO[PutRuleResponse] =
+    FF.liftF(PutRuleOp(request))
+
+  def putTargets(
+    request: PutTargetsRequest
+  ): CloudWatchEventsIO[PutTargetsResponse] =
+    FF.liftF(PutTargetsOp(request))
+
+  def removePermission(
+    request: RemovePermissionRequest
+  ): CloudWatchEventsIO[RemovePermissionResponse] =
+    FF.liftF(RemovePermissionOp(request))
+
+  def removeTargets(
+    request: RemoveTargetsRequest
+  ): CloudWatchEventsIO[RemoveTargetsResponse] =
+    FF.liftF(RemoveTargetsOp(request))
+
+  def startReplay(
+    request: StartReplayRequest
+  ): CloudWatchEventsIO[StartReplayResponse] =
+    FF.liftF(StartReplayOp(request))
+
+  def tagResource(
+    request: TagResourceRequest
+  ): CloudWatchEventsIO[TagResourceResponse] =
+    FF.liftF(TagResourceOp(request))
+
+  def testEventPattern(
+    request: TestEventPatternRequest
+  ): CloudWatchEventsIO[TestEventPatternResponse] =
+    FF.liftF(TestEventPatternOp(request))
+
+  def untagResource(
+    request: UntagResourceRequest
+  ): CloudWatchEventsIO[UntagResourceResponse] =
+    FF.liftF(UntagResourceOp(request))
+
+  def updateApiDestination(
+    request: UpdateApiDestinationRequest
+  ): CloudWatchEventsIO[UpdateApiDestinationResponse] =
+    FF.liftF(UpdateApiDestinationOp(request))
+
+  def updateArchive(
+    request: UpdateArchiveRequest
+  ): CloudWatchEventsIO[UpdateArchiveResponse] =
+    FF.liftF(UpdateArchiveOp(request))
+
+  def updateConnection(
+    request: UpdateConnectionRequest
+  ): CloudWatchEventsIO[UpdateConnectionResponse] =
+    FF.liftF(UpdateConnectionOp(request))
+}
