@@ -10,6 +10,7 @@ import software.amazon.awssdk.services.ebs.model._
 import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
+
 object ebs { module =>
 
   // Free monad over EbsOp

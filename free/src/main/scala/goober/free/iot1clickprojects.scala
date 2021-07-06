@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.iot1clickprojects.Iot1ClickProjectsClient
 import software.amazon.awssdk.services.iot1clickprojects.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object iot1clickprojects { module =>
 

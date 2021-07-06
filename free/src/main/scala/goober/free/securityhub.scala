@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.securityhub.SecurityHubClient
 import software.amazon.awssdk.services.securityhub.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object securityhub { module =>
 

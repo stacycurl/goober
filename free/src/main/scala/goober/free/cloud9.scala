@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.cloud9.Cloud9Client
 import software.amazon.awssdk.services.cloud9.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object cloud9 { module =>
 

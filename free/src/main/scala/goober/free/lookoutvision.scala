@@ -7,8 +7,8 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.lookoutvision.LookoutVisionClient
 import software.amazon.awssdk.services.lookoutvision.model._
-import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
+
 
 object lookoutvision { module =>
 

@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.ecrpublic.EcrPublicClient
 import software.amazon.awssdk.services.ecrpublic.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object ecrpublic { module =>
 

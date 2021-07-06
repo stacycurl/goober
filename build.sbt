@@ -1,5 +1,5 @@
 import com.jsuereth.sbtpgp.SbtPgp.autoImport._
-import goober.free.generator
+import goober.generator
 
 inThisBuild(List(
   organization := "com.github.stacycurl",
@@ -41,13 +41,17 @@ lazy val goober: Project = project.in(file("."))
   .settings(gooberSettings)
   .settings(noPublishSettings)
   .aggregate(
-    core,
+    hi,
     free
   )
 
-lazy val core: Project = project.in(file("core"))
+lazy val hi: Project = project.in(file("hi"))
   .settings(gooberSettings)
+  .settings(
+    generator.generate := generator.hi.value
+  )
   .dependsOn(free)
+
 
 lazy val free: Project = project.in(file("free"))
   .settings(gooberSettings)
@@ -59,7 +63,7 @@ lazy val free: Project = project.in(file("free"))
       "org.typelevel"  %% "cats-effect"     % catsEffectVersion,
       "software.amazon.awssdk" % "aws-sdk-java" % awsVersion,
     ),
-    generator.generate := generator.generateTask.value
+    generator.generate := generator.free.value
   )
 
 

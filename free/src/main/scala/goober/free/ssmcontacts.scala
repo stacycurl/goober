@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.ssmcontacts.SsmContactsClient
 import software.amazon.awssdk.services.ssmcontacts.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object ssmcontacts { module =>
 

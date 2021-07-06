@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.devopsguru.DevOpsGuruClient
 import software.amazon.awssdk.services.devopsguru.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object devopsguru { module =>
 

@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.guardduty.GuardDutyClient
 import software.amazon.awssdk.services.guardduty.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object guardduty { module =>
 

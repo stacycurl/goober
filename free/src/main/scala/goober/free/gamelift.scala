@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.gamelift.GameLiftClient
 import software.amazon.awssdk.services.gamelift.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object gamelift { module =>
 

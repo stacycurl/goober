@@ -10,6 +10,7 @@ import software.amazon.awssdk.services.s3.model._
 import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
+
 object s3 { module =>
 
   // Free monad over S3Op

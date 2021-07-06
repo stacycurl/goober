@@ -8,7 +8,7 @@ import cats.data.Kleisli
 import software.amazon.awssdk.services.codeartifact.CodeartifactClient
 import software.amazon.awssdk.services.codeartifact.model._
 import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object codeartifact { module =>
 

@@ -8,7 +8,7 @@ import cats.data.Kleisli
 import software.amazon.awssdk.services.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaClient
 import software.amazon.awssdk.services.kinesisvideoarchivedmedia.model._
 import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object kinesisvideoarchivedmedia { module =>
 

@@ -1,0 +1,175 @@
+package goober.hi
+
+import goober.free.glue.GlueIO
+import software.amazon.awssdk.services.glue.model._
+
+
+object glue {
+  import goober.free.{glue ⇒ free}
+
+  object model {
+    import goober.hi.util.BuilderSyntax._
+
+    // Methods for constructing model classes, requests, etc.
+    // BatchCreatePartitionRequest
+    // BatchDeleteConnectionRequest
+    // BatchDeletePartitionRequest
+    // BatchDeleteTableRequest
+    // BatchDeleteTableVersionRequest
+    // BatchGetCrawlersRequest
+    // BatchGetDevEndpointsRequest
+    // BatchGetJobsRequest
+    // BatchGetPartitionRequest
+    // BatchGetTriggersRequest
+    // BatchGetWorkflowsRequest
+    // BatchStopJobRunRequest
+    // BatchUpdatePartitionRequest
+    // CancelMlTaskRunRequest
+    // CheckSchemaVersionValidityRequest
+    // CreateClassifierRequest
+    // CreateConnectionRequest
+    // CreateCrawlerRequest
+    // CreateDatabaseRequest
+    // CreateDevEndpointRequest
+    // CreateJobRequest
+    // CreateMlTransformRequest
+    // CreatePartitionIndexRequest
+    // CreatePartitionRequest
+    // CreateRegistryRequest
+    // CreateSchemaRequest
+    // CreateScriptRequest
+    // CreateSecurityConfigurationRequest
+    // CreateTableRequest
+    // CreateTriggerRequest
+    // CreateUserDefinedFunctionRequest
+    // CreateWorkflowRequest
+    // DeleteClassifierRequest
+    // DeleteColumnStatisticsForPartitionRequest
+    // DeleteColumnStatisticsForTableRequest
+    // DeleteConnectionRequest
+    // DeleteCrawlerRequest
+    // DeleteDatabaseRequest
+    // DeleteDevEndpointRequest
+    // DeleteJobRequest
+    // DeleteMlTransformRequest
+    // DeletePartitionIndexRequest
+    // DeletePartitionRequest
+    // DeleteRegistryRequest
+    // DeleteResourcePolicyRequest
+    // DeleteSchemaRequest
+    // DeleteSchemaVersionsRequest
+    // DeleteSecurityConfigurationRequest
+    // DeleteTableRequest
+    // DeleteTableVersionRequest
+    // DeleteTriggerRequest
+    // DeleteUserDefinedFunctionRequest
+    // DeleteWorkflowRequest
+    // GetCatalogImportStatusRequest
+    // GetClassifierRequest
+    // GetClassifiersRequest
+    // GetColumnStatisticsForPartitionRequest
+    // GetColumnStatisticsForTableRequest
+    // GetConnectionRequest
+    // GetConnectionsRequest
+    // GetCrawlerMetricsRequest
+    // GetCrawlerRequest
+    // GetCrawlersRequest
+    // GetDataCatalogEncryptionSettingsRequest
+    // GetDatabaseRequest
+    // GetDatabasesRequest
+    // GetDataflowGraphRequest
+    // GetDevEndpointRequest
+    // GetDevEndpointsRequest
+    // GetJobBookmarkRequest
+    // GetJobRequest
+    // GetJobRunRequest
+    // GetJobRunsRequest
+    // GetJobsRequest
+    // GetMappingRequest
+    // GetMlTaskRunRequest
+    // GetMlTaskRunsRequest
+    // GetMlTransformRequest
+    // GetMlTransformsRequest
+    // GetPartitionIndexesRequest
+    // GetPartitionRequest
+    // GetPartitionsRequest
+    // GetPlanRequest
+    // GetRegistryRequest
+    // GetResourcePoliciesRequest
+    // GetResourcePolicyRequest
+    // GetSchemaByDefinitionRequest
+    // GetSchemaRequest
+    // GetSchemaVersionRequest
+    // GetSchemaVersionsDiffRequest
+    // GetSecurityConfigurationRequest
+    // GetSecurityConfigurationsRequest
+    // GetTableRequest
+    // GetTableVersionRequest
+    // GetTableVersionsRequest
+    // GetTablesRequest
+    // GetTagsRequest
+    // GetTriggerRequest
+    // GetTriggersRequest
+    // GetUserDefinedFunctionRequest
+    // GetUserDefinedFunctionsRequest
+    // GetWorkflowRequest
+    // GetWorkflowRunPropertiesRequest
+    // GetWorkflowRunRequest
+    // GetWorkflowRunsRequest
+    // ImportCatalogToGlueRequest
+    // ListCrawlersRequest
+    // ListDevEndpointsRequest
+    // ListJobsRequest
+    // ListMlTransformsRequest
+    // ListRegistriesRequest
+    // ListSchemaVersionsRequest
+    // ListSchemasRequest
+    // ListTriggersRequest
+    // ListWorkflowsRequest
+    // PutDataCatalogEncryptionSettingsRequest
+    // PutResourcePolicyRequest
+    // PutSchemaVersionMetadataRequest
+    // PutWorkflowRunPropertiesRequest
+    // QuerySchemaVersionMetadataRequest
+    // RegisterSchemaVersionRequest
+    // RemoveSchemaVersionMetadataRequest
+    // ResetJobBookmarkRequest
+    // ResumeWorkflowRunRequest
+    // SearchTablesRequest
+    // StartCrawlerRequest
+    // StartCrawlerScheduleRequest
+    // StartExportLabelsTaskRunRequest
+    // StartImportLabelsTaskRunRequest
+    // StartJobRunRequest
+    // StartMlEvaluationTaskRunRequest
+    // StartMlLabelingSetGenerationTaskRunRequest
+    // StartTriggerRequest
+    // StartWorkflowRunRequest
+    // StopCrawlerRequest
+    // StopCrawlerScheduleRequest
+    // StopTriggerRequest
+    // StopWorkflowRunRequest
+    // TagResourceRequest
+    // UntagResourceRequest
+    // UpdateClassifierRequest
+    // UpdateColumnStatisticsForPartitionRequest
+    // UpdateColumnStatisticsForTableRequest
+    // UpdateConnectionRequest
+    // UpdateCrawlerRequest
+    // UpdateCrawlerScheduleRequest
+    // UpdateDatabaseRequest
+    // UpdateDevEndpointRequest
+    // UpdateJobRequest
+    // UpdateMlTransformRequest
+    // UpdatePartitionRequest
+    // UpdateRegistryRequest
+    // UpdateSchemaRequest
+    // UpdateTableRequest
+    // UpdateTriggerRequest
+    // UpdateUserDefinedFunctionRequest
+    // UpdateWorkflowRequest
+
+  }
+
+  // smartConstructors that take paramteers derived from mandatory & optional fields of requests
+}

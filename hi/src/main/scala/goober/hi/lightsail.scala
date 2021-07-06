@@ -1,0 +1,160 @@
+package goober.hi
+
+import goober.free.lightsail.LightsailIO
+import software.amazon.awssdk.services.lightsail.model._
+
+
+object lightsail {
+  import goober.free.{lightsail ⇒ free}
+
+  object model {
+    import goober.hi.util.BuilderSyntax._
+
+    // Methods for constructing model classes, requests, etc.
+    // AllocateStaticIpRequest
+    // AttachCertificateToDistributionRequest
+    // AttachDiskRequest
+    // AttachInstancesToLoadBalancerRequest
+    // AttachLoadBalancerTlsCertificateRequest
+    // AttachStaticIpRequest
+    // CloseInstancePublicPortsRequest
+    // CopySnapshotRequest
+    // CreateCertificateRequest
+    // CreateCloudFormationStackRequest
+    // CreateContactMethodRequest
+    // CreateContainerServiceDeploymentRequest
+    // CreateContainerServiceRegistryLoginRequest
+    // CreateContainerServiceRequest
+    // CreateDiskFromSnapshotRequest
+    // CreateDiskRequest
+    // CreateDiskSnapshotRequest
+    // CreateDistributionRequest
+    // CreateDomainEntryRequest
+    // CreateDomainRequest
+    // CreateInstanceSnapshotRequest
+    // CreateInstancesFromSnapshotRequest
+    // CreateInstancesRequest
+    // CreateKeyPairRequest
+    // CreateLoadBalancerRequest
+    // CreateLoadBalancerTlsCertificateRequest
+    // CreateRelationalDatabaseFromSnapshotRequest
+    // CreateRelationalDatabaseRequest
+    // CreateRelationalDatabaseSnapshotRequest
+    // DeleteAlarmRequest
+    // DeleteAutoSnapshotRequest
+    // DeleteCertificateRequest
+    // DeleteContactMethodRequest
+    // DeleteContainerImageRequest
+    // DeleteContainerServiceRequest
+    // DeleteDiskRequest
+    // DeleteDiskSnapshotRequest
+    // DeleteDistributionRequest
+    // DeleteDomainEntryRequest
+    // DeleteDomainRequest
+    // DeleteInstanceRequest
+    // DeleteInstanceSnapshotRequest
+    // DeleteKeyPairRequest
+    // DeleteKnownHostKeysRequest
+    // DeleteLoadBalancerRequest
+    // DeleteLoadBalancerTlsCertificateRequest
+    // DeleteRelationalDatabaseRequest
+    // DeleteRelationalDatabaseSnapshotRequest
+    // DetachCertificateFromDistributionRequest
+    // DetachDiskRequest
+    // DetachInstancesFromLoadBalancerRequest
+    // DetachStaticIpRequest
+    // DisableAddOnRequest
+    // DownloadDefaultKeyPairRequest
+    // EnableAddOnRequest
+    // ExportSnapshotRequest
+    // GetActiveNamesRequest
+    // GetAlarmsRequest
+    // GetAutoSnapshotsRequest
+    // GetBlueprintsRequest
+    // GetBundlesRequest
+    // GetCertificatesRequest
+    // GetCloudFormationStackRecordsRequest
+    // GetContactMethodsRequest
+    // GetContainerApiMetadataRequest
+    // GetContainerImagesRequest
+    // GetContainerLogRequest
+    // GetContainerServiceDeploymentsRequest
+    // GetContainerServiceMetricDataRequest
+    // GetContainerServicePowersRequest
+    // GetContainerServicesRequest
+    // GetDiskRequest
+    // GetDiskSnapshotRequest
+    // GetDiskSnapshotsRequest
+    // GetDisksRequest
+    // GetDistributionBundlesRequest
+    // GetDistributionLatestCacheResetRequest
+    // GetDistributionMetricDataRequest
+    // GetDistributionsRequest
+    // GetDomainRequest
+    // GetDomainsRequest
+    // GetExportSnapshotRecordsRequest
+    // GetInstanceAccessDetailsRequest
+    // GetInstanceMetricDataRequest
+    // GetInstancePortStatesRequest
+    // GetInstanceRequest
+    // GetInstanceSnapshotRequest
+    // GetInstanceSnapshotsRequest
+    // GetInstanceStateRequest
+    // GetInstancesRequest
+    // GetKeyPairRequest
+    // GetKeyPairsRequest
+    // GetLoadBalancerMetricDataRequest
+    // GetLoadBalancerRequest
+    // GetLoadBalancerTlsCertificatesRequest
+    // GetLoadBalancersRequest
+    // GetOperationRequest
+    // GetOperationsForResourceRequest
+    // GetOperationsRequest
+    // GetRegionsRequest
+    // GetRelationalDatabaseBlueprintsRequest
+    // GetRelationalDatabaseBundlesRequest
+    // GetRelationalDatabaseEventsRequest
+    // GetRelationalDatabaseLogEventsRequest
+    // GetRelationalDatabaseLogStreamsRequest
+    // GetRelationalDatabaseMasterUserPasswordRequest
+    // GetRelationalDatabaseMetricDataRequest
+    // GetRelationalDatabaseParametersRequest
+    // GetRelationalDatabaseRequest
+    // GetRelationalDatabaseSnapshotRequest
+    // GetRelationalDatabaseSnapshotsRequest
+    // GetRelationalDatabasesRequest
+    // GetStaticIpRequest
+    // GetStaticIpsRequest
+    // ImportKeyPairRequest
+    // IsVpcPeeredRequest
+    // OpenInstancePublicPortsRequest
+    // PeerVpcRequest
+    // PutAlarmRequest
+    // PutInstancePublicPortsRequest
+    // RebootInstanceRequest
+    // RebootRelationalDatabaseRequest
+    // RegisterContainerImageRequest
+    // ReleaseStaticIpRequest
+    // ResetDistributionCacheRequest
+    // SendContactMethodVerificationRequest
+    // SetIpAddressTypeRequest
+    // StartInstanceRequest
+    // StartRelationalDatabaseRequest
+    // StopInstanceRequest
+    // StopRelationalDatabaseRequest
+    // TagResourceRequest
+    // TestAlarmRequest
+    // UnpeerVpcRequest
+    // UntagResourceRequest
+    // UpdateContainerServiceRequest
+    // UpdateDistributionBundleRequest
+    // UpdateDistributionRequest
+    // UpdateDomainEntryRequest
+    // UpdateLoadBalancerAttributeRequest
+    // UpdateRelationalDatabaseParametersRequest
+    // UpdateRelationalDatabaseRequest
+
+  }
+
+  // smartConstructors that take paramteers derived from mandatory & optional fields of requests
+}

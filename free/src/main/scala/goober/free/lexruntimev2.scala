@@ -8,7 +8,7 @@ import cats.data.Kleisli
 import software.amazon.awssdk.services.lexruntimev2.LexRuntimeV2Client
 import software.amazon.awssdk.services.lexruntimev2.model._
 import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object lexruntimev2 { module =>
 

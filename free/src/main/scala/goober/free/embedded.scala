@@ -8,8 +8,8 @@ import goober.free.acm.AcmIO
 import goober.free.acmpca.AcmPcaIO
 import goober.free.alexaforbusiness.AlexaForBusinessIO
 import goober.free.amp.AmpIO
-import goober.free.amplifybackend.AmplifyBackendIO
 import goober.free.amplify.AmplifyIO
+import goober.free.amplifybackend.AmplifyBackendIO
 import goober.free.apigateway.ApiGatewayIO
 import goober.free.apigatewaymanagementapi.ApiGatewayManagementApiIO
 import goober.free.apigatewayv2.ApiGatewayV2IO
@@ -130,9 +130,9 @@ import goober.free.iotfleethub.IoTFleetHubIO
 import goober.free.iotsecuretunneling.IoTSecureTunnelingIO
 import goober.free.iotsitewise.IoTSiteWiseIO
 import goober.free.iotthingsgraph.IoTThingsGraphIO
+import goober.free.iot.IotIO
 import goober.free.iot1clickdevices.Iot1ClickDevicesIO
 import goober.free.iot1clickprojects.Iot1ClickProjectsIO
-import goober.free.iot.IotIO
 import goober.free.iotdataplane.IotDataPlaneIO
 import goober.free.iotdeviceadvisor.IotDeviceAdvisorIO
 import goober.free.iotevents.IotEventsIO
@@ -142,11 +142,11 @@ import goober.free.iotwireless.IotWirelessIO
 import goober.free.ivs.IvsIO
 import goober.free.kafka.KafkaIO
 import goober.free.kendra.KendraIO
+import goober.free.kinesis.KinesisIO
 import goober.free.kinesisanalytics.KinesisAnalyticsIO
 import goober.free.kinesisanalyticsv2.KinesisAnalyticsV2IO
-import goober.free.kinesis.KinesisIO
-import goober.free.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaIO
 import goober.free.kinesisvideo.KinesisVideoIO
+import goober.free.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaIO
 import goober.free.kinesisvideomedia.KinesisVideoMediaIO
 import goober.free.kinesisvideosignaling.KinesisVideoSignalingIO
 import goober.free.kms.KmsIO
@@ -164,8 +164,8 @@ import goober.free.lookoutmetrics.LookoutMetricsIO
 import goober.free.lookoutvision.LookoutVisionIO
 import goober.free.mturk.MTurkIO
 import goober.free.machinelearning.MachineLearningIO
-import goober.free.macie2.Macie2IO
 import goober.free.macie.MacieIO
+import goober.free.macie2.Macie2IO
 import goober.free.managedblockchain.ManagedBlockchainIO
 import goober.free.marketplacecatalog.MarketplaceCatalogIO
 import goober.free.marketplacecommerceanalytics.MarketplaceCommerceAnalyticsIO
@@ -221,8 +221,8 @@ import goober.free.route53resolver.Route53ResolverIO
 import goober.free.s3.S3IO
 import goober.free.s3control.S3ControlIO
 import goober.free.s3outposts.S3OutpostsIO
-import goober.free.sagemakera2iruntime.SageMakerA2IRuntimeIO
 import goober.free.sagemaker.SageMakerIO
+import goober.free.sagemakera2iruntime.SageMakerA2IRuntimeIO
 import goober.free.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeIO
 import goober.free.sagemakerruntime.SageMakerRuntimeIO
 import goober.free.sagemakeredge.SagemakerEdgeIO
@@ -231,8 +231,8 @@ import goober.free.schemas.SchemasIO
 import goober.free.secretsmanager.SecretsManagerIO
 import goober.free.securityhub.SecurityHubIO
 import goober.free.serverlessapplicationrepository.ServerlessApplicationRepositoryIO
-import goober.free.servicecatalogappregistry.ServiceCatalogAppRegistryIO
 import goober.free.servicecatalog.ServiceCatalogIO
+import goober.free.servicecatalogappregistry.ServiceCatalogAppRegistryIO
 import goober.free.servicediscovery.ServiceDiscoveryIO
 import goober.free.servicequotas.ServiceQuotasIO
 import goober.free.ses.SesIO
@@ -247,8 +247,8 @@ import goober.free.sqs.SqsIO
 import goober.free.ssm.SsmIO
 import goober.free.ssmcontacts.SsmContactsIO
 import goober.free.ssmincidents.SsmIncidentsIO
-import goober.free.ssoadmin.SsoAdminIO
 import goober.free.sso.SsoIO
+import goober.free.ssoadmin.SsoAdminIO
 import goober.free.ssooidc.SsoOidcIO
 import goober.free.storagegateway.StorageGatewayIO
 import goober.free.sts.StsIO
@@ -276,8 +276,8 @@ import software.amazon.awssdk.services.acm.AcmClient
 import software.amazon.awssdk.services.acmpca.AcmPcaClient
 import software.amazon.awssdk.services.alexaforbusiness.AlexaForBusinessClient
 import software.amazon.awssdk.services.amp.AmpClient
-import software.amazon.awssdk.services.amplifybackend.AmplifyBackendClient
 import software.amazon.awssdk.services.amplify.AmplifyClient
+import software.amazon.awssdk.services.amplifybackend.AmplifyBackendClient
 import software.amazon.awssdk.services.apigateway.ApiGatewayClient
 import software.amazon.awssdk.services.apigatewaymanagementapi.ApiGatewayManagementApiClient
 import software.amazon.awssdk.services.apigatewayv2.ApiGatewayV2Client
@@ -398,9 +398,9 @@ import software.amazon.awssdk.services.iotfleethub.IoTFleetHubClient
 import software.amazon.awssdk.services.iotsecuretunneling.IoTSecureTunnelingClient
 import software.amazon.awssdk.services.iotsitewise.IoTSiteWiseClient
 import software.amazon.awssdk.services.iotthingsgraph.IoTThingsGraphClient
+import software.amazon.awssdk.services.iot.IotClient
 import software.amazon.awssdk.services.iot1clickdevices.Iot1ClickDevicesClient
 import software.amazon.awssdk.services.iot1clickprojects.Iot1ClickProjectsClient
-import software.amazon.awssdk.services.iot.IotClient
 import software.amazon.awssdk.services.iotdataplane.IotDataPlaneClient
 import software.amazon.awssdk.services.iotdeviceadvisor.IotDeviceAdvisorClient
 import software.amazon.awssdk.services.iotevents.IotEventsClient
@@ -410,11 +410,11 @@ import software.amazon.awssdk.services.iotwireless.IotWirelessClient
 import software.amazon.awssdk.services.ivs.IvsClient
 import software.amazon.awssdk.services.kafka.KafkaClient
 import software.amazon.awssdk.services.kendra.KendraClient
+import software.amazon.awssdk.services.kinesis.KinesisClient
 import software.amazon.awssdk.services.kinesisanalytics.KinesisAnalyticsClient
 import software.amazon.awssdk.services.kinesisanalyticsv2.KinesisAnalyticsV2Client
-import software.amazon.awssdk.services.kinesis.KinesisClient
-import software.amazon.awssdk.services.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaClient
 import software.amazon.awssdk.services.kinesisvideo.KinesisVideoClient
+import software.amazon.awssdk.services.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaClient
 import software.amazon.awssdk.services.kinesisvideomedia.KinesisVideoMediaClient
 import software.amazon.awssdk.services.kinesisvideosignaling.KinesisVideoSignalingClient
 import software.amazon.awssdk.services.kms.KmsClient
@@ -432,8 +432,8 @@ import software.amazon.awssdk.services.lookoutmetrics.LookoutMetricsClient
 import software.amazon.awssdk.services.lookoutvision.LookoutVisionClient
 import software.amazon.awssdk.services.mturk.MTurkClient
 import software.amazon.awssdk.services.machinelearning.MachineLearningClient
-import software.amazon.awssdk.services.macie2.Macie2Client
 import software.amazon.awssdk.services.macie.MacieClient
+import software.amazon.awssdk.services.macie2.Macie2Client
 import software.amazon.awssdk.services.managedblockchain.ManagedBlockchainClient
 import software.amazon.awssdk.services.marketplacecatalog.MarketplaceCatalogClient
 import software.amazon.awssdk.services.marketplacecommerceanalytics.MarketplaceCommerceAnalyticsClient
@@ -489,8 +489,8 @@ import software.amazon.awssdk.services.route53resolver.Route53ResolverClient
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3control.S3ControlClient
 import software.amazon.awssdk.services.s3outposts.S3OutpostsClient
-import software.amazon.awssdk.services.sagemakera2iruntime.SageMakerA2IRuntimeClient
 import software.amazon.awssdk.services.sagemaker.SageMakerClient
+import software.amazon.awssdk.services.sagemakera2iruntime.SageMakerA2IRuntimeClient
 import software.amazon.awssdk.services.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeClient
 import software.amazon.awssdk.services.sagemakerruntime.SageMakerRuntimeClient
 import software.amazon.awssdk.services.sagemakeredge.SagemakerEdgeClient
@@ -499,8 +499,8 @@ import software.amazon.awssdk.services.schemas.SchemasClient
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient
 import software.amazon.awssdk.services.securityhub.SecurityHubClient
 import software.amazon.awssdk.services.serverlessapplicationrepository.ServerlessApplicationRepositoryClient
-import software.amazon.awssdk.services.servicecatalogappregistry.ServiceCatalogAppRegistryClient
 import software.amazon.awssdk.services.servicecatalog.ServiceCatalogClient
+import software.amazon.awssdk.services.servicecatalogappregistry.ServiceCatalogAppRegistryClient
 import software.amazon.awssdk.services.servicediscovery.ServiceDiscoveryClient
 import software.amazon.awssdk.services.servicequotas.ServiceQuotasClient
 import software.amazon.awssdk.services.ses.SesClient
@@ -515,8 +515,8 @@ import software.amazon.awssdk.services.sqs.SqsClient
 import software.amazon.awssdk.services.ssm.SsmClient
 import software.amazon.awssdk.services.ssmcontacts.SsmContactsClient
 import software.amazon.awssdk.services.ssmincidents.SsmIncidentsClient
-import software.amazon.awssdk.services.ssoadmin.SsoAdminClient
 import software.amazon.awssdk.services.sso.SsoClient
+import software.amazon.awssdk.services.ssoadmin.SsoAdminClient
 import software.amazon.awssdk.services.ssooidc.SsoOidcClient
 import software.amazon.awssdk.services.storagegateway.StorageGatewayClient
 import software.amazon.awssdk.services.sts.StsClient
@@ -550,8 +550,8 @@ object Embedded {
   final case class AcmPca[A](client: AcmPcaClient, io: AcmPcaIO[A]) extends Embedded[A]
   final case class AlexaForBusiness[A](client: AlexaForBusinessClient, io: AlexaForBusinessIO[A]) extends Embedded[A]
   final case class Amp[A](client: AmpClient, io: AmpIO[A]) extends Embedded[A]
-  final case class AmplifyBackend[A](client: AmplifyBackendClient, io: AmplifyBackendIO[A]) extends Embedded[A]
   final case class Amplify[A](client: AmplifyClient, io: AmplifyIO[A]) extends Embedded[A]
+  final case class AmplifyBackend[A](client: AmplifyBackendClient, io: AmplifyBackendIO[A]) extends Embedded[A]
   final case class ApiGateway[A](client: ApiGatewayClient, io: ApiGatewayIO[A]) extends Embedded[A]
   final case class ApiGatewayManagementApi[A](client: ApiGatewayManagementApiClient, io: ApiGatewayManagementApiIO[A]) extends Embedded[A]
   final case class ApiGatewayV2[A](client: ApiGatewayV2Client, io: ApiGatewayV2IO[A]) extends Embedded[A]
@@ -672,9 +672,9 @@ object Embedded {
   final case class IoTSecureTunneling[A](client: IoTSecureTunnelingClient, io: IoTSecureTunnelingIO[A]) extends Embedded[A]
   final case class IoTSiteWise[A](client: IoTSiteWiseClient, io: IoTSiteWiseIO[A]) extends Embedded[A]
   final case class IoTThingsGraph[A](client: IoTThingsGraphClient, io: IoTThingsGraphIO[A]) extends Embedded[A]
+  final case class Iot[A](client: IotClient, io: IotIO[A]) extends Embedded[A]
   final case class Iot1ClickDevices[A](client: Iot1ClickDevicesClient, io: Iot1ClickDevicesIO[A]) extends Embedded[A]
   final case class Iot1ClickProjects[A](client: Iot1ClickProjectsClient, io: Iot1ClickProjectsIO[A]) extends Embedded[A]
-  final case class Iot[A](client: IotClient, io: IotIO[A]) extends Embedded[A]
   final case class IotDataPlane[A](client: IotDataPlaneClient, io: IotDataPlaneIO[A]) extends Embedded[A]
   final case class IotDeviceAdvisor[A](client: IotDeviceAdvisorClient, io: IotDeviceAdvisorIO[A]) extends Embedded[A]
   final case class IotEvents[A](client: IotEventsClient, io: IotEventsIO[A]) extends Embedded[A]
@@ -684,11 +684,11 @@ object Embedded {
   final case class Ivs[A](client: IvsClient, io: IvsIO[A]) extends Embedded[A]
   final case class Kafka[A](client: KafkaClient, io: KafkaIO[A]) extends Embedded[A]
   final case class Kendra[A](client: KendraClient, io: KendraIO[A]) extends Embedded[A]
+  final case class Kinesis[A](client: KinesisClient, io: KinesisIO[A]) extends Embedded[A]
   final case class KinesisAnalytics[A](client: KinesisAnalyticsClient, io: KinesisAnalyticsIO[A]) extends Embedded[A]
   final case class KinesisAnalyticsV2[A](client: KinesisAnalyticsV2Client, io: KinesisAnalyticsV2IO[A]) extends Embedded[A]
-  final case class Kinesis[A](client: KinesisClient, io: KinesisIO[A]) extends Embedded[A]
-  final case class KinesisVideoArchivedMedia[A](client: KinesisVideoArchivedMediaClient, io: KinesisVideoArchivedMediaIO[A]) extends Embedded[A]
   final case class KinesisVideo[A](client: KinesisVideoClient, io: KinesisVideoIO[A]) extends Embedded[A]
+  final case class KinesisVideoArchivedMedia[A](client: KinesisVideoArchivedMediaClient, io: KinesisVideoArchivedMediaIO[A]) extends Embedded[A]
   final case class KinesisVideoMedia[A](client: KinesisVideoMediaClient, io: KinesisVideoMediaIO[A]) extends Embedded[A]
   final case class KinesisVideoSignaling[A](client: KinesisVideoSignalingClient, io: KinesisVideoSignalingIO[A]) extends Embedded[A]
   final case class Kms[A](client: KmsClient, io: KmsIO[A]) extends Embedded[A]
@@ -706,8 +706,8 @@ object Embedded {
   final case class LookoutVision[A](client: LookoutVisionClient, io: LookoutVisionIO[A]) extends Embedded[A]
   final case class MTurk[A](client: MTurkClient, io: MTurkIO[A]) extends Embedded[A]
   final case class MachineLearning[A](client: MachineLearningClient, io: MachineLearningIO[A]) extends Embedded[A]
-  final case class Macie2[A](client: Macie2Client, io: Macie2IO[A]) extends Embedded[A]
   final case class Macie[A](client: MacieClient, io: MacieIO[A]) extends Embedded[A]
+  final case class Macie2[A](client: Macie2Client, io: Macie2IO[A]) extends Embedded[A]
   final case class ManagedBlockchain[A](client: ManagedBlockchainClient, io: ManagedBlockchainIO[A]) extends Embedded[A]
   final case class MarketplaceCatalog[A](client: MarketplaceCatalogClient, io: MarketplaceCatalogIO[A]) extends Embedded[A]
   final case class MarketplaceCommerceAnalytics[A](client: MarketplaceCommerceAnalyticsClient, io: MarketplaceCommerceAnalyticsIO[A]) extends Embedded[A]
@@ -763,8 +763,8 @@ object Embedded {
   final case class S3[A](client: S3Client, io: S3IO[A]) extends Embedded[A]
   final case class S3Control[A](client: S3ControlClient, io: S3ControlIO[A]) extends Embedded[A]
   final case class S3Outposts[A](client: S3OutpostsClient, io: S3OutpostsIO[A]) extends Embedded[A]
-  final case class SageMakerA2IRuntime[A](client: SageMakerA2IRuntimeClient, io: SageMakerA2IRuntimeIO[A]) extends Embedded[A]
   final case class SageMaker[A](client: SageMakerClient, io: SageMakerIO[A]) extends Embedded[A]
+  final case class SageMakerA2IRuntime[A](client: SageMakerA2IRuntimeClient, io: SageMakerA2IRuntimeIO[A]) extends Embedded[A]
   final case class SageMakerFeatureStoreRuntime[A](client: SageMakerFeatureStoreRuntimeClient, io: SageMakerFeatureStoreRuntimeIO[A]) extends Embedded[A]
   final case class SageMakerRuntime[A](client: SageMakerRuntimeClient, io: SageMakerRuntimeIO[A]) extends Embedded[A]
   final case class SagemakerEdge[A](client: SagemakerEdgeClient, io: SagemakerEdgeIO[A]) extends Embedded[A]
@@ -773,8 +773,8 @@ object Embedded {
   final case class SecretsManager[A](client: SecretsManagerClient, io: SecretsManagerIO[A]) extends Embedded[A]
   final case class SecurityHub[A](client: SecurityHubClient, io: SecurityHubIO[A]) extends Embedded[A]
   final case class ServerlessApplicationRepository[A](client: ServerlessApplicationRepositoryClient, io: ServerlessApplicationRepositoryIO[A]) extends Embedded[A]
-  final case class ServiceCatalogAppRegistry[A](client: ServiceCatalogAppRegistryClient, io: ServiceCatalogAppRegistryIO[A]) extends Embedded[A]
   final case class ServiceCatalog[A](client: ServiceCatalogClient, io: ServiceCatalogIO[A]) extends Embedded[A]
+  final case class ServiceCatalogAppRegistry[A](client: ServiceCatalogAppRegistryClient, io: ServiceCatalogAppRegistryIO[A]) extends Embedded[A]
   final case class ServiceDiscovery[A](client: ServiceDiscoveryClient, io: ServiceDiscoveryIO[A]) extends Embedded[A]
   final case class ServiceQuotas[A](client: ServiceQuotasClient, io: ServiceQuotasIO[A]) extends Embedded[A]
   final case class Ses[A](client: SesClient, io: SesIO[A]) extends Embedded[A]
@@ -789,8 +789,8 @@ object Embedded {
   final case class Ssm[A](client: SsmClient, io: SsmIO[A]) extends Embedded[A]
   final case class SsmContacts[A](client: SsmContactsClient, io: SsmContactsIO[A]) extends Embedded[A]
   final case class SsmIncidents[A](client: SsmIncidentsClient, io: SsmIncidentsIO[A]) extends Embedded[A]
-  final case class SsoAdmin[A](client: SsoAdminClient, io: SsoAdminIO[A]) extends Embedded[A]
   final case class Sso[A](client: SsoClient, io: SsoIO[A]) extends Embedded[A]
+  final case class SsoAdmin[A](client: SsoAdminClient, io: SsoAdminIO[A]) extends Embedded[A]
   final case class SsoOidc[A](client: SsoOidcClient, io: SsoOidcIO[A]) extends Embedded[A]
   final case class StorageGateway[A](client: StorageGatewayClient, io: StorageGatewayIO[A]) extends Embedded[A]
   final case class Sts[A](client: StsClient, io: StsIO[A]) extends Embedded[A]

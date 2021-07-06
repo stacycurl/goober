@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.frauddetector.FraudDetectorClient
 import software.amazon.awssdk.services.frauddetector.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object frauddetector { module =>
 

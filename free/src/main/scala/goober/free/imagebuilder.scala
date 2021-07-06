@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.imagebuilder.ImagebuilderClient
 import software.amazon.awssdk.services.imagebuilder.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object imagebuilder { module =>
 

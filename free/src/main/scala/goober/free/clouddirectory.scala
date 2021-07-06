@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.clouddirectory.CloudDirectoryClient
 import software.amazon.awssdk.services.clouddirectory.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object clouddirectory { module =>
 

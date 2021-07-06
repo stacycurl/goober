@@ -10,8 +10,8 @@ import goober.free.acm.AcmOp
 import goober.free.acmpca.AcmPcaOp
 import goober.free.alexaforbusiness.AlexaForBusinessOp
 import goober.free.amp.AmpOp
-import goober.free.amplifybackend.AmplifyBackendOp
 import goober.free.amplify.AmplifyOp
+import goober.free.amplifybackend.AmplifyBackendOp
 import goober.free.apigateway.ApiGatewayOp
 import goober.free.apigatewaymanagementapi.ApiGatewayManagementApiOp
 import goober.free.apigatewayv2.ApiGatewayV2Op
@@ -132,9 +132,9 @@ import goober.free.iotfleethub.IoTFleetHubOp
 import goober.free.iotsecuretunneling.IoTSecureTunnelingOp
 import goober.free.iotsitewise.IoTSiteWiseOp
 import goober.free.iotthingsgraph.IoTThingsGraphOp
+import goober.free.iot.IotOp
 import goober.free.iot1clickdevices.Iot1ClickDevicesOp
 import goober.free.iot1clickprojects.Iot1ClickProjectsOp
-import goober.free.iot.IotOp
 import goober.free.iotdataplane.IotDataPlaneOp
 import goober.free.iotdeviceadvisor.IotDeviceAdvisorOp
 import goober.free.iotevents.IotEventsOp
@@ -144,11 +144,11 @@ import goober.free.iotwireless.IotWirelessOp
 import goober.free.ivs.IvsOp
 import goober.free.kafka.KafkaOp
 import goober.free.kendra.KendraOp
+import goober.free.kinesis.KinesisOp
 import goober.free.kinesisanalytics.KinesisAnalyticsOp
 import goober.free.kinesisanalyticsv2.KinesisAnalyticsV2Op
-import goober.free.kinesis.KinesisOp
-import goober.free.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaOp
 import goober.free.kinesisvideo.KinesisVideoOp
+import goober.free.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaOp
 import goober.free.kinesisvideomedia.KinesisVideoMediaOp
 import goober.free.kinesisvideosignaling.KinesisVideoSignalingOp
 import goober.free.kms.KmsOp
@@ -166,8 +166,8 @@ import goober.free.lookoutmetrics.LookoutMetricsOp
 import goober.free.lookoutvision.LookoutVisionOp
 import goober.free.mturk.MTurkOp
 import goober.free.machinelearning.MachineLearningOp
-import goober.free.macie2.Macie2Op
 import goober.free.macie.MacieOp
+import goober.free.macie2.Macie2Op
 import goober.free.managedblockchain.ManagedBlockchainOp
 import goober.free.marketplacecatalog.MarketplaceCatalogOp
 import goober.free.marketplacecommerceanalytics.MarketplaceCommerceAnalyticsOp
@@ -223,8 +223,8 @@ import goober.free.route53resolver.Route53ResolverOp
 import goober.free.s3.S3Op
 import goober.free.s3control.S3ControlOp
 import goober.free.s3outposts.S3OutpostsOp
-import goober.free.sagemakera2iruntime.SageMakerA2IRuntimeOp
 import goober.free.sagemaker.SageMakerOp
+import goober.free.sagemakera2iruntime.SageMakerA2IRuntimeOp
 import goober.free.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeOp
 import goober.free.sagemakerruntime.SageMakerRuntimeOp
 import goober.free.sagemakeredge.SagemakerEdgeOp
@@ -233,8 +233,8 @@ import goober.free.schemas.SchemasOp
 import goober.free.secretsmanager.SecretsManagerOp
 import goober.free.securityhub.SecurityHubOp
 import goober.free.serverlessapplicationrepository.ServerlessApplicationRepositoryOp
-import goober.free.servicecatalogappregistry.ServiceCatalogAppRegistryOp
 import goober.free.servicecatalog.ServiceCatalogOp
+import goober.free.servicecatalogappregistry.ServiceCatalogAppRegistryOp
 import goober.free.servicediscovery.ServiceDiscoveryOp
 import goober.free.servicequotas.ServiceQuotasOp
 import goober.free.ses.SesOp
@@ -249,8 +249,8 @@ import goober.free.sqs.SqsOp
 import goober.free.ssm.SsmOp
 import goober.free.ssmcontacts.SsmContactsOp
 import goober.free.ssmincidents.SsmIncidentsOp
-import goober.free.ssoadmin.SsoAdminOp
 import goober.free.sso.SsoOp
+import goober.free.ssoadmin.SsoAdminOp
 import goober.free.ssooidc.SsoOidcOp
 import goober.free.storagegateway.StorageGatewayOp
 import goober.free.sts.StsOp
@@ -278,8 +278,8 @@ import software.amazon.awssdk.services.acm.AcmClient
 import software.amazon.awssdk.services.acmpca.AcmPcaClient
 import software.amazon.awssdk.services.alexaforbusiness.AlexaForBusinessClient
 import software.amazon.awssdk.services.amp.AmpClient
-import software.amazon.awssdk.services.amplifybackend.AmplifyBackendClient
 import software.amazon.awssdk.services.amplify.AmplifyClient
+import software.amazon.awssdk.services.amplifybackend.AmplifyBackendClient
 import software.amazon.awssdk.services.apigateway.ApiGatewayClient
 import software.amazon.awssdk.services.apigatewaymanagementapi.ApiGatewayManagementApiClient
 import software.amazon.awssdk.services.apigatewayv2.ApiGatewayV2Client
@@ -400,9 +400,9 @@ import software.amazon.awssdk.services.iotfleethub.IoTFleetHubClient
 import software.amazon.awssdk.services.iotsecuretunneling.IoTSecureTunnelingClient
 import software.amazon.awssdk.services.iotsitewise.IoTSiteWiseClient
 import software.amazon.awssdk.services.iotthingsgraph.IoTThingsGraphClient
+import software.amazon.awssdk.services.iot.IotClient
 import software.amazon.awssdk.services.iot1clickdevices.Iot1ClickDevicesClient
 import software.amazon.awssdk.services.iot1clickprojects.Iot1ClickProjectsClient
-import software.amazon.awssdk.services.iot.IotClient
 import software.amazon.awssdk.services.iotdataplane.IotDataPlaneClient
 import software.amazon.awssdk.services.iotdeviceadvisor.IotDeviceAdvisorClient
 import software.amazon.awssdk.services.iotevents.IotEventsClient
@@ -412,11 +412,11 @@ import software.amazon.awssdk.services.iotwireless.IotWirelessClient
 import software.amazon.awssdk.services.ivs.IvsClient
 import software.amazon.awssdk.services.kafka.KafkaClient
 import software.amazon.awssdk.services.kendra.KendraClient
+import software.amazon.awssdk.services.kinesis.KinesisClient
 import software.amazon.awssdk.services.kinesisanalytics.KinesisAnalyticsClient
 import software.amazon.awssdk.services.kinesisanalyticsv2.KinesisAnalyticsV2Client
-import software.amazon.awssdk.services.kinesis.KinesisClient
-import software.amazon.awssdk.services.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaClient
 import software.amazon.awssdk.services.kinesisvideo.KinesisVideoClient
+import software.amazon.awssdk.services.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaClient
 import software.amazon.awssdk.services.kinesisvideomedia.KinesisVideoMediaClient
 import software.amazon.awssdk.services.kinesisvideosignaling.KinesisVideoSignalingClient
 import software.amazon.awssdk.services.kms.KmsClient
@@ -434,8 +434,8 @@ import software.amazon.awssdk.services.lookoutmetrics.LookoutMetricsClient
 import software.amazon.awssdk.services.lookoutvision.LookoutVisionClient
 import software.amazon.awssdk.services.mturk.MTurkClient
 import software.amazon.awssdk.services.machinelearning.MachineLearningClient
-import software.amazon.awssdk.services.macie2.Macie2Client
 import software.amazon.awssdk.services.macie.MacieClient
+import software.amazon.awssdk.services.macie2.Macie2Client
 import software.amazon.awssdk.services.managedblockchain.ManagedBlockchainClient
 import software.amazon.awssdk.services.marketplacecatalog.MarketplaceCatalogClient
 import software.amazon.awssdk.services.marketplacecommerceanalytics.MarketplaceCommerceAnalyticsClient
@@ -491,8 +491,8 @@ import software.amazon.awssdk.services.route53resolver.Route53ResolverClient
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3control.S3ControlClient
 import software.amazon.awssdk.services.s3outposts.S3OutpostsClient
-import software.amazon.awssdk.services.sagemakera2iruntime.SageMakerA2IRuntimeClient
 import software.amazon.awssdk.services.sagemaker.SageMakerClient
+import software.amazon.awssdk.services.sagemakera2iruntime.SageMakerA2IRuntimeClient
 import software.amazon.awssdk.services.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeClient
 import software.amazon.awssdk.services.sagemakerruntime.SageMakerRuntimeClient
 import software.amazon.awssdk.services.sagemakeredge.SagemakerEdgeClient
@@ -501,8 +501,8 @@ import software.amazon.awssdk.services.schemas.SchemasClient
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient
 import software.amazon.awssdk.services.securityhub.SecurityHubClient
 import software.amazon.awssdk.services.serverlessapplicationrepository.ServerlessApplicationRepositoryClient
-import software.amazon.awssdk.services.servicecatalogappregistry.ServiceCatalogAppRegistryClient
 import software.amazon.awssdk.services.servicecatalog.ServiceCatalogClient
+import software.amazon.awssdk.services.servicecatalogappregistry.ServiceCatalogAppRegistryClient
 import software.amazon.awssdk.services.servicediscovery.ServiceDiscoveryClient
 import software.amazon.awssdk.services.servicequotas.ServiceQuotasClient
 import software.amazon.awssdk.services.ses.SesClient
@@ -517,8 +517,8 @@ import software.amazon.awssdk.services.sqs.SqsClient
 import software.amazon.awssdk.services.ssm.SsmClient
 import software.amazon.awssdk.services.ssmcontacts.SsmContactsClient
 import software.amazon.awssdk.services.ssmincidents.SsmIncidentsClient
-import software.amazon.awssdk.services.ssoadmin.SsoAdminClient
 import software.amazon.awssdk.services.sso.SsoClient
+import software.amazon.awssdk.services.ssoadmin.SsoAdminClient
 import software.amazon.awssdk.services.ssooidc.SsoOidcClient
 import software.amazon.awssdk.services.storagegateway.StorageGatewayClient
 import software.amazon.awssdk.services.sts.StsClient
@@ -575,12 +575,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: AmpClient ⇒ A): Kleisli[M, AmpClient, A] = interpreter.primitive(f)
   }
 
-  lazy val AmplifyBackendInterpreter: AmplifyBackendOp ~> Kleisli[M, AmplifyBackendClient, *] = new AmplifyBackendInterpreter {
-    def primitive[A](f: AmplifyBackendClient ⇒ A): Kleisli[M, AmplifyBackendClient, A] = interpreter.primitive(f)
-  }
-
   lazy val AmplifyInterpreter: AmplifyOp ~> Kleisli[M, AmplifyClient, *] = new AmplifyInterpreter {
     def primitive[A](f: AmplifyClient ⇒ A): Kleisli[M, AmplifyClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val AmplifyBackendInterpreter: AmplifyBackendOp ~> Kleisli[M, AmplifyBackendClient, *] = new AmplifyBackendInterpreter {
+    def primitive[A](f: AmplifyBackendClient ⇒ A): Kleisli[M, AmplifyBackendClient, A] = interpreter.primitive(f)
   }
 
   lazy val ApiGatewayInterpreter: ApiGatewayOp ~> Kleisli[M, ApiGatewayClient, *] = new ApiGatewayInterpreter {
@@ -1063,16 +1063,16 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: IoTThingsGraphClient ⇒ A): Kleisli[M, IoTThingsGraphClient, A] = interpreter.primitive(f)
   }
 
+  lazy val IotInterpreter: IotOp ~> Kleisli[M, IotClient, *] = new IotInterpreter {
+    def primitive[A](f: IotClient ⇒ A): Kleisli[M, IotClient, A] = interpreter.primitive(f)
+  }
+
   lazy val Iot1ClickDevicesInterpreter: Iot1ClickDevicesOp ~> Kleisli[M, Iot1ClickDevicesClient, *] = new Iot1ClickDevicesInterpreter {
     def primitive[A](f: Iot1ClickDevicesClient ⇒ A): Kleisli[M, Iot1ClickDevicesClient, A] = interpreter.primitive(f)
   }
 
   lazy val Iot1ClickProjectsInterpreter: Iot1ClickProjectsOp ~> Kleisli[M, Iot1ClickProjectsClient, *] = new Iot1ClickProjectsInterpreter {
     def primitive[A](f: Iot1ClickProjectsClient ⇒ A): Kleisli[M, Iot1ClickProjectsClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val IotInterpreter: IotOp ~> Kleisli[M, IotClient, *] = new IotInterpreter {
-    def primitive[A](f: IotClient ⇒ A): Kleisli[M, IotClient, A] = interpreter.primitive(f)
   }
 
   lazy val IotDataPlaneInterpreter: IotDataPlaneOp ~> Kleisli[M, IotDataPlaneClient, *] = new IotDataPlaneInterpreter {
@@ -1111,6 +1111,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: KendraClient ⇒ A): Kleisli[M, KendraClient, A] = interpreter.primitive(f)
   }
 
+  lazy val KinesisInterpreter: KinesisOp ~> Kleisli[M, KinesisClient, *] = new KinesisInterpreter {
+    def primitive[A](f: KinesisClient ⇒ A): Kleisli[M, KinesisClient, A] = interpreter.primitive(f)
+  }
+
   lazy val KinesisAnalyticsInterpreter: KinesisAnalyticsOp ~> Kleisli[M, KinesisAnalyticsClient, *] = new KinesisAnalyticsInterpreter {
     def primitive[A](f: KinesisAnalyticsClient ⇒ A): Kleisli[M, KinesisAnalyticsClient, A] = interpreter.primitive(f)
   }
@@ -1119,16 +1123,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: KinesisAnalyticsV2Client ⇒ A): Kleisli[M, KinesisAnalyticsV2Client, A] = interpreter.primitive(f)
   }
 
-  lazy val KinesisInterpreter: KinesisOp ~> Kleisli[M, KinesisClient, *] = new KinesisInterpreter {
-    def primitive[A](f: KinesisClient ⇒ A): Kleisli[M, KinesisClient, A] = interpreter.primitive(f)
+  lazy val KinesisVideoInterpreter: KinesisVideoOp ~> Kleisli[M, KinesisVideoClient, *] = new KinesisVideoInterpreter {
+    def primitive[A](f: KinesisVideoClient ⇒ A): Kleisli[M, KinesisVideoClient, A] = interpreter.primitive(f)
   }
 
   lazy val KinesisVideoArchivedMediaInterpreter: KinesisVideoArchivedMediaOp ~> Kleisli[M, KinesisVideoArchivedMediaClient, *] = new KinesisVideoArchivedMediaInterpreter {
     def primitive[A](f: KinesisVideoArchivedMediaClient ⇒ A): Kleisli[M, KinesisVideoArchivedMediaClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val KinesisVideoInterpreter: KinesisVideoOp ~> Kleisli[M, KinesisVideoClient, *] = new KinesisVideoInterpreter {
-    def primitive[A](f: KinesisVideoClient ⇒ A): Kleisli[M, KinesisVideoClient, A] = interpreter.primitive(f)
   }
 
   lazy val KinesisVideoMediaInterpreter: KinesisVideoMediaOp ~> Kleisli[M, KinesisVideoMediaClient, *] = new KinesisVideoMediaInterpreter {
@@ -1199,12 +1199,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: MachineLearningClient ⇒ A): Kleisli[M, MachineLearningClient, A] = interpreter.primitive(f)
   }
 
-  lazy val Macie2Interpreter: Macie2Op ~> Kleisli[M, Macie2Client, *] = new Macie2Interpreter {
-    def primitive[A](f: Macie2Client ⇒ A): Kleisli[M, Macie2Client, A] = interpreter.primitive(f)
-  }
-
   lazy val MacieInterpreter: MacieOp ~> Kleisli[M, MacieClient, *] = new MacieInterpreter {
     def primitive[A](f: MacieClient ⇒ A): Kleisli[M, MacieClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val Macie2Interpreter: Macie2Op ~> Kleisli[M, Macie2Client, *] = new Macie2Interpreter {
+    def primitive[A](f: Macie2Client ⇒ A): Kleisli[M, Macie2Client, A] = interpreter.primitive(f)
   }
 
   lazy val ManagedBlockchainInterpreter: ManagedBlockchainOp ~> Kleisli[M, ManagedBlockchainClient, *] = new ManagedBlockchainInterpreter {
@@ -1427,12 +1427,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: S3OutpostsClient ⇒ A): Kleisli[M, S3OutpostsClient, A] = interpreter.primitive(f)
   }
 
-  lazy val SageMakerA2IRuntimeInterpreter: SageMakerA2IRuntimeOp ~> Kleisli[M, SageMakerA2IRuntimeClient, *] = new SageMakerA2IRuntimeInterpreter {
-    def primitive[A](f: SageMakerA2IRuntimeClient ⇒ A): Kleisli[M, SageMakerA2IRuntimeClient, A] = interpreter.primitive(f)
-  }
-
   lazy val SageMakerInterpreter: SageMakerOp ~> Kleisli[M, SageMakerClient, *] = new SageMakerInterpreter {
     def primitive[A](f: SageMakerClient ⇒ A): Kleisli[M, SageMakerClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val SageMakerA2IRuntimeInterpreter: SageMakerA2IRuntimeOp ~> Kleisli[M, SageMakerA2IRuntimeClient, *] = new SageMakerA2IRuntimeInterpreter {
+    def primitive[A](f: SageMakerA2IRuntimeClient ⇒ A): Kleisli[M, SageMakerA2IRuntimeClient, A] = interpreter.primitive(f)
   }
 
   lazy val SageMakerFeatureStoreRuntimeInterpreter: SageMakerFeatureStoreRuntimeOp ~> Kleisli[M, SageMakerFeatureStoreRuntimeClient, *] = new SageMakerFeatureStoreRuntimeInterpreter {
@@ -1467,12 +1467,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: ServerlessApplicationRepositoryClient ⇒ A): Kleisli[M, ServerlessApplicationRepositoryClient, A] = interpreter.primitive(f)
   }
 
-  lazy val ServiceCatalogAppRegistryInterpreter: ServiceCatalogAppRegistryOp ~> Kleisli[M, ServiceCatalogAppRegistryClient, *] = new ServiceCatalogAppRegistryInterpreter {
-    def primitive[A](f: ServiceCatalogAppRegistryClient ⇒ A): Kleisli[M, ServiceCatalogAppRegistryClient, A] = interpreter.primitive(f)
-  }
-
   lazy val ServiceCatalogInterpreter: ServiceCatalogOp ~> Kleisli[M, ServiceCatalogClient, *] = new ServiceCatalogInterpreter {
     def primitive[A](f: ServiceCatalogClient ⇒ A): Kleisli[M, ServiceCatalogClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val ServiceCatalogAppRegistryInterpreter: ServiceCatalogAppRegistryOp ~> Kleisli[M, ServiceCatalogAppRegistryClient, *] = new ServiceCatalogAppRegistryInterpreter {
+    def primitive[A](f: ServiceCatalogAppRegistryClient ⇒ A): Kleisli[M, ServiceCatalogAppRegistryClient, A] = interpreter.primitive(f)
   }
 
   lazy val ServiceDiscoveryInterpreter: ServiceDiscoveryOp ~> Kleisli[M, ServiceDiscoveryClient, *] = new ServiceDiscoveryInterpreter {
@@ -1531,12 +1531,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: SsmIncidentsClient ⇒ A): Kleisli[M, SsmIncidentsClient, A] = interpreter.primitive(f)
   }
 
-  lazy val SsoAdminInterpreter: SsoAdminOp ~> Kleisli[M, SsoAdminClient, *] = new SsoAdminInterpreter {
-    def primitive[A](f: SsoAdminClient ⇒ A): Kleisli[M, SsoAdminClient, A] = interpreter.primitive(f)
-  }
-
   lazy val SsoInterpreter: SsoOp ~> Kleisli[M, SsoClient, *] = new SsoInterpreter {
     def primitive[A](f: SsoClient ⇒ A): Kleisli[M, SsoClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val SsoAdminInterpreter: SsoAdminOp ~> Kleisli[M, SsoAdminClient, *] = new SsoAdminInterpreter {
+    def primitive[A](f: SsoAdminClient ⇒ A): Kleisli[M, SsoAdminClient, A] = interpreter.primitive(f)
   }
 
   lazy val SsoOidcInterpreter: SsoOidcOp ~> Kleisli[M, SsoOidcClient, *] = new SsoOidcInterpreter {
@@ -1647,12 +1647,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, AmpClient, A] = interpreter.embed(e)
   }
 
-  trait AmplifyBackendInterpreter extends AmplifyBackendOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, AmplifyBackendClient, A] = interpreter.embed(e)
-  }
-
   trait AmplifyInterpreter extends AmplifyOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, AmplifyClient, A] = interpreter.embed(e)
+  }
+
+  trait AmplifyBackendInterpreter extends AmplifyBackendOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AmplifyBackendClient, A] = interpreter.embed(e)
   }
 
   trait ApiGatewayInterpreter extends ApiGatewayOp.Visitor.KleisliVisitor[M] {
@@ -2135,16 +2135,16 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, IoTThingsGraphClient, A] = interpreter.embed(e)
   }
 
+  trait IotInterpreter extends IotOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, IotClient, A] = interpreter.embed(e)
+  }
+
   trait Iot1ClickDevicesInterpreter extends Iot1ClickDevicesOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, Iot1ClickDevicesClient, A] = interpreter.embed(e)
   }
 
   trait Iot1ClickProjectsInterpreter extends Iot1ClickProjectsOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, Iot1ClickProjectsClient, A] = interpreter.embed(e)
-  }
-
-  trait IotInterpreter extends IotOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, IotClient, A] = interpreter.embed(e)
   }
 
   trait IotDataPlaneInterpreter extends IotDataPlaneOp.Visitor.KleisliVisitor[M] {
@@ -2183,6 +2183,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, KendraClient, A] = interpreter.embed(e)
   }
 
+  trait KinesisInterpreter extends KinesisOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, KinesisClient, A] = interpreter.embed(e)
+  }
+
   trait KinesisAnalyticsInterpreter extends KinesisAnalyticsOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, KinesisAnalyticsClient, A] = interpreter.embed(e)
   }
@@ -2191,16 +2195,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, KinesisAnalyticsV2Client, A] = interpreter.embed(e)
   }
 
-  trait KinesisInterpreter extends KinesisOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, KinesisClient, A] = interpreter.embed(e)
+  trait KinesisVideoInterpreter extends KinesisVideoOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, KinesisVideoClient, A] = interpreter.embed(e)
   }
 
   trait KinesisVideoArchivedMediaInterpreter extends KinesisVideoArchivedMediaOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, KinesisVideoArchivedMediaClient, A] = interpreter.embed(e)
-  }
-
-  trait KinesisVideoInterpreter extends KinesisVideoOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, KinesisVideoClient, A] = interpreter.embed(e)
   }
 
   trait KinesisVideoMediaInterpreter extends KinesisVideoMediaOp.Visitor.KleisliVisitor[M] {
@@ -2271,12 +2271,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, MachineLearningClient, A] = interpreter.embed(e)
   }
 
-  trait Macie2Interpreter extends Macie2Op.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, Macie2Client, A] = interpreter.embed(e)
-  }
-
   trait MacieInterpreter extends MacieOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, MacieClient, A] = interpreter.embed(e)
+  }
+
+  trait Macie2Interpreter extends Macie2Op.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, Macie2Client, A] = interpreter.embed(e)
   }
 
   trait ManagedBlockchainInterpreter extends ManagedBlockchainOp.Visitor.KleisliVisitor[M] {
@@ -2499,12 +2499,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, S3OutpostsClient, A] = interpreter.embed(e)
   }
 
-  trait SageMakerA2IRuntimeInterpreter extends SageMakerA2IRuntimeOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, SageMakerA2IRuntimeClient, A] = interpreter.embed(e)
-  }
-
   trait SageMakerInterpreter extends SageMakerOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, SageMakerClient, A] = interpreter.embed(e)
+  }
+
+  trait SageMakerA2IRuntimeInterpreter extends SageMakerA2IRuntimeOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, SageMakerA2IRuntimeClient, A] = interpreter.embed(e)
   }
 
   trait SageMakerFeatureStoreRuntimeInterpreter extends SageMakerFeatureStoreRuntimeOp.Visitor.KleisliVisitor[M] {
@@ -2539,12 +2539,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, ServerlessApplicationRepositoryClient, A] = interpreter.embed(e)
   }
 
-  trait ServiceCatalogAppRegistryInterpreter extends ServiceCatalogAppRegistryOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, ServiceCatalogAppRegistryClient, A] = interpreter.embed(e)
-  }
-
   trait ServiceCatalogInterpreter extends ServiceCatalogOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, ServiceCatalogClient, A] = interpreter.embed(e)
+  }
+
+  trait ServiceCatalogAppRegistryInterpreter extends ServiceCatalogAppRegistryOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, ServiceCatalogAppRegistryClient, A] = interpreter.embed(e)
   }
 
   trait ServiceDiscoveryInterpreter extends ServiceDiscoveryOp.Visitor.KleisliVisitor[M] {
@@ -2603,12 +2603,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, SsmIncidentsClient, A] = interpreter.embed(e)
   }
 
-  trait SsoAdminInterpreter extends SsoAdminOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, SsoAdminClient, A] = interpreter.embed(e)
-  }
-
   trait SsoInterpreter extends SsoOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, SsoClient, A] = interpreter.embed(e)
+  }
+
+  trait SsoAdminInterpreter extends SsoAdminOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, SsoAdminClient, A] = interpreter.embed(e)
   }
 
   trait SsoOidcInterpreter extends SsoOidcOp.Visitor.KleisliVisitor[M] {
@@ -2716,8 +2716,8 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.AcmPca(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AcmPcaClient, *]](AcmPcaInterpreter).run(client))
     case Embedded.AlexaForBusiness(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AlexaForBusinessClient, *]](AlexaForBusinessInterpreter).run(client))
     case Embedded.Amp(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AmpClient, *]](AmpInterpreter).run(client))
-    case Embedded.AmplifyBackend(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AmplifyBackendClient, *]](AmplifyBackendInterpreter).run(client))
     case Embedded.Amplify(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AmplifyClient, *]](AmplifyInterpreter).run(client))
+    case Embedded.AmplifyBackend(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AmplifyBackendClient, *]](AmplifyBackendInterpreter).run(client))
     case Embedded.ApiGateway(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApiGatewayClient, *]](ApiGatewayInterpreter).run(client))
     case Embedded.ApiGatewayManagementApi(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApiGatewayManagementApiClient, *]](ApiGatewayManagementApiInterpreter).run(client))
     case Embedded.ApiGatewayV2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApiGatewayV2Client, *]](ApiGatewayV2Interpreter).run(client))
@@ -2838,9 +2838,9 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.IoTSecureTunneling(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTSecureTunnelingClient, *]](IoTSecureTunnelingInterpreter).run(client))
     case Embedded.IoTSiteWise(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTSiteWiseClient, *]](IoTSiteWiseInterpreter).run(client))
     case Embedded.IoTThingsGraph(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTThingsGraphClient, *]](IoTThingsGraphInterpreter).run(client))
+    case Embedded.Iot(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotClient, *]](IotInterpreter).run(client))
     case Embedded.Iot1ClickDevices(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Iot1ClickDevicesClient, *]](Iot1ClickDevicesInterpreter).run(client))
     case Embedded.Iot1ClickProjects(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Iot1ClickProjectsClient, *]](Iot1ClickProjectsInterpreter).run(client))
-    case Embedded.Iot(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotClient, *]](IotInterpreter).run(client))
     case Embedded.IotDataPlane(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotDataPlaneClient, *]](IotDataPlaneInterpreter).run(client))
     case Embedded.IotDeviceAdvisor(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotDeviceAdvisorClient, *]](IotDeviceAdvisorInterpreter).run(client))
     case Embedded.IotEvents(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotEventsClient, *]](IotEventsInterpreter).run(client))
@@ -2850,11 +2850,11 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.Ivs(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IvsClient, *]](IvsInterpreter).run(client))
     case Embedded.Kafka(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KafkaClient, *]](KafkaInterpreter).run(client))
     case Embedded.Kendra(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KendraClient, *]](KendraInterpreter).run(client))
+    case Embedded.Kinesis(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisClient, *]](KinesisInterpreter).run(client))
     case Embedded.KinesisAnalytics(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisAnalyticsClient, *]](KinesisAnalyticsInterpreter).run(client))
     case Embedded.KinesisAnalyticsV2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisAnalyticsV2Client, *]](KinesisAnalyticsV2Interpreter).run(client))
-    case Embedded.Kinesis(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisClient, *]](KinesisInterpreter).run(client))
-    case Embedded.KinesisVideoArchivedMedia(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisVideoArchivedMediaClient, *]](KinesisVideoArchivedMediaInterpreter).run(client))
     case Embedded.KinesisVideo(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisVideoClient, *]](KinesisVideoInterpreter).run(client))
+    case Embedded.KinesisVideoArchivedMedia(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisVideoArchivedMediaClient, *]](KinesisVideoArchivedMediaInterpreter).run(client))
     case Embedded.KinesisVideoMedia(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisVideoMediaClient, *]](KinesisVideoMediaInterpreter).run(client))
     case Embedded.KinesisVideoSignaling(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KinesisVideoSignalingClient, *]](KinesisVideoSignalingInterpreter).run(client))
     case Embedded.Kms(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KmsClient, *]](KmsInterpreter).run(client))
@@ -2872,8 +2872,8 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.LookoutVision(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, LookoutVisionClient, *]](LookoutVisionInterpreter).run(client))
     case Embedded.MTurk(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MTurkClient, *]](MTurkInterpreter).run(client))
     case Embedded.MachineLearning(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MachineLearningClient, *]](MachineLearningInterpreter).run(client))
-    case Embedded.Macie2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Macie2Client, *]](Macie2Interpreter).run(client))
     case Embedded.Macie(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MacieClient, *]](MacieInterpreter).run(client))
+    case Embedded.Macie2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Macie2Client, *]](Macie2Interpreter).run(client))
     case Embedded.ManagedBlockchain(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ManagedBlockchainClient, *]](ManagedBlockchainInterpreter).run(client))
     case Embedded.MarketplaceCatalog(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MarketplaceCatalogClient, *]](MarketplaceCatalogInterpreter).run(client))
     case Embedded.MarketplaceCommerceAnalytics(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MarketplaceCommerceAnalyticsClient, *]](MarketplaceCommerceAnalyticsInterpreter).run(client))
@@ -2929,8 +2929,8 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.S3(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, S3Client, *]](S3Interpreter).run(client))
     case Embedded.S3Control(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, S3ControlClient, *]](S3ControlInterpreter).run(client))
     case Embedded.S3Outposts(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, S3OutpostsClient, *]](S3OutpostsInterpreter).run(client))
-    case Embedded.SageMakerA2IRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerA2IRuntimeClient, *]](SageMakerA2IRuntimeInterpreter).run(client))
     case Embedded.SageMaker(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerClient, *]](SageMakerInterpreter).run(client))
+    case Embedded.SageMakerA2IRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerA2IRuntimeClient, *]](SageMakerA2IRuntimeInterpreter).run(client))
     case Embedded.SageMakerFeatureStoreRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerFeatureStoreRuntimeClient, *]](SageMakerFeatureStoreRuntimeInterpreter).run(client))
     case Embedded.SageMakerRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerRuntimeClient, *]](SageMakerRuntimeInterpreter).run(client))
     case Embedded.SagemakerEdge(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SagemakerEdgeClient, *]](SagemakerEdgeInterpreter).run(client))
@@ -2939,8 +2939,8 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.SecretsManager(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SecretsManagerClient, *]](SecretsManagerInterpreter).run(client))
     case Embedded.SecurityHub(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SecurityHubClient, *]](SecurityHubInterpreter).run(client))
     case Embedded.ServerlessApplicationRepository(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ServerlessApplicationRepositoryClient, *]](ServerlessApplicationRepositoryInterpreter).run(client))
-    case Embedded.ServiceCatalogAppRegistry(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ServiceCatalogAppRegistryClient, *]](ServiceCatalogAppRegistryInterpreter).run(client))
     case Embedded.ServiceCatalog(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ServiceCatalogClient, *]](ServiceCatalogInterpreter).run(client))
+    case Embedded.ServiceCatalogAppRegistry(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ServiceCatalogAppRegistryClient, *]](ServiceCatalogAppRegistryInterpreter).run(client))
     case Embedded.ServiceDiscovery(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ServiceDiscoveryClient, *]](ServiceDiscoveryInterpreter).run(client))
     case Embedded.ServiceQuotas(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ServiceQuotasClient, *]](ServiceQuotasInterpreter).run(client))
     case Embedded.Ses(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SesClient, *]](SesInterpreter).run(client))
@@ -2955,8 +2955,8 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.Ssm(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsmClient, *]](SsmInterpreter).run(client))
     case Embedded.SsmContacts(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsmContactsClient, *]](SsmContactsInterpreter).run(client))
     case Embedded.SsmIncidents(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsmIncidentsClient, *]](SsmIncidentsInterpreter).run(client))
-    case Embedded.SsoAdmin(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsoAdminClient, *]](SsoAdminInterpreter).run(client))
     case Embedded.Sso(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsoClient, *]](SsoInterpreter).run(client))
+    case Embedded.SsoAdmin(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsoAdminClient, *]](SsoAdminInterpreter).run(client))
     case Embedded.SsoOidc(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SsoOidcClient, *]](SsoOidcInterpreter).run(client))
     case Embedded.StorageGateway(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, StorageGatewayClient, *]](StorageGatewayInterpreter).run(client))
     case Embedded.Sts(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, StsClient, *]](StsInterpreter).run(client))

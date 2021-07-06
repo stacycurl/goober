@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.cloudtrail.CloudTrailClient
 import software.amazon.awssdk.services.cloudtrail.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object cloudtrail { module =>
 

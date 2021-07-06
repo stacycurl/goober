@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.mediaconvert.MediaConvertClient
 import software.amazon.awssdk.services.mediaconvert.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object mediaconvert { module =>
 

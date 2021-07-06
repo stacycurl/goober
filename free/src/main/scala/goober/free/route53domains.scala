@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.route53domains.Route53DomainsClient
 import software.amazon.awssdk.services.route53domains.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object route53domains { module =>
 

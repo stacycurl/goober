@@ -1,0 +1,153 @@
+package goober.hi
+
+import goober.free.ssm.SsmIO
+import software.amazon.awssdk.services.ssm.model._
+
+
+object ssm {
+  import goober.free.{ssm ⇒ free}
+
+  object model {
+    import goober.hi.util.BuilderSyntax._
+
+    // Methods for constructing model classes, requests, etc.
+    // AddTagsToResourceRequest
+    // AssociateOpsItemRelatedItemRequest
+    // CancelCommandRequest
+    // CancelMaintenanceWindowExecutionRequest
+    // CreateActivationRequest
+    // CreateAssociationBatchRequest
+    // CreateAssociationRequest
+    // CreateDocumentRequest
+    // CreateMaintenanceWindowRequest
+    // CreateOpsItemRequest
+    // CreateOpsMetadataRequest
+    // CreatePatchBaselineRequest
+    // CreateResourceDataSyncRequest
+    // DeleteActivationRequest
+    // DeleteAssociationRequest
+    // DeleteDocumentRequest
+    // DeleteInventoryRequest
+    // DeleteMaintenanceWindowRequest
+    // DeleteOpsMetadataRequest
+    // DeleteParameterRequest
+    // DeleteParametersRequest
+    // DeletePatchBaselineRequest
+    // DeleteResourceDataSyncRequest
+    // DeregisterManagedInstanceRequest
+    // DeregisterPatchBaselineForPatchGroupRequest
+    // DeregisterTargetFromMaintenanceWindowRequest
+    // DeregisterTaskFromMaintenanceWindowRequest
+    // DescribeActivationsRequest
+    // DescribeAssociationExecutionTargetsRequest
+    // DescribeAssociationExecutionsRequest
+    // DescribeAssociationRequest
+    // DescribeAutomationExecutionsRequest
+    // DescribeAutomationStepExecutionsRequest
+    // DescribeAvailablePatchesRequest
+    // DescribeDocumentPermissionRequest
+    // DescribeDocumentRequest
+    // DescribeEffectiveInstanceAssociationsRequest
+    // DescribeEffectivePatchesForPatchBaselineRequest
+    // DescribeInstanceAssociationsStatusRequest
+    // DescribeInstanceInformationRequest
+    // DescribeInstancePatchStatesForPatchGroupRequest
+    // DescribeInstancePatchStatesRequest
+    // DescribeInstancePatchesRequest
+    // DescribeInventoryDeletionsRequest
+    // DescribeMaintenanceWindowExecutionTaskInvocationsRequest
+    // DescribeMaintenanceWindowExecutionTasksRequest
+    // DescribeMaintenanceWindowExecutionsRequest
+    // DescribeMaintenanceWindowScheduleRequest
+    // DescribeMaintenanceWindowTargetsRequest
+    // DescribeMaintenanceWindowTasksRequest
+    // DescribeMaintenanceWindowsForTargetRequest
+    // DescribeMaintenanceWindowsRequest
+    // DescribeOpsItemsRequest
+    // DescribeParametersRequest
+    // DescribePatchBaselinesRequest
+    // DescribePatchGroupStateRequest
+    // DescribePatchGroupsRequest
+    // DescribePatchPropertiesRequest
+    // DescribeSessionsRequest
+    // DisassociateOpsItemRelatedItemRequest
+    // GetAutomationExecutionRequest
+    // GetCalendarStateRequest
+    // GetCommandInvocationRequest
+    // GetConnectionStatusRequest
+    // GetDefaultPatchBaselineRequest
+    // GetDeployablePatchSnapshotForInstanceRequest
+    // GetDocumentRequest
+    // GetInventoryRequest
+    // GetInventorySchemaRequest
+    // GetMaintenanceWindowExecutionRequest
+    // GetMaintenanceWindowExecutionTaskInvocationRequest
+    // GetMaintenanceWindowExecutionTaskRequest
+    // GetMaintenanceWindowRequest
+    // GetMaintenanceWindowTaskRequest
+    // GetOpsItemRequest
+    // GetOpsMetadataRequest
+    // GetOpsSummaryRequest
+    // GetParameterHistoryRequest
+    // GetParameterRequest
+    // GetParametersByPathRequest
+    // GetParametersRequest
+    // GetPatchBaselineForPatchGroupRequest
+    // GetPatchBaselineRequest
+    // GetServiceSettingRequest
+    // LabelParameterVersionRequest
+    // ListAssociationVersionsRequest
+    // ListAssociationsRequest
+    // ListCommandInvocationsRequest
+    // ListCommandsRequest
+    // ListComplianceItemsRequest
+    // ListComplianceSummariesRequest
+    // ListDocumentMetadataHistoryRequest
+    // ListDocumentVersionsRequest
+    // ListDocumentsRequest
+    // ListInventoryEntriesRequest
+    // ListOpsItemEventsRequest
+    // ListOpsItemRelatedItemsRequest
+    // ListOpsMetadataRequest
+    // ListResourceComplianceSummariesRequest
+    // ListResourceDataSyncRequest
+    // ListTagsForResourceRequest
+    // ModifyDocumentPermissionRequest
+    // PutComplianceItemsRequest
+    // PutInventoryRequest
+    // PutParameterRequest
+    // RegisterDefaultPatchBaselineRequest
+    // RegisterPatchBaselineForPatchGroupRequest
+    // RegisterTargetWithMaintenanceWindowRequest
+    // RegisterTaskWithMaintenanceWindowRequest
+    // RemoveTagsFromResourceRequest
+    // ResetServiceSettingRequest
+    // ResumeSessionRequest
+    // SendAutomationSignalRequest
+    // SendCommandRequest
+    // StartAssociationsOnceRequest
+    // StartAutomationExecutionRequest
+    // StartChangeRequestExecutionRequest
+    // StartSessionRequest
+    // StopAutomationExecutionRequest
+    // TerminateSessionRequest
+    // UnlabelParameterVersionRequest
+    // UpdateAssociationRequest
+    // UpdateAssociationStatusRequest
+    // UpdateDocumentDefaultVersionRequest
+    // UpdateDocumentMetadataRequest
+    // UpdateDocumentRequest
+    // UpdateMaintenanceWindowRequest
+    // UpdateMaintenanceWindowTargetRequest
+    // UpdateMaintenanceWindowTaskRequest
+    // UpdateManagedInstanceRoleRequest
+    // UpdateOpsItemRequest
+    // UpdateOpsMetadataRequest
+    // UpdatePatchBaselineRequest
+    // UpdateResourceDataSyncRequest
+    // UpdateServiceSettingRequest
+
+  }
+
+  // smartConstructors that take paramteers derived from mandatory & optional fields of requests
+}

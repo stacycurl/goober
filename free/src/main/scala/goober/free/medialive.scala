@@ -8,7 +8,7 @@ import cats.data.Kleisli
 import software.amazon.awssdk.services.medialive.MediaLiveClient
 import software.amazon.awssdk.services.medialive.model._
 import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object medialive { module =>
 

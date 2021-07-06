@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.synthetics.SyntheticsClient
 import software.amazon.awssdk.services.synthetics.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object synthetics { module =>
 

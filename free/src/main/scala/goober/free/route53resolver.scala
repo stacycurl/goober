@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.route53resolver.Route53ResolverClient
 import software.amazon.awssdk.services.route53resolver.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object route53resolver { module =>
 

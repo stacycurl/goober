@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.marketplacemetering.MarketplaceMeteringClient
 import software.amazon.awssdk.services.marketplacemetering.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object marketplacemetering { module =>
 

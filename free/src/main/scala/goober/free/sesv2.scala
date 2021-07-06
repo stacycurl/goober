@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.sesv2.SesV2Client
 import software.amazon.awssdk.services.sesv2.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object sesv2 { module =>
 

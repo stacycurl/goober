@@ -8,7 +8,7 @@ import cats.data.Kleisli
 import software.amazon.awssdk.services.polly.PollyClient
 import software.amazon.awssdk.services.polly.model._
 import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object polly { module =>
 

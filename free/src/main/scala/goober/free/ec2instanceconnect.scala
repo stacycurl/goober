@@ -7,8 +7,7 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.ec2instanceconnect.Ec2InstanceConnectClient
 import software.amazon.awssdk.services.ec2instanceconnect.model._
-import java.nio.file.Path
-import software.amazon.awssdk.core.sync.RequestBody
+
 
 object ec2instanceconnect { module =>
 

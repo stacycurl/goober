@@ -10,6 +10,7 @@ import software.amazon.awssdk.services.mediastoredata.model._
 import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
+
 object mediastoredata { module =>
 
   // Free monad over MediaStoreDataOp

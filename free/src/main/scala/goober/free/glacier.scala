@@ -10,6 +10,7 @@ import software.amazon.awssdk.services.glacier.model._
 import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
+
 object glacier { module =>
 
   // Free monad over GlacierOp

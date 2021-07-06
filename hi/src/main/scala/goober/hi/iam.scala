@@ -1,0 +1,176 @@
+package goober.hi
+
+import goober.free.iam.IamIO
+import software.amazon.awssdk.services.iam.model._
+
+
+object iam {
+  import goober.free.{iam ⇒ free}
+
+  object model {
+    import goober.hi.util.BuilderSyntax._
+
+    // Methods for constructing model classes, requests, etc.
+    // AddClientIdToOpenIdConnectProviderRequest
+    // AddRoleToInstanceProfileRequest
+    // AddUserToGroupRequest
+    // AttachGroupPolicyRequest
+    // AttachRolePolicyRequest
+    // AttachUserPolicyRequest
+    // ChangePasswordRequest
+    // CreateAccessKeyRequest
+    // CreateAccountAliasRequest
+    // CreateGroupRequest
+    // CreateInstanceProfileRequest
+    // CreateLoginProfileRequest
+    // CreateOpenIdConnectProviderRequest
+    // CreatePolicyRequest
+    // CreatePolicyVersionRequest
+    // CreateRoleRequest
+    // CreateSamlProviderRequest
+    // CreateServiceLinkedRoleRequest
+    // CreateServiceSpecificCredentialRequest
+    // CreateUserRequest
+    // CreateVirtualMfaDeviceRequest
+    // DeactivateMfaDeviceRequest
+    // DeleteAccessKeyRequest
+    // DeleteAccountAliasRequest
+    // DeleteAccountPasswordPolicyRequest
+    // DeleteGroupPolicyRequest
+    // DeleteGroupRequest
+    // DeleteInstanceProfileRequest
+    // DeleteLoginProfileRequest
+    // DeleteOpenIdConnectProviderRequest
+    // DeletePolicyRequest
+    // DeletePolicyVersionRequest
+    // DeleteRolePermissionsBoundaryRequest
+    // DeleteRolePolicyRequest
+    // DeleteRoleRequest
+    // DeleteSamlProviderRequest
+    // DeleteServerCertificateRequest
+    // DeleteServiceLinkedRoleRequest
+    // DeleteServiceSpecificCredentialRequest
+    // DeleteSigningCertificateRequest
+    // DeleteSshPublicKeyRequest
+    // DeleteUserPermissionsBoundaryRequest
+    // DeleteUserPolicyRequest
+    // DeleteUserRequest
+    // DeleteVirtualMfaDeviceRequest
+    // DetachGroupPolicyRequest
+    // DetachRolePolicyRequest
+    // DetachUserPolicyRequest
+    // EnableMfaDeviceRequest
+    // GenerateCredentialReportRequest
+    // GenerateOrganizationsAccessReportRequest
+    // GenerateServiceLastAccessedDetailsRequest
+    // GetAccessKeyLastUsedRequest
+    // GetAccountAuthorizationDetailsRequest
+    // GetAccountPasswordPolicyRequest
+    // GetAccountSummaryRequest
+    // GetContextKeysForCustomPolicyRequest
+    // GetContextKeysForPrincipalPolicyRequest
+    // GetCredentialReportRequest
+    // GetGroupPolicyRequest
+    // GetGroupRequest
+    // GetInstanceProfileRequest
+    // GetLoginProfileRequest
+    // GetOpenIdConnectProviderRequest
+    // GetOrganizationsAccessReportRequest
+    // GetPolicyRequest
+    // GetPolicyVersionRequest
+    // GetRolePolicyRequest
+    // GetRoleRequest
+    // GetSamlProviderRequest
+    // GetServerCertificateRequest
+    // GetServiceLastAccessedDetailsRequest
+    // GetServiceLastAccessedDetailsWithEntitiesRequest
+    // GetServiceLinkedRoleDeletionStatusRequest
+    // GetSshPublicKeyRequest
+    // GetUserPolicyRequest
+    // GetUserRequest
+    // ListAccessKeysRequest
+    // ListAccountAliasesRequest
+    // ListAttachedGroupPoliciesRequest
+    // ListAttachedRolePoliciesRequest
+    // ListAttachedUserPoliciesRequest
+    // ListEntitiesForPolicyRequest
+    // ListGroupPoliciesRequest
+    // ListGroupsForUserRequest
+    // ListGroupsRequest
+    // ListInstanceProfileTagsRequest
+    // ListInstanceProfilesForRoleRequest
+    // ListInstanceProfilesRequest
+    // ListMfaDeviceTagsRequest
+    // ListMfaDevicesRequest
+    // ListOpenIdConnectProviderTagsRequest
+    // ListOpenIdConnectProvidersRequest
+    // ListPoliciesGrantingServiceAccessRequest
+    // ListPoliciesRequest
+    // ListPolicyTagsRequest
+    // ListPolicyVersionsRequest
+    // ListRolePoliciesRequest
+    // ListRoleTagsRequest
+    // ListRolesRequest
+    // ListSamlProviderTagsRequest
+    // ListSamlProvidersRequest
+    // ListServerCertificateTagsRequest
+    // ListServerCertificatesRequest
+    // ListServiceSpecificCredentialsRequest
+    // ListSigningCertificatesRequest
+    // ListSshPublicKeysRequest
+    // ListUserPoliciesRequest
+    // ListUserTagsRequest
+    // ListUsersRequest
+    // ListVirtualMfaDevicesRequest
+    // PutGroupPolicyRequest
+    // PutRolePermissionsBoundaryRequest
+    // PutRolePolicyRequest
+    // PutUserPermissionsBoundaryRequest
+    // PutUserPolicyRequest
+    // RemoveClientIdFromOpenIdConnectProviderRequest
+    // RemoveRoleFromInstanceProfileRequest
+    // RemoveUserFromGroupRequest
+    // ResetServiceSpecificCredentialRequest
+    // ResyncMfaDeviceRequest
+    // SetDefaultPolicyVersionRequest
+    // SetSecurityTokenServicePreferencesRequest
+    // SimulateCustomPolicyRequest
+    // SimulatePrincipalPolicyRequest
+    // TagInstanceProfileRequest
+    // TagMfaDeviceRequest
+    // TagOpenIdConnectProviderRequest
+    // TagPolicyRequest
+    // TagRoleRequest
+    // TagSamlProviderRequest
+    // TagServerCertificateRequest
+    // TagUserRequest
+    // UntagInstanceProfileRequest
+    // UntagMfaDeviceRequest
+    // UntagOpenIdConnectProviderRequest
+    // UntagPolicyRequest
+    // UntagRoleRequest
+    // UntagSamlProviderRequest
+    // UntagServerCertificateRequest
+    // UntagUserRequest
+    // UpdateAccessKeyRequest
+    // UpdateAccountPasswordPolicyRequest
+    // UpdateAssumeRolePolicyRequest
+    // UpdateGroupRequest
+    // UpdateLoginProfileRequest
+    // UpdateOpenIdConnectProviderThumbprintRequest
+    // UpdateRoleDescriptionRequest
+    // UpdateRoleRequest
+    // UpdateSamlProviderRequest
+    // UpdateServerCertificateRequest
+    // UpdateServiceSpecificCredentialRequest
+    // UpdateSigningCertificateRequest
+    // UpdateSshPublicKeyRequest
+    // UpdateUserRequest
+    // UploadServerCertificateRequest
+    // UploadSigningCertificateRequest
+    // UploadSshPublicKeyRequest
+
+  }
+
+  // smartConstructors that take paramteers derived from mandatory & optional fields of requests
+}
