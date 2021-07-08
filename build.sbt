@@ -1,5 +1,4 @@
 import com.jsuereth.sbtpgp.SbtPgp.autoImport._
-import goober.generator
 
 inThisBuild(List(
   organization := "com.github.stacycurl",
