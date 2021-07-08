@@ -1,15 +1,15 @@
 import java.io.File
+import codecs._
+import common.{Embedded, Free, Generators, Hi, KleisliInterpreter}
 import io.circe.CursorOp.DownField
 import io.circe._
 import io.circe.parser._
+import reflection._
 import sbt.Def.task
 import sbt.{Def, Task, TaskKey, taskKey}
 
 import scala.collection.immutable.List
 import scala.io.Source
-
-import codecs._
-import reflection._
 
 object generator {
   val generate: TaskKey[Unit] = taskKey[Unit]("generate")
