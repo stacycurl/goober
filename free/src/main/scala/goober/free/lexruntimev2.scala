@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.lexruntimev2.LexRuntimeV2Client
 import software.amazon.awssdk.services.lexruntimev2.model._
-import java.nio.file.Path
 
 
 object lexruntimev2 { module =>
@@ -37,23 +36,10 @@ object lexruntimev2 { module =>
         ): Kleisli[M, LexRuntimeV2Client, GetSessionResponse] =
           primitive(_.getSession(request))
 
-        def putSession(
-          request: PutSessionRequest,
-          path: Path
-        ): Kleisli[M, LexRuntimeV2Client, PutSessionResponse] =
-          primitive(_.putSession(request, path))
-
         def recognizeText(
           request: RecognizeTextRequest
         ): Kleisli[M, LexRuntimeV2Client, RecognizeTextResponse] =
           primitive(_.recognizeText(request))
-
-        def recognizeUtterance(
-          request: RecognizeUtteranceRequest,
-          sourcePath: Path,
-          destinationPath: Path
-        ): Kleisli[M, LexRuntimeV2Client, RecognizeUtteranceResponse] =
-          primitive(_.recognizeUtterance(request, sourcePath, destinationPath))
 
         def primitive[A](
           f: LexRuntimeV2Client => A
@@ -76,20 +62,9 @@ object lexruntimev2 { module =>
         request: GetSessionRequest
       ): F[GetSessionResponse]
 
-      def putSession(
-        request: PutSessionRequest,
-        path: Path
-      ): F[PutSessionResponse]
-
       def recognizeText(
         request: RecognizeTextRequest
       ): F[RecognizeTextResponse]
-
-      def recognizeUtterance(
-        request: RecognizeUtteranceRequest,
-        sourcePath: Path,
-        destinationPath: Path
-      ): F[RecognizeUtteranceResponse]
     }
 
     final case class Embed[A](
@@ -113,28 +88,11 @@ object lexruntimev2 { module =>
         visitor.getSession(request)
     }
 
-    final case class PutSessionOp(
-      request: PutSessionRequest,
-      path: Path
-    ) extends LexRuntimeV2Op[PutSessionResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[PutSessionResponse] =
-        visitor.putSession(request, path)
-    }
-
     final case class RecognizeTextOp(
       request: RecognizeTextRequest
     ) extends LexRuntimeV2Op[RecognizeTextResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[RecognizeTextResponse] =
         visitor.recognizeText(request)
-    }
-
-    final case class RecognizeUtteranceOp(
-      request: RecognizeUtteranceRequest,
-      sourcePath: Path,
-      destinationPath: Path
-    ) extends LexRuntimeV2Op[RecognizeUtteranceResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[RecognizeUtteranceResponse] =
-        visitor.recognizeUtterance(request, sourcePath, destinationPath)
     }
   }
 
@@ -158,21 +116,8 @@ object lexruntimev2 { module =>
   ): LexRuntimeV2IO[GetSessionResponse] =
     FF.liftF(GetSessionOp(request))
 
-  def putSession(
-    request: PutSessionRequest,
-    path: Path
-  ): LexRuntimeV2IO[PutSessionResponse] =
-    FF.liftF(PutSessionOp(request, path))
-
   def recognizeText(
     request: RecognizeTextRequest
   ): LexRuntimeV2IO[RecognizeTextResponse] =
     FF.liftF(RecognizeTextOp(request))
-
-  def recognizeUtterance(
-    request: RecognizeUtteranceRequest,
-    sourcePath: Path,
-    destinationPath: Path
-  ): LexRuntimeV2IO[RecognizeUtteranceResponse] =
-    FF.liftF(RecognizeUtteranceOp(request, sourcePath, destinationPath))
 }

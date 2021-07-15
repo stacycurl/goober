@@ -26,9 +26,9 @@ object appstream {
     // CreateUserRequest
     // DeleteDirectoryConfigRequest
     // DeleteFleetRequest
+    // DeleteImageRequest
     // DeleteImageBuilderRequest
     // DeleteImagePermissionsRequest
-    // DeleteImageRequest
     // DeleteStackRequest
     // DeleteUsageReportSubscriptionRequest
     // DeleteUserRequest

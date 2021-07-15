@@ -16,8 +16,8 @@ object serverlessapplicationrepository {
     // CreateCloudFormationChangeSetRequest
     // CreateCloudFormationTemplateRequest
     // DeleteApplicationRequest
-    // GetApplicationPolicyRequest
     // GetApplicationRequest
+    // GetApplicationPolicyRequest
     // GetCloudFormationTemplateRequest
     // ListApplicationDependenciesRequest
     // ListApplicationVersionsRequest

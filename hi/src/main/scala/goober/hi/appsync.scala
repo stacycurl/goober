@@ -38,8 +38,8 @@ object appsync {
     // ListDataSourcesRequest
     // ListFunctionsRequest
     // ListGraphqlApisRequest
-    // ListResolversByFunctionRequest
     // ListResolversRequest
+    // ListResolversByFunctionRequest
     // ListTagsForResourceRequest
     // ListTypesRequest
     // StartSchemaCreationRequest

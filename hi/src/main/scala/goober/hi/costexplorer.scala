@@ -32,8 +32,8 @@ object costexplorer {
     // GetRightsizingRecommendationRequest
     // GetSavingsPlansCoverageRequest
     // GetSavingsPlansPurchaseRecommendationRequest
-    // GetSavingsPlansUtilizationDetailsRequest
     // GetSavingsPlansUtilizationRequest
+    // GetSavingsPlansUtilizationDetailsRequest
     // GetTagsRequest
     // GetUsageForecastRequest
     // ListCostCategoryDefinitionsRequest

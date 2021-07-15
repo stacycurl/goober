@@ -29,8 +29,8 @@ object dynamodb {
     // DescribeGlobalTableSettingsRequest
     // DescribeKinesisStreamingDestinationRequest
     // DescribeLimitsRequest
-    // DescribeTableReplicaAutoScalingRequest
     // DescribeTableRequest
+    // DescribeTableReplicaAutoScalingRequest
     // DescribeTimeToLiveRequest
     // DisableKinesisStreamingDestinationRequest
     // EnableKinesisStreamingDestinationRequest
@@ -58,8 +58,8 @@ object dynamodb {
     // UpdateGlobalTableRequest
     // UpdateGlobalTableSettingsRequest
     // UpdateItemRequest
-    // UpdateTableReplicaAutoScalingRequest
     // UpdateTableRequest
+    // UpdateTableReplicaAutoScalingRequest
     // UpdateTimeToLiveRequest
 
   }

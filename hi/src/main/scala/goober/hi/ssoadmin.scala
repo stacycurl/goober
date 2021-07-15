@@ -22,8 +22,8 @@ object ssoadmin {
     // DescribeAccountAssignmentCreationStatusRequest
     // DescribeAccountAssignmentDeletionStatusRequest
     // DescribeInstanceAccessControlAttributeConfigurationRequest
-    // DescribePermissionSetProvisioningStatusRequest
     // DescribePermissionSetRequest
+    // DescribePermissionSetProvisioningStatusRequest
     // DetachManagedPolicyFromPermissionSetRequest
     // GetInlinePolicyForPermissionSetRequest
     // ListAccountAssignmentCreationStatusRequest
@@ -33,8 +33,8 @@ object ssoadmin {
     // ListInstancesRequest
     // ListManagedPoliciesInPermissionSetRequest
     // ListPermissionSetProvisioningStatusRequest
-    // ListPermissionSetsProvisionedToAccountRequest
     // ListPermissionSetsRequest
+    // ListPermissionSetsProvisionedToAccountRequest
     // ListTagsForResourceRequest
     // ProvisionPermissionSetRequest
     // PutInlinePolicyToPermissionSetRequest

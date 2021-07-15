@@ -46,11 +46,6 @@ object comprehendmedical { module =>
         ): Kleisli[M, ComprehendMedicalClient, DescribeRxNormInferenceJobResponse] =
           primitive(_.describeRxNormInferenceJob(request))
 
-        def detectEntities(
-          request: DetectEntitiesRequest
-        ): Kleisli[M, ComprehendMedicalClient, DetectEntitiesResponse] =
-          primitive(_.detectEntities(request))
-
         def detectEntitiesV2(
           request: DetectEntitiesV2Request
         ): Kleisli[M, ComprehendMedicalClient, DetectEntitiesV2Response] =
@@ -160,10 +155,6 @@ object comprehendmedical { module =>
         request: DescribeRxNormInferenceJobRequest
       ): F[DescribeRxNormInferenceJobResponse]
 
-      def detectEntities(
-        request: DetectEntitiesRequest
-      ): F[DetectEntitiesResponse]
-
       def detectEntitiesV2(
         request: DetectEntitiesV2Request
       ): F[DetectEntitiesV2Response]
@@ -262,13 +253,6 @@ object comprehendmedical { module =>
     ) extends ComprehendMedicalOp[DescribeRxNormInferenceJobResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeRxNormInferenceJobResponse] =
         visitor.describeRxNormInferenceJob(request)
-    }
-
-    final case class DetectEntitiesOp(
-      request: DetectEntitiesRequest
-    ) extends ComprehendMedicalOp[DetectEntitiesResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[DetectEntitiesResponse] =
-        visitor.detectEntities(request)
     }
 
     final case class DetectEntitiesV2Op(
@@ -413,11 +397,6 @@ object comprehendmedical { module =>
     request: DescribeRxNormInferenceJobRequest
   ): ComprehendMedicalIO[DescribeRxNormInferenceJobResponse] =
     FF.liftF(DescribeRxNormInferenceJobOp(request))
-
-  def detectEntities(
-    request: DetectEntitiesRequest
-  ): ComprehendMedicalIO[DetectEntitiesResponse] =
-    FF.liftF(DetectEntitiesOp(request))
 
   def detectEntitiesV2(
     request: DetectEntitiesV2Request

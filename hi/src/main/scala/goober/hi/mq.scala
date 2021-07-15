@@ -18,9 +18,9 @@ object mq {
     // DeleteBrokerRequest
     // DeleteTagsRequest
     // DeleteUserRequest
+    // DescribeBrokerRequest
     // DescribeBrokerEngineTypesRequest
     // DescribeBrokerInstanceOptionsRequest
-    // DescribeBrokerRequest
     // DescribeConfigurationRequest
     // DescribeConfigurationRevisionRequest
     // DescribeUserRequest

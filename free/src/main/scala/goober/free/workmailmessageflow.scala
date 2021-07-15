@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.workmailmessageflow.WorkMailMessageFlowClient
 import software.amazon.awssdk.services.workmailmessageflow.model._
-import java.nio.file.Path
 
 
 object workmailmessageflow { module =>
@@ -27,12 +26,6 @@ object workmailmessageflow { module =>
 
     object Visitor {
       trait KleisliVisitor[M[_]] extends WorkMailMessageFlowOp.Visitor[Kleisli[M, WorkMailMessageFlowClient, *]] {
-        def getRawMessageContent(
-          request: GetRawMessageContentRequest,
-          path: Path
-        ): Kleisli[M, WorkMailMessageFlowClient, GetRawMessageContentResponse] =
-          primitive(_.getRawMessageContent(request, path))
-
         def putRawMessageContent(
           request: PutRawMessageContentRequest
         ): Kleisli[M, WorkMailMessageFlowClient, PutRawMessageContentResponse] =
@@ -51,11 +44,6 @@ object workmailmessageflow { module =>
         e: Embedded[A]
       ): F[A]
 
-      def getRawMessageContent(
-        request: GetRawMessageContentRequest,
-        path: Path
-      ): F[GetRawMessageContentResponse]
-
       def putRawMessageContent(
         request: PutRawMessageContentRequest
       ): F[PutRawMessageContentResponse]
@@ -66,14 +54,6 @@ object workmailmessageflow { module =>
     ) extends WorkMailMessageFlowOp[A] {
       def visit[F[_]](visitor: Visitor[F]) =
         visitor.embed(e)
-    }
-
-    final case class GetRawMessageContentOp(
-      request: GetRawMessageContentRequest,
-      path: Path
-    ) extends WorkMailMessageFlowOp[GetRawMessageContentResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetRawMessageContentResponse] =
-        visitor.getRawMessageContent(request, path)
     }
 
     final case class PutRawMessageContentOp(
@@ -93,12 +73,6 @@ object workmailmessageflow { module =>
     ev: Embeddable[F, J]
   ): FF[WorkMailMessageFlowOp, A] =
     FF.liftF(Embed(ev.embed(j, fa)))
-
-  def getRawMessageContent(
-    request: GetRawMessageContentRequest,
-    path: Path
-  ): WorkMailMessageFlowIO[GetRawMessageContentResponse] =
-    FF.liftF(GetRawMessageContentOp(request, path))
 
   def putRawMessageContent(
     request: PutRawMessageContentRequest

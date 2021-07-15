@@ -41,8 +41,8 @@ object ecs {
     // ListTaskDefinitionFamiliesRequest
     // ListTaskDefinitionsRequest
     // ListTasksRequest
-    // PutAccountSettingDefaultRequest
     // PutAccountSettingRequest
+    // PutAccountSettingDefaultRequest
     // PutAttributesRequest
     // PutClusterCapacityProvidersRequest
     // RegisterContainerInstanceRequest
@@ -60,8 +60,8 @@ object ecs {
     // UpdateClusterSettingsRequest
     // UpdateContainerAgentRequest
     // UpdateContainerInstancesStateRequest
-    // UpdateServicePrimaryTaskSetRequest
     // UpdateServiceRequest
+    // UpdateServicePrimaryTaskSetRequest
     // UpdateTaskSetRequest
 
   }

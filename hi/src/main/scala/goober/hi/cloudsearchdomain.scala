@@ -11,7 +11,6 @@ object cloudsearchdomain {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // RequestBody
     // SearchRequest
     // SuggestRequest
     // UploadDocumentsRequest

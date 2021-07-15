@@ -18,8 +18,8 @@ object worklink {
     // DeleteFleetRequest
     // DescribeAuditStreamConfigurationRequest
     // DescribeCompanyNetworkConfigurationRequest
-    // DescribeDevicePolicyConfigurationRequest
     // DescribeDeviceRequest
+    // DescribeDevicePolicyConfigurationRequest
     // DescribeDomainRequest
     // DescribeFleetMetadataRequest
     // DescribeIdentityProviderConfigurationRequest

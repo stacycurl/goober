@@ -22,8 +22,8 @@ object appconfig {
     // DeleteEnvironmentRequest
     // DeleteHostedConfigurationVersionRequest
     // GetApplicationRequest
-    // GetConfigurationProfileRequest
     // GetConfigurationRequest
+    // GetConfigurationProfileRequest
     // GetDeploymentRequest
     // GetDeploymentStrategyRequest
     // GetEnvironmentRequest

@@ -23,8 +23,8 @@ object ivs {
     // GetChannelRequest
     // GetPlaybackKeyPairRequest
     // GetRecordingConfigurationRequest
-    // GetStreamKeyRequest
     // GetStreamRequest
+    // GetStreamKeyRequest
     // ImportPlaybackKeyPairRequest
     // ListChannelsRequest
     // ListPlaybackKeyPairsRequest

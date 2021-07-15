@@ -16,16 +16,16 @@ import goober.free.apigateway.ApiGatewayOp
 import goober.free.apigatewaymanagementapi.ApiGatewayManagementApiOp
 import goober.free.apigatewayv2.ApiGatewayV2Op
 import goober.free.appconfig.AppConfigOp
-import goober.free.appintegrations.AppIntegrationsOp
-import goober.free.appmesh.AppMeshOp
-import goober.free.apprunner.AppRunnerOp
-import goober.free.appstream.AppStreamOp
-import goober.free.appsync.AppSyncOp
 import goober.free.appflow.AppflowOp
+import goober.free.appintegrations.AppIntegrationsOp
 import goober.free.applicationautoscaling.ApplicationAutoScalingOp
 import goober.free.applicationcostprofiler.ApplicationCostProfilerOp
 import goober.free.applicationdiscovery.ApplicationDiscoveryOp
 import goober.free.applicationinsights.ApplicationInsightsOp
+import goober.free.appmesh.AppMeshOp
+import goober.free.apprunner.AppRunnerOp
+import goober.free.appstream.AppStreamOp
+import goober.free.appsync.AppSyncOp
 import goober.free.athena.AthenaOp
 import goober.free.auditmanager.AuditManagerOp
 import goober.free.autoscaling.AutoScalingOp
@@ -47,6 +47,7 @@ import goober.free.cloudtrail.CloudTrailOp
 import goober.free.cloudwatch.CloudWatchOp
 import goober.free.cloudwatchevents.CloudWatchEventsOp
 import goober.free.cloudwatchlogs.CloudWatchLogsOp
+import goober.free.codeartifact.CodeartifactOp
 import goober.free.codebuild.CodeBuildOp
 import goober.free.codecommit.CodeCommitOp
 import goober.free.codedeploy.CodeDeployOp
@@ -55,7 +56,6 @@ import goober.free.codegurureviewer.CodeGuruReviewerOp
 import goober.free.codepipeline.CodePipelineOp
 import goober.free.codestar.CodeStarOp
 import goober.free.codestarconnections.CodeStarConnectionsOp
-import goober.free.codeartifact.CodeartifactOp
 import goober.free.codestarnotifications.CodestarNotificationsOp
 import goober.free.cognitoidentity.CognitoIdentityOp
 import goober.free.cognitoidentityprovider.CognitoIdentityProviderOp
@@ -70,15 +70,15 @@ import goober.free.connectparticipant.ConnectParticipantOp
 import goober.free.costandusagereport.CostAndUsageReportOp
 import goober.free.costexplorer.CostExplorerOp
 import goober.free.customerprofiles.CustomerProfilesOp
+import goober.free.databasemigration.DatabaseMigrationOp
 import goober.free.databrew.DataBrewOp
 import goober.free.dataexchange.DataExchangeOp
 import goober.free.datapipeline.DataPipelineOp
 import goober.free.datasync.DataSyncOp
-import goober.free.databasemigration.DatabaseMigrationOp
 import goober.free.dax.DaxOp
 import goober.free.detective.DetectiveOp
-import goober.free.devopsguru.DevOpsGuruOp
 import goober.free.devicefarm.DeviceFarmOp
+import goober.free.devopsguru.DevOpsGuruOp
 import goober.free.directconnect.DirectConnectOp
 import goober.free.directory.DirectoryOp
 import goober.free.dlm.DlmOp
@@ -98,12 +98,11 @@ import goober.free.elasticbeanstalk.ElasticBeanstalkOp
 import goober.free.elasticinference.ElasticInferenceOp
 import goober.free.elasticloadbalancing.ElasticLoadBalancingOp
 import goober.free.elasticloadbalancingv2.ElasticLoadBalancingV2Op
-import goober.free.elastictranscoder.ElasticTranscoderOp
 import goober.free.elasticsearch.ElasticsearchOp
+import goober.free.elastictranscoder.ElasticTranscoderOp
 import goober.free.emr.EmrOp
 import goober.free.emrcontainers.EmrContainersOp
 import goober.free.eventbridge.EventBridgeOp
-import goober.free.fsx.FSxOp
 import goober.free.finspace.FinspaceOp
 import goober.free.finspacedata.FinspaceDataOp
 import goober.free.firehose.FirehoseOp
@@ -112,6 +111,7 @@ import goober.free.fms.FmsOp
 import goober.free.forecast.ForecastOp
 import goober.free.forecastquery.ForecastqueryOp
 import goober.free.frauddetector.FraudDetectorOp
+import goober.free.fsx.FSxOp
 import goober.free.gamelift.GameLiftOp
 import goober.free.glacier.GlacierOp
 import goober.free.globalaccelerator.GlobalAcceleratorOp
@@ -127,19 +127,19 @@ import goober.free.iam.IamOp
 import goober.free.identitystore.IdentitystoreOp
 import goober.free.imagebuilder.ImagebuilderOp
 import goober.free.inspector.InspectorOp
-import goober.free.iotanalytics.IoTAnalyticsOp
-import goober.free.iotfleethub.IoTFleetHubOp
-import goober.free.iotsecuretunneling.IoTSecureTunnelingOp
-import goober.free.iotsitewise.IoTSiteWiseOp
-import goober.free.iotthingsgraph.IoTThingsGraphOp
 import goober.free.iot.IotOp
 import goober.free.iot1clickdevices.Iot1ClickDevicesOp
 import goober.free.iot1clickprojects.Iot1ClickProjectsOp
+import goober.free.iotanalytics.IoTAnalyticsOp
 import goober.free.iotdataplane.IotDataPlaneOp
 import goober.free.iotdeviceadvisor.IotDeviceAdvisorOp
 import goober.free.iotevents.IotEventsOp
 import goober.free.ioteventsdata.IotEventsDataOp
+import goober.free.iotfleethub.IoTFleetHubOp
 import goober.free.iotjobsdataplane.IotJobsDataPlaneOp
+import goober.free.iotsecuretunneling.IoTSecureTunnelingOp
+import goober.free.iotsitewise.IoTSiteWiseOp
+import goober.free.iotthingsgraph.IoTThingsGraphOp
 import goober.free.iotwireless.IotWirelessOp
 import goober.free.ivs.IvsOp
 import goober.free.kafka.KafkaOp
@@ -164,7 +164,6 @@ import goober.free.location.LocationOp
 import goober.free.lookoutequipment.LookoutEquipmentOp
 import goober.free.lookoutmetrics.LookoutMetricsOp
 import goober.free.lookoutvision.LookoutVisionOp
-import goober.free.mturk.MTurkOp
 import goober.free.machinelearning.MachineLearningOp
 import goober.free.macie.MacieOp
 import goober.free.macie2.Macie2Op
@@ -186,6 +185,7 @@ import goober.free.migrationhub.MigrationHubOp
 import goober.free.migrationhubconfig.MigrationHubConfigOp
 import goober.free.mobile.MobileOp
 import goober.free.mq.MqOp
+import goober.free.mturk.MTurkOp
 import goober.free.mwaa.MwaaOp
 import goober.free.neptune.NeptuneOp
 import goober.free.networkfirewall.NetworkFirewallOp
@@ -225,9 +225,9 @@ import goober.free.s3control.S3ControlOp
 import goober.free.s3outposts.S3OutpostsOp
 import goober.free.sagemaker.SageMakerOp
 import goober.free.sagemakera2iruntime.SageMakerA2IRuntimeOp
+import goober.free.sagemakeredge.SagemakerEdgeOp
 import goober.free.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeOp
 import goober.free.sagemakerruntime.SageMakerRuntimeOp
-import goober.free.sagemakeredge.SagemakerEdgeOp
 import goober.free.savingsplans.SavingsplansOp
 import goober.free.schemas.SchemasOp
 import goober.free.secretsmanager.SecretsManagerOp
@@ -284,16 +284,16 @@ import software.amazon.awssdk.services.apigateway.ApiGatewayClient
 import software.amazon.awssdk.services.apigatewaymanagementapi.ApiGatewayManagementApiClient
 import software.amazon.awssdk.services.apigatewayv2.ApiGatewayV2Client
 import software.amazon.awssdk.services.appconfig.AppConfigClient
-import software.amazon.awssdk.services.appintegrations.AppIntegrationsClient
-import software.amazon.awssdk.services.appmesh.AppMeshClient
-import software.amazon.awssdk.services.apprunner.AppRunnerClient
-import software.amazon.awssdk.services.appstream.AppStreamClient
-import software.amazon.awssdk.services.appsync.AppSyncClient
 import software.amazon.awssdk.services.appflow.AppflowClient
+import software.amazon.awssdk.services.appintegrations.AppIntegrationsClient
 import software.amazon.awssdk.services.applicationautoscaling.ApplicationAutoScalingClient
 import software.amazon.awssdk.services.applicationcostprofiler.ApplicationCostProfilerClient
 import software.amazon.awssdk.services.applicationdiscovery.ApplicationDiscoveryClient
 import software.amazon.awssdk.services.applicationinsights.ApplicationInsightsClient
+import software.amazon.awssdk.services.appmesh.AppMeshClient
+import software.amazon.awssdk.services.apprunner.AppRunnerClient
+import software.amazon.awssdk.services.appstream.AppStreamClient
+import software.amazon.awssdk.services.appsync.AppSyncClient
 import software.amazon.awssdk.services.athena.AthenaClient
 import software.amazon.awssdk.services.auditmanager.AuditManagerClient
 import software.amazon.awssdk.services.autoscaling.AutoScalingClient
@@ -315,6 +315,7 @@ import software.amazon.awssdk.services.cloudtrail.CloudTrailClient
 import software.amazon.awssdk.services.cloudwatch.CloudWatchClient
 import software.amazon.awssdk.services.cloudwatchevents.CloudWatchEventsClient
 import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient
+import software.amazon.awssdk.services.codeartifact.CodeartifactClient
 import software.amazon.awssdk.services.codebuild.CodeBuildClient
 import software.amazon.awssdk.services.codecommit.CodeCommitClient
 import software.amazon.awssdk.services.codedeploy.CodeDeployClient
@@ -323,7 +324,6 @@ import software.amazon.awssdk.services.codegurureviewer.CodeGuruReviewerClient
 import software.amazon.awssdk.services.codepipeline.CodePipelineClient
 import software.amazon.awssdk.services.codestar.CodeStarClient
 import software.amazon.awssdk.services.codestarconnections.CodeStarConnectionsClient
-import software.amazon.awssdk.services.codeartifact.CodeartifactClient
 import software.amazon.awssdk.services.codestarnotifications.CodestarNotificationsClient
 import software.amazon.awssdk.services.cognitoidentity.CognitoIdentityClient
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient
@@ -338,15 +338,15 @@ import software.amazon.awssdk.services.connectparticipant.ConnectParticipantClie
 import software.amazon.awssdk.services.costandusagereport.CostAndUsageReportClient
 import software.amazon.awssdk.services.costexplorer.CostExplorerClient
 import software.amazon.awssdk.services.customerprofiles.CustomerProfilesClient
+import software.amazon.awssdk.services.databasemigration.DatabaseMigrationClient
 import software.amazon.awssdk.services.databrew.DataBrewClient
 import software.amazon.awssdk.services.dataexchange.DataExchangeClient
 import software.amazon.awssdk.services.datapipeline.DataPipelineClient
 import software.amazon.awssdk.services.datasync.DataSyncClient
-import software.amazon.awssdk.services.databasemigration.DatabaseMigrationClient
 import software.amazon.awssdk.services.dax.DaxClient
 import software.amazon.awssdk.services.detective.DetectiveClient
-import software.amazon.awssdk.services.devopsguru.DevOpsGuruClient
 import software.amazon.awssdk.services.devicefarm.DeviceFarmClient
+import software.amazon.awssdk.services.devopsguru.DevOpsGuruClient
 import software.amazon.awssdk.services.directconnect.DirectConnectClient
 import software.amazon.awssdk.services.directory.DirectoryClient
 import software.amazon.awssdk.services.dlm.DlmClient
@@ -366,12 +366,11 @@ import software.amazon.awssdk.services.elasticbeanstalk.ElasticBeanstalkClient
 import software.amazon.awssdk.services.elasticinference.ElasticInferenceClient
 import software.amazon.awssdk.services.elasticloadbalancing.ElasticLoadBalancingClient
 import software.amazon.awssdk.services.elasticloadbalancingv2.ElasticLoadBalancingV2Client
-import software.amazon.awssdk.services.elastictranscoder.ElasticTranscoderClient
 import software.amazon.awssdk.services.elasticsearch.ElasticsearchClient
+import software.amazon.awssdk.services.elastictranscoder.ElasticTranscoderClient
 import software.amazon.awssdk.services.emr.EmrClient
 import software.amazon.awssdk.services.emrcontainers.EmrContainersClient
 import software.amazon.awssdk.services.eventbridge.EventBridgeClient
-import software.amazon.awssdk.services.fsx.FSxClient
 import software.amazon.awssdk.services.finspace.FinspaceClient
 import software.amazon.awssdk.services.finspacedata.FinspaceDataClient
 import software.amazon.awssdk.services.firehose.FirehoseClient
@@ -380,6 +379,7 @@ import software.amazon.awssdk.services.fms.FmsClient
 import software.amazon.awssdk.services.forecast.ForecastClient
 import software.amazon.awssdk.services.forecastquery.ForecastqueryClient
 import software.amazon.awssdk.services.frauddetector.FraudDetectorClient
+import software.amazon.awssdk.services.fsx.FSxClient
 import software.amazon.awssdk.services.gamelift.GameLiftClient
 import software.amazon.awssdk.services.glacier.GlacierClient
 import software.amazon.awssdk.services.globalaccelerator.GlobalAcceleratorClient
@@ -395,19 +395,19 @@ import software.amazon.awssdk.services.iam.IamClient
 import software.amazon.awssdk.services.identitystore.IdentitystoreClient
 import software.amazon.awssdk.services.imagebuilder.ImagebuilderClient
 import software.amazon.awssdk.services.inspector.InspectorClient
-import software.amazon.awssdk.services.iotanalytics.IoTAnalyticsClient
-import software.amazon.awssdk.services.iotfleethub.IoTFleetHubClient
-import software.amazon.awssdk.services.iotsecuretunneling.IoTSecureTunnelingClient
-import software.amazon.awssdk.services.iotsitewise.IoTSiteWiseClient
-import software.amazon.awssdk.services.iotthingsgraph.IoTThingsGraphClient
 import software.amazon.awssdk.services.iot.IotClient
 import software.amazon.awssdk.services.iot1clickdevices.Iot1ClickDevicesClient
 import software.amazon.awssdk.services.iot1clickprojects.Iot1ClickProjectsClient
+import software.amazon.awssdk.services.iotanalytics.IoTAnalyticsClient
 import software.amazon.awssdk.services.iotdataplane.IotDataPlaneClient
 import software.amazon.awssdk.services.iotdeviceadvisor.IotDeviceAdvisorClient
 import software.amazon.awssdk.services.iotevents.IotEventsClient
 import software.amazon.awssdk.services.ioteventsdata.IotEventsDataClient
+import software.amazon.awssdk.services.iotfleethub.IoTFleetHubClient
 import software.amazon.awssdk.services.iotjobsdataplane.IotJobsDataPlaneClient
+import software.amazon.awssdk.services.iotsecuretunneling.IoTSecureTunnelingClient
+import software.amazon.awssdk.services.iotsitewise.IoTSiteWiseClient
+import software.amazon.awssdk.services.iotthingsgraph.IoTThingsGraphClient
 import software.amazon.awssdk.services.iotwireless.IotWirelessClient
 import software.amazon.awssdk.services.ivs.IvsClient
 import software.amazon.awssdk.services.kafka.KafkaClient
@@ -432,7 +432,6 @@ import software.amazon.awssdk.services.location.LocationClient
 import software.amazon.awssdk.services.lookoutequipment.LookoutEquipmentClient
 import software.amazon.awssdk.services.lookoutmetrics.LookoutMetricsClient
 import software.amazon.awssdk.services.lookoutvision.LookoutVisionClient
-import software.amazon.awssdk.services.mturk.MTurkClient
 import software.amazon.awssdk.services.machinelearning.MachineLearningClient
 import software.amazon.awssdk.services.macie.MacieClient
 import software.amazon.awssdk.services.macie2.Macie2Client
@@ -454,6 +453,7 @@ import software.amazon.awssdk.services.migrationhub.MigrationHubClient
 import software.amazon.awssdk.services.migrationhubconfig.MigrationHubConfigClient
 import software.amazon.awssdk.services.mobile.MobileClient
 import software.amazon.awssdk.services.mq.MqClient
+import software.amazon.awssdk.services.mturk.MTurkClient
 import software.amazon.awssdk.services.mwaa.MwaaClient
 import software.amazon.awssdk.services.neptune.NeptuneClient
 import software.amazon.awssdk.services.networkfirewall.NetworkFirewallClient
@@ -493,9 +493,9 @@ import software.amazon.awssdk.services.s3control.S3ControlClient
 import software.amazon.awssdk.services.s3outposts.S3OutpostsClient
 import software.amazon.awssdk.services.sagemaker.SageMakerClient
 import software.amazon.awssdk.services.sagemakera2iruntime.SageMakerA2IRuntimeClient
+import software.amazon.awssdk.services.sagemakeredge.SagemakerEdgeClient
 import software.amazon.awssdk.services.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeClient
 import software.amazon.awssdk.services.sagemakerruntime.SageMakerRuntimeClient
-import software.amazon.awssdk.services.sagemakeredge.SagemakerEdgeClient
 import software.amazon.awssdk.services.savingsplans.SavingsplansClient
 import software.amazon.awssdk.services.schemas.SchemasClient
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient
@@ -599,28 +599,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: AppConfigClient ⇒ A): Kleisli[M, AppConfigClient, A] = interpreter.primitive(f)
   }
 
-  lazy val AppIntegrationsInterpreter: AppIntegrationsOp ~> Kleisli[M, AppIntegrationsClient, *] = new AppIntegrationsInterpreter {
-    def primitive[A](f: AppIntegrationsClient ⇒ A): Kleisli[M, AppIntegrationsClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val AppMeshInterpreter: AppMeshOp ~> Kleisli[M, AppMeshClient, *] = new AppMeshInterpreter {
-    def primitive[A](f: AppMeshClient ⇒ A): Kleisli[M, AppMeshClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val AppRunnerInterpreter: AppRunnerOp ~> Kleisli[M, AppRunnerClient, *] = new AppRunnerInterpreter {
-    def primitive[A](f: AppRunnerClient ⇒ A): Kleisli[M, AppRunnerClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val AppStreamInterpreter: AppStreamOp ~> Kleisli[M, AppStreamClient, *] = new AppStreamInterpreter {
-    def primitive[A](f: AppStreamClient ⇒ A): Kleisli[M, AppStreamClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val AppSyncInterpreter: AppSyncOp ~> Kleisli[M, AppSyncClient, *] = new AppSyncInterpreter {
-    def primitive[A](f: AppSyncClient ⇒ A): Kleisli[M, AppSyncClient, A] = interpreter.primitive(f)
-  }
-
   lazy val AppflowInterpreter: AppflowOp ~> Kleisli[M, AppflowClient, *] = new AppflowInterpreter {
     def primitive[A](f: AppflowClient ⇒ A): Kleisli[M, AppflowClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val AppIntegrationsInterpreter: AppIntegrationsOp ~> Kleisli[M, AppIntegrationsClient, *] = new AppIntegrationsInterpreter {
+    def primitive[A](f: AppIntegrationsClient ⇒ A): Kleisli[M, AppIntegrationsClient, A] = interpreter.primitive(f)
   }
 
   lazy val ApplicationAutoScalingInterpreter: ApplicationAutoScalingOp ~> Kleisli[M, ApplicationAutoScalingClient, *] = new ApplicationAutoScalingInterpreter {
@@ -637,6 +621,22 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   lazy val ApplicationInsightsInterpreter: ApplicationInsightsOp ~> Kleisli[M, ApplicationInsightsClient, *] = new ApplicationInsightsInterpreter {
     def primitive[A](f: ApplicationInsightsClient ⇒ A): Kleisli[M, ApplicationInsightsClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val AppMeshInterpreter: AppMeshOp ~> Kleisli[M, AppMeshClient, *] = new AppMeshInterpreter {
+    def primitive[A](f: AppMeshClient ⇒ A): Kleisli[M, AppMeshClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val AppRunnerInterpreter: AppRunnerOp ~> Kleisli[M, AppRunnerClient, *] = new AppRunnerInterpreter {
+    def primitive[A](f: AppRunnerClient ⇒ A): Kleisli[M, AppRunnerClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val AppStreamInterpreter: AppStreamOp ~> Kleisli[M, AppStreamClient, *] = new AppStreamInterpreter {
+    def primitive[A](f: AppStreamClient ⇒ A): Kleisli[M, AppStreamClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val AppSyncInterpreter: AppSyncOp ~> Kleisli[M, AppSyncClient, *] = new AppSyncInterpreter {
+    def primitive[A](f: AppSyncClient ⇒ A): Kleisli[M, AppSyncClient, A] = interpreter.primitive(f)
   }
 
   lazy val AthenaInterpreter: AthenaOp ~> Kleisli[M, AthenaClient, *] = new AthenaInterpreter {
@@ -723,6 +723,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: CloudWatchLogsClient ⇒ A): Kleisli[M, CloudWatchLogsClient, A] = interpreter.primitive(f)
   }
 
+  lazy val CodeartifactInterpreter: CodeartifactOp ~> Kleisli[M, CodeartifactClient, *] = new CodeartifactInterpreter {
+    def primitive[A](f: CodeartifactClient ⇒ A): Kleisli[M, CodeartifactClient, A] = interpreter.primitive(f)
+  }
+
   lazy val CodeBuildInterpreter: CodeBuildOp ~> Kleisli[M, CodeBuildClient, *] = new CodeBuildInterpreter {
     def primitive[A](f: CodeBuildClient ⇒ A): Kleisli[M, CodeBuildClient, A] = interpreter.primitive(f)
   }
@@ -753,10 +757,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   lazy val CodeStarConnectionsInterpreter: CodeStarConnectionsOp ~> Kleisli[M, CodeStarConnectionsClient, *] = new CodeStarConnectionsInterpreter {
     def primitive[A](f: CodeStarConnectionsClient ⇒ A): Kleisli[M, CodeStarConnectionsClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val CodeartifactInterpreter: CodeartifactOp ~> Kleisli[M, CodeartifactClient, *] = new CodeartifactInterpreter {
-    def primitive[A](f: CodeartifactClient ⇒ A): Kleisli[M, CodeartifactClient, A] = interpreter.primitive(f)
   }
 
   lazy val CodestarNotificationsInterpreter: CodestarNotificationsOp ~> Kleisli[M, CodestarNotificationsClient, *] = new CodestarNotificationsInterpreter {
@@ -815,6 +815,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: CustomerProfilesClient ⇒ A): Kleisli[M, CustomerProfilesClient, A] = interpreter.primitive(f)
   }
 
+  lazy val DatabaseMigrationInterpreter: DatabaseMigrationOp ~> Kleisli[M, DatabaseMigrationClient, *] = new DatabaseMigrationInterpreter {
+    def primitive[A](f: DatabaseMigrationClient ⇒ A): Kleisli[M, DatabaseMigrationClient, A] = interpreter.primitive(f)
+  }
+
   lazy val DataBrewInterpreter: DataBrewOp ~> Kleisli[M, DataBrewClient, *] = new DataBrewInterpreter {
     def primitive[A](f: DataBrewClient ⇒ A): Kleisli[M, DataBrewClient, A] = interpreter.primitive(f)
   }
@@ -831,10 +835,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: DataSyncClient ⇒ A): Kleisli[M, DataSyncClient, A] = interpreter.primitive(f)
   }
 
-  lazy val DatabaseMigrationInterpreter: DatabaseMigrationOp ~> Kleisli[M, DatabaseMigrationClient, *] = new DatabaseMigrationInterpreter {
-    def primitive[A](f: DatabaseMigrationClient ⇒ A): Kleisli[M, DatabaseMigrationClient, A] = interpreter.primitive(f)
-  }
-
   lazy val DaxInterpreter: DaxOp ~> Kleisli[M, DaxClient, *] = new DaxInterpreter {
     def primitive[A](f: DaxClient ⇒ A): Kleisli[M, DaxClient, A] = interpreter.primitive(f)
   }
@@ -843,12 +843,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: DetectiveClient ⇒ A): Kleisli[M, DetectiveClient, A] = interpreter.primitive(f)
   }
 
-  lazy val DevOpsGuruInterpreter: DevOpsGuruOp ~> Kleisli[M, DevOpsGuruClient, *] = new DevOpsGuruInterpreter {
-    def primitive[A](f: DevOpsGuruClient ⇒ A): Kleisli[M, DevOpsGuruClient, A] = interpreter.primitive(f)
-  }
-
   lazy val DeviceFarmInterpreter: DeviceFarmOp ~> Kleisli[M, DeviceFarmClient, *] = new DeviceFarmInterpreter {
     def primitive[A](f: DeviceFarmClient ⇒ A): Kleisli[M, DeviceFarmClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val DevOpsGuruInterpreter: DevOpsGuruOp ~> Kleisli[M, DevOpsGuruClient, *] = new DevOpsGuruInterpreter {
+    def primitive[A](f: DevOpsGuruClient ⇒ A): Kleisli[M, DevOpsGuruClient, A] = interpreter.primitive(f)
   }
 
   lazy val DirectConnectInterpreter: DirectConnectOp ~> Kleisli[M, DirectConnectClient, *] = new DirectConnectInterpreter {
@@ -927,12 +927,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: ElasticLoadBalancingV2Client ⇒ A): Kleisli[M, ElasticLoadBalancingV2Client, A] = interpreter.primitive(f)
   }
 
-  lazy val ElasticTranscoderInterpreter: ElasticTranscoderOp ~> Kleisli[M, ElasticTranscoderClient, *] = new ElasticTranscoderInterpreter {
-    def primitive[A](f: ElasticTranscoderClient ⇒ A): Kleisli[M, ElasticTranscoderClient, A] = interpreter.primitive(f)
-  }
-
   lazy val ElasticsearchInterpreter: ElasticsearchOp ~> Kleisli[M, ElasticsearchClient, *] = new ElasticsearchInterpreter {
     def primitive[A](f: ElasticsearchClient ⇒ A): Kleisli[M, ElasticsearchClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val ElasticTranscoderInterpreter: ElasticTranscoderOp ~> Kleisli[M, ElasticTranscoderClient, *] = new ElasticTranscoderInterpreter {
+    def primitive[A](f: ElasticTranscoderClient ⇒ A): Kleisli[M, ElasticTranscoderClient, A] = interpreter.primitive(f)
   }
 
   lazy val EmrInterpreter: EmrOp ~> Kleisli[M, EmrClient, *] = new EmrInterpreter {
@@ -945,10 +945,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   lazy val EventBridgeInterpreter: EventBridgeOp ~> Kleisli[M, EventBridgeClient, *] = new EventBridgeInterpreter {
     def primitive[A](f: EventBridgeClient ⇒ A): Kleisli[M, EventBridgeClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val FSxInterpreter: FSxOp ~> Kleisli[M, FSxClient, *] = new FSxInterpreter {
-    def primitive[A](f: FSxClient ⇒ A): Kleisli[M, FSxClient, A] = interpreter.primitive(f)
   }
 
   lazy val FinspaceInterpreter: FinspaceOp ~> Kleisli[M, FinspaceClient, *] = new FinspaceInterpreter {
@@ -981,6 +977,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   lazy val FraudDetectorInterpreter: FraudDetectorOp ~> Kleisli[M, FraudDetectorClient, *] = new FraudDetectorInterpreter {
     def primitive[A](f: FraudDetectorClient ⇒ A): Kleisli[M, FraudDetectorClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val FSxInterpreter: FSxOp ~> Kleisli[M, FSxClient, *] = new FSxInterpreter {
+    def primitive[A](f: FSxClient ⇒ A): Kleisli[M, FSxClient, A] = interpreter.primitive(f)
   }
 
   lazy val GameLiftInterpreter: GameLiftOp ~> Kleisli[M, GameLiftClient, *] = new GameLiftInterpreter {
@@ -1043,26 +1043,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: InspectorClient ⇒ A): Kleisli[M, InspectorClient, A] = interpreter.primitive(f)
   }
 
-  lazy val IoTAnalyticsInterpreter: IoTAnalyticsOp ~> Kleisli[M, IoTAnalyticsClient, *] = new IoTAnalyticsInterpreter {
-    def primitive[A](f: IoTAnalyticsClient ⇒ A): Kleisli[M, IoTAnalyticsClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val IoTFleetHubInterpreter: IoTFleetHubOp ~> Kleisli[M, IoTFleetHubClient, *] = new IoTFleetHubInterpreter {
-    def primitive[A](f: IoTFleetHubClient ⇒ A): Kleisli[M, IoTFleetHubClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val IoTSecureTunnelingInterpreter: IoTSecureTunnelingOp ~> Kleisli[M, IoTSecureTunnelingClient, *] = new IoTSecureTunnelingInterpreter {
-    def primitive[A](f: IoTSecureTunnelingClient ⇒ A): Kleisli[M, IoTSecureTunnelingClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val IoTSiteWiseInterpreter: IoTSiteWiseOp ~> Kleisli[M, IoTSiteWiseClient, *] = new IoTSiteWiseInterpreter {
-    def primitive[A](f: IoTSiteWiseClient ⇒ A): Kleisli[M, IoTSiteWiseClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val IoTThingsGraphInterpreter: IoTThingsGraphOp ~> Kleisli[M, IoTThingsGraphClient, *] = new IoTThingsGraphInterpreter {
-    def primitive[A](f: IoTThingsGraphClient ⇒ A): Kleisli[M, IoTThingsGraphClient, A] = interpreter.primitive(f)
-  }
-
   lazy val IotInterpreter: IotOp ~> Kleisli[M, IotClient, *] = new IotInterpreter {
     def primitive[A](f: IotClient ⇒ A): Kleisli[M, IotClient, A] = interpreter.primitive(f)
   }
@@ -1073,6 +1053,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   lazy val Iot1ClickProjectsInterpreter: Iot1ClickProjectsOp ~> Kleisli[M, Iot1ClickProjectsClient, *] = new Iot1ClickProjectsInterpreter {
     def primitive[A](f: Iot1ClickProjectsClient ⇒ A): Kleisli[M, Iot1ClickProjectsClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val IoTAnalyticsInterpreter: IoTAnalyticsOp ~> Kleisli[M, IoTAnalyticsClient, *] = new IoTAnalyticsInterpreter {
+    def primitive[A](f: IoTAnalyticsClient ⇒ A): Kleisli[M, IoTAnalyticsClient, A] = interpreter.primitive(f)
   }
 
   lazy val IotDataPlaneInterpreter: IotDataPlaneOp ~> Kleisli[M, IotDataPlaneClient, *] = new IotDataPlaneInterpreter {
@@ -1091,8 +1075,24 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: IotEventsDataClient ⇒ A): Kleisli[M, IotEventsDataClient, A] = interpreter.primitive(f)
   }
 
+  lazy val IoTFleetHubInterpreter: IoTFleetHubOp ~> Kleisli[M, IoTFleetHubClient, *] = new IoTFleetHubInterpreter {
+    def primitive[A](f: IoTFleetHubClient ⇒ A): Kleisli[M, IoTFleetHubClient, A] = interpreter.primitive(f)
+  }
+
   lazy val IotJobsDataPlaneInterpreter: IotJobsDataPlaneOp ~> Kleisli[M, IotJobsDataPlaneClient, *] = new IotJobsDataPlaneInterpreter {
     def primitive[A](f: IotJobsDataPlaneClient ⇒ A): Kleisli[M, IotJobsDataPlaneClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val IoTSecureTunnelingInterpreter: IoTSecureTunnelingOp ~> Kleisli[M, IoTSecureTunnelingClient, *] = new IoTSecureTunnelingInterpreter {
+    def primitive[A](f: IoTSecureTunnelingClient ⇒ A): Kleisli[M, IoTSecureTunnelingClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val IoTSiteWiseInterpreter: IoTSiteWiseOp ~> Kleisli[M, IoTSiteWiseClient, *] = new IoTSiteWiseInterpreter {
+    def primitive[A](f: IoTSiteWiseClient ⇒ A): Kleisli[M, IoTSiteWiseClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val IoTThingsGraphInterpreter: IoTThingsGraphOp ~> Kleisli[M, IoTThingsGraphClient, *] = new IoTThingsGraphInterpreter {
+    def primitive[A](f: IoTThingsGraphClient ⇒ A): Kleisli[M, IoTThingsGraphClient, A] = interpreter.primitive(f)
   }
 
   lazy val IotWirelessInterpreter: IotWirelessOp ~> Kleisli[M, IotWirelessClient, *] = new IotWirelessInterpreter {
@@ -1191,10 +1191,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: LookoutVisionClient ⇒ A): Kleisli[M, LookoutVisionClient, A] = interpreter.primitive(f)
   }
 
-  lazy val MTurkInterpreter: MTurkOp ~> Kleisli[M, MTurkClient, *] = new MTurkInterpreter {
-    def primitive[A](f: MTurkClient ⇒ A): Kleisli[M, MTurkClient, A] = interpreter.primitive(f)
-  }
-
   lazy val MachineLearningInterpreter: MachineLearningOp ~> Kleisli[M, MachineLearningClient, *] = new MachineLearningInterpreter {
     def primitive[A](f: MachineLearningClient ⇒ A): Kleisli[M, MachineLearningClient, A] = interpreter.primitive(f)
   }
@@ -1277,6 +1273,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   lazy val MqInterpreter: MqOp ~> Kleisli[M, MqClient, *] = new MqInterpreter {
     def primitive[A](f: MqClient ⇒ A): Kleisli[M, MqClient, A] = interpreter.primitive(f)
+  }
+
+  lazy val MTurkInterpreter: MTurkOp ~> Kleisli[M, MTurkClient, *] = new MTurkInterpreter {
+    def primitive[A](f: MTurkClient ⇒ A): Kleisli[M, MTurkClient, A] = interpreter.primitive(f)
   }
 
   lazy val MwaaInterpreter: MwaaOp ~> Kleisli[M, MwaaClient, *] = new MwaaInterpreter {
@@ -1435,16 +1435,16 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def primitive[A](f: SageMakerA2IRuntimeClient ⇒ A): Kleisli[M, SageMakerA2IRuntimeClient, A] = interpreter.primitive(f)
   }
 
+  lazy val SagemakerEdgeInterpreter: SagemakerEdgeOp ~> Kleisli[M, SagemakerEdgeClient, *] = new SagemakerEdgeInterpreter {
+    def primitive[A](f: SagemakerEdgeClient ⇒ A): Kleisli[M, SagemakerEdgeClient, A] = interpreter.primitive(f)
+  }
+
   lazy val SageMakerFeatureStoreRuntimeInterpreter: SageMakerFeatureStoreRuntimeOp ~> Kleisli[M, SageMakerFeatureStoreRuntimeClient, *] = new SageMakerFeatureStoreRuntimeInterpreter {
     def primitive[A](f: SageMakerFeatureStoreRuntimeClient ⇒ A): Kleisli[M, SageMakerFeatureStoreRuntimeClient, A] = interpreter.primitive(f)
   }
 
   lazy val SageMakerRuntimeInterpreter: SageMakerRuntimeOp ~> Kleisli[M, SageMakerRuntimeClient, *] = new SageMakerRuntimeInterpreter {
     def primitive[A](f: SageMakerRuntimeClient ⇒ A): Kleisli[M, SageMakerRuntimeClient, A] = interpreter.primitive(f)
-  }
-
-  lazy val SagemakerEdgeInterpreter: SagemakerEdgeOp ~> Kleisli[M, SagemakerEdgeClient, *] = new SagemakerEdgeInterpreter {
-    def primitive[A](f: SagemakerEdgeClient ⇒ A): Kleisli[M, SagemakerEdgeClient, A] = interpreter.primitive(f)
   }
 
   lazy val SavingsplansInterpreter: SavingsplansOp ~> Kleisli[M, SavingsplansClient, *] = new SavingsplansInterpreter {
@@ -1671,28 +1671,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, AppConfigClient, A] = interpreter.embed(e)
   }
 
-  trait AppIntegrationsInterpreter extends AppIntegrationsOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, AppIntegrationsClient, A] = interpreter.embed(e)
-  }
-
-  trait AppMeshInterpreter extends AppMeshOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, AppMeshClient, A] = interpreter.embed(e)
-  }
-
-  trait AppRunnerInterpreter extends AppRunnerOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, AppRunnerClient, A] = interpreter.embed(e)
-  }
-
-  trait AppStreamInterpreter extends AppStreamOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, AppStreamClient, A] = interpreter.embed(e)
-  }
-
-  trait AppSyncInterpreter extends AppSyncOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, AppSyncClient, A] = interpreter.embed(e)
-  }
-
   trait AppflowInterpreter extends AppflowOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, AppflowClient, A] = interpreter.embed(e)
+  }
+
+  trait AppIntegrationsInterpreter extends AppIntegrationsOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AppIntegrationsClient, A] = interpreter.embed(e)
   }
 
   trait ApplicationAutoScalingInterpreter extends ApplicationAutoScalingOp.Visitor.KleisliVisitor[M] {
@@ -1709,6 +1693,22 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait ApplicationInsightsInterpreter extends ApplicationInsightsOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, ApplicationInsightsClient, A] = interpreter.embed(e)
+  }
+
+  trait AppMeshInterpreter extends AppMeshOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AppMeshClient, A] = interpreter.embed(e)
+  }
+
+  trait AppRunnerInterpreter extends AppRunnerOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AppRunnerClient, A] = interpreter.embed(e)
+  }
+
+  trait AppStreamInterpreter extends AppStreamOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AppStreamClient, A] = interpreter.embed(e)
+  }
+
+  trait AppSyncInterpreter extends AppSyncOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, AppSyncClient, A] = interpreter.embed(e)
   }
 
   trait AthenaInterpreter extends AthenaOp.Visitor.KleisliVisitor[M] {
@@ -1795,6 +1795,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, CloudWatchLogsClient, A] = interpreter.embed(e)
   }
 
+  trait CodeartifactInterpreter extends CodeartifactOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, CodeartifactClient, A] = interpreter.embed(e)
+  }
+
   trait CodeBuildInterpreter extends CodeBuildOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, CodeBuildClient, A] = interpreter.embed(e)
   }
@@ -1825,10 +1829,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait CodeStarConnectionsInterpreter extends CodeStarConnectionsOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, CodeStarConnectionsClient, A] = interpreter.embed(e)
-  }
-
-  trait CodeartifactInterpreter extends CodeartifactOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, CodeartifactClient, A] = interpreter.embed(e)
   }
 
   trait CodestarNotificationsInterpreter extends CodestarNotificationsOp.Visitor.KleisliVisitor[M] {
@@ -1887,6 +1887,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, CustomerProfilesClient, A] = interpreter.embed(e)
   }
 
+  trait DatabaseMigrationInterpreter extends DatabaseMigrationOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, DatabaseMigrationClient, A] = interpreter.embed(e)
+  }
+
   trait DataBrewInterpreter extends DataBrewOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, DataBrewClient, A] = interpreter.embed(e)
   }
@@ -1903,10 +1907,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, DataSyncClient, A] = interpreter.embed(e)
   }
 
-  trait DatabaseMigrationInterpreter extends DatabaseMigrationOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, DatabaseMigrationClient, A] = interpreter.embed(e)
-  }
-
   trait DaxInterpreter extends DaxOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, DaxClient, A] = interpreter.embed(e)
   }
@@ -1915,12 +1915,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, DetectiveClient, A] = interpreter.embed(e)
   }
 
-  trait DevOpsGuruInterpreter extends DevOpsGuruOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, DevOpsGuruClient, A] = interpreter.embed(e)
-  }
-
   trait DeviceFarmInterpreter extends DeviceFarmOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, DeviceFarmClient, A] = interpreter.embed(e)
+  }
+
+  trait DevOpsGuruInterpreter extends DevOpsGuruOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, DevOpsGuruClient, A] = interpreter.embed(e)
   }
 
   trait DirectConnectInterpreter extends DirectConnectOp.Visitor.KleisliVisitor[M] {
@@ -1999,12 +1999,12 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, ElasticLoadBalancingV2Client, A] = interpreter.embed(e)
   }
 
-  trait ElasticTranscoderInterpreter extends ElasticTranscoderOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, ElasticTranscoderClient, A] = interpreter.embed(e)
-  }
-
   trait ElasticsearchInterpreter extends ElasticsearchOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, ElasticsearchClient, A] = interpreter.embed(e)
+  }
+
+  trait ElasticTranscoderInterpreter extends ElasticTranscoderOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, ElasticTranscoderClient, A] = interpreter.embed(e)
   }
 
   trait EmrInterpreter extends EmrOp.Visitor.KleisliVisitor[M] {
@@ -2017,10 +2017,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait EventBridgeInterpreter extends EventBridgeOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, EventBridgeClient, A] = interpreter.embed(e)
-  }
-
-  trait FSxInterpreter extends FSxOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, FSxClient, A] = interpreter.embed(e)
   }
 
   trait FinspaceInterpreter extends FinspaceOp.Visitor.KleisliVisitor[M] {
@@ -2053,6 +2049,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait FraudDetectorInterpreter extends FraudDetectorOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, FraudDetectorClient, A] = interpreter.embed(e)
+  }
+
+  trait FSxInterpreter extends FSxOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, FSxClient, A] = interpreter.embed(e)
   }
 
   trait GameLiftInterpreter extends GameLiftOp.Visitor.KleisliVisitor[M] {
@@ -2115,26 +2115,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, InspectorClient, A] = interpreter.embed(e)
   }
 
-  trait IoTAnalyticsInterpreter extends IoTAnalyticsOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, IoTAnalyticsClient, A] = interpreter.embed(e)
-  }
-
-  trait IoTFleetHubInterpreter extends IoTFleetHubOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, IoTFleetHubClient, A] = interpreter.embed(e)
-  }
-
-  trait IoTSecureTunnelingInterpreter extends IoTSecureTunnelingOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, IoTSecureTunnelingClient, A] = interpreter.embed(e)
-  }
-
-  trait IoTSiteWiseInterpreter extends IoTSiteWiseOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, IoTSiteWiseClient, A] = interpreter.embed(e)
-  }
-
-  trait IoTThingsGraphInterpreter extends IoTThingsGraphOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, IoTThingsGraphClient, A] = interpreter.embed(e)
-  }
-
   trait IotInterpreter extends IotOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, IotClient, A] = interpreter.embed(e)
   }
@@ -2145,6 +2125,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait Iot1ClickProjectsInterpreter extends Iot1ClickProjectsOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, Iot1ClickProjectsClient, A] = interpreter.embed(e)
+  }
+
+  trait IoTAnalyticsInterpreter extends IoTAnalyticsOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, IoTAnalyticsClient, A] = interpreter.embed(e)
   }
 
   trait IotDataPlaneInterpreter extends IotDataPlaneOp.Visitor.KleisliVisitor[M] {
@@ -2163,8 +2147,24 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, IotEventsDataClient, A] = interpreter.embed(e)
   }
 
+  trait IoTFleetHubInterpreter extends IoTFleetHubOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, IoTFleetHubClient, A] = interpreter.embed(e)
+  }
+
   trait IotJobsDataPlaneInterpreter extends IotJobsDataPlaneOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, IotJobsDataPlaneClient, A] = interpreter.embed(e)
+  }
+
+  trait IoTSecureTunnelingInterpreter extends IoTSecureTunnelingOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, IoTSecureTunnelingClient, A] = interpreter.embed(e)
+  }
+
+  trait IoTSiteWiseInterpreter extends IoTSiteWiseOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, IoTSiteWiseClient, A] = interpreter.embed(e)
+  }
+
+  trait IoTThingsGraphInterpreter extends IoTThingsGraphOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, IoTThingsGraphClient, A] = interpreter.embed(e)
   }
 
   trait IotWirelessInterpreter extends IotWirelessOp.Visitor.KleisliVisitor[M] {
@@ -2263,10 +2263,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, LookoutVisionClient, A] = interpreter.embed(e)
   }
 
-  trait MTurkInterpreter extends MTurkOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, MTurkClient, A] = interpreter.embed(e)
-  }
-
   trait MachineLearningInterpreter extends MachineLearningOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, MachineLearningClient, A] = interpreter.embed(e)
   }
@@ -2349,6 +2345,10 @@ trait KleisliInterpreter[M[_]] { interpreter =>
 
   trait MqInterpreter extends MqOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, MqClient, A] = interpreter.embed(e)
+  }
+
+  trait MTurkInterpreter extends MTurkOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, MTurkClient, A] = interpreter.embed(e)
   }
 
   trait MwaaInterpreter extends MwaaOp.Visitor.KleisliVisitor[M] {
@@ -2507,16 +2507,16 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     def embed[A](e: Embedded[A]): Kleisli[M, SageMakerA2IRuntimeClient, A] = interpreter.embed(e)
   }
 
+  trait SagemakerEdgeInterpreter extends SagemakerEdgeOp.Visitor.KleisliVisitor[M] {
+    def embed[A](e: Embedded[A]): Kleisli[M, SagemakerEdgeClient, A] = interpreter.embed(e)
+  }
+
   trait SageMakerFeatureStoreRuntimeInterpreter extends SageMakerFeatureStoreRuntimeOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, SageMakerFeatureStoreRuntimeClient, A] = interpreter.embed(e)
   }
 
   trait SageMakerRuntimeInterpreter extends SageMakerRuntimeOp.Visitor.KleisliVisitor[M] {
     def embed[A](e: Embedded[A]): Kleisli[M, SageMakerRuntimeClient, A] = interpreter.embed(e)
-  }
-
-  trait SagemakerEdgeInterpreter extends SagemakerEdgeOp.Visitor.KleisliVisitor[M] {
-    def embed[A](e: Embedded[A]): Kleisli[M, SagemakerEdgeClient, A] = interpreter.embed(e)
   }
 
   trait SavingsplansInterpreter extends SavingsplansOp.Visitor.KleisliVisitor[M] {
@@ -2722,16 +2722,16 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.ApiGatewayManagementApi(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApiGatewayManagementApiClient, *]](ApiGatewayManagementApiInterpreter).run(client))
     case Embedded.ApiGatewayV2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApiGatewayV2Client, *]](ApiGatewayV2Interpreter).run(client))
     case Embedded.AppConfig(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppConfigClient, *]](AppConfigInterpreter).run(client))
-    case Embedded.AppIntegrations(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppIntegrationsClient, *]](AppIntegrationsInterpreter).run(client))
-    case Embedded.AppMesh(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppMeshClient, *]](AppMeshInterpreter).run(client))
-    case Embedded.AppRunner(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppRunnerClient, *]](AppRunnerInterpreter).run(client))
-    case Embedded.AppStream(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppStreamClient, *]](AppStreamInterpreter).run(client))
-    case Embedded.AppSync(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppSyncClient, *]](AppSyncInterpreter).run(client))
     case Embedded.Appflow(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppflowClient, *]](AppflowInterpreter).run(client))
+    case Embedded.AppIntegrations(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppIntegrationsClient, *]](AppIntegrationsInterpreter).run(client))
     case Embedded.ApplicationAutoScaling(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApplicationAutoScalingClient, *]](ApplicationAutoScalingInterpreter).run(client))
     case Embedded.ApplicationCostProfiler(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApplicationCostProfilerClient, *]](ApplicationCostProfilerInterpreter).run(client))
     case Embedded.ApplicationDiscovery(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApplicationDiscoveryClient, *]](ApplicationDiscoveryInterpreter).run(client))
     case Embedded.ApplicationInsights(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ApplicationInsightsClient, *]](ApplicationInsightsInterpreter).run(client))
+    case Embedded.AppMesh(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppMeshClient, *]](AppMeshInterpreter).run(client))
+    case Embedded.AppRunner(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppRunnerClient, *]](AppRunnerInterpreter).run(client))
+    case Embedded.AppStream(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppStreamClient, *]](AppStreamInterpreter).run(client))
+    case Embedded.AppSync(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AppSyncClient, *]](AppSyncInterpreter).run(client))
     case Embedded.Athena(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AthenaClient, *]](AthenaInterpreter).run(client))
     case Embedded.AuditManager(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AuditManagerClient, *]](AuditManagerInterpreter).run(client))
     case Embedded.AutoScaling(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, AutoScalingClient, *]](AutoScalingInterpreter).run(client))
@@ -2753,6 +2753,7 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.CloudWatch(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CloudWatchClient, *]](CloudWatchInterpreter).run(client))
     case Embedded.CloudWatchEvents(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CloudWatchEventsClient, *]](CloudWatchEventsInterpreter).run(client))
     case Embedded.CloudWatchLogs(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CloudWatchLogsClient, *]](CloudWatchLogsInterpreter).run(client))
+    case Embedded.Codeartifact(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeartifactClient, *]](CodeartifactInterpreter).run(client))
     case Embedded.CodeBuild(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeBuildClient, *]](CodeBuildInterpreter).run(client))
     case Embedded.CodeCommit(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeCommitClient, *]](CodeCommitInterpreter).run(client))
     case Embedded.CodeDeploy(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeDeployClient, *]](CodeDeployInterpreter).run(client))
@@ -2761,7 +2762,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.CodePipeline(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodePipelineClient, *]](CodePipelineInterpreter).run(client))
     case Embedded.CodeStar(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeStarClient, *]](CodeStarInterpreter).run(client))
     case Embedded.CodeStarConnections(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeStarConnectionsClient, *]](CodeStarConnectionsInterpreter).run(client))
-    case Embedded.Codeartifact(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodeartifactClient, *]](CodeartifactInterpreter).run(client))
     case Embedded.CodestarNotifications(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CodestarNotificationsClient, *]](CodestarNotificationsInterpreter).run(client))
     case Embedded.CognitoIdentity(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CognitoIdentityClient, *]](CognitoIdentityInterpreter).run(client))
     case Embedded.CognitoIdentityProvider(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CognitoIdentityProviderClient, *]](CognitoIdentityProviderInterpreter).run(client))
@@ -2776,15 +2776,15 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.CostAndUsageReport(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CostAndUsageReportClient, *]](CostAndUsageReportInterpreter).run(client))
     case Embedded.CostExplorer(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CostExplorerClient, *]](CostExplorerInterpreter).run(client))
     case Embedded.CustomerProfiles(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, CustomerProfilesClient, *]](CustomerProfilesInterpreter).run(client))
+    case Embedded.DatabaseMigration(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DatabaseMigrationClient, *]](DatabaseMigrationInterpreter).run(client))
     case Embedded.DataBrew(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DataBrewClient, *]](DataBrewInterpreter).run(client))
     case Embedded.DataExchange(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DataExchangeClient, *]](DataExchangeInterpreter).run(client))
     case Embedded.DataPipeline(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DataPipelineClient, *]](DataPipelineInterpreter).run(client))
     case Embedded.DataSync(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DataSyncClient, *]](DataSyncInterpreter).run(client))
-    case Embedded.DatabaseMigration(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DatabaseMigrationClient, *]](DatabaseMigrationInterpreter).run(client))
     case Embedded.Dax(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DaxClient, *]](DaxInterpreter).run(client))
     case Embedded.Detective(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DetectiveClient, *]](DetectiveInterpreter).run(client))
-    case Embedded.DevOpsGuru(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DevOpsGuruClient, *]](DevOpsGuruInterpreter).run(client))
     case Embedded.DeviceFarm(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DeviceFarmClient, *]](DeviceFarmInterpreter).run(client))
+    case Embedded.DevOpsGuru(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DevOpsGuruClient, *]](DevOpsGuruInterpreter).run(client))
     case Embedded.DirectConnect(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DirectConnectClient, *]](DirectConnectInterpreter).run(client))
     case Embedded.Directory(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DirectoryClient, *]](DirectoryInterpreter).run(client))
     case Embedded.Dlm(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, DlmClient, *]](DlmInterpreter).run(client))
@@ -2804,12 +2804,11 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.ElasticInference(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ElasticInferenceClient, *]](ElasticInferenceInterpreter).run(client))
     case Embedded.ElasticLoadBalancing(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ElasticLoadBalancingClient, *]](ElasticLoadBalancingInterpreter).run(client))
     case Embedded.ElasticLoadBalancingV2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ElasticLoadBalancingV2Client, *]](ElasticLoadBalancingV2Interpreter).run(client))
-    case Embedded.ElasticTranscoder(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ElasticTranscoderClient, *]](ElasticTranscoderInterpreter).run(client))
     case Embedded.Elasticsearch(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ElasticsearchClient, *]](ElasticsearchInterpreter).run(client))
+    case Embedded.ElasticTranscoder(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ElasticTranscoderClient, *]](ElasticTranscoderInterpreter).run(client))
     case Embedded.Emr(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, EmrClient, *]](EmrInterpreter).run(client))
     case Embedded.EmrContainers(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, EmrContainersClient, *]](EmrContainersInterpreter).run(client))
     case Embedded.EventBridge(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, EventBridgeClient, *]](EventBridgeInterpreter).run(client))
-    case Embedded.FSx(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, FSxClient, *]](FSxInterpreter).run(client))
     case Embedded.Finspace(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, FinspaceClient, *]](FinspaceInterpreter).run(client))
     case Embedded.FinspaceData(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, FinspaceDataClient, *]](FinspaceDataInterpreter).run(client))
     case Embedded.Firehose(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, FirehoseClient, *]](FirehoseInterpreter).run(client))
@@ -2818,6 +2817,7 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.Forecast(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ForecastClient, *]](ForecastInterpreter).run(client))
     case Embedded.Forecastquery(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ForecastqueryClient, *]](ForecastqueryInterpreter).run(client))
     case Embedded.FraudDetector(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, FraudDetectorClient, *]](FraudDetectorInterpreter).run(client))
+    case Embedded.FSx(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, FSxClient, *]](FSxInterpreter).run(client))
     case Embedded.GameLift(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, GameLiftClient, *]](GameLiftInterpreter).run(client))
     case Embedded.Glacier(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, GlacierClient, *]](GlacierInterpreter).run(client))
     case Embedded.GlobalAccelerator(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, GlobalAcceleratorClient, *]](GlobalAcceleratorInterpreter).run(client))
@@ -2833,19 +2833,19 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.Identitystore(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IdentitystoreClient, *]](IdentitystoreInterpreter).run(client))
     case Embedded.Imagebuilder(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ImagebuilderClient, *]](ImagebuilderInterpreter).run(client))
     case Embedded.Inspector(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, InspectorClient, *]](InspectorInterpreter).run(client))
-    case Embedded.IoTAnalytics(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTAnalyticsClient, *]](IoTAnalyticsInterpreter).run(client))
-    case Embedded.IoTFleetHub(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTFleetHubClient, *]](IoTFleetHubInterpreter).run(client))
-    case Embedded.IoTSecureTunneling(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTSecureTunnelingClient, *]](IoTSecureTunnelingInterpreter).run(client))
-    case Embedded.IoTSiteWise(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTSiteWiseClient, *]](IoTSiteWiseInterpreter).run(client))
-    case Embedded.IoTThingsGraph(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTThingsGraphClient, *]](IoTThingsGraphInterpreter).run(client))
     case Embedded.Iot(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotClient, *]](IotInterpreter).run(client))
     case Embedded.Iot1ClickDevices(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Iot1ClickDevicesClient, *]](Iot1ClickDevicesInterpreter).run(client))
     case Embedded.Iot1ClickProjects(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Iot1ClickProjectsClient, *]](Iot1ClickProjectsInterpreter).run(client))
+    case Embedded.IoTAnalytics(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTAnalyticsClient, *]](IoTAnalyticsInterpreter).run(client))
     case Embedded.IotDataPlane(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotDataPlaneClient, *]](IotDataPlaneInterpreter).run(client))
     case Embedded.IotDeviceAdvisor(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotDeviceAdvisorClient, *]](IotDeviceAdvisorInterpreter).run(client))
     case Embedded.IotEvents(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotEventsClient, *]](IotEventsInterpreter).run(client))
     case Embedded.IotEventsData(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotEventsDataClient, *]](IotEventsDataInterpreter).run(client))
+    case Embedded.IoTFleetHub(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTFleetHubClient, *]](IoTFleetHubInterpreter).run(client))
     case Embedded.IotJobsDataPlane(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotJobsDataPlaneClient, *]](IotJobsDataPlaneInterpreter).run(client))
+    case Embedded.IoTSecureTunneling(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTSecureTunnelingClient, *]](IoTSecureTunnelingInterpreter).run(client))
+    case Embedded.IoTSiteWise(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTSiteWiseClient, *]](IoTSiteWiseInterpreter).run(client))
+    case Embedded.IoTThingsGraph(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IoTThingsGraphClient, *]](IoTThingsGraphInterpreter).run(client))
     case Embedded.IotWireless(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IotWirelessClient, *]](IotWirelessInterpreter).run(client))
     case Embedded.Ivs(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, IvsClient, *]](IvsInterpreter).run(client))
     case Embedded.Kafka(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, KafkaClient, *]](KafkaInterpreter).run(client))
@@ -2870,7 +2870,6 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.LookoutEquipment(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, LookoutEquipmentClient, *]](LookoutEquipmentInterpreter).run(client))
     case Embedded.LookoutMetrics(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, LookoutMetricsClient, *]](LookoutMetricsInterpreter).run(client))
     case Embedded.LookoutVision(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, LookoutVisionClient, *]](LookoutVisionInterpreter).run(client))
-    case Embedded.MTurk(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MTurkClient, *]](MTurkInterpreter).run(client))
     case Embedded.MachineLearning(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MachineLearningClient, *]](MachineLearningInterpreter).run(client))
     case Embedded.Macie(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MacieClient, *]](MacieInterpreter).run(client))
     case Embedded.Macie2(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, Macie2Client, *]](Macie2Interpreter).run(client))
@@ -2892,6 +2891,7 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.MigrationHubConfig(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MigrationHubConfigClient, *]](MigrationHubConfigInterpreter).run(client))
     case Embedded.Mobile(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MobileClient, *]](MobileInterpreter).run(client))
     case Embedded.Mq(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MqClient, *]](MqInterpreter).run(client))
+    case Embedded.MTurk(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MTurkClient, *]](MTurkInterpreter).run(client))
     case Embedded.Mwaa(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, MwaaClient, *]](MwaaInterpreter).run(client))
     case Embedded.Neptune(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, NeptuneClient, *]](NeptuneInterpreter).run(client))
     case Embedded.NetworkFirewall(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, NetworkFirewallClient, *]](NetworkFirewallInterpreter).run(client))
@@ -2931,9 +2931,9 @@ trait KleisliInterpreter[M[_]] { interpreter =>
     case Embedded.S3Outposts(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, S3OutpostsClient, *]](S3OutpostsInterpreter).run(client))
     case Embedded.SageMaker(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerClient, *]](SageMakerInterpreter).run(client))
     case Embedded.SageMakerA2IRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerA2IRuntimeClient, *]](SageMakerA2IRuntimeInterpreter).run(client))
+    case Embedded.SagemakerEdge(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SagemakerEdgeClient, *]](SagemakerEdgeInterpreter).run(client))
     case Embedded.SageMakerFeatureStoreRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerFeatureStoreRuntimeClient, *]](SageMakerFeatureStoreRuntimeInterpreter).run(client))
     case Embedded.SageMakerRuntime(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SageMakerRuntimeClient, *]](SageMakerRuntimeInterpreter).run(client))
-    case Embedded.SagemakerEdge(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SagemakerEdgeClient, *]](SagemakerEdgeInterpreter).run(client))
     case Embedded.Savingsplans(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SavingsplansClient, *]](SavingsplansInterpreter).run(client))
     case Embedded.Schemas(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SchemasClient, *]](SchemasInterpreter).run(client))
     case Embedded.SecretsManager(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, SecretsManagerClient, *]](SecretsManagerInterpreter).run(client))

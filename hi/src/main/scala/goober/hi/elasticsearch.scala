@@ -24,8 +24,8 @@ object elasticsearch {
     // DeleteOutboundCrossClusterSearchConnectionRequest
     // DeletePackageRequest
     // DescribeDomainAutoTunesRequest
-    // DescribeElasticsearchDomainConfigRequest
     // DescribeElasticsearchDomainRequest
+    // DescribeElasticsearchDomainConfigRequest
     // DescribeElasticsearchDomainsRequest
     // DescribeElasticsearchInstanceTypeLimitsRequest
     // DescribeInboundCrossClusterSearchConnectionsRequest

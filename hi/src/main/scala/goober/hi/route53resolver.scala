@@ -16,14 +16,14 @@ object route53resolver {
     // AssociateResolverQueryLogConfigRequest
     // AssociateResolverRuleRequest
     // CreateFirewallDomainListRequest
-    // CreateFirewallRuleGroupRequest
     // CreateFirewallRuleRequest
+    // CreateFirewallRuleGroupRequest
     // CreateResolverEndpointRequest
     // CreateResolverQueryLogConfigRequest
     // CreateResolverRuleRequest
     // DeleteFirewallDomainListRequest
-    // DeleteFirewallRuleGroupRequest
     // DeleteFirewallRuleRequest
+    // DeleteFirewallRuleGroupRequest
     // DeleteResolverEndpointRequest
     // DeleteResolverQueryLogConfigRequest
     // DeleteResolverRuleRequest
@@ -33,17 +33,17 @@ object route53resolver {
     // DisassociateResolverRuleRequest
     // GetFirewallConfigRequest
     // GetFirewallDomainListRequest
+    // GetFirewallRuleGroupRequest
     // GetFirewallRuleGroupAssociationRequest
     // GetFirewallRuleGroupPolicyRequest
-    // GetFirewallRuleGroupRequest
     // GetResolverDnssecConfigRequest
     // GetResolverEndpointRequest
+    // GetResolverQueryLogConfigRequest
     // GetResolverQueryLogConfigAssociationRequest
     // GetResolverQueryLogConfigPolicyRequest
-    // GetResolverQueryLogConfigRequest
+    // GetResolverRuleRequest
     // GetResolverRuleAssociationRequest
     // GetResolverRulePolicyRequest
-    // GetResolverRuleRequest
     // ImportFirewallDomainsRequest
     // ListFirewallConfigsRequest
     // ListFirewallDomainListsRequest
@@ -66,8 +66,8 @@ object route53resolver {
     // UntagResourceRequest
     // UpdateFirewallConfigRequest
     // UpdateFirewallDomainsRequest
-    // UpdateFirewallRuleGroupAssociationRequest
     // UpdateFirewallRuleRequest
+    // UpdateFirewallRuleGroupAssociationRequest
     // UpdateResolverDnssecConfigRequest
     // UpdateResolverEndpointRequest
     // UpdateResolverRuleRequest

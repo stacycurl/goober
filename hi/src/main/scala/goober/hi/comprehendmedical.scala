@@ -15,7 +15,6 @@ object comprehendmedical {
     // DescribeIcd10CmInferenceJobRequest
     // DescribePhiDetectionJobRequest
     // DescribeRxNormInferenceJobRequest
-    // DetectEntitiesRequest
     // DetectEntitiesV2Request
     // DetectPhiRequest
     // InferIcd10CmRequest

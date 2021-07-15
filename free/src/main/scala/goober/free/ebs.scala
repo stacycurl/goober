@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.ebs.EbsClient
 import software.amazon.awssdk.services.ebs.model._
-import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
 
@@ -32,12 +31,6 @@ object ebs { module =>
           request: CompleteSnapshotRequest
         ): Kleisli[M, EbsClient, CompleteSnapshotResponse] =
           primitive(_.completeSnapshot(request))
-
-        def getSnapshotBlock(
-          request: GetSnapshotBlockRequest,
-          path: Path
-        ): Kleisli[M, EbsClient, GetSnapshotBlockResponse] =
-          primitive(_.getSnapshotBlock(request, path))
 
         def listChangedBlocks(
           request: ListChangedBlocksRequest
@@ -77,11 +70,6 @@ object ebs { module =>
         request: CompleteSnapshotRequest
       ): F[CompleteSnapshotResponse]
 
-      def getSnapshotBlock(
-        request: GetSnapshotBlockRequest,
-        path: Path
-      ): F[GetSnapshotBlockResponse]
-
       def listChangedBlocks(
         request: ListChangedBlocksRequest
       ): F[ListChangedBlocksResponse]
@@ -112,14 +100,6 @@ object ebs { module =>
     ) extends EbsOp[CompleteSnapshotResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CompleteSnapshotResponse] =
         visitor.completeSnapshot(request)
-    }
-
-    final case class GetSnapshotBlockOp(
-      request: GetSnapshotBlockRequest,
-      path: Path
-    ) extends EbsOp[GetSnapshotBlockResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetSnapshotBlockResponse] =
-        visitor.getSnapshotBlock(request, path)
     }
 
     final case class ListChangedBlocksOp(
@@ -166,12 +146,6 @@ object ebs { module =>
     request: CompleteSnapshotRequest
   ): EbsIO[CompleteSnapshotResponse] =
     FF.liftF(CompleteSnapshotOp(request))
-
-  def getSnapshotBlock(
-    request: GetSnapshotBlockRequest,
-    path: Path
-  ): EbsIO[GetSnapshotBlockResponse] =
-    FF.liftF(GetSnapshotBlockOp(request, path))
 
   def listChangedBlocks(
     request: ListChangedBlocksRequest

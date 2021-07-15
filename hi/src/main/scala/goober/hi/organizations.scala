@@ -34,14 +34,14 @@ object organizations {
     // DetachPolicyRequest
     // DisableAwsServiceAccessRequest
     // DisablePolicyTypeRequest
-    // EnableAllFeaturesRequest
     // EnableAwsServiceAccessRequest
+    // EnableAllFeaturesRequest
     // EnablePolicyTypeRequest
     // InviteAccountToOrganizationRequest
     // LeaveOrganizationRequest
-    // ListAccountsForParentRequest
-    // ListAccountsRequest
     // ListAwsServiceAccessForOrganizationRequest
+    // ListAccountsRequest
+    // ListAccountsForParentRequest
     // ListChildrenRequest
     // ListCreateAccountStatusRequest
     // ListDelegatedAdministratorsRequest
@@ -50,8 +50,8 @@ object organizations {
     // ListHandshakesForOrganizationRequest
     // ListOrganizationalUnitsForParentRequest
     // ListParentsRequest
-    // ListPoliciesForTargetRequest
     // ListPoliciesRequest
+    // ListPoliciesForTargetRequest
     // ListRootsRequest
     // ListTagsForResourceRequest
     // ListTargetsForPolicyRequest

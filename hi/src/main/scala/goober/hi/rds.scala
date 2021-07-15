@@ -25,15 +25,15 @@ object rds {
     // CopyDbSnapshotRequest
     // CopyOptionGroupRequest
     // CreateCustomAvailabilityZoneRequest
+    // CreateDbClusterRequest
     // CreateDbClusterEndpointRequest
     // CreateDbClusterParameterGroupRequest
-    // CreateDbClusterRequest
     // CreateDbClusterSnapshotRequest
-    // CreateDbInstanceReadReplicaRequest
     // CreateDbInstanceRequest
+    // CreateDbInstanceReadReplicaRequest
     // CreateDbParameterGroupRequest
-    // CreateDbProxyEndpointRequest
     // CreateDbProxyRequest
+    // CreateDbProxyEndpointRequest
     // CreateDbSecurityGroupRequest
     // CreateDbSnapshotRequest
     // CreateDbSubnetGroupRequest
@@ -41,15 +41,15 @@ object rds {
     // CreateGlobalClusterRequest
     // CreateOptionGroupRequest
     // DeleteCustomAvailabilityZoneRequest
+    // DeleteDbClusterRequest
     // DeleteDbClusterEndpointRequest
     // DeleteDbClusterParameterGroupRequest
-    // DeleteDbClusterRequest
     // DeleteDbClusterSnapshotRequest
-    // DeleteDbInstanceAutomatedBackupRequest
     // DeleteDbInstanceRequest
+    // DeleteDbInstanceAutomatedBackupRequest
     // DeleteDbParameterGroupRequest
-    // DeleteDbProxyEndpointRequest
     // DeleteDbProxyRequest
+    // DeleteDbProxyEndpointRequest
     // DeleteDbSecurityGroupRequest
     // DeleteDbSnapshotRequest
     // DeleteDbSubnetGroupRequest
@@ -94,8 +94,8 @@ object rds {
     // DescribeOptionGroupsRequest
     // DescribeOrderableDbInstanceOptionsRequest
     // DescribePendingMaintenanceActionsRequest
-    // DescribeReservedDbInstancesOfferingsRequest
     // DescribeReservedDbInstancesRequest
+    // DescribeReservedDbInstancesOfferingsRequest
     // DescribeSourceRegionsRequest
     // DescribeValidDbInstanceModificationsRequest
     // DownloadDbLogFilePortionRequest
@@ -105,23 +105,23 @@ object rds {
     // ListTagsForResourceRequest
     // ModifyCertificatesRequest
     // ModifyCurrentDbClusterCapacityRequest
+    // ModifyDbClusterRequest
     // ModifyDbClusterEndpointRequest
     // ModifyDbClusterParameterGroupRequest
-    // ModifyDbClusterRequest
     // ModifyDbClusterSnapshotAttributeRequest
     // ModifyDbInstanceRequest
     // ModifyDbParameterGroupRequest
-    // ModifyDbProxyEndpointRequest
     // ModifyDbProxyRequest
+    // ModifyDbProxyEndpointRequest
     // ModifyDbProxyTargetGroupRequest
-    // ModifyDbSnapshotAttributeRequest
     // ModifyDbSnapshotRequest
+    // ModifyDbSnapshotAttributeRequest
     // ModifyDbSubnetGroupRequest
     // ModifyEventSubscriptionRequest
     // ModifyGlobalClusterRequest
     // ModifyOptionGroupRequest
-    // PromoteReadReplicaDbClusterRequest
     // PromoteReadReplicaRequest
+    // PromoteReadReplicaDbClusterRequest
     // PurchaseReservedDbInstancesOfferingRequest
     // RebootDbInstanceRequest
     // RegisterDbProxyTargetsRequest
@@ -141,13 +141,13 @@ object rds {
     // RevokeDbSecurityGroupIngressRequest
     // StartActivityStreamRequest
     // StartDbClusterRequest
-    // StartDbInstanceAutomatedBackupsReplicationRequest
     // StartDbInstanceRequest
+    // StartDbInstanceAutomatedBackupsReplicationRequest
     // StartExportTaskRequest
     // StopActivityStreamRequest
     // StopDbClusterRequest
-    // StopDbInstanceAutomatedBackupsReplicationRequest
     // StopDbInstanceRequest
+    // StopDbInstanceAutomatedBackupsReplicationRequest
 
   }
 

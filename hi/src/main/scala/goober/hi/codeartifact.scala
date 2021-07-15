@@ -15,11 +15,11 @@ object codeartifact {
     // CopyPackageVersionsRequest
     // CreateDomainRequest
     // CreateRepositoryRequest
-    // DeleteDomainPermissionsPolicyRequest
     // DeleteDomainRequest
+    // DeleteDomainPermissionsPolicyRequest
     // DeletePackageVersionsRequest
-    // DeleteRepositoryPermissionsPolicyRequest
     // DeleteRepositoryRequest
+    // DeleteRepositoryPermissionsPolicyRequest
     // DescribeDomainRequest
     // DescribePackageVersionRequest
     // DescribeRepositoryRequest
@@ -27,7 +27,6 @@ object codeartifact {
     // DisposePackageVersionsRequest
     // GetAuthorizationTokenRequest
     // GetDomainPermissionsPolicyRequest
-    // GetPackageVersionAssetRequest
     // GetPackageVersionReadmeRequest
     // GetRepositoryEndpointRequest
     // GetRepositoryPermissionsPolicyRequest
@@ -36,10 +35,9 @@ object codeartifact {
     // ListPackageVersionDependenciesRequest
     // ListPackageVersionsRequest
     // ListPackagesRequest
-    // ListRepositoriesInDomainRequest
     // ListRepositoriesRequest
+    // ListRepositoriesInDomainRequest
     // ListTagsForResourceRequest
-    // Path
     // PutDomainPermissionsPolicyRequest
     // PutRepositoryPermissionsPolicyRequest
     // TagResourceRequest

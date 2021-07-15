@@ -16,10 +16,10 @@ object customerprofiles {
     // CreateProfileRequest
     // DeleteDomainRequest
     // DeleteIntegrationRequest
+    // DeleteProfileRequest
     // DeleteProfileKeyRequest
     // DeleteProfileObjectRequest
     // DeleteProfileObjectTypeRequest
-    // DeleteProfileRequest
     // GetDomainRequest
     // GetIntegrationRequest
     // GetMatchesRequest

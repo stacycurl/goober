@@ -23,8 +23,8 @@ object codepipeline {
     // EnableStageTransitionRequest
     // GetActionTypeRequest
     // GetJobDetailsRequest
-    // GetPipelineExecutionRequest
     // GetPipelineRequest
+    // GetPipelineExecutionRequest
     // GetPipelineStateRequest
     // GetThirdPartyJobDetailsRequest
     // ListActionExecutionsRequest

@@ -15,17 +15,17 @@ object shield {
     // AssociateDrtRoleRequest
     // AssociateHealthCheckRequest
     // AssociateProactiveEngagementDetailsRequest
-    // CreateProtectionGroupRequest
     // CreateProtectionRequest
+    // CreateProtectionGroupRequest
     // CreateSubscriptionRequest
-    // DeleteProtectionGroupRequest
     // DeleteProtectionRequest
+    // DeleteProtectionGroupRequest
     // DescribeAttackRequest
     // DescribeAttackStatisticsRequest
     // DescribeDrtAccessRequest
     // DescribeEmergencyContactSettingsRequest
-    // DescribeProtectionGroupRequest
     // DescribeProtectionRequest
+    // DescribeProtectionGroupRequest
     // DescribeSubscriptionRequest
     // DisableProactiveEngagementRequest
     // DisassociateDrtLogBucketRequest

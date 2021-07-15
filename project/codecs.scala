@@ -1,32 +1,142 @@
-import io.circe.{Codec, Decoder, Encoder, JsonNumber}
+import java.io.File
+import codecs.Service.handleDecode
+import io.circe.CursorOp.DownField
+import io.circe.parser.decode
+import io.circe.{Codec, Decoder, DecodingFailure, Encoder, Error, JsonNumber}
 
 import scala.collection.immutable.List
+import scala.io.Source
 
 
 object codecs {
+  import common._
   import syntax._
 
-  object Service {
-    private implicit val operationsCodec = Codec.from[Map[String, Operation]](
-      Decoder.decodeMap[String, Operation],
-      Encoder.encodeMap[String, Operation]
-    ).lossless
-
-    private implicit val shapesCodec = Codec.from[Map[String, Shape]](
-      Decoder.decodeMap[String, Shape],
-      Encoder.encodeMap[String, Shape]
-    ).lossless
-
-    implicit val serviceCodec: Codec[Service] = Codec.forProduct6(
-      "version",
-      "metadata",
-      "operations",
-      "shapes",
-      "authorizers",
-      "documentation"
-    )(Service.apply)(getSome(Service.unapply)).lossless
+  case class Services(
+    values: List[Service]
+  ) extends {
+    override def toString: String =
+      q"""object Services(
+         |  val values: List[Service] = $values
+         |)""".stripMargin
   }
 
+  object Service extends Client.Companion {
+    implicit val serviceCodec: Codec[Service] = {
+      Codec.forProduct6(
+        "version",
+        "metadata",
+        "operations",
+        "shapes",
+        "authorizers",
+        "documentation"
+      )(Service.apply)(getSome(Service.unapply)).lossless
+    }
+
+    def discover: List[Client] = {
+      val jsonFileNames: List[JsonFileNames] =
+        JsonFileNames.discover().distinct.sorted
+//          .filter(_.serviceJsonFile.toLowerCase.contains("dynamo"))
+
+//      jsonFileNames.foreach(println)
+
+      val result: List[Either[Error, Service]] =
+        jsonFileNames.map(_.decodeService)
+
+      val (errors, services) =
+        result.partitionEithers
+
+      //    ScalaFile("services.scala", Services(services).toString)
+      //      .writeTo(".")
+
+//      println(s"${jsonFileNames.length} total")
+//      println(s"${errors.length} errors")
+//      println(s"${services.length} services")
+
+      services
+    }
+
+    def handleDecode(file: String, result: Either[Error, Service]): Either[Error, Service] = {
+      result match {
+        case Left(DecodingFailure(message, ops)) ⇒ Console.err.println(
+          s"""
+             |file: $file
+             |
+             |error: ${ops.reverse.map(opString).mkString(".")}
+             |  $message
+             |
+             |""".stripMargin
+        )
+        case Right(_) ⇒ {
+
+        }
+      }
+
+      result
+    }
+
+    private val opString: io.circe.CursorOp ⇒ String = {
+      case DownField(field) ⇒ field
+      case other => other.toString
+    }
+
+  }
+
+  object JsonFileNames {
+    implicit val jsonFileNamesOrdering: Ordering[JsonFileNames] =
+      Ordering[String].on[JsonFileNames](_.serviceJsonFile)
+
+    def recursivelyFind(dir: File)(p: File ⇒ Boolean): List[File] = {
+      def loop(dir: File): List[File] = {
+        dir.listFiles().flatMap(file ⇒ {
+          if (file.isDirectory) loop(file) else Some(file).filter(p)
+        })(collection.breakOut)
+      }
+
+      loop(dir)
+    }
+
+    def discover(): List[JsonFileNames] = for {
+      serviceJsonFile ← recursivelyFind(new File(JsonFileNames.awsServices))(file ⇒ {
+        file.getName == "service-2.json"
+      })
+      if serviceJsonFile.exists()
+      if !excludedServices.exists(excluded ⇒ serviceJsonFile.getAbsolutePath.contains(excluded))
+    } yield JsonFileNames(serviceJsonFile.getAbsolutePath)
+
+    private def fileContents(file: String): String =
+      withSource(file)(_.mkString(""))
+
+    private def withSource[A](file: String)(f: Source ⇒ A): A = {
+      val source = Source.fromFile(file)
+
+      try f(source) finally source.close
+    }
+
+    private val awsServices: String =
+      "project/aws-sdk-java-v2/services"
+
+    private val codegenResources: String =
+      "src/main/resources/codegen-resources"
+
+    private val excludedServices: Set[String] = Set(
+      "transcribestreaming"
+    )
+  }
+
+  case class JsonFileNames(serviceJsonFile: String) {
+    // TODO use customisation json
+    def decodeService: Either[Error, Service] = {
+      handleDecode(serviceJsonFile, decode[Service](JsonFileNames.fileContents(serviceJsonFile))) match {
+        case Right(service) ⇒ {
+//          println(s"$serviceJsonFile decoded as: ${service.simpleName}")
+
+          Right(service)
+        }
+        case other ⇒ other
+      }
+    }
+  }
 
 
   case class Service(
@@ -36,7 +146,88 @@ object codecs {
     shapes: Map[String, ShapeDefinition],
     authorizers: Option[Authorizers],
     documentation: Option[String]
-  ) {
+  ) extends Client {
+
+    def companion: Client.Companion =
+      Service
+
+    lazy val module: String =
+      companion.customModule(simpleName).getOrElse(serviceId.toLowerCase)
+
+    lazy val fullName: String =
+      s"software.amazon.awssdk.services.${clientPackage}.${simpleName}"
+
+    lazy val simpleName: String =
+      s"${serviceId}Client"
+
+    lazy val clientPackage: String =
+      companion.customClientModule(simpleName).getOrElse {
+//        println(s"$simpleName not in ${companion.customs}")
+
+        serviceId.toLowerCase
+      }
+
+    lazy val modelPackage: String =
+      companion.customModel(simpleName).getOrElse {
+//        println(s"$simpleName not in ${companion.customs}")
+
+        serviceId.toLowerCase
+      }
+
+    private def isStreaming(shape: Shape): Boolean = {
+      def loop(visited: Set[Shape])(shape: Shape): Boolean = {
+        if (visited.contains(shape)) false else {
+          shape.streaming.getOrElse(false) ||
+          shapes.get(shape.shape).fold(false)(isStreaming(visited + shape))
+        }
+      }
+
+      def isStreaming(visited: Set[Shape])(shapeDefinition: ShapeDefinition): Boolean = shapeDefinition match {
+        case blob: BlobShapeDefinition ⇒ blob.streaming.getOrElse(false)
+        case struct: StructureShapeDefinition ⇒ struct.members.values.exists(loop(visited))
+        case _ ⇒ false
+      }
+
+      loop(Set.empty[Shape])(shape)
+    }
+
+    private def isEventStreaming(shape: Shape): Boolean = {
+      def loop(visited: Set[Shape])(shape: Shape): Boolean = {
+        if (visited.contains(shape)) false else {
+          shape.streaming.getOrElse(false) ||
+          shapes.get(shape.shape).fold(false)(isEventStreaming(visited + shape))
+        }
+      }
+
+      def isEventStreaming(visited: Set[Shape])(shapeDefinition: ShapeDefinition): Boolean = shapeDefinition match {
+        case blob: BlobShapeDefinition ⇒ blob.streaming.getOrElse(false)
+        case struct: StructureShapeDefinition ⇒ {
+          struct.eventstream.getOrElse(false) || struct.members.values.exists(loop(visited))
+        }
+        case _ ⇒ false
+      }
+
+      loop(Set.empty[Shape])(shape)
+    }
+
+
+    lazy val methods: ServiceMethods = {
+      ServiceMethods(
+        this,
+        operations.toList.flatMap {
+          case (name, operation) ⇒ OperationServiceMethod.create(
+            name             = name,
+            operation        = operation,
+            streamingFlags   = StreamingFlags(
+              input  = operation.input.fold(false)(isStreaming),
+              output = operation.output.fold(false)(isStreaming),
+              event  = operation.output.fold(false)(isEventStreaming)
+            )
+          )
+        }
+      ).filter
+    }
+
     override def toString: String =
       q"""Service(
          |  version = $version,
@@ -46,6 +237,15 @@ object codecs {
          |  authorizers = $authorizers,
          |  documentation = $documentation
          |)""".stripMargin
+
+    private val serviceId: String =
+      software.amazon.awssdk.utils.internal.CodegenNamingUtils.pascalCase(metadata.serviceId)
+        .stripPrefix("Amazon")
+        .stripPrefix("Aws")
+        .stripSuffix("Service")
+//        .split(" ")
+//        .map(_.toLowerCase.capitalize)
+//        .mkString("")
   }
 
   object MetaData {
@@ -85,24 +285,23 @@ object codecs {
     uid: String,
     xmlNamespace: Option[String]
   ) {
-    override def toString: String =
-      q"""MetaData(
-         |  apiVersion = $apiVersion,
-         |  endpointPrefix = $endpointPrefix,
-         |  globalEndpoint = $globalEndpoint,
-         |  jsonVersion = $jsonVersion,
-         |  checksumFormat = $checksumFormat,
-         |  protocol = $protocol,
-         |  protocolSettings = $protocolSettings,
-         |  serviceAbbreviation = $serviceAbbreviation,
-         |  serviceFullName = $serviceFullName,
-         |  serviceId = $serviceId,
-         |  signatureVersion = $signatureVersion,
-         |  signingName = $signingName,
-         |  targetPrefix = $targetPrefix,
-         |  uid = $uid,
-         |  xmlNamespace = $xmlNamespace
-         |)""".stripMargin
+    override def toString: String = format("MetaData")(
+      "apiVersion" → apiVersion,
+      "endpointPrefix" → endpointPrefix,
+      "globalEndpoint" → globalEndpoint,
+      "jsonVersion" → jsonVersion,
+      "checksumFormat" → checksumFormat,
+      "protocol" → protocol,
+      "protocolSettings" → protocolSettings,
+      "serviceAbbreviation" → serviceAbbreviation,
+      "serviceFullName" → serviceFullName,
+      "serviceId" → serviceId,
+      "signatureVersion" → signatureVersion,
+      "signingName" → signingName,
+      "targetPrefix" → targetPrefix,
+      "uid" → uid,
+      "xmlNamespace" → xmlNamespace
+    )
   }
 
   object Authorizers {
@@ -175,6 +374,63 @@ object codecs {
     )(Operation.apply)(getSome(Operation.unapply)).lossless
   }
 
+  object OperationServiceMethod {
+    def create(name: String, operation: Operation, streamingFlags: StreamingFlags): List[ServiceMethod] =
+      if (operation.deprecated.getOrElse(false) || streamingFlags.event) Nil else {
+        List(OperationServiceMethod(name, operation, streamingFlags))
+      }
+  }
+
+  case class StreamingFlags(input: Boolean, output: Boolean, event: Boolean)
+
+  case class OperationServiceMethod(
+    operationName: String,
+    operation: Operation,
+    streamingFlags: StreamingFlags
+  ) extends ServiceMethod {
+
+    def name: String =
+      operationName.uncapitalize
+
+    def returnType: Type =
+      Type(s"${operationName.pascal}Response")
+//      operation.output match {
+//      case Some(shape) ⇒ s"${shape.shape.stripSuffix("Result")}Response"
+//      case None        ⇒ s"${operation.name}Response"
+//    }
+
+    def parameters: List[String] = params.map(_.toString)
+
+    def parameterNames: List[String] = params.map(_.name)
+
+    def getParameterTypes: List[Type] = params.map(_.`type`)
+
+    def asRequest: String = s"${operationName.pascal}Request"
+
+    private def params: List[Param] = streamingFlags match {
+      case StreamingFlags(true, true, _) ⇒ List(
+        Param("request", Type(asRequest)),
+        Param("sourcePath", Type("Path")),
+        Param("destinationPath", Type("Path"))
+      )
+      case StreamingFlags(true, _, _) ⇒ List(
+        Param("request", Type(asRequest)),
+        Param("body", Type("RequestBody"))
+      )
+      case StreamingFlags(_, true, _) ⇒ List(
+        Param("request", Type(asRequest)),
+        Param("path", Type("Path"))
+      )
+      case _ ⇒ List(
+        Param("request", Type(asRequest))
+      )
+    }
+  }
+
+  case class Param(name: String, `type`: Type) {
+    override def toString: String = s"$name: ${`type`}"
+  }
+
   case class Operation(
     name: String,
     http: Http,
@@ -193,25 +449,24 @@ object codecs {
     documentationUrl: Option[String],
     documentation: Option[String]
   ) {
-    override def toString: String =
-      q"""Operation(
-         |  name = $name,
-         |  http = $http,
-         |  alias = $alias,
-         |  input = $input,
-         |  output = $output,
-         |  errors = $errors,
-         |  authtype = $authtype,
-         |  endpoint = $endpoint,
-         |  endpointDiscovery = $endpointDiscovery,
-         |  endpointoOeration = $endpointoOeration,
-         |  httpChecksumRequired = $httpChecksumRequired,
-         |  idempotent = $idempotent,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentationUrl = $documentationUrl,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("Operation")(
+      "name" → name,
+      "http" → http,
+      "alias" → alias,
+      "input" → input,
+      "output" → output,
+      "errors" → errors,
+      "authtype" → authtype,
+      "endpoint" → endpoint,
+      "endpointDiscovery" → endpointDiscovery,
+      "endpointoOeration" → endpointoOeration,
+      "httpChecksumRequired" → httpChecksumRequired,
+      "idempotent" → idempotent,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentationUrl" → documentationUrl,
+      "documentation" → documentation
+    )
   }
 
   object Http {
@@ -222,7 +477,7 @@ object codecs {
   case class Http(
     method: String,
     requestUri: String,
-    responseCode: Option[Int]
+    responseCode: Option[Int] = None
   ) {
     override def toString: String =
       q"""Http(method = $method, requestUri = $requestUri, responseCode = $responseCode)""".stripMargin
@@ -254,47 +509,47 @@ object codecs {
 
   case class Shape(
     shape: String,
-    pattern: Option[String],
-    enum: Option[List[String]],
-    location: Option[String],
-    locationName: Option[String],
-    queryName: Option[String],
-    resultWrapper: Option[String],
-    xmlNamespace: Option[XmlNamespace],
-    box: Option[Boolean],
-    eventpayload: Option[Boolean],
-    flattened: Option[Boolean],
-    hostLabel: Option[Boolean],
-    idempotencyToken: Option[Boolean],
-    jsonvalue: Option[Boolean],
-    streaming: Option[Boolean],
-    xmlAttribute: Option[Boolean],
-    deprecated: Option[Boolean],
-    deprecatedMessage: Option[String],
-    documentation: Option[String]
+    pattern: Option[String] = None,
+    enum: Option[List[String]] = None,
+    location: Option[String] = None,
+    locationName: Option[String] = None,
+    queryName: Option[String] = None,
+    resultWrapper: Option[String] = None,
+    xmlNamespace: Option[XmlNamespace] = None,
+    box: Option[Boolean] = None,
+    eventpayload: Option[Boolean] = None,
+    flattened: Option[Boolean] = None,
+    hostLabel: Option[Boolean] = None,
+    idempotencyToken: Option[Boolean] = None,
+    jsonvalue: Option[Boolean] = None,
+    streaming: Option[Boolean] = None,
+    xmlAttribute: Option[Boolean] = None,
+    deprecated: Option[Boolean] = None,
+    deprecatedMessage: Option[String] = None,
+    documentation: Option[String] = None
   ) {
-    override def toString: String =
-      q"""Shape(
-         |  shape = $shape,
-         |  pattern = $pattern,
-         |  enum = enum,
-         |  location = $location,
-         |  locationName = $locationName,
-         |  queryName = $queryName,
-         |  resultWrapper = $resultWrapper,
-         |  xmlNamespace = $xmlNamespace,
-         |  box = $box,
-         |  eventpayload = $eventpayload,
-         |  flattened = $flattened,
-         |  hostLabel = $hostLabel,
-         |  idempotencyToken = $idempotencyToken,
-         |  jsonvalue = $jsonvalue,
-         |  streaming = $streaming,
-         |  xmlAttribute = $xmlAttribute,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+
+    override def toString: String = format("Shape")(
+      "shape" → shape,
+      "pattern" → pattern,
+      "enum" → enum,
+      "location" → location,
+      "locationName" → locationName,
+      "queryName" → queryName,
+      "resultWrapper" → resultWrapper,
+      "xmlNamespace" → xmlNamespace,
+      "box" → box,
+      "eventpayload" → eventpayload,
+      "flattened" → flattened,
+      "hostLabel" → hostLabel,
+      "idempotencyToken" → idempotencyToken,
+      "jsonvalue" → jsonvalue,
+      "streaming" → streaming,
+      "xmlAttribute" → xmlAttribute,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
 
   object ShapeDefinition {
@@ -424,16 +679,15 @@ object codecs {
     deprecatedMessage: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""IntegerShapeDefinition(
-         |  shapeType = $shapeType,
-         |  max = $max,
-         |  min = $min,
-         |  box = $box,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("IntegerShapeDefinition")(
+      "shapeType" → shapeType,
+      "max" → max,
+      "min" → min,
+      "box" → box,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
 
   object BlobShapeDefinition {
@@ -461,19 +715,19 @@ object codecs {
     deprecatedMessage: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""BlobShapeDefinition(
-         |  shapeType = $shapeType,
-         |  max = $max,
-         |  min = $min,
-         |  requiresLength = $requiresLength,
-         |  sensitive = $sensitive,
-         |  streaming = $streaming,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("BlobShapeDefinition")(
+      "shapeType" → shapeType,
+      "max" → max,
+      "min" → min,
+      "requiresLength" → requiresLength,
+      "sensitive" → sensitive,
+      "streaming" → streaming,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
+
 
   object LongShapeDefinition {
     implicit val longShapeDefinitionCodec: Codec[LongShapeDefinition] = Codec.forProduct7(
@@ -483,7 +737,7 @@ object codecs {
       "box",
       "deprecated",
       "deprecatedMessage",
-      "documentation",
+      "documentation"
     )(LongShapeDefinition.apply)(getSome(LongShapeDefinition.unapply)).lossless
   }
 
@@ -496,16 +750,15 @@ object codecs {
     deprecatedMessage: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""LongShapeDefinition(
-         |  shapeType = $shapeType,
-         |  max = $max,
-         |  min = $min,
-         |  box = $box,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("LongShapeDefinition")(
+      "shapeType" → shapeType,
+      "max" → max,
+      "min" → min,
+      "box" → box,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
 
   object ListShapeDefinition {
@@ -535,19 +788,18 @@ object codecs {
     deprecatedMessage: Option[Boolean],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""ListShapeDefinition(
-         |  shapeType = $shapeType,
-         |  member = $member,
-         |  max = $max,
-         |  min = $min,
-         |  locationName = $locationName,
-         |  flattened = $flattened,
-         |  sensitive = $sensitive,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("ListShapeDefinition")(
+      "shapeType" → shapeType,
+      "member" → member,
+      "max" → max,
+      "min" → min,
+      "locationName" → locationName,
+      "flattened" → flattened,
+      "sensitive" → sensitive,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
 
   object MapShapeDefinition {
@@ -575,18 +827,17 @@ object codecs {
     sensitive: Option[Boolean],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""MapShapeDefinition(
-         |  shapeType = $shapeType,
-         |  key = $key,
-         |  value = $value,
-         |  max = $max,
-         |  min = $min,
-         |  locationName = $locationName,
-         |  flattened = $flattened,
-         |  sensitive = $sensitive,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("MapShapeDefinition")(
+      "shapeType" → shapeType,
+      "key" → key,
+      "value" → value,
+      "max" → max,
+      "min" → min,
+      "locationName" → locationName,
+      "flattened" → flattened,
+      "sensitive" → sensitive,
+      "documentation" → documentation
+    )
   }
 
   object StringShapeDefinition {
@@ -614,18 +865,17 @@ object codecs {
     deprecatedMessage: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""StringShapeDefinition(
-         |  shapeType = $shapeType,
-         |  max = $max,
-         |  min = $min,
-         |  pattern = $pattern,
-         |  enum = $enum,
-         |  sensitive = $sensitive,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("StringShapeDefinition")(
+      "shapeType" → shapeType,
+      "max" → max,
+      "min" → min,
+      "pattern" → pattern,
+      "enum" → enum,
+      "sensitive" → sensitive,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
 
   object StructureShapeDefinition {
@@ -677,30 +927,29 @@ object codecs {
     deprecatedMessage: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""StructureShapeDefinition(
-         |  shapeType = $shapeType,
-         |  required = $required,
-         |  xmlOrder = $xmlOrder,
-         |  xmlNamespace = $xmlNamespace,
-         |  members = $members,
-         |  error = $error,
-         |  payload = $payload
-         |  locationName = $locationName
-         |  retryable = $retryable,
-         |  box = $box,
-         |  event = $event,
-         |  eventstream = $eventstream,
-         |  exception = $exception,
-         |  fault = $fault,
-         |  sensitive = $sensitive,
-         |  synthetic = $synthetic,
-         |  union = $union,
-         |  wrapper = $wrapper,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         )""".stripMargin
+    override def toString: String = format("StructureShapeDefinition")(
+      "shapeType" → shapeType,
+      "required" → required,
+      "xmlOrder" → xmlOrder,
+      "xmlNamespace" → xmlNamespace,
+      "members" → members,
+      "error" → error,
+      "payload" → payload,
+      "locationName" → locationName,
+      "retryable" → retryable,
+      "box" → box,
+      "event" → event,
+      "eventstream" → eventstream,
+      "exception" → exception,
+      "fault" → fault,
+      "sensitive" → sensitive,
+      "synthetic" → synthetic,
+      "union" → union,
+      "wrapper" → wrapper,
+      "deprecated" → deprecated,
+      "deprecatedMessage" → deprecatedMessage,
+      "documentation" → documentation
+    )
   }
 
   object StructureError {
@@ -725,12 +974,11 @@ object codecs {
     timestampFormat: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""TimestampShapeDefinition(
-         |  shapeType = $shapeType,
-         |  timestampFormat = $timestampFormat,
-         |  documentation = $documentation
-         |)"""
+    override def toString: String = format("TimestampShapeDefinition")(
+       "shapeType" -> shapeType,
+       "timestampFormat" -> timestampFormat,
+       "documentation" -> documentation
+    )
   }
 
 
@@ -761,14 +1009,13 @@ object codecs {
     deprecatedMessage: Option[String],
     documentation: Option[String]
   ) extends ShapeDefinition {
-    override def toString: String =
-      q"""BooleanShapeDefinition(
-         |  shapeType = $shapeType,
-         |  box = $box,
-         |  deprecated = $deprecated,
-         |  deprecatedMessage = $deprecatedMessage,
-         |  documentation = $documentation
-         |)""".stripMargin
+    override def toString: String = format("BooleanShapeDefinition")(
+      "shapeType" -> shapeType,
+      "box" -> box,
+      "deprecated" -> deprecated,
+      "deprecatedMessage" -> deprecatedMessage,
+      "documentation" -> documentation
+    )
   }
 
   object Retryable {
@@ -816,4 +1063,22 @@ object codecs {
     prefix: Option[String],
     uri: String
   )
+
+
+  def format(name: String)(args: (String, Any)*): String = {
+    val withoutNones = args.flatMap {
+      case (_, None)           ⇒ None
+      case (name, Some(value)) ⇒ Some(s"$name = ${quote(value)}")
+      case (name, value)       ⇒ Some(s"$name = ${quote(value)}")
+    }.toList
+
+    withoutNones match {
+      case Nil ⇒ "$name()"
+      case List(one) ⇒ s"$name($one)"
+      case many ⇒
+        s"""$name(
+         |  ${many.mkString(",\n  ")}
+         |)""".stripMargin
+    }
+  }
 }

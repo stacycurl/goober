@@ -20,24 +20,24 @@ object lambda {
     // DeleteAliasRequest
     // DeleteCodeSigningConfigRequest
     // DeleteEventSourceMappingRequest
+    // DeleteFunctionRequest
     // DeleteFunctionCodeSigningConfigRequest
     // DeleteFunctionConcurrencyRequest
     // DeleteFunctionEventInvokeConfigRequest
-    // DeleteFunctionRequest
     // DeleteLayerVersionRequest
     // DeleteProvisionedConcurrencyConfigRequest
     // GetAccountSettingsRequest
     // GetAliasRequest
     // GetCodeSigningConfigRequest
     // GetEventSourceMappingRequest
+    // GetFunctionRequest
     // GetFunctionCodeSigningConfigRequest
     // GetFunctionConcurrencyRequest
     // GetFunctionConfigurationRequest
     // GetFunctionEventInvokeConfigRequest
-    // GetFunctionRequest
+    // GetLayerVersionRequest
     // GetLayerVersionByArnRequest
     // GetLayerVersionPolicyRequest
-    // GetLayerVersionRequest
     // GetPolicyRequest
     // GetProvisionedConcurrencyConfigRequest
     // InvokeRequest
@@ -45,8 +45,8 @@ object lambda {
     // ListCodeSigningConfigsRequest
     // ListEventSourceMappingsRequest
     // ListFunctionEventInvokeConfigsRequest
-    // ListFunctionsByCodeSigningConfigRequest
     // ListFunctionsRequest
+    // ListFunctionsByCodeSigningConfigRequest
     // ListLayerVersionsRequest
     // ListLayersRequest
     // ListProvisionedConcurrencyConfigsRequest

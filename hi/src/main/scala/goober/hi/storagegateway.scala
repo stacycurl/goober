@@ -24,8 +24,8 @@ object storagegateway {
     // CreateCachediScsiVolumeRequest
     // CreateNfsFileShareRequest
     // CreateSmbFileShareRequest
-    // CreateSnapshotFromVolumeRecoveryPointRequest
     // CreateSnapshotRequest
+    // CreateSnapshotFromVolumeRecoveryPointRequest
     // CreateStorediScsiVolumeRequest
     // CreateTapePoolRequest
     // CreateTapeWithBarcodeRequest
@@ -36,9 +36,9 @@ object storagegateway {
     // DeleteFileShareRequest
     // DeleteGatewayRequest
     // DeleteSnapshotScheduleRequest
+    // DeleteTapeRequest
     // DeleteTapeArchiveRequest
     // DeleteTapePoolRequest
-    // DeleteTapeRequest
     // DeleteVolumeRequest
     // DescribeAvailabilityMonitorTestRequest
     // DescribeBandwidthRateLimitRequest

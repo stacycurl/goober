@@ -41,11 +41,6 @@ object rdsdata { module =>
         ): Kleisli[M, RdsDataClient, CommitTransactionResponse] =
           primitive(_.commitTransaction(request))
 
-        def executeSql(
-          request: ExecuteSqlRequest
-        ): Kleisli[M, RdsDataClient, ExecuteSqlResponse] =
-          primitive(_.executeSql(request))
-
         def executeStatement(
           request: ExecuteStatementRequest
         ): Kleisli[M, RdsDataClient, ExecuteStatementResponse] =
@@ -80,10 +75,6 @@ object rdsdata { module =>
       def commitTransaction(
         request: CommitTransactionRequest
       ): F[CommitTransactionResponse]
-
-      def executeSql(
-        request: ExecuteSqlRequest
-      ): F[ExecuteSqlResponse]
 
       def executeStatement(
         request: ExecuteStatementRequest
@@ -120,13 +111,6 @@ object rdsdata { module =>
     ) extends RdsDataOp[CommitTransactionResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[CommitTransactionResponse] =
         visitor.commitTransaction(request)
-    }
-
-    final case class ExecuteSqlOp(
-      request: ExecuteSqlRequest
-    ) extends RdsDataOp[ExecuteSqlResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[ExecuteSqlResponse] =
-        visitor.executeSql(request)
     }
 
     final case class ExecuteStatementOp(
@@ -168,11 +152,6 @@ object rdsdata { module =>
     request: CommitTransactionRequest
   ): RdsDataIO[CommitTransactionResponse] =
     FF.liftF(CommitTransactionOp(request))
-
-  def executeSql(
-    request: ExecuteSqlRequest
-  ): RdsDataIO[ExecuteSqlResponse] =
-    FF.liftF(ExecuteSqlOp(request))
 
   def executeStatement(
     request: ExecuteStatementRequest

@@ -15,8 +15,8 @@ object cognitoidentityprovider {
     // AdminAddUserToGroupRequest
     // AdminConfirmSignUpRequest
     // AdminCreateUserRequest
-    // AdminDeleteUserAttributesRequest
     // AdminDeleteUserRequest
+    // AdminDeleteUserAttributesRequest
     // AdminDisableProviderForUserRequest
     // AdminDisableUserRequest
     // AdminEnableUserRequest
@@ -47,24 +47,24 @@ object cognitoidentityprovider {
     // CreateIdentityProviderRequest
     // CreateResourceServerRequest
     // CreateUserImportJobRequest
+    // CreateUserPoolRequest
     // CreateUserPoolClientRequest
     // CreateUserPoolDomainRequest
-    // CreateUserPoolRequest
     // DeleteGroupRequest
     // DeleteIdentityProviderRequest
     // DeleteResourceServerRequest
+    // DeleteUserRequest
     // DeleteUserAttributesRequest
+    // DeleteUserPoolRequest
     // DeleteUserPoolClientRequest
     // DeleteUserPoolDomainRequest
-    // DeleteUserPoolRequest
-    // DeleteUserRequest
     // DescribeIdentityProviderRequest
     // DescribeResourceServerRequest
     // DescribeRiskConfigurationRequest
     // DescribeUserImportJobRequest
+    // DescribeUserPoolRequest
     // DescribeUserPoolClientRequest
     // DescribeUserPoolDomainRequest
-    // DescribeUserPoolRequest
     // ForgetDeviceRequest
     // ForgotPasswordRequest
     // GetCsvHeaderRequest
@@ -73,9 +73,9 @@ object cognitoidentityprovider {
     // GetIdentityProviderByIdentifierRequest
     // GetSigningCertificateRequest
     // GetUiCustomizationRequest
+    // GetUserRequest
     // GetUserAttributeVerificationCodeRequest
     // GetUserPoolMfaConfigRequest
-    // GetUserRequest
     // GlobalSignOutRequest
     // InitiateAuthRequest
     // ListDevicesRequest
@@ -86,8 +86,8 @@ object cognitoidentityprovider {
     // ListUserImportJobsRequest
     // ListUserPoolClientsRequest
     // ListUserPoolsRequest
-    // ListUsersInGroupRequest
     // ListUsersRequest
+    // ListUsersInGroupRequest
     // ResendConfirmationCodeRequest
     // RespondToAuthChallengeRequest
     // RevokeTokenRequest
@@ -107,9 +107,9 @@ object cognitoidentityprovider {
     // UpdateIdentityProviderRequest
     // UpdateResourceServerRequest
     // UpdateUserAttributesRequest
+    // UpdateUserPoolRequest
     // UpdateUserPoolClientRequest
     // UpdateUserPoolDomainRequest
-    // UpdateUserPoolRequest
     // VerifySoftwareTokenRequest
     // VerifyUserAttributeRequest
 

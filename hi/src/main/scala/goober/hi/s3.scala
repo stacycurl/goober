@@ -16,6 +16,7 @@ object s3 {
     // CopyObjectRequest
     // CreateBucketRequest
     // CreateMultipartUploadRequest
+    // DeleteBucketRequest
     // DeleteBucketAnalyticsConfigurationRequest
     // DeleteBucketCorsRequest
     // DeleteBucketEncryptionRequest
@@ -26,7 +27,6 @@ object s3 {
     // DeleteBucketOwnershipControlsRequest
     // DeleteBucketPolicyRequest
     // DeleteBucketReplicationRequest
-    // DeleteBucketRequest
     // DeleteBucketTaggingRequest
     // DeleteBucketWebsiteRequest
     // DeleteObjectRequest
@@ -56,7 +56,6 @@ object s3 {
     // GetObjectAclRequest
     // GetObjectLegalHoldRequest
     // GetObjectLockConfigurationRequest
-    // GetObjectRequest
     // GetObjectRetentionRequest
     // GetObjectTaggingRequest
     // GetPublicAccessBlockRequest
@@ -72,7 +71,6 @@ object s3 {
     // ListObjectsRequest
     // ListObjectsV2Request
     // ListPartsRequest
-    // Path
     // PutBucketAccelerateConfigurationRequest
     // PutBucketAclRequest
     // PutBucketAnalyticsConfigurationRequest
@@ -91,17 +89,16 @@ object s3 {
     // PutBucketTaggingRequest
     // PutBucketVersioningRequest
     // PutBucketWebsiteRequest
+    // PutObjectRequest
     // PutObjectAclRequest
     // PutObjectLegalHoldRequest
     // PutObjectLockConfigurationRequest
-    // PutObjectRequest
     // PutObjectRetentionRequest
     // PutObjectTaggingRequest
     // PutPublicAccessBlockRequest
-    // RequestBody
     // RestoreObjectRequest
-    // UploadPartCopyRequest
     // UploadPartRequest
+    // UploadPartCopyRequest
     // WriteGetObjectResponseRequest
 
   }

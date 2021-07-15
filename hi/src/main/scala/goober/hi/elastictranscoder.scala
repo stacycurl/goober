@@ -24,8 +24,8 @@ object elastictranscoder {
     // ReadJobRequest
     // ReadPipelineRequest
     // ReadPresetRequest
-    // UpdatePipelineNotificationsRequest
     // UpdatePipelineRequest
+    // UpdatePipelineNotificationsRequest
     // UpdatePipelineStatusRequest
 
   }

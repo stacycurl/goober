@@ -32,8 +32,8 @@ object mturk {
     // GetQualificationTypeRequest
     // ListAssignmentsForHitRequest
     // ListBonusPaymentsRequest
-    // ListHiTsForQualificationTypeRequest
     // ListHiTsRequest
+    // ListHiTsForQualificationTypeRequest
     // ListQualificationRequestsRequest
     // ListQualificationTypesRequest
     // ListReviewPolicyResultsForHitRequest

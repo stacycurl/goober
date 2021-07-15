@@ -54,9 +54,9 @@ object pinpoint {
     // GetApplicationSettingsRequest
     // GetAppsRequest
     // GetBaiduChannelRequest
+    // GetCampaignRequest
     // GetCampaignActivitiesRequest
     // GetCampaignDateRangeKpiRequest
-    // GetCampaignRequest
     // GetCampaignVersionRequest
     // GetCampaignVersionsRequest
     // GetCampaignsRequest
@@ -70,16 +70,16 @@ object pinpoint {
     // GetGcmChannelRequest
     // GetImportJobRequest
     // GetImportJobsRequest
+    // GetJourneyRequest
     // GetJourneyDateRangeKpiRequest
     // GetJourneyExecutionActivityMetricsRequest
     // GetJourneyExecutionMetricsRequest
-    // GetJourneyRequest
     // GetPushTemplateRequest
     // GetRecommenderConfigurationRequest
     // GetRecommenderConfigurationsRequest
+    // GetSegmentRequest
     // GetSegmentExportJobsRequest
     // GetSegmentImportJobsRequest
-    // GetSegmentRequest
     // GetSegmentVersionRequest
     // GetSegmentVersionsRequest
     // GetSegmentsRequest

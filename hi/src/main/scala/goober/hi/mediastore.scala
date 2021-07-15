@@ -12,8 +12,8 @@ object mediastore {
 
     // Methods for constructing model classes, requests, etc.
     // CreateContainerRequest
-    // DeleteContainerPolicyRequest
     // DeleteContainerRequest
+    // DeleteContainerPolicyRequest
     // DeleteCorsPolicyRequest
     // DeleteLifecyclePolicyRequest
     // DeleteMetricPolicyRequest

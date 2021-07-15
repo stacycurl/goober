@@ -39,36 +39,36 @@ object cloudfront {
     // DeleteRealtimeLogConfigRequest
     // DeleteStreamingDistributionRequest
     // DescribeFunctionRequest
-    // GetCachePolicyConfigRequest
     // GetCachePolicyRequest
-    // GetCloudFrontOriginAccessIdentityConfigRequest
+    // GetCachePolicyConfigRequest
     // GetCloudFrontOriginAccessIdentityRequest
-    // GetDistributionConfigRequest
+    // GetCloudFrontOriginAccessIdentityConfigRequest
     // GetDistributionRequest
-    // GetFieldLevelEncryptionConfigRequest
-    // GetFieldLevelEncryptionProfileConfigRequest
-    // GetFieldLevelEncryptionProfileRequest
+    // GetDistributionConfigRequest
     // GetFieldLevelEncryptionRequest
+    // GetFieldLevelEncryptionConfigRequest
+    // GetFieldLevelEncryptionProfileRequest
+    // GetFieldLevelEncryptionProfileConfigRequest
     // GetFunctionRequest
     // GetInvalidationRequest
-    // GetKeyGroupConfigRequest
     // GetKeyGroupRequest
+    // GetKeyGroupConfigRequest
     // GetMonitoringSubscriptionRequest
-    // GetOriginRequestPolicyConfigRequest
     // GetOriginRequestPolicyRequest
-    // GetPublicKeyConfigRequest
+    // GetOriginRequestPolicyConfigRequest
     // GetPublicKeyRequest
+    // GetPublicKeyConfigRequest
     // GetRealtimeLogConfigRequest
-    // GetStreamingDistributionConfigRequest
     // GetStreamingDistributionRequest
+    // GetStreamingDistributionConfigRequest
     // ListCachePoliciesRequest
     // ListCloudFrontOriginAccessIdentitiesRequest
+    // ListDistributionsRequest
     // ListDistributionsByCachePolicyIdRequest
     // ListDistributionsByKeyGroupRequest
     // ListDistributionsByOriginRequestPolicyIdRequest
     // ListDistributionsByRealtimeLogConfigRequest
     // ListDistributionsByWebAclIdRequest
-    // ListDistributionsRequest
     // ListFieldLevelEncryptionConfigsRequest
     // ListFieldLevelEncryptionProfilesRequest
     // ListFunctionsRequest

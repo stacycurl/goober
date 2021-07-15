@@ -13,11 +13,8 @@ object mediastoredata {
     // Methods for constructing model classes, requests, etc.
     // DeleteObjectRequest
     // DescribeObjectRequest
-    // GetObjectRequest
     // ListItemsRequest
-    // Path
     // PutObjectRequest
-    // RequestBody
 
   }
 

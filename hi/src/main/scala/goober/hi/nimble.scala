@@ -16,26 +16,26 @@ object nimble {
     // CreateStreamingImageRequest
     // CreateStreamingSessionRequest
     // CreateStreamingSessionStreamRequest
-    // CreateStudioComponentRequest
     // CreateStudioRequest
-    // DeleteLaunchProfileMemberRequest
+    // CreateStudioComponentRequest
     // DeleteLaunchProfileRequest
+    // DeleteLaunchProfileMemberRequest
     // DeleteStreamingImageRequest
     // DeleteStreamingSessionRequest
+    // DeleteStudioRequest
     // DeleteStudioComponentRequest
     // DeleteStudioMemberRequest
-    // DeleteStudioRequest
     // GetEulaRequest
+    // GetLaunchProfileRequest
     // GetLaunchProfileDetailsRequest
     // GetLaunchProfileInitializationRequest
     // GetLaunchProfileMemberRequest
-    // GetLaunchProfileRequest
     // GetStreamingImageRequest
     // GetStreamingSessionRequest
     // GetStreamingSessionStreamRequest
+    // GetStudioRequest
     // GetStudioComponentRequest
     // GetStudioMemberRequest
-    // GetStudioRequest
     // ListEulaAcceptancesRequest
     // ListEulasRequest
     // ListLaunchProfileMembersRequest
@@ -51,11 +51,11 @@ object nimble {
     // StartStudioSsoConfigurationRepairRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateLaunchProfileMemberRequest
     // UpdateLaunchProfileRequest
+    // UpdateLaunchProfileMemberRequest
     // UpdateStreamingImageRequest
-    // UpdateStudioComponentRequest
     // UpdateStudioRequest
+    // UpdateStudioComponentRequest
 
   }
 

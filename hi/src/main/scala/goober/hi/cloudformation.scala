@@ -14,12 +14,12 @@ object cloudformation {
     // CancelUpdateStackRequest
     // ContinueUpdateRollbackRequest
     // CreateChangeSetRequest
-    // CreateStackInstancesRequest
     // CreateStackRequest
+    // CreateStackInstancesRequest
     // CreateStackSetRequest
     // DeleteChangeSetRequest
-    // DeleteStackInstancesRequest
     // DeleteStackRequest
+    // DeleteStackInstancesRequest
     // DeleteStackSetRequest
     // DeregisterTypeRequest
     // DescribeAccountLimitsRequest
@@ -27,14 +27,14 @@ object cloudformation {
     // DescribeStackDriftDetectionStatusRequest
     // DescribeStackEventsRequest
     // DescribeStackInstanceRequest
-    // DescribeStackResourceDriftsRequest
     // DescribeStackResourceRequest
+    // DescribeStackResourceDriftsRequest
     // DescribeStackResourcesRequest
-    // DescribeStackSetOperationRequest
     // DescribeStackSetRequest
+    // DescribeStackSetOperationRequest
     // DescribeStacksRequest
-    // DescribeTypeRegistrationRequest
     // DescribeTypeRequest
+    // DescribeTypeRegistrationRequest
     // DetectStackDriftRequest
     // DetectStackResourceDriftRequest
     // DetectStackSetDriftRequest
@@ -61,8 +61,8 @@ object cloudformation {
     // SetTypeDefaultVersionRequest
     // SignalResourceRequest
     // StopStackSetOperationRequest
-    // UpdateStackInstancesRequest
     // UpdateStackRequest
+    // UpdateStackInstancesRequest
     // UpdateStackSetRequest
     // UpdateTerminationProtectionRequest
     // ValidateTemplateRequest

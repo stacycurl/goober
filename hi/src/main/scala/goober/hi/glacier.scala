@@ -18,13 +18,12 @@ object glacier {
     // CompleteVaultLockRequest
     // CreateVaultRequest
     // DeleteArchiveRequest
+    // DeleteVaultRequest
     // DeleteVaultAccessPolicyRequest
     // DeleteVaultNotificationsRequest
-    // DeleteVaultRequest
     // DescribeJobRequest
     // DescribeVaultRequest
     // GetDataRetrievalPolicyRequest
-    // GetJobOutputRequest
     // GetVaultAccessPolicyRequest
     // GetVaultLockRequest
     // GetVaultNotificationsRequest
@@ -37,10 +36,8 @@ object glacier {
     // ListProvisionedCapacityRequest
     // ListTagsForVaultRequest
     // ListVaultsRequest
-    // Path
     // PurchaseProvisionedCapacityRequest
     // RemoveTagsFromVaultRequest
-    // RequestBody
     // SetDataRetrievalPolicyRequest
     // SetVaultAccessPolicyRequest
     // SetVaultNotificationsRequest

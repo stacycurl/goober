@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.codeartifact.CodeartifactClient
 import software.amazon.awssdk.services.codeartifact.model._
-import java.nio.file.Path
 
 
 object codeartifact { module =>
@@ -106,12 +105,6 @@ object codeartifact { module =>
           request: GetDomainPermissionsPolicyRequest
         ): Kleisli[M, CodeartifactClient, GetDomainPermissionsPolicyResponse] =
           primitive(_.getDomainPermissionsPolicy(request))
-
-        def getPackageVersionAsset(
-          request: GetPackageVersionAssetRequest,
-          path: Path
-        ): Kleisli[M, CodeartifactClient, GetPackageVersionAssetResponse] =
-          primitive(_.getPackageVersionAsset(request, path))
 
         def getPackageVersionReadme(
           request: GetPackageVersionReadmeRequest
@@ -274,11 +267,6 @@ object codeartifact { module =>
       def getDomainPermissionsPolicy(
         request: GetDomainPermissionsPolicyRequest
       ): F[GetDomainPermissionsPolicyResponse]
-
-      def getPackageVersionAsset(
-        request: GetPackageVersionAssetRequest,
-        path: Path
-      ): F[GetPackageVersionAssetResponse]
 
       def getPackageVersionReadme(
         request: GetPackageVersionReadmeRequest
@@ -466,14 +454,6 @@ object codeartifact { module =>
     ) extends CodeartifactOp[GetDomainPermissionsPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetDomainPermissionsPolicyResponse] =
         visitor.getDomainPermissionsPolicy(request)
-    }
-
-    final case class GetPackageVersionAssetOp(
-      request: GetPackageVersionAssetRequest,
-      path: Path
-    ) extends CodeartifactOp[GetPackageVersionAssetResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetPackageVersionAssetResponse] =
-        visitor.getPackageVersionAsset(request, path)
     }
 
     final case class GetPackageVersionReadmeOp(
@@ -685,12 +665,6 @@ object codeartifact { module =>
     request: GetDomainPermissionsPolicyRequest
   ): CodeartifactIO[GetDomainPermissionsPolicyResponse] =
     FF.liftF(GetDomainPermissionsPolicyOp(request))
-
-  def getPackageVersionAsset(
-    request: GetPackageVersionAssetRequest,
-    path: Path
-  ): CodeartifactIO[GetPackageVersionAssetResponse] =
-    FF.liftF(GetPackageVersionAssetOp(request, path))
 
   def getPackageVersionReadme(
     request: GetPackageVersionReadmeRequest

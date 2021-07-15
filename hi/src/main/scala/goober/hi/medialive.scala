@@ -20,25 +20,24 @@ object medialive {
     // CreateChannelRequest
     // CreateInputRequest
     // CreateInputSecurityGroupRequest
-    // CreateMultiplexProgramRequest
     // CreateMultiplexRequest
+    // CreateMultiplexProgramRequest
     // CreatePartnerInputRequest
     // CreateTagsRequest
     // DeleteChannelRequest
     // DeleteInputRequest
     // DeleteInputSecurityGroupRequest
-    // DeleteMultiplexProgramRequest
     // DeleteMultiplexRequest
+    // DeleteMultiplexProgramRequest
     // DeleteReservationRequest
     // DeleteScheduleRequest
     // DeleteTagsRequest
     // DescribeChannelRequest
-    // DescribeInputDeviceRequest
-    // DescribeInputDeviceThumbnailRequest
     // DescribeInputRequest
+    // DescribeInputDeviceRequest
     // DescribeInputSecurityGroupRequest
-    // DescribeMultiplexProgramRequest
     // DescribeMultiplexRequest
+    // DescribeMultiplexProgramRequest
     // DescribeOfferingRequest
     // DescribeReservationRequest
     // DescribeScheduleRequest
@@ -52,7 +51,6 @@ object medialive {
     // ListOfferingsRequest
     // ListReservationsRequest
     // ListTagsForResourceRequest
-    // Path
     // PurchaseOfferingRequest
     // RejectInputDeviceTransferRequest
     // StartChannelRequest
@@ -60,13 +58,13 @@ object medialive {
     // StopChannelRequest
     // StopMultiplexRequest
     // TransferInputDeviceRequest
-    // UpdateChannelClassRequest
     // UpdateChannelRequest
-    // UpdateInputDeviceRequest
+    // UpdateChannelClassRequest
     // UpdateInputRequest
+    // UpdateInputDeviceRequest
     // UpdateInputSecurityGroupRequest
-    // UpdateMultiplexProgramRequest
     // UpdateMultiplexRequest
+    // UpdateMultiplexProgramRequest
     // UpdateReservationRequest
 
   }

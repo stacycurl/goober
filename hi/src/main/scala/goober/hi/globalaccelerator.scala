@@ -28,10 +28,10 @@ object globalaccelerator {
     // DeleteListenerRequest
     // DenyCustomRoutingTrafficRequest
     // DeprovisionByoipCidrRequest
-    // DescribeAcceleratorAttributesRequest
     // DescribeAcceleratorRequest
-    // DescribeCustomRoutingAcceleratorAttributesRequest
+    // DescribeAcceleratorAttributesRequest
     // DescribeCustomRoutingAcceleratorRequest
+    // DescribeCustomRoutingAcceleratorAttributesRequest
     // DescribeCustomRoutingEndpointGroupRequest
     // DescribeCustomRoutingListenerRequest
     // DescribeEndpointGroupRequest
@@ -41,8 +41,8 @@ object globalaccelerator {
     // ListCustomRoutingAcceleratorsRequest
     // ListCustomRoutingEndpointGroupsRequest
     // ListCustomRoutingListenersRequest
-    // ListCustomRoutingPortMappingsByDestinationRequest
     // ListCustomRoutingPortMappingsRequest
+    // ListCustomRoutingPortMappingsByDestinationRequest
     // ListEndpointGroupsRequest
     // ListListenersRequest
     // ListTagsForResourceRequest
@@ -50,10 +50,10 @@ object globalaccelerator {
     // RemoveCustomRoutingEndpointsRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateAcceleratorAttributesRequest
     // UpdateAcceleratorRequest
-    // UpdateCustomRoutingAcceleratorAttributesRequest
+    // UpdateAcceleratorAttributesRequest
     // UpdateCustomRoutingAcceleratorRequest
+    // UpdateCustomRoutingAcceleratorAttributesRequest
     // UpdateCustomRoutingListenerRequest
     // UpdateEndpointGroupRequest
     // UpdateListenerRequest

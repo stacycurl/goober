@@ -28,8 +28,8 @@ object opsworkscm {
     // StartMaintenanceRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateServerEngineAttributesRequest
     // UpdateServerRequest
+    // UpdateServerEngineAttributesRequest
 
   }
 

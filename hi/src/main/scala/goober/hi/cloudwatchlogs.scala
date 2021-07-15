@@ -40,8 +40,8 @@ object cloudwatchlogs {
     // GetLogRecordRequest
     // GetQueryResultsRequest
     // ListTagsLogGroupRequest
-    // PutDestinationPolicyRequest
     // PutDestinationRequest
+    // PutDestinationPolicyRequest
     // PutLogEventsRequest
     // PutMetricFilterRequest
     // PutQueryDefinitionRequest

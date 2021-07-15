@@ -22,8 +22,8 @@ object greengrass {
     // CreateDeviceDefinitionVersionRequest
     // CreateFunctionDefinitionRequest
     // CreateFunctionDefinitionVersionRequest
-    // CreateGroupCertificateAuthorityRequest
     // CreateGroupRequest
+    // CreateGroupCertificateAuthorityRequest
     // CreateGroupVersionRequest
     // CreateLoggerDefinitionRequest
     // CreateLoggerDefinitionVersionRequest
@@ -54,9 +54,9 @@ object greengrass {
     // GetDeviceDefinitionVersionRequest
     // GetFunctionDefinitionRequest
     // GetFunctionDefinitionVersionRequest
+    // GetGroupRequest
     // GetGroupCertificateAuthorityRequest
     // GetGroupCertificateConfigurationRequest
-    // GetGroupRequest
     // GetGroupVersionRequest
     // GetLoggerDefinitionRequest
     // GetLoggerDefinitionVersionRequest
@@ -97,8 +97,8 @@ object greengrass {
     // UpdateCoreDefinitionRequest
     // UpdateDeviceDefinitionRequest
     // UpdateFunctionDefinitionRequest
-    // UpdateGroupCertificateConfigurationRequest
     // UpdateGroupRequest
+    // UpdateGroupCertificateConfigurationRequest
     // UpdateLoggerDefinitionRequest
     // UpdateResourceDefinitionRequest
     // UpdateSubscriptionDefinitionRequest

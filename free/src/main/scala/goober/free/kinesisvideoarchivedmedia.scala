@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.kinesisvideoarchivedmedia.KinesisVideoArchivedMediaClient
 import software.amazon.awssdk.services.kinesisvideoarchivedmedia.model._
-import java.nio.file.Path
 
 
 object kinesisvideoarchivedmedia { module =>
@@ -27,12 +26,6 @@ object kinesisvideoarchivedmedia { module =>
 
     object Visitor {
       trait KleisliVisitor[M[_]] extends KinesisVideoArchivedMediaOp.Visitor[Kleisli[M, KinesisVideoArchivedMediaClient, *]] {
-        def getClip(
-          request: GetClipRequest,
-          path: Path
-        ): Kleisli[M, KinesisVideoArchivedMediaClient, GetClipResponse] =
-          primitive(_.getClip(request, path))
-
         def getDASHStreamingSessionURL(
           request: GetDashStreamingSessionUrlRequest
         ): Kleisli[M, KinesisVideoArchivedMediaClient, GetDashStreamingSessionUrlResponse] =
@@ -42,12 +35,6 @@ object kinesisvideoarchivedmedia { module =>
           request: GetHlsStreamingSessionUrlRequest
         ): Kleisli[M, KinesisVideoArchivedMediaClient, GetHlsStreamingSessionUrlResponse] =
           primitive(_.getHLSStreamingSessionURL(request))
-
-        def getMediaForFragmentList(
-          request: GetMediaForFragmentListRequest,
-          path: Path
-        ): Kleisli[M, KinesisVideoArchivedMediaClient, GetMediaForFragmentListResponse] =
-          primitive(_.getMediaForFragmentList(request, path))
 
         def listFragments(
           request: ListFragmentsRequest
@@ -67,11 +54,6 @@ object kinesisvideoarchivedmedia { module =>
         e: Embedded[A]
       ): F[A]
 
-      def getClip(
-        request: GetClipRequest,
-        path: Path
-      ): F[GetClipResponse]
-
       def getDASHStreamingSessionURL(
         request: GetDashStreamingSessionUrlRequest
       ): F[GetDashStreamingSessionUrlResponse]
@@ -79,11 +61,6 @@ object kinesisvideoarchivedmedia { module =>
       def getHLSStreamingSessionURL(
         request: GetHlsStreamingSessionUrlRequest
       ): F[GetHlsStreamingSessionUrlResponse]
-
-      def getMediaForFragmentList(
-        request: GetMediaForFragmentListRequest,
-        path: Path
-      ): F[GetMediaForFragmentListResponse]
 
       def listFragments(
         request: ListFragmentsRequest
@@ -95,14 +72,6 @@ object kinesisvideoarchivedmedia { module =>
     ) extends KinesisVideoArchivedMediaOp[A] {
       def visit[F[_]](visitor: Visitor[F]) =
         visitor.embed(e)
-    }
-
-    final case class GetClipOp(
-      request: GetClipRequest,
-      path: Path
-    ) extends KinesisVideoArchivedMediaOp[GetClipResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetClipResponse] =
-        visitor.getClip(request, path)
     }
 
     final case class GetDASHStreamingSessionURLOp(
@@ -117,14 +86,6 @@ object kinesisvideoarchivedmedia { module =>
     ) extends KinesisVideoArchivedMediaOp[GetHlsStreamingSessionUrlResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetHlsStreamingSessionUrlResponse] =
         visitor.getHLSStreamingSessionURL(request)
-    }
-
-    final case class GetMediaForFragmentListOp(
-      request: GetMediaForFragmentListRequest,
-      path: Path
-    ) extends KinesisVideoArchivedMediaOp[GetMediaForFragmentListResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetMediaForFragmentListResponse] =
-        visitor.getMediaForFragmentList(request, path)
     }
 
     final case class ListFragmentsOp(
@@ -145,12 +106,6 @@ object kinesisvideoarchivedmedia { module =>
   ): FF[KinesisVideoArchivedMediaOp, A] =
     FF.liftF(Embed(ev.embed(j, fa)))
 
-  def getClip(
-    request: GetClipRequest,
-    path: Path
-  ): KinesisVideoArchivedMediaIO[GetClipResponse] =
-    FF.liftF(GetClipOp(request, path))
-
   def getDASHStreamingSessionURL(
     request: GetDashStreamingSessionUrlRequest
   ): KinesisVideoArchivedMediaIO[GetDashStreamingSessionUrlResponse] =
@@ -160,12 +115,6 @@ object kinesisvideoarchivedmedia { module =>
     request: GetHlsStreamingSessionUrlRequest
   ): KinesisVideoArchivedMediaIO[GetHlsStreamingSessionUrlResponse] =
     FF.liftF(GetHLSStreamingSessionURLOp(request))
-
-  def getMediaForFragmentList(
-    request: GetMediaForFragmentListRequest,
-    path: Path
-  ): KinesisVideoArchivedMediaIO[GetMediaForFragmentListResponse] =
-    FF.liftF(GetMediaForFragmentListOp(request, path))
 
   def listFragments(
     request: ListFragmentsRequest

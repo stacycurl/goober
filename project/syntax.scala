@@ -14,33 +14,85 @@ object syntax {
       self.toString.getLines.mkString(s"\n$by")
   }
 
+  implicit class ListEitherSyntax[L, R](private val self: List[Either[L, R]]) extends AnyVal {
+    def partitionEithers: (List[L], List[R]) = {
+      val (lefts, rights) = self.foldLeft((List.empty[L], List.empty[R])) {
+        case ((lefts, rights), Left(left)) ⇒ (left :: lefts, rights)
+        case ((lefts, rights), Right(right)) ⇒ (lefts, right :: rights)
+      }
+
+      (lefts.reverse, rights.reverse)
+    }
+  }
+
   implicit class StringSyntax(private val self: String) extends AnyVal {
     def getLines: List[String] =
       self.split("\n", -1).toList
 
     def trimTrailing: String =
       self.replaceAll("\\s+$", "")
+
+    def uncapitalize: String = {
+      if (self == null) null
+      else if (self.isEmpty) ""
+      else if (self.charAt(0).isLower) self
+      else {
+        val chars = self.toCharArray
+        chars(0) = chars(0).toLower
+        new String(chars)
+      }
+    }
+
+    def uncapitalizeLast: String =
+      self.reverse.uncapitalize.reverse
+
+    def pascal: String =
+      splitByCase("=").split("=").map(_.toLowerCase.capitalize).mkString("")
+
+    private def splitByCase(sep: String = " "): String =
+      self.replaceAll("""(?<=[A-Z])(?=[A-Z][a-z])|(?<=[^A-Z])(?=[A-Z])|(?<=[A-Za-z])(?=[^A-Za-z])""", sep)
   }
 
+  case class Unquote(value: String)
+
   def quote(arg: Any): String = arg match {
+    case Unquote(value) ⇒ value
     case s: String ⇒ "\"" + s + "\""
     case l: List[_] ⇒ {
-      s"""List(
-         |    ${l.map(it ⇒ quote(it).indentBy("  ")).mkString(",\n  ")}
-         |  )"""
+      val quoted: List[String] =
+        l.map(it ⇒ quote(it).indentBy("  "))
+
+      lazy val singleLine: String =
+        s"""List(${quoted.mkString(", ")})"""
+
+      lazy val multiLine: String =
+        s"""List(
+           |    ${quoted.mkString(",\n    ")}
+           |  )"""
+
+      if (!quoted.exists(_.contains("\n")) && singleLine.length < 120) {
+        singleLine
+      }
+      else {
+        multiLine
+      }
     }
     case None ⇒"None"
     case Some(a) ⇒ {
-      s"""Some(
-         |    ${quote(a).indentBy("  ")}
+      val quoted = quote(a)
+
+      if (!quoted.contains("\n")) s"Some($quoted)" else {
+        s"""Some(
+         |    ${quoted.indentBy("  ")}
          |  )"""
+      }
     }
-    case m: Map[_, _] ⇒ {
+    case m: Map[_, _] ⇒ if (m.isEmpty) "Map()" else {
       val sorted =
         m.toList.map(kv ⇒ quote(kv._1) → kv._2).sortBy(_._1)
 
       s"""Map(
-         |  ${sorted.map(kv ⇒ s"${kv._1} -> ${quote(kv._2).indentBy("  ")}").mkString(",\n  ")}
+         |  ${sorted.map(kv ⇒ s"${kv._1} -> ${quote(kv._2)}").mkString(",\n").indentBy("  ")}
          |)""".stripMargin
     }
     case other ⇒ other.toString

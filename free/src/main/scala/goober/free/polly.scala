@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.polly.PollyClient
 import software.amazon.awssdk.services.polly.model._
-import java.nio.file.Path
 
 
 object polly { module =>
@@ -67,12 +66,6 @@ object polly { module =>
         ): Kleisli[M, PollyClient, StartSpeechSynthesisTaskResponse] =
           primitive(_.startSpeechSynthesisTask(request))
 
-        def synthesizeSpeech(
-          request: SynthesizeSpeechRequest,
-          path: Path
-        ): Kleisli[M, PollyClient, SynthesizeSpeechResponse] =
-          primitive(_.synthesizeSpeech(request, path))
-
         def primitive[A](
           f: PollyClient => A
         ): Kleisli[M, PollyClient, A]
@@ -117,11 +110,6 @@ object polly { module =>
       def startSpeechSynthesisTask(
         request: StartSpeechSynthesisTaskRequest
       ): F[StartSpeechSynthesisTaskResponse]
-
-      def synthesizeSpeech(
-        request: SynthesizeSpeechRequest,
-        path: Path
-      ): F[SynthesizeSpeechResponse]
     }
 
     final case class Embed[A](
@@ -186,14 +174,6 @@ object polly { module =>
       def visit[F[_]](visitor: Visitor[F]): F[StartSpeechSynthesisTaskResponse] =
         visitor.startSpeechSynthesisTask(request)
     }
-
-    final case class SynthesizeSpeechOp(
-      request: SynthesizeSpeechRequest,
-      path: Path
-    ) extends PollyOp[SynthesizeSpeechResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[SynthesizeSpeechResponse] =
-        visitor.synthesizeSpeech(request, path)
-    }
   }
 
   import PollyOp._
@@ -245,10 +225,4 @@ object polly { module =>
     request: StartSpeechSynthesisTaskRequest
   ): PollyIO[StartSpeechSynthesisTaskResponse] =
     FF.liftF(StartSpeechSynthesisTaskOp(request))
-
-  def synthesizeSpeech(
-    request: SynthesizeSpeechRequest,
-    path: Path
-  ): PollyIO[SynthesizeSpeechResponse] =
-    FF.liftF(SynthesizeSpeechOp(request, path))
 }

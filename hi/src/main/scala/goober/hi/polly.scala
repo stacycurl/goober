@@ -17,10 +17,8 @@ object polly {
     // GetSpeechSynthesisTaskRequest
     // ListLexiconsRequest
     // ListSpeechSynthesisTasksRequest
-    // Path
     // PutLexiconRequest
     // StartSpeechSynthesisTaskRequest
-    // SynthesizeSpeechRequest
 
   }
 

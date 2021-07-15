@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.kinesisvideomedia.KinesisVideoMediaClient
 import software.amazon.awssdk.services.kinesisvideomedia.model._
-import java.nio.file.Path
 
 
 object kinesisvideomedia { module =>
@@ -27,11 +26,7 @@ object kinesisvideomedia { module =>
 
     object Visitor {
       trait KleisliVisitor[M[_]] extends KinesisVideoMediaOp.Visitor[Kleisli[M, KinesisVideoMediaClient, *]] {
-        def getMedia(
-          request: GetMediaRequest,
-          path: Path
-        ): Kleisli[M, KinesisVideoMediaClient, GetMediaResponse] =
-          primitive(_.getMedia(request, path))
+
 
         def primitive[A](
           f: KinesisVideoMediaClient => A
@@ -46,10 +41,7 @@ object kinesisvideomedia { module =>
         e: Embedded[A]
       ): F[A]
 
-      def getMedia(
-        request: GetMediaRequest,
-        path: Path
-      ): F[GetMediaResponse]
+
     }
 
     final case class Embed[A](
@@ -59,13 +51,7 @@ object kinesisvideomedia { module =>
         visitor.embed(e)
     }
 
-    final case class GetMediaOp(
-      request: GetMediaRequest,
-      path: Path
-    ) extends KinesisVideoMediaOp[GetMediaResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetMediaResponse] =
-        visitor.getMedia(request, path)
-    }
+
   }
 
   import KinesisVideoMediaOp._
@@ -78,9 +64,5 @@ object kinesisvideomedia { module =>
   ): FF[KinesisVideoMediaOp, A] =
     FF.liftF(Embed(ev.embed(j, fa)))
 
-  def getMedia(
-    request: GetMediaRequest,
-    path: Path
-  ): KinesisVideoMediaIO[GetMediaResponse] =
-    FF.liftF(GetMediaOp(request, path))
+
 }

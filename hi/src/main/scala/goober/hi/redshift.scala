@@ -20,8 +20,8 @@ object redshift {
     // BatchModifyClusterSnapshotsRequest
     // CancelResizeRequest
     // CopyClusterSnapshotRequest
-    // CreateClusterParameterGroupRequest
     // CreateClusterRequest
+    // CreateClusterParameterGroupRequest
     // CreateClusterSecurityGroupRequest
     // CreateClusterSnapshotRequest
     // CreateClusterSubnetGroupRequest
@@ -34,8 +34,8 @@ object redshift {
     // CreateSnapshotScheduleRequest
     // CreateTagsRequest
     // CreateUsageLimitRequest
-    // DeleteClusterParameterGroupRequest
     // DeleteClusterRequest
+    // DeleteClusterParameterGroupRequest
     // DeleteClusterSecurityGroupRequest
     // DeleteClusterSnapshotRequest
     // DeleteClusterSubnetGroupRequest
@@ -88,11 +88,11 @@ object redshift {
     // GetClusterCredentialsRequest
     // GetReservedNodeExchangeOfferingsRequest
     // ModifyAquaConfigurationRequest
+    // ModifyClusterRequest
     // ModifyClusterDbRevisionRequest
     // ModifyClusterIamRolesRequest
     // ModifyClusterMaintenanceRequest
     // ModifyClusterParameterGroupRequest
-    // ModifyClusterRequest
     // ModifyClusterSnapshotRequest
     // ModifyClusterSnapshotScheduleRequest
     // ModifyClusterSubnetGroupRequest

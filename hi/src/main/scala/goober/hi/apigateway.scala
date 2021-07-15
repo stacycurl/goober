@@ -23,8 +23,8 @@ object apigateway {
     // CreateResourceRequest
     // CreateRestApiRequest
     // CreateStageRequest
-    // CreateUsagePlanKeyRequest
     // CreateUsagePlanRequest
+    // CreateUsagePlanKeyRequest
     // CreateVpcLinkRequest
     // DeleteApiKeyRequest
     // DeleteAuthorizerRequest
@@ -44,8 +44,8 @@ object apigateway {
     // DeleteResourceRequest
     // DeleteRestApiRequest
     // DeleteStageRequest
-    // DeleteUsagePlanKeyRequest
     // DeleteUsagePlanRequest
+    // DeleteUsagePlanKeyRequest
     // DeleteVpcLinkRequest
     // FlushStageAuthorizersCacheRequest
     // FlushStageCacheRequest
@@ -89,11 +89,11 @@ object apigateway {
     // GetStageRequest
     // GetStagesRequest
     // GetTagsRequest
+    // GetUsageRequest
+    // GetUsagePlanRequest
     // GetUsagePlanKeyRequest
     // GetUsagePlanKeysRequest
-    // GetUsagePlanRequest
     // GetUsagePlansRequest
-    // GetUsageRequest
     // GetVpcLinkRequest
     // GetVpcLinksRequest
     // ImportApiKeysRequest
@@ -128,8 +128,8 @@ object apigateway {
     // UpdateResourceRequest
     // UpdateRestApiRequest
     // UpdateStageRequest
-    // UpdateUsagePlanRequest
     // UpdateUsageRequest
+    // UpdateUsagePlanRequest
     // UpdateVpcLinkRequest
 
   }

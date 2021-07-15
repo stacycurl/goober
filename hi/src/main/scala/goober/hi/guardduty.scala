@@ -23,8 +23,8 @@ object guardduty {
     // DeclineInvitationsRequest
     // DeleteDetectorRequest
     // DeleteFilterRequest
-    // DeleteInvitationsRequest
     // DeleteIpSetRequest
+    // DeleteInvitationsRequest
     // DeleteMembersRequest
     // DeletePublishingDestinationRequest
     // DeleteThreatIntelSetRequest
@@ -38,8 +38,8 @@ object guardduty {
     // GetFilterRequest
     // GetFindingsRequest
     // GetFindingsStatisticsRequest
-    // GetInvitationsCountRequest
     // GetIpSetRequest
+    // GetInvitationsCountRequest
     // GetMasterAccountRequest
     // GetMemberDetectorsRequest
     // GetMembersRequest
@@ -49,8 +49,8 @@ object guardduty {
     // ListDetectorsRequest
     // ListFiltersRequest
     // ListFindingsRequest
-    // ListInvitationsRequest
     // ListIpSetsRequest
+    // ListInvitationsRequest
     // ListMembersRequest
     // ListOrganizationAdminAccountsRequest
     // ListPublishingDestinationsRequest

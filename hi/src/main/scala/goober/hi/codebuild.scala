@@ -22,8 +22,8 @@ object codebuild {
     // CreateWebhookRequest
     // DeleteBuildBatchRequest
     // DeleteProjectRequest
-    // DeleteReportGroupRequest
     // DeleteReportRequest
+    // DeleteReportGroupRequest
     // DeleteResourcePolicyRequest
     // DeleteSourceCredentialsRequest
     // DeleteWebhookRequest
@@ -33,25 +33,25 @@ object codebuild {
     // GetResourcePolicyRequest
     // ImportSourceCredentialsRequest
     // InvalidateProjectCacheRequest
-    // ListBuildBatchesForProjectRequest
     // ListBuildBatchesRequest
-    // ListBuildsForProjectRequest
+    // ListBuildBatchesForProjectRequest
     // ListBuildsRequest
+    // ListBuildsForProjectRequest
     // ListCuratedEnvironmentImagesRequest
     // ListProjectsRequest
     // ListReportGroupsRequest
-    // ListReportsForReportGroupRequest
     // ListReportsRequest
+    // ListReportsForReportGroupRequest
     // ListSharedProjectsRequest
     // ListSharedReportGroupsRequest
     // ListSourceCredentialsRequest
     // PutResourcePolicyRequest
-    // RetryBuildBatchRequest
     // RetryBuildRequest
-    // StartBuildBatchRequest
+    // RetryBuildBatchRequest
     // StartBuildRequest
-    // StopBuildBatchRequest
+    // StartBuildBatchRequest
     // StopBuildRequest
+    // StopBuildBatchRequest
     // UpdateProjectRequest
     // UpdateReportGroupRequest
     // UpdateWebhookRequest

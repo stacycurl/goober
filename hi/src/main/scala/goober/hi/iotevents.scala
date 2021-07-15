@@ -18,8 +18,8 @@ object iotevents {
     // DeleteDetectorModelRequest
     // DeleteInputRequest
     // DescribeAlarmModelRequest
-    // DescribeDetectorModelAnalysisRequest
     // DescribeDetectorModelRequest
+    // DescribeDetectorModelAnalysisRequest
     // DescribeInputRequest
     // DescribeLoggingOptionsRequest
     // GetDetectorModelAnalysisResultsRequest

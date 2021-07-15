@@ -14,7 +14,6 @@ object rdsdata {
     // BatchExecuteStatementRequest
     // BeginTransactionRequest
     // CommitTransactionRequest
-    // ExecuteSqlRequest
     // ExecuteStatementRequest
     // RollbackTransactionRequest
 

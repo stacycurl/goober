@@ -11,12 +11,9 @@ object kinesisvideoarchivedmedia {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // GetClipRequest
     // GetDashStreamingSessionUrlRequest
     // GetHlsStreamingSessionUrlRequest
-    // GetMediaForFragmentListRequest
     // ListFragmentsRequest
-    // Path
 
   }
 

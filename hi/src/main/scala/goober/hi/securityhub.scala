@@ -12,7 +12,6 @@ object securityhub {
 
     // Methods for constructing model classes, requests, etc.
     // AcceptAdministratorInvitationRequest
-    // AcceptInvitationRequest
     // BatchDisableStandardsRequest
     // BatchEnableStandardsRequest
     // BatchImportFindingsRequest
@@ -29,13 +28,12 @@ object securityhub {
     // DescribeHubRequest
     // DescribeOrganizationConfigurationRequest
     // DescribeProductsRequest
-    // DescribeStandardsControlsRequest
     // DescribeStandardsRequest
+    // DescribeStandardsControlsRequest
     // DisableImportFindingsForProductRequest
     // DisableOrganizationAdminAccountRequest
     // DisableSecurityHubRequest
     // DisassociateFromAdministratorAccountRequest
-    // DisassociateFromMasterAccountRequest
     // DisassociateMembersRequest
     // EnableImportFindingsForProductRequest
     // EnableOrganizationAdminAccountRequest
@@ -46,7 +44,6 @@ object securityhub {
     // GetInsightResultsRequest
     // GetInsightsRequest
     // GetInvitationsCountRequest
-    // GetMasterAccountRequest
     // GetMembersRequest
     // InviteMembersRequest
     // ListEnabledProductsForImportRequest

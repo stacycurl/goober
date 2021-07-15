@@ -17,29 +17,29 @@ object auditmanager {
     // BatchDeleteDelegationByAssessmentRequest
     // BatchDisassociateAssessmentReportEvidenceRequest
     // BatchImportEvidenceToAssessmentControlRequest
+    // CreateAssessmentRequest
     // CreateAssessmentFrameworkRequest
     // CreateAssessmentReportRequest
-    // CreateAssessmentRequest
     // CreateControlRequest
+    // DeleteAssessmentRequest
     // DeleteAssessmentFrameworkRequest
     // DeleteAssessmentReportRequest
-    // DeleteAssessmentRequest
     // DeleteControlRequest
     // DeregisterAccountRequest
     // DeregisterOrganizationAdminAccountRequest
     // DisassociateAssessmentReportEvidenceFolderRequest
     // GetAccountStatusRequest
+    // GetAssessmentRequest
     // GetAssessmentFrameworkRequest
     // GetAssessmentReportUrlRequest
-    // GetAssessmentRequest
     // GetChangeLogsRequest
     // GetControlRequest
     // GetDelegationsRequest
+    // GetEvidenceRequest
     // GetEvidenceByEvidenceFolderRequest
     // GetEvidenceFolderRequest
-    // GetEvidenceFoldersByAssessmentControlRequest
     // GetEvidenceFoldersByAssessmentRequest
-    // GetEvidenceRequest
+    // GetEvidenceFoldersByAssessmentControlRequest
     // GetOrganizationAdminAccountRequest
     // GetServicesInScopeRequest
     // GetSettingsRequest
@@ -54,10 +54,10 @@ object auditmanager {
     // RegisterOrganizationAdminAccountRequest
     // TagResourceRequest
     // UntagResourceRequest
+    // UpdateAssessmentRequest
     // UpdateAssessmentControlRequest
     // UpdateAssessmentControlSetStatusRequest
     // UpdateAssessmentFrameworkRequest
-    // UpdateAssessmentRequest
     // UpdateAssessmentStatusRequest
     // UpdateControlRequest
     // UpdateSettingsRequest

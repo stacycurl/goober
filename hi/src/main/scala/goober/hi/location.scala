@@ -35,8 +35,8 @@ object location {
     // DescribeRouteCalculatorRequest
     // DescribeTrackerRequest
     // DisassociateTrackerConsumerRequest
-    // GetDevicePositionHistoryRequest
     // GetDevicePositionRequest
+    // GetDevicePositionHistoryRequest
     // GetGeofenceRequest
     // GetMapGlyphsRequest
     // GetMapSpritesRequest

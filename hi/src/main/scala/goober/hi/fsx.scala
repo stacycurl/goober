@@ -16,8 +16,8 @@ object fsx {
     // CopyBackupRequest
     // CreateBackupRequest
     // CreateDataRepositoryTaskRequest
-    // CreateFileSystemFromBackupRequest
     // CreateFileSystemRequest
+    // CreateFileSystemFromBackupRequest
     // DeleteBackupRequest
     // DeleteFileSystemRequest
     // DescribeBackupsRequest

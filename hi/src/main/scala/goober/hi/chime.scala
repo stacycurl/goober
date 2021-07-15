@@ -12,8 +12,8 @@ object chime {
 
     // Methods for constructing model classes, requests, etc.
     // AssociatePhoneNumberWithUserRequest
-    // AssociatePhoneNumbersWithVoiceConnectorGroupRequest
     // AssociatePhoneNumbersWithVoiceConnectorRequest
+    // AssociatePhoneNumbersWithVoiceConnectorGroupRequest
     // AssociateSigninDelegateGroupsWithAccountRequest
     // BatchCreateAttendeeRequest
     // BatchCreateChannelMembershipRequest
@@ -24,67 +24,67 @@ object chime {
     // BatchUpdatePhoneNumberRequest
     // BatchUpdateUserRequest
     // CreateAccountRequest
-    // CreateAppInstanceAdminRequest
     // CreateAppInstanceRequest
+    // CreateAppInstanceAdminRequest
     // CreateAppInstanceUserRequest
     // CreateAttendeeRequest
     // CreateBotRequest
+    // CreateChannelRequest
     // CreateChannelBanRequest
     // CreateChannelMembershipRequest
     // CreateChannelModeratorRequest
-    // CreateChannelRequest
-    // CreateMeetingDialOutRequest
     // CreateMeetingRequest
+    // CreateMeetingDialOutRequest
     // CreateMeetingWithAttendeesRequest
     // CreatePhoneNumberOrderRequest
     // CreateProxySessionRequest
-    // CreateRoomMembershipRequest
     // CreateRoomRequest
-    // CreateSipMediaApplicationCallRequest
+    // CreateRoomMembershipRequest
     // CreateSipMediaApplicationRequest
+    // CreateSipMediaApplicationCallRequest
     // CreateSipRuleRequest
     // CreateUserRequest
-    // CreateVoiceConnectorGroupRequest
     // CreateVoiceConnectorRequest
+    // CreateVoiceConnectorGroupRequest
     // DeleteAccountRequest
-    // DeleteAppInstanceAdminRequest
     // DeleteAppInstanceRequest
+    // DeleteAppInstanceAdminRequest
     // DeleteAppInstanceStreamingConfigurationsRequest
     // DeleteAppInstanceUserRequest
     // DeleteAttendeeRequest
+    // DeleteChannelRequest
     // DeleteChannelBanRequest
     // DeleteChannelMembershipRequest
     // DeleteChannelMessageRequest
     // DeleteChannelModeratorRequest
-    // DeleteChannelRequest
     // DeleteEventsConfigurationRequest
     // DeleteMeetingRequest
     // DeletePhoneNumberRequest
     // DeleteProxySessionRequest
-    // DeleteRoomMembershipRequest
     // DeleteRoomRequest
+    // DeleteRoomMembershipRequest
     // DeleteSipMediaApplicationRequest
     // DeleteSipRuleRequest
+    // DeleteVoiceConnectorRequest
     // DeleteVoiceConnectorEmergencyCallingConfigurationRequest
     // DeleteVoiceConnectorGroupRequest
     // DeleteVoiceConnectorOriginationRequest
     // DeleteVoiceConnectorProxyRequest
-    // DeleteVoiceConnectorRequest
     // DeleteVoiceConnectorStreamingConfigurationRequest
-    // DeleteVoiceConnectorTerminationCredentialsRequest
     // DeleteVoiceConnectorTerminationRequest
-    // DescribeAppInstanceAdminRequest
+    // DeleteVoiceConnectorTerminationCredentialsRequest
     // DescribeAppInstanceRequest
+    // DescribeAppInstanceAdminRequest
     // DescribeAppInstanceUserRequest
+    // DescribeChannelRequest
     // DescribeChannelBanRequest
-    // DescribeChannelMembershipForAppInstanceUserRequest
     // DescribeChannelMembershipRequest
+    // DescribeChannelMembershipForAppInstanceUserRequest
     // DescribeChannelModeratedByAppInstanceUserRequest
     // DescribeChannelModeratorRequest
-    // DescribeChannelRequest
     // DisassociatePhoneNumberFromUserRequest
-    // DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
     // DisassociatePhoneNumbersFromVoiceConnectorRequest
+    // DisassociatePhoneNumbersFromVoiceConnectorGroupRequest
     // DisassociateSigninDelegateGroupsFromAccountRequest
     // GetAccountRequest
     // GetAccountSettingsRequest
@@ -97,26 +97,26 @@ object chime {
     // GetGlobalSettingsRequest
     // GetMeetingRequest
     // GetMessagingSessionEndpointRequest
-    // GetPhoneNumberOrderRequest
     // GetPhoneNumberRequest
+    // GetPhoneNumberOrderRequest
     // GetPhoneNumberSettingsRequest
     // GetProxySessionRequest
     // GetRetentionSettingsRequest
     // GetRoomRequest
-    // GetSipMediaApplicationLoggingConfigurationRequest
     // GetSipMediaApplicationRequest
+    // GetSipMediaApplicationLoggingConfigurationRequest
     // GetSipRuleRequest
     // GetUserRequest
     // GetUserSettingsRequest
+    // GetVoiceConnectorRequest
     // GetVoiceConnectorEmergencyCallingConfigurationRequest
     // GetVoiceConnectorGroupRequest
     // GetVoiceConnectorLoggingConfigurationRequest
     // GetVoiceConnectorOriginationRequest
     // GetVoiceConnectorProxyRequest
-    // GetVoiceConnectorRequest
     // GetVoiceConnectorStreamingConfigurationRequest
-    // GetVoiceConnectorTerminationHealthRequest
     // GetVoiceConnectorTerminationRequest
+    // GetVoiceConnectorTerminationHealthRequest
     // InviteUsersRequest
     // ListAccountsRequest
     // ListAppInstanceAdminsRequest
@@ -126,12 +126,12 @@ object chime {
     // ListAttendeesRequest
     // ListBotsRequest
     // ListChannelBansRequest
-    // ListChannelMembershipsForAppInstanceUserRequest
     // ListChannelMembershipsRequest
+    // ListChannelMembershipsForAppInstanceUserRequest
     // ListChannelMessagesRequest
     // ListChannelModeratorsRequest
-    // ListChannelsModeratedByAppInstanceUserRequest
     // ListChannelsRequest
+    // ListChannelsModeratedByAppInstanceUserRequest
     // ListMeetingTagsRequest
     // ListMeetingsRequest
     // ListPhoneNumberOrdersRequest
@@ -158,8 +158,8 @@ object chime {
     // PutVoiceConnectorOriginationRequest
     // PutVoiceConnectorProxyRequest
     // PutVoiceConnectorStreamingConfigurationRequest
-    // PutVoiceConnectorTerminationCredentialsRequest
     // PutVoiceConnectorTerminationRequest
+    // PutVoiceConnectorTerminationCredentialsRequest
     // RedactChannelMessageRequest
     // RedactConversationMessageRequest
     // RedactRoomMessageRequest
@@ -179,21 +179,21 @@ object chime {
     // UpdateAppInstanceRequest
     // UpdateAppInstanceUserRequest
     // UpdateBotRequest
+    // UpdateChannelRequest
     // UpdateChannelMessageRequest
     // UpdateChannelReadMarkerRequest
-    // UpdateChannelRequest
     // UpdateGlobalSettingsRequest
     // UpdatePhoneNumberRequest
     // UpdatePhoneNumberSettingsRequest
     // UpdateProxySessionRequest
-    // UpdateRoomMembershipRequest
     // UpdateRoomRequest
+    // UpdateRoomMembershipRequest
     // UpdateSipMediaApplicationRequest
     // UpdateSipRuleRequest
     // UpdateUserRequest
     // UpdateUserSettingsRequest
-    // UpdateVoiceConnectorGroupRequest
     // UpdateVoiceConnectorRequest
+    // UpdateVoiceConnectorGroupRequest
 
   }
 

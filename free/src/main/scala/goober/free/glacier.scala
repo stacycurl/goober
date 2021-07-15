@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.glacier.GlacierClient
 import software.amazon.awssdk.services.glacier.model._
-import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
 
@@ -92,12 +91,6 @@ object glacier { module =>
           request: GetDataRetrievalPolicyRequest
         ): Kleisli[M, GlacierClient, GetDataRetrievalPolicyResponse] =
           primitive(_.getDataRetrievalPolicy(request))
-
-        def getJobOutput(
-          request: GetJobOutputRequest,
-          path: Path
-        ): Kleisli[M, GlacierClient, GetJobOutputResponse] =
-          primitive(_.getJobOutput(request, path))
 
         def getVaultAccessPolicy(
           request: GetVaultAccessPolicyRequest
@@ -260,11 +253,6 @@ object glacier { module =>
       def getDataRetrievalPolicy(
         request: GetDataRetrievalPolicyRequest
       ): F[GetDataRetrievalPolicyResponse]
-
-      def getJobOutput(
-        request: GetJobOutputRequest,
-        path: Path
-      ): F[GetJobOutputResponse]
 
       def getVaultAccessPolicy(
         request: GetVaultAccessPolicyRequest
@@ -441,14 +429,6 @@ object glacier { module =>
     ) extends GlacierOp[GetDataRetrievalPolicyResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetDataRetrievalPolicyResponse] =
         visitor.getDataRetrievalPolicy(request)
-    }
-
-    final case class GetJobOutputOp(
-      request: GetJobOutputRequest,
-      path: Path
-    ) extends GlacierOp[GetJobOutputResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetJobOutputResponse] =
-        visitor.getJobOutput(request, path)
     }
 
     final case class GetVaultAccessPolicyOp(
@@ -661,12 +641,6 @@ object glacier { module =>
     request: GetDataRetrievalPolicyRequest
   ): GlacierIO[GetDataRetrievalPolicyResponse] =
     FF.liftF(GetDataRetrievalPolicyOp(request))
-
-  def getJobOutput(
-    request: GetJobOutputRequest,
-    path: Path
-  ): GlacierIO[GetJobOutputResponse] =
-    FF.liftF(GetJobOutputOp(request, path))
 
   def getVaultAccessPolicy(
     request: GetVaultAccessPolicyRequest

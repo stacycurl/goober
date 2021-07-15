@@ -24,8 +24,8 @@ object elasticache {
     // CreateGlobalReplicationGroupRequest
     // CreateReplicationGroupRequest
     // CreateSnapshotRequest
-    // CreateUserGroupRequest
     // CreateUserRequest
+    // CreateUserGroupRequest
     // DecreaseNodeGroupsInGlobalReplicationGroupRequest
     // DecreaseReplicaCountRequest
     // DeleteCacheClusterRequest
@@ -35,8 +35,8 @@ object elasticache {
     // DeleteGlobalReplicationGroupRequest
     // DeleteReplicationGroupRequest
     // DeleteSnapshotRequest
-    // DeleteUserGroupRequest
     // DeleteUserRequest
+    // DeleteUserGroupRequest
     // DescribeCacheClustersRequest
     // DescribeCacheEngineVersionsRequest
     // DescribeCacheParameterGroupsRequest
@@ -47,8 +47,8 @@ object elasticache {
     // DescribeEventsRequest
     // DescribeGlobalReplicationGroupsRequest
     // DescribeReplicationGroupsRequest
-    // DescribeReservedCacheNodesOfferingsRequest
     // DescribeReservedCacheNodesRequest
+    // DescribeReservedCacheNodesOfferingsRequest
     // DescribeServiceUpdatesRequest
     // DescribeSnapshotsRequest
     // DescribeUpdateActionsRequest
@@ -66,8 +66,8 @@ object elasticache {
     // ModifyGlobalReplicationGroupRequest
     // ModifyReplicationGroupRequest
     // ModifyReplicationGroupShardConfigurationRequest
-    // ModifyUserGroupRequest
     // ModifyUserRequest
+    // ModifyUserGroupRequest
     // PurchaseReservedCacheNodesOfferingRequest
     // RebalanceSlotsInGlobalReplicationGroupRequest
     // RebootCacheClusterRequest

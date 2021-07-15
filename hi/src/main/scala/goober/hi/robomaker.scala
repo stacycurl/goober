@@ -14,15 +14,15 @@ object robomaker {
     // BatchDeleteWorldsRequest
     // BatchDescribeSimulationJobRequest
     // CancelDeploymentJobRequest
-    // CancelSimulationJobBatchRequest
     // CancelSimulationJobRequest
+    // CancelSimulationJobBatchRequest
     // CancelWorldExportJobRequest
     // CancelWorldGenerationJobRequest
     // CreateDeploymentJobRequest
     // CreateFleetRequest
+    // CreateRobotRequest
     // CreateRobotApplicationRequest
     // CreateRobotApplicationVersionRequest
-    // CreateRobotRequest
     // CreateSimulationApplicationRequest
     // CreateSimulationApplicationVersionRequest
     // CreateSimulationJobRequest
@@ -30,21 +30,21 @@ object robomaker {
     // CreateWorldGenerationJobRequest
     // CreateWorldTemplateRequest
     // DeleteFleetRequest
-    // DeleteRobotApplicationRequest
     // DeleteRobotRequest
+    // DeleteRobotApplicationRequest
     // DeleteSimulationApplicationRequest
     // DeleteWorldTemplateRequest
     // DeregisterRobotRequest
     // DescribeDeploymentJobRequest
     // DescribeFleetRequest
-    // DescribeRobotApplicationRequest
     // DescribeRobotRequest
+    // DescribeRobotApplicationRequest
     // DescribeSimulationApplicationRequest
-    // DescribeSimulationJobBatchRequest
     // DescribeSimulationJobRequest
+    // DescribeSimulationJobBatchRequest
+    // DescribeWorldRequest
     // DescribeWorldExportJobRequest
     // DescribeWorldGenerationJobRequest
-    // DescribeWorldRequest
     // DescribeWorldTemplateRequest
     // GetWorldTemplateBodyRequest
     // ListDeploymentJobsRequest

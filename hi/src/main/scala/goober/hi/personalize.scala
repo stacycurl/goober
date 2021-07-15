@@ -13,18 +13,18 @@ object personalize {
     // Methods for constructing model classes, requests, etc.
     // CreateBatchInferenceJobRequest
     // CreateCampaignRequest
+    // CreateDatasetRequest
     // CreateDatasetExportJobRequest
     // CreateDatasetGroupRequest
     // CreateDatasetImportJobRequest
-    // CreateDatasetRequest
     // CreateEventTrackerRequest
     // CreateFilterRequest
     // CreateSchemaRequest
     // CreateSolutionRequest
     // CreateSolutionVersionRequest
     // DeleteCampaignRequest
-    // DeleteDatasetGroupRequest
     // DeleteDatasetRequest
+    // DeleteDatasetGroupRequest
     // DeleteEventTrackerRequest
     // DeleteFilterRequest
     // DeleteSchemaRequest
@@ -32,10 +32,10 @@ object personalize {
     // DescribeAlgorithmRequest
     // DescribeBatchInferenceJobRequest
     // DescribeCampaignRequest
+    // DescribeDatasetRequest
     // DescribeDatasetExportJobRequest
     // DescribeDatasetGroupRequest
     // DescribeDatasetImportJobRequest
-    // DescribeDatasetRequest
     // DescribeEventTrackerRequest
     // DescribeFeatureTransformationRequest
     // DescribeFilterRequest

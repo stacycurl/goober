@@ -14,13 +14,13 @@ object iotanalytics {
     // BatchPutMessageRequest
     // CancelPipelineReprocessingRequest
     // CreateChannelRequest
-    // CreateDatasetContentRequest
     // CreateDatasetRequest
+    // CreateDatasetContentRequest
     // CreateDatastoreRequest
     // CreatePipelineRequest
     // DeleteChannelRequest
-    // DeleteDatasetContentRequest
     // DeleteDatasetRequest
+    // DeleteDatasetContentRequest
     // DeleteDatastoreRequest
     // DeletePipelineRequest
     // DescribeChannelRequest

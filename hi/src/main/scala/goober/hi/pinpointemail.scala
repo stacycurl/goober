@@ -11,19 +11,19 @@ object pinpointemail {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateConfigurationSetEventDestinationRequest
     // CreateConfigurationSetRequest
+    // CreateConfigurationSetEventDestinationRequest
     // CreateDedicatedIpPoolRequest
     // CreateDeliverabilityTestReportRequest
     // CreateEmailIdentityRequest
-    // DeleteConfigurationSetEventDestinationRequest
     // DeleteConfigurationSetRequest
+    // DeleteConfigurationSetEventDestinationRequest
     // DeleteDedicatedIpPoolRequest
     // DeleteEmailIdentityRequest
     // GetAccountRequest
     // GetBlacklistReportsRequest
-    // GetConfigurationSetEventDestinationsRequest
     // GetConfigurationSetRequest
+    // GetConfigurationSetEventDestinationsRequest
     // GetDedicatedIpRequest
     // GetDedicatedIpsRequest
     // GetDeliverabilityDashboardOptionsRequest

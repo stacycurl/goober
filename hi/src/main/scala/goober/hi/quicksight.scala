@@ -17,50 +17,50 @@ object quicksight {
     // CreateDashboardRequest
     // CreateDataSetRequest
     // CreateDataSourceRequest
-    // CreateGroupMembershipRequest
     // CreateGroupRequest
+    // CreateGroupMembershipRequest
     // CreateIamPolicyAssignmentRequest
     // CreateIngestionRequest
     // CreateNamespaceRequest
-    // CreateTemplateAliasRequest
     // CreateTemplateRequest
-    // CreateThemeAliasRequest
+    // CreateTemplateAliasRequest
     // CreateThemeRequest
+    // CreateThemeAliasRequest
     // DeleteAccountCustomizationRequest
     // DeleteAnalysisRequest
     // DeleteDashboardRequest
     // DeleteDataSetRequest
     // DeleteDataSourceRequest
-    // DeleteGroupMembershipRequest
     // DeleteGroupRequest
+    // DeleteGroupMembershipRequest
     // DeleteIamPolicyAssignmentRequest
     // DeleteNamespaceRequest
-    // DeleteTemplateAliasRequest
     // DeleteTemplateRequest
-    // DeleteThemeAliasRequest
+    // DeleteTemplateAliasRequest
     // DeleteThemeRequest
-    // DeleteUserByPrincipalIdRequest
+    // DeleteThemeAliasRequest
     // DeleteUserRequest
+    // DeleteUserByPrincipalIdRequest
     // DescribeAccountCustomizationRequest
     // DescribeAccountSettingsRequest
-    // DescribeAnalysisPermissionsRequest
     // DescribeAnalysisRequest
-    // DescribeDashboardPermissionsRequest
+    // DescribeAnalysisPermissionsRequest
     // DescribeDashboardRequest
-    // DescribeDataSetPermissionsRequest
+    // DescribeDashboardPermissionsRequest
     // DescribeDataSetRequest
-    // DescribeDataSourcePermissionsRequest
+    // DescribeDataSetPermissionsRequest
     // DescribeDataSourceRequest
+    // DescribeDataSourcePermissionsRequest
     // DescribeGroupRequest
     // DescribeIamPolicyAssignmentRequest
     // DescribeIngestionRequest
     // DescribeNamespaceRequest
+    // DescribeTemplateRequest
     // DescribeTemplateAliasRequest
     // DescribeTemplatePermissionsRequest
-    // DescribeTemplateRequest
+    // DescribeThemeRequest
     // DescribeThemeAliasRequest
     // DescribeThemePermissionsRequest
-    // DescribeThemeRequest
     // DescribeUserRequest
     // GetDashboardEmbedUrlRequest
     // GetSessionEmbedUrlRequest
@@ -71,8 +71,8 @@ object quicksight {
     // ListDataSourcesRequest
     // ListGroupMembershipsRequest
     // ListGroupsRequest
-    // ListIamPolicyAssignmentsForUserRequest
     // ListIamPolicyAssignmentsRequest
+    // ListIamPolicyAssignmentsForUserRequest
     // ListIngestionsRequest
     // ListNamespacesRequest
     // ListTagsForResourceRequest
@@ -92,23 +92,23 @@ object quicksight {
     // UntagResourceRequest
     // UpdateAccountCustomizationRequest
     // UpdateAccountSettingsRequest
-    // UpdateAnalysisPermissionsRequest
     // UpdateAnalysisRequest
+    // UpdateAnalysisPermissionsRequest
+    // UpdateDashboardRequest
     // UpdateDashboardPermissionsRequest
     // UpdateDashboardPublishedVersionRequest
-    // UpdateDashboardRequest
-    // UpdateDataSetPermissionsRequest
     // UpdateDataSetRequest
-    // UpdateDataSourcePermissionsRequest
+    // UpdateDataSetPermissionsRequest
     // UpdateDataSourceRequest
+    // UpdateDataSourcePermissionsRequest
     // UpdateGroupRequest
     // UpdateIamPolicyAssignmentRequest
+    // UpdateTemplateRequest
     // UpdateTemplateAliasRequest
     // UpdateTemplatePermissionsRequest
-    // UpdateTemplateRequest
+    // UpdateThemeRequest
     // UpdateThemeAliasRequest
     // UpdateThemePermissionsRequest
-    // UpdateThemeRequest
     // UpdateUserRequest
 
   }

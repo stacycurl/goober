@@ -17,8 +17,8 @@ object kinesis {
     // DeleteStreamRequest
     // DeregisterStreamConsumerRequest
     // DescribeLimitsRequest
-    // DescribeStreamConsumerRequest
     // DescribeStreamRequest
+    // DescribeStreamConsumerRequest
     // DescribeStreamSummaryRequest
     // DisableEnhancedMonitoringRequest
     // EnableEnhancedMonitoringRequest

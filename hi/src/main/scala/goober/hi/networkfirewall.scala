@@ -13,15 +13,15 @@ object networkfirewall {
     // Methods for constructing model classes, requests, etc.
     // AssociateFirewallPolicyRequest
     // AssociateSubnetsRequest
-    // CreateFirewallPolicyRequest
     // CreateFirewallRequest
+    // CreateFirewallPolicyRequest
     // CreateRuleGroupRequest
-    // DeleteFirewallPolicyRequest
     // DeleteFirewallRequest
+    // DeleteFirewallPolicyRequest
     // DeleteResourcePolicyRequest
     // DeleteRuleGroupRequest
-    // DescribeFirewallPolicyRequest
     // DescribeFirewallRequest
+    // DescribeFirewallPolicyRequest
     // DescribeLoggingConfigurationRequest
     // DescribeResourcePolicyRequest
     // DescribeRuleGroupRequest
@@ -35,8 +35,8 @@ object networkfirewall {
     // UntagResourceRequest
     // UpdateFirewallDeleteProtectionRequest
     // UpdateFirewallDescriptionRequest
-    // UpdateFirewallPolicyChangeProtectionRequest
     // UpdateFirewallPolicyRequest
+    // UpdateFirewallPolicyChangeProtectionRequest
     // UpdateLoggingConfigurationRequest
     // UpdateRuleGroupRequest
     // UpdateSubnetChangeProtectionRequest

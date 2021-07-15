@@ -33,8 +33,8 @@ object sns {
     // ListPhoneNumbersOptedOutRequest
     // ListPlatformApplicationsRequest
     // ListSmsSandboxPhoneNumbersRequest
-    // ListSubscriptionsByTopicRequest
     // ListSubscriptionsRequest
+    // ListSubscriptionsByTopicRequest
     // ListTagsForResourceRequest
     // ListTopicsRequest
     // OptInPhoneNumberRequest

@@ -11,8 +11,7 @@ object kinesisvideomedia {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // GetMediaRequest
-    // Path
+    //
 
   }
 

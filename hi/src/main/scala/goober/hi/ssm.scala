@@ -16,8 +16,8 @@ object ssm {
     // CancelCommandRequest
     // CancelMaintenanceWindowExecutionRequest
     // CreateActivationRequest
-    // CreateAssociationBatchRequest
     // CreateAssociationRequest
+    // CreateAssociationBatchRequest
     // CreateDocumentRequest
     // CreateMaintenanceWindowRequest
     // CreateOpsItemRequest
@@ -39,20 +39,20 @@ object ssm {
     // DeregisterTargetFromMaintenanceWindowRequest
     // DeregisterTaskFromMaintenanceWindowRequest
     // DescribeActivationsRequest
+    // DescribeAssociationRequest
     // DescribeAssociationExecutionTargetsRequest
     // DescribeAssociationExecutionsRequest
-    // DescribeAssociationRequest
     // DescribeAutomationExecutionsRequest
     // DescribeAutomationStepExecutionsRequest
     // DescribeAvailablePatchesRequest
-    // DescribeDocumentPermissionRequest
     // DescribeDocumentRequest
+    // DescribeDocumentPermissionRequest
     // DescribeEffectiveInstanceAssociationsRequest
     // DescribeEffectivePatchesForPatchBaselineRequest
     // DescribeInstanceAssociationsStatusRequest
     // DescribeInstanceInformationRequest
-    // DescribeInstancePatchStatesForPatchGroupRequest
     // DescribeInstancePatchStatesRequest
+    // DescribeInstancePatchStatesForPatchGroupRequest
     // DescribeInstancePatchesRequest
     // DescribeInventoryDeletionsRequest
     // DescribeMaintenanceWindowExecutionTaskInvocationsRequest
@@ -61,8 +61,8 @@ object ssm {
     // DescribeMaintenanceWindowScheduleRequest
     // DescribeMaintenanceWindowTargetsRequest
     // DescribeMaintenanceWindowTasksRequest
-    // DescribeMaintenanceWindowsForTargetRequest
     // DescribeMaintenanceWindowsRequest
+    // DescribeMaintenanceWindowsForTargetRequest
     // DescribeOpsItemsRequest
     // DescribeParametersRequest
     // DescribePatchBaselinesRequest
@@ -80,20 +80,20 @@ object ssm {
     // GetDocumentRequest
     // GetInventoryRequest
     // GetInventorySchemaRequest
-    // GetMaintenanceWindowExecutionRequest
-    // GetMaintenanceWindowExecutionTaskInvocationRequest
-    // GetMaintenanceWindowExecutionTaskRequest
     // GetMaintenanceWindowRequest
+    // GetMaintenanceWindowExecutionRequest
+    // GetMaintenanceWindowExecutionTaskRequest
+    // GetMaintenanceWindowExecutionTaskInvocationRequest
     // GetMaintenanceWindowTaskRequest
     // GetOpsItemRequest
     // GetOpsMetadataRequest
     // GetOpsSummaryRequest
-    // GetParameterHistoryRequest
     // GetParameterRequest
-    // GetParametersByPathRequest
+    // GetParameterHistoryRequest
     // GetParametersRequest
-    // GetPatchBaselineForPatchGroupRequest
+    // GetParametersByPathRequest
     // GetPatchBaselineRequest
+    // GetPatchBaselineForPatchGroupRequest
     // GetServiceSettingRequest
     // LabelParameterVersionRequest
     // ListAssociationVersionsRequest
@@ -134,9 +134,9 @@ object ssm {
     // UnlabelParameterVersionRequest
     // UpdateAssociationRequest
     // UpdateAssociationStatusRequest
+    // UpdateDocumentRequest
     // UpdateDocumentDefaultVersionRequest
     // UpdateDocumentMetadataRequest
-    // UpdateDocumentRequest
     // UpdateMaintenanceWindowRequest
     // UpdateMaintenanceWindowTargetRequest
     // UpdateMaintenanceWindowTaskRequest

@@ -13,8 +13,8 @@ object cloud9 {
     // Methods for constructing model classes, requests, etc.
     // CreateEnvironmentEc2Request
     // CreateEnvironmentMembershipRequest
-    // DeleteEnvironmentMembershipRequest
     // DeleteEnvironmentRequest
+    // DeleteEnvironmentMembershipRequest
     // DescribeEnvironmentMembershipsRequest
     // DescribeEnvironmentStatusRequest
     // DescribeEnvironmentsRequest
@@ -22,8 +22,8 @@ object cloud9 {
     // ListTagsForResourceRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateEnvironmentMembershipRequest
     // UpdateEnvironmentRequest
+    // UpdateEnvironmentMembershipRequest
 
   }
 

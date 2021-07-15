@@ -22,8 +22,8 @@ object iot {
     // CancelAuditTaskRequest
     // CancelCertificateTransferRequest
     // CancelDetectMitigationActionsTaskRequest
-    // CancelJobExecutionRequest
     // CancelJobRequest
+    // CancelJobExecutionRequest
     // ClearDefaultAuthorizerRequest
     // ConfirmTopicRuleDestinationRequest
     // CreateAuditSuppressionRequest
@@ -48,11 +48,11 @@ object iot {
     // CreateScheduledAuditRequest
     // CreateSecurityProfileRequest
     // CreateStreamRequest
-    // CreateThingGroupRequest
     // CreateThingRequest
+    // CreateThingGroupRequest
     // CreateThingTypeRequest
-    // CreateTopicRuleDestinationRequest
     // CreateTopicRuleRequest
+    // CreateTopicRuleDestinationRequest
     // DeleteAccountAuditConfigurationRequest
     // DeleteAuditSuppressionRequest
     // DeleteAuthorizerRequest
@@ -63,8 +63,8 @@ object iot {
     // DeleteDimensionRequest
     // DeleteDomainConfigurationRequest
     // DeleteDynamicThingGroupRequest
-    // DeleteJobExecutionRequest
     // DeleteJobRequest
+    // DeleteJobExecutionRequest
     // DeleteJobTemplateRequest
     // DeleteMitigationActionRequest
     // DeleteOtaUpdateRequest
@@ -77,11 +77,11 @@ object iot {
     // DeleteScheduledAuditRequest
     // DeleteSecurityProfileRequest
     // DeleteStreamRequest
-    // DeleteThingGroupRequest
     // DeleteThingRequest
+    // DeleteThingGroupRequest
     // DeleteThingTypeRequest
-    // DeleteTopicRuleDestinationRequest
     // DeleteTopicRuleRequest
+    // DeleteTopicRuleDestinationRequest
     // DeleteV2LoggingLevelRequest
     // DeprecateThingTypeRequest
     // DescribeAccountAuditConfigurationRequest
@@ -101,8 +101,8 @@ object iot {
     // DescribeEndpointRequest
     // DescribeEventConfigurationsRequest
     // DescribeIndexRequest
-    // DescribeJobExecutionRequest
     // DescribeJobRequest
+    // DescribeJobExecutionRequest
     // DescribeJobTemplateRequest
     // DescribeMitigationActionRequest
     // DescribeProvisioningTemplateRequest
@@ -111,9 +111,9 @@ object iot {
     // DescribeScheduledAuditRequest
     // DescribeSecurityProfileRequest
     // DescribeStreamRequest
+    // DescribeThingRequest
     // DescribeThingGroupRequest
     // DescribeThingRegistrationTaskRequest
-    // DescribeThingRequest
     // DescribeThingTypeRequest
     // DetachPolicyRequest
     // DetachSecurityProfileRequest
@@ -132,8 +132,8 @@ object iot {
     // GetPolicyVersionRequest
     // GetRegistrationCodeRequest
     // GetStatisticsRequest
-    // GetTopicRuleDestinationRequest
     // GetTopicRuleRequest
+    // GetTopicRuleDestinationRequest
     // GetV2LoggingOptionsRequest
     // ListActiveViolationsRequest
     // ListAttachedPoliciesRequest
@@ -145,8 +145,8 @@ object iot {
     // ListAuthorizersRequest
     // ListBillingGroupsRequest
     // ListCaCertificatesRequest
-    // ListCertificatesByCaRequest
     // ListCertificatesRequest
+    // ListCertificatesByCaRequest
     // ListCustomMetricsRequest
     // ListDetectMitigationActionsExecutionsRequest
     // ListDetectMitigationActionsTasksRequest
@@ -167,21 +167,21 @@ object iot {
     // ListProvisioningTemplatesRequest
     // ListRoleAliasesRequest
     // ListScheduledAuditsRequest
-    // ListSecurityProfilesForTargetRequest
     // ListSecurityProfilesRequest
+    // ListSecurityProfilesForTargetRequest
     // ListStreamsRequest
     // ListTagsForResourceRequest
     // ListTargetsForPolicyRequest
     // ListTargetsForSecurityProfileRequest
-    // ListThingGroupsForThingRequest
     // ListThingGroupsRequest
+    // ListThingGroupsForThingRequest
     // ListThingPrincipalsRequest
     // ListThingRegistrationTaskReportsRequest
     // ListThingRegistrationTasksRequest
     // ListThingTypesRequest
+    // ListThingsRequest
     // ListThingsInBillingGroupRequest
     // ListThingsInThingGroupRequest
-    // ListThingsRequest
     // ListTopicRuleDestinationsRequest
     // ListTopicRulesRequest
     // ListV2LoggingLevelsRequest
@@ -229,9 +229,9 @@ object iot {
     // UpdateScheduledAuditRequest
     // UpdateSecurityProfileRequest
     // UpdateStreamRequest
+    // UpdateThingRequest
     // UpdateThingGroupRequest
     // UpdateThingGroupsForThingRequest
-    // UpdateThingRequest
     // UpdateTopicRuleDestinationRequest
     // ValidateSecurityProfileBehaviorsRequest
 

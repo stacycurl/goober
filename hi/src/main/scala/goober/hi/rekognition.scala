@@ -46,8 +46,8 @@ object rekognition {
     // ListStreamProcessorsRequest
     // ListTagsForResourceRequest
     // RecognizeCelebritiesRequest
-    // SearchFacesByImageRequest
     // SearchFacesRequest
+    // SearchFacesByImageRequest
     // StartCelebrityRecognitionRequest
     // StartContentModerationRequest
     // StartFaceDetectionRequest

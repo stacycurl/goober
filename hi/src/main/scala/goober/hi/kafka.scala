@@ -17,8 +17,8 @@ object kafka {
     // CreateConfigurationRequest
     // DeleteClusterRequest
     // DeleteConfigurationRequest
-    // DescribeClusterOperationRequest
     // DescribeClusterRequest
+    // DescribeClusterOperationRequest
     // DescribeConfigurationRequest
     // DescribeConfigurationRevisionRequest
     // GetBootstrapBrokersRequest

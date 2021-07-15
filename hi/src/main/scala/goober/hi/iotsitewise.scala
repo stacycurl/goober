@@ -16,34 +16,34 @@ object iotsitewise {
     // BatchDisassociateProjectAssetsRequest
     // BatchPutAssetPropertyValueRequest
     // CreateAccessPolicyRequest
-    // CreateAssetModelRequest
     // CreateAssetRequest
+    // CreateAssetModelRequest
     // CreateDashboardRequest
     // CreateGatewayRequest
     // CreatePortalRequest
     // CreateProjectRequest
     // DeleteAccessPolicyRequest
-    // DeleteAssetModelRequest
     // DeleteAssetRequest
+    // DeleteAssetModelRequest
     // DeleteDashboardRequest
     // DeleteGatewayRequest
     // DeletePortalRequest
     // DeleteProjectRequest
     // DescribeAccessPolicyRequest
+    // DescribeAssetRequest
     // DescribeAssetModelRequest
     // DescribeAssetPropertyRequest
-    // DescribeAssetRequest
     // DescribeDashboardRequest
     // DescribeDefaultEncryptionConfigurationRequest
-    // DescribeGatewayCapabilityConfigurationRequest
     // DescribeGatewayRequest
+    // DescribeGatewayCapabilityConfigurationRequest
     // DescribeLoggingOptionsRequest
     // DescribePortalRequest
     // DescribeProjectRequest
     // DisassociateAssetsRequest
     // GetAssetPropertyAggregatesRequest
-    // GetAssetPropertyValueHistoryRequest
     // GetAssetPropertyValueRequest
+    // GetAssetPropertyValueHistoryRequest
     // GetInterpolatedAssetPropertyValuesRequest
     // ListAccessPoliciesRequest
     // ListAssetModelsRequest
@@ -61,12 +61,12 @@ object iotsitewise {
     // TagResourceRequest
     // UntagResourceRequest
     // UpdateAccessPolicyRequest
+    // UpdateAssetRequest
     // UpdateAssetModelRequest
     // UpdateAssetPropertyRequest
-    // UpdateAssetRequest
     // UpdateDashboardRequest
-    // UpdateGatewayCapabilityConfigurationRequest
     // UpdateGatewayRequest
+    // UpdateGatewayCapabilityConfigurationRequest
     // UpdatePortalRequest
     // UpdateProjectRequest
 

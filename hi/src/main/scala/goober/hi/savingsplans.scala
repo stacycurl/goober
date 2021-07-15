@@ -14,9 +14,9 @@ object savingsplans {
     // CreateSavingsPlanRequest
     // DeleteQueuedSavingsPlanRequest
     // DescribeSavingsPlanRatesRequest
+    // DescribeSavingsPlansRequest
     // DescribeSavingsPlansOfferingRatesRequest
     // DescribeSavingsPlansOfferingsRequest
-    // DescribeSavingsPlansRequest
     // ListTagsForResourceRequest
     // TagResourceRequest
     // UntagResourceRequest

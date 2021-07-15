@@ -16,9 +16,9 @@ object backup {
     // CreateBackupVaultRequest
     // DeleteBackupPlanRequest
     // DeleteBackupSelectionRequest
+    // DeleteBackupVaultRequest
     // DeleteBackupVaultAccessPolicyRequest
     // DeleteBackupVaultNotificationsRequest
-    // DeleteBackupVaultRequest
     // DeleteRecoveryPointRequest
     // DescribeBackupJobRequest
     // DescribeBackupVaultRequest
@@ -30,9 +30,9 @@ object backup {
     // DescribeRestoreJobRequest
     // DisassociateRecoveryPointRequest
     // ExportBackupPlanTemplateRequest
+    // GetBackupPlanRequest
     // GetBackupPlanFromJsonRequest
     // GetBackupPlanFromTemplateRequest
-    // GetBackupPlanRequest
     // GetBackupSelectionRequest
     // GetBackupVaultAccessPolicyRequest
     // GetBackupVaultNotificationsRequest

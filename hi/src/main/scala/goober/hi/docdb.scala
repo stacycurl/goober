@@ -16,15 +16,15 @@ object docdb {
     // ApplyPendingMaintenanceActionRequest
     // CopyDbClusterParameterGroupRequest
     // CopyDbClusterSnapshotRequest
-    // CreateDbClusterParameterGroupRequest
     // CreateDbClusterRequest
+    // CreateDbClusterParameterGroupRequest
     // CreateDbClusterSnapshotRequest
     // CreateDbInstanceRequest
     // CreateDbSubnetGroupRequest
     // CreateEventSubscriptionRequest
     // CreateGlobalClusterRequest
-    // DeleteDbClusterParameterGroupRequest
     // DeleteDbClusterRequest
+    // DeleteDbClusterParameterGroupRequest
     // DeleteDbClusterSnapshotRequest
     // DeleteDbInstanceRequest
     // DeleteDbSubnetGroupRequest
@@ -48,8 +48,8 @@ object docdb {
     // DescribePendingMaintenanceActionsRequest
     // FailoverDbClusterRequest
     // ListTagsForResourceRequest
-    // ModifyDbClusterParameterGroupRequest
     // ModifyDbClusterRequest
+    // ModifyDbClusterParameterGroupRequest
     // ModifyDbClusterSnapshotAttributeRequest
     // ModifyDbInstanceRequest
     // ModifyDbSubnetGroupRequest

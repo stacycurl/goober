@@ -19,8 +19,8 @@ object wellarchitected {
     // DeleteWorkloadShareRequest
     // DisassociateLensesRequest
     // GetAnswerRequest
-    // GetLensReviewReportRequest
     // GetLensReviewRequest
+    // GetLensReviewReportRequest
     // GetLensVersionDifferenceRequest
     // GetMilestoneRequest
     // GetWorkloadRequest

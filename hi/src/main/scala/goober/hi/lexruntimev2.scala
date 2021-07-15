@@ -13,10 +13,7 @@ object lexruntimev2 {
     // Methods for constructing model classes, requests, etc.
     // DeleteSessionRequest
     // GetSessionRequest
-    // Path
-    // PutSessionRequest
     // RecognizeTextRequest
-    // RecognizeUtteranceRequest
 
   }
 

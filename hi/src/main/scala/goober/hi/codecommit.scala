@@ -20,8 +20,8 @@ object codecommit {
     // CreateApprovalRuleTemplateRequest
     // CreateBranchRequest
     // CreateCommitRequest
-    // CreatePullRequestApprovalRuleRequest
     // CreatePullRequestRequest
+    // CreatePullRequestApprovalRuleRequest
     // CreateRepositoryRequest
     // CreateUnreferencedMergeCommitRequest
     // DeleteApprovalRuleTemplateRequest
@@ -37,8 +37,8 @@ object codecommit {
     // GetApprovalRuleTemplateRequest
     // GetBlobRequest
     // GetBranchRequest
-    // GetCommentReactionsRequest
     // GetCommentRequest
+    // GetCommentReactionsRequest
     // GetCommentsForComparedCommitRequest
     // GetCommentsForPullRequestRequest
     // GetCommitRequest
@@ -48,17 +48,17 @@ object codecommit {
     // GetMergeCommitRequest
     // GetMergeConflictsRequest
     // GetMergeOptionsRequest
+    // GetPullRequestRequest
     // GetPullRequestApprovalStatesRequest
     // GetPullRequestOverrideStateRequest
-    // GetPullRequestRequest
     // GetRepositoryRequest
     // GetRepositoryTriggersRequest
     // ListApprovalRuleTemplatesRequest
     // ListAssociatedApprovalRuleTemplatesForRepositoryRequest
     // ListBranchesRequest
     // ListPullRequestsRequest
-    // ListRepositoriesForApprovalRuleTemplateRequest
     // ListRepositoriesRequest
+    // ListRepositoriesForApprovalRuleTemplateRequest
     // ListTagsForResourceRequest
     // MergeBranchesByFastForwardRequest
     // MergeBranchesBySquashRequest

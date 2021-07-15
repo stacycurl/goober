@@ -24,8 +24,8 @@ object workdocs {
     // DeleteCommentRequest
     // DeleteCustomMetadataRequest
     // DeleteDocumentRequest
-    // DeleteFolderContentsRequest
     // DeleteFolderRequest
+    // DeleteFolderContentsRequest
     // DeleteLabelsRequest
     // DeleteNotificationSubscriptionRequest
     // DeleteUserRequest
@@ -39,11 +39,11 @@ object workdocs {
     // DescribeRootFoldersRequest
     // DescribeUsersRequest
     // GetCurrentUserRequest
-    // GetDocumentPathRequest
     // GetDocumentRequest
+    // GetDocumentPathRequest
     // GetDocumentVersionRequest
-    // GetFolderPathRequest
     // GetFolderRequest
+    // GetFolderPathRequest
     // GetResourcesRequest
     // InitiateDocumentVersionUploadRequest
     // RemoveAllResourcePermissionsRequest

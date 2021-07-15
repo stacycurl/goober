@@ -15,27 +15,27 @@ object proton {
     // CancelEnvironmentDeploymentRequest
     // CancelServiceInstanceDeploymentRequest
     // CancelServicePipelineDeploymentRequest
-    // CreateEnvironmentAccountConnectionRequest
     // CreateEnvironmentRequest
+    // CreateEnvironmentAccountConnectionRequest
     // CreateEnvironmentTemplateRequest
     // CreateEnvironmentTemplateVersionRequest
     // CreateServiceRequest
     // CreateServiceTemplateRequest
     // CreateServiceTemplateVersionRequest
-    // DeleteEnvironmentAccountConnectionRequest
     // DeleteEnvironmentRequest
+    // DeleteEnvironmentAccountConnectionRequest
     // DeleteEnvironmentTemplateRequest
     // DeleteEnvironmentTemplateVersionRequest
     // DeleteServiceRequest
     // DeleteServiceTemplateRequest
     // DeleteServiceTemplateVersionRequest
     // GetAccountSettingsRequest
-    // GetEnvironmentAccountConnectionRequest
     // GetEnvironmentRequest
+    // GetEnvironmentAccountConnectionRequest
     // GetEnvironmentTemplateRequest
     // GetEnvironmentTemplateVersionRequest
-    // GetServiceInstanceRequest
     // GetServiceRequest
+    // GetServiceInstanceRequest
     // GetServiceTemplateRequest
     // GetServiceTemplateVersionRequest
     // ListEnvironmentAccountConnectionsRequest
@@ -51,13 +51,13 @@ object proton {
     // TagResourceRequest
     // UntagResourceRequest
     // UpdateAccountSettingsRequest
-    // UpdateEnvironmentAccountConnectionRequest
     // UpdateEnvironmentRequest
+    // UpdateEnvironmentAccountConnectionRequest
     // UpdateEnvironmentTemplateRequest
     // UpdateEnvironmentTemplateVersionRequest
+    // UpdateServiceRequest
     // UpdateServiceInstanceRequest
     // UpdateServicePipelineRequest
-    // UpdateServiceRequest
     // UpdateServiceTemplateRequest
     // UpdateServiceTemplateVersionRequest
 

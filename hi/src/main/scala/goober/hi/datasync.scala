@@ -30,8 +30,8 @@ object datasync {
     // DescribeLocationObjectStorageRequest
     // DescribeLocationS3Request
     // DescribeLocationSmbRequest
-    // DescribeTaskExecutionRequest
     // DescribeTaskRequest
+    // DescribeTaskExecutionRequest
     // ListAgentsRequest
     // ListLocationsRequest
     // ListTagsForResourceRequest
@@ -44,8 +44,8 @@ object datasync {
     // UpdateLocationNfsRequest
     // UpdateLocationObjectStorageRequest
     // UpdateLocationSmbRequest
-    // UpdateTaskExecutionRequest
     // UpdateTaskRequest
+    // UpdateTaskExecutionRequest
 
   }
 

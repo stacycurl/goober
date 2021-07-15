@@ -20,15 +20,15 @@ object iotwireless {
     // CreateServiceProfileRequest
     // CreateWirelessDeviceRequest
     // CreateWirelessGatewayRequest
-    // CreateWirelessGatewayTaskDefinitionRequest
     // CreateWirelessGatewayTaskRequest
+    // CreateWirelessGatewayTaskDefinitionRequest
     // DeleteDestinationRequest
     // DeleteDeviceProfileRequest
     // DeleteServiceProfileRequest
     // DeleteWirelessDeviceRequest
     // DeleteWirelessGatewayRequest
-    // DeleteWirelessGatewayTaskDefinitionRequest
     // DeleteWirelessGatewayTaskRequest
+    // DeleteWirelessGatewayTaskDefinitionRequest
     // DisassociateAwsAccountFromPartnerAccountRequest
     // DisassociateWirelessDeviceFromThingRequest
     // DisassociateWirelessGatewayFromCertificateRequest
@@ -42,12 +42,12 @@ object iotwireless {
     // GetServiceProfileRequest
     // GetWirelessDeviceRequest
     // GetWirelessDeviceStatisticsRequest
+    // GetWirelessGatewayRequest
     // GetWirelessGatewayCertificateRequest
     // GetWirelessGatewayFirmwareInformationRequest
-    // GetWirelessGatewayRequest
     // GetWirelessGatewayStatisticsRequest
-    // GetWirelessGatewayTaskDefinitionRequest
     // GetWirelessGatewayTaskRequest
+    // GetWirelessGatewayTaskDefinitionRequest
     // ListDestinationsRequest
     // ListDeviceProfilesRequest
     // ListPartnerAccountsRequest

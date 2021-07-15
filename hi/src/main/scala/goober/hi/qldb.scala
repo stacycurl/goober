@@ -22,15 +22,15 @@ object qldb {
     // GetDigestRequest
     // GetRevisionRequest
     // ListJournalKinesisStreamsForLedgerRequest
-    // ListJournalS3ExportsForLedgerRequest
     // ListJournalS3ExportsRequest
+    // ListJournalS3ExportsForLedgerRequest
     // ListLedgersRequest
     // ListTagsForResourceRequest
     // StreamJournalToKinesisRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateLedgerPermissionsModeRequest
     // UpdateLedgerRequest
+    // UpdateLedgerPermissionsModeRequest
 
   }
 

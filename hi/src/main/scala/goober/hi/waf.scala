@@ -17,12 +17,12 @@ object waf {
     // CreateRateBasedRuleRequest
     // CreateRegexMatchSetRequest
     // CreateRegexPatternSetRequest
-    // CreateRuleGroupRequest
     // CreateRuleRequest
+    // CreateRuleGroupRequest
     // CreateSizeConstraintSetRequest
     // CreateSqlInjectionMatchSetRequest
-    // CreateWebAclMigrationStackRequest
     // CreateWebAclRequest
+    // CreateWebAclMigrationStackRequest
     // CreateXssMatchSetRequest
     // DeleteByteMatchSetRequest
     // DeleteGeoMatchSetRequest
@@ -32,8 +32,8 @@ object waf {
     // DeleteRateBasedRuleRequest
     // DeleteRegexMatchSetRequest
     // DeleteRegexPatternSetRequest
-    // DeleteRuleGroupRequest
     // DeleteRuleRequest
+    // DeleteRuleGroupRequest
     // DeleteSizeConstraintSetRequest
     // DeleteSqlInjectionMatchSetRequest
     // DeleteWebAclRequest
@@ -45,12 +45,12 @@ object waf {
     // GetIpSetRequest
     // GetLoggingConfigurationRequest
     // GetPermissionPolicyRequest
-    // GetRateBasedRuleManagedKeysRequest
     // GetRateBasedRuleRequest
+    // GetRateBasedRuleManagedKeysRequest
     // GetRegexMatchSetRequest
     // GetRegexPatternSetRequest
-    // GetRuleGroupRequest
     // GetRuleRequest
+    // GetRuleGroupRequest
     // GetSampledRequestsRequest
     // GetSizeConstraintSetRequest
     // GetSqlInjectionMatchSetRequest
@@ -82,8 +82,8 @@ object waf {
     // UpdateRateBasedRuleRequest
     // UpdateRegexMatchSetRequest
     // UpdateRegexPatternSetRequest
-    // UpdateRuleGroupRequest
     // UpdateRuleRequest
+    // UpdateRuleGroupRequest
     // UpdateSizeConstraintSetRequest
     // UpdateSqlInjectionMatchSetRequest
     // UpdateWebAclRequest

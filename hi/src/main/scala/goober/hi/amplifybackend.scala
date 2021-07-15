@@ -12,21 +12,21 @@ object amplifybackend {
 
     // Methods for constructing model classes, requests, etc.
     // CloneBackendRequest
+    // CreateBackendRequest
     // CreateBackendApiRequest
     // CreateBackendAuthRequest
     // CreateBackendConfigRequest
-    // CreateBackendRequest
     // CreateTokenRequest
+    // DeleteBackendRequest
     // DeleteBackendApiRequest
     // DeleteBackendAuthRequest
-    // DeleteBackendRequest
     // DeleteTokenRequest
     // GenerateBackendApiModelsRequest
-    // GetBackendApiModelsRequest
+    // GetBackendRequest
     // GetBackendApiRequest
+    // GetBackendApiModelsRequest
     // GetBackendAuthRequest
     // GetBackendJobRequest
-    // GetBackendRequest
     // GetTokenRequest
     // ListBackendJobsRequest
     // RemoveAllBackendsRequest

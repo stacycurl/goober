@@ -15,8 +15,8 @@ object ecrpublic {
     // BatchDeleteImageRequest
     // CompleteLayerUploadRequest
     // CreateRepositoryRequest
-    // DeleteRepositoryPolicyRequest
     // DeleteRepositoryRequest
+    // DeleteRepositoryPolicyRequest
     // DescribeImageTagsRequest
     // DescribeImagesRequest
     // DescribeRegistriesRequest

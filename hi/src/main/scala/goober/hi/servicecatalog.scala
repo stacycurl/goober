@@ -41,16 +41,16 @@ object servicecatalog {
     // DescribePortfolioRequest
     // DescribePortfolioShareStatusRequest
     // DescribePortfolioSharesRequest
-    // DescribeProductAsAdminRequest
     // DescribeProductRequest
+    // DescribeProductAsAdminRequest
     // DescribeProductViewRequest
-    // DescribeProvisionedProductPlanRequest
     // DescribeProvisionedProductRequest
+    // DescribeProvisionedProductPlanRequest
     // DescribeProvisioningArtifactRequest
     // DescribeProvisioningParametersRequest
     // DescribeRecordRequest
-    // DescribeServiceActionExecutionParametersRequest
     // DescribeServiceActionRequest
+    // DescribeServiceActionExecutionParametersRequest
     // DescribeTagOptionRequest
     // DisableAwsOrganizationsAccessRequest
     // DisassociateBudgetFromResourceRequest
@@ -70,31 +70,31 @@ object servicecatalog {
     // ListLaunchPathsRequest
     // ListOrganizationPortfolioAccessRequest
     // ListPortfolioAccessRequest
-    // ListPortfoliosForProductRequest
     // ListPortfoliosRequest
+    // ListPortfoliosForProductRequest
     // ListPrincipalsForPortfolioRequest
     // ListProvisionedProductPlansRequest
-    // ListProvisioningArtifactsForServiceActionRequest
     // ListProvisioningArtifactsRequest
+    // ListProvisioningArtifactsForServiceActionRequest
     // ListRecordHistoryRequest
     // ListResourcesForTagOptionRequest
-    // ListServiceActionsForProvisioningArtifactRequest
     // ListServiceActionsRequest
+    // ListServiceActionsForProvisioningArtifactRequest
     // ListStackInstancesForProvisionedProductRequest
     // ListTagOptionsRequest
     // ProvisionProductRequest
     // RejectPortfolioShareRequest
     // ScanProvisionedProductsRequest
-    // SearchProductsAsAdminRequest
     // SearchProductsRequest
+    // SearchProductsAsAdminRequest
     // SearchProvisionedProductsRequest
     // TerminateProvisionedProductRequest
     // UpdateConstraintRequest
     // UpdatePortfolioRequest
     // UpdatePortfolioShareRequest
     // UpdateProductRequest
-    // UpdateProvisionedProductPropertiesRequest
     // UpdateProvisionedProductRequest
+    // UpdateProvisionedProductPropertiesRequest
     // UpdateProvisioningArtifactRequest
     // UpdateServiceActionRequest
     // UpdateTagOptionRequest

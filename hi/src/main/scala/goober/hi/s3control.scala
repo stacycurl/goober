@@ -11,46 +11,46 @@ object s3control {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateAccessPointForObjectLambdaRequest
     // CreateAccessPointRequest
+    // CreateAccessPointForObjectLambdaRequest
     // CreateBucketRequest
     // CreateJobRequest
-    // DeleteAccessPointForObjectLambdaRequest
-    // DeleteAccessPointPolicyForObjectLambdaRequest
-    // DeleteAccessPointPolicyRequest
     // DeleteAccessPointRequest
+    // DeleteAccessPointForObjectLambdaRequest
+    // DeleteAccessPointPolicyRequest
+    // DeleteAccessPointPolicyForObjectLambdaRequest
+    // DeleteBucketRequest
     // DeleteBucketLifecycleConfigurationRequest
     // DeleteBucketPolicyRequest
-    // DeleteBucketRequest
     // DeleteBucketTaggingRequest
     // DeleteJobTaggingRequest
     // DeletePublicAccessBlockRequest
     // DeleteStorageLensConfigurationRequest
     // DeleteStorageLensConfigurationTaggingRequest
     // DescribeJobRequest
+    // GetAccessPointRequest
     // GetAccessPointConfigurationForObjectLambdaRequest
     // GetAccessPointForObjectLambdaRequest
-    // GetAccessPointPolicyForObjectLambdaRequest
     // GetAccessPointPolicyRequest
-    // GetAccessPointPolicyStatusForObjectLambdaRequest
+    // GetAccessPointPolicyForObjectLambdaRequest
     // GetAccessPointPolicyStatusRequest
-    // GetAccessPointRequest
+    // GetAccessPointPolicyStatusForObjectLambdaRequest
+    // GetBucketRequest
     // GetBucketLifecycleConfigurationRequest
     // GetBucketPolicyRequest
-    // GetBucketRequest
     // GetBucketTaggingRequest
     // GetJobTaggingRequest
     // GetPublicAccessBlockRequest
     // GetStorageLensConfigurationRequest
     // GetStorageLensConfigurationTaggingRequest
-    // ListAccessPointsForObjectLambdaRequest
     // ListAccessPointsRequest
+    // ListAccessPointsForObjectLambdaRequest
     // ListJobsRequest
     // ListRegionalBucketsRequest
     // ListStorageLensConfigurationsRequest
     // PutAccessPointConfigurationForObjectLambdaRequest
-    // PutAccessPointPolicyForObjectLambdaRequest
     // PutAccessPointPolicyRequest
+    // PutAccessPointPolicyForObjectLambdaRequest
     // PutBucketLifecycleConfigurationRequest
     // PutBucketPolicyRequest
     // PutBucketTaggingRequest

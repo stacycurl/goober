@@ -18,13 +18,13 @@ object applicationinsights {
     // DeleteComponentRequest
     // DeleteLogPatternRequest
     // DescribeApplicationRequest
-    // DescribeComponentConfigurationRecommendationRequest
-    // DescribeComponentConfigurationRequest
     // DescribeComponentRequest
+    // DescribeComponentConfigurationRequest
+    // DescribeComponentConfigurationRecommendationRequest
     // DescribeLogPatternRequest
     // DescribeObservationRequest
-    // DescribeProblemObservationsRequest
     // DescribeProblemRequest
+    // DescribeProblemObservationsRequest
     // ListApplicationsRequest
     // ListComponentsRequest
     // ListConfigurationHistoryRequest
@@ -35,8 +35,8 @@ object applicationinsights {
     // TagResourceRequest
     // UntagResourceRequest
     // UpdateApplicationRequest
-    // UpdateComponentConfigurationRequest
     // UpdateComponentRequest
+    // UpdateComponentConfigurationRequest
     // UpdateLogPatternRequest
 
   }

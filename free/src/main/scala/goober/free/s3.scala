@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3.model._
-import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
 
@@ -237,12 +236,6 @@ object s3 { module =>
           request: GetBucketWebsiteRequest
         ): Kleisli[M, S3Client, GetBucketWebsiteResponse] =
           primitive(_.getBucketWebsite(request))
-
-        def getObject(
-          request: GetObjectRequest,
-          path: Path
-        ): Kleisli[M, S3Client, GetObjectResponse] =
-          primitive(_.getObject(request, path))
 
         def getObjectAcl(
           request: GetObjectAclRequest
@@ -662,11 +655,6 @@ object s3 { module =>
       def getBucketWebsite(
         request: GetBucketWebsiteRequest
       ): F[GetBucketWebsiteResponse]
-
-      def getObject(
-        request: GetObjectRequest,
-        path: Path
-      ): F[GetObjectResponse]
 
       def getObjectAcl(
         request: GetObjectAclRequest
@@ -1159,14 +1147,6 @@ object s3 { module =>
     ) extends S3Op[GetBucketWebsiteResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetBucketWebsiteResponse] =
         visitor.getBucketWebsite(request)
-    }
-
-    final case class GetObjectOp(
-      request: GetObjectRequest,
-      path: Path
-    ) extends S3Op[GetObjectResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetObjectResponse] =
-        visitor.getObject(request, path)
     }
 
     final case class GetObjectAclOp(
@@ -1721,12 +1701,6 @@ object s3 { module =>
     request: GetBucketWebsiteRequest
   ): S3IO[GetBucketWebsiteResponse] =
     FF.liftF(GetBucketWebsiteOp(request))
-
-  def getObject(
-    request: GetObjectRequest,
-    path: Path
-  ): S3IO[GetObjectResponse] =
-    FF.liftF(GetObjectOp(request, path))
 
   def getObjectAcl(
     request: GetObjectAclRequest

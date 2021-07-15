@@ -14,16 +14,16 @@ import goober.free.apigateway.ApiGatewayIO
 import goober.free.apigatewaymanagementapi.ApiGatewayManagementApiIO
 import goober.free.apigatewayv2.ApiGatewayV2IO
 import goober.free.appconfig.AppConfigIO
-import goober.free.appintegrations.AppIntegrationsIO
-import goober.free.appmesh.AppMeshIO
-import goober.free.apprunner.AppRunnerIO
-import goober.free.appstream.AppStreamIO
-import goober.free.appsync.AppSyncIO
 import goober.free.appflow.AppflowIO
+import goober.free.appintegrations.AppIntegrationsIO
 import goober.free.applicationautoscaling.ApplicationAutoScalingIO
 import goober.free.applicationcostprofiler.ApplicationCostProfilerIO
 import goober.free.applicationdiscovery.ApplicationDiscoveryIO
 import goober.free.applicationinsights.ApplicationInsightsIO
+import goober.free.appmesh.AppMeshIO
+import goober.free.apprunner.AppRunnerIO
+import goober.free.appstream.AppStreamIO
+import goober.free.appsync.AppSyncIO
 import goober.free.athena.AthenaIO
 import goober.free.auditmanager.AuditManagerIO
 import goober.free.autoscaling.AutoScalingIO
@@ -45,6 +45,7 @@ import goober.free.cloudtrail.CloudTrailIO
 import goober.free.cloudwatch.CloudWatchIO
 import goober.free.cloudwatchevents.CloudWatchEventsIO
 import goober.free.cloudwatchlogs.CloudWatchLogsIO
+import goober.free.codeartifact.CodeartifactIO
 import goober.free.codebuild.CodeBuildIO
 import goober.free.codecommit.CodeCommitIO
 import goober.free.codedeploy.CodeDeployIO
@@ -53,7 +54,6 @@ import goober.free.codegurureviewer.CodeGuruReviewerIO
 import goober.free.codepipeline.CodePipelineIO
 import goober.free.codestar.CodeStarIO
 import goober.free.codestarconnections.CodeStarConnectionsIO
-import goober.free.codeartifact.CodeartifactIO
 import goober.free.codestarnotifications.CodestarNotificationsIO
 import goober.free.cognitoidentity.CognitoIdentityIO
 import goober.free.cognitoidentityprovider.CognitoIdentityProviderIO
@@ -68,15 +68,15 @@ import goober.free.connectparticipant.ConnectParticipantIO
 import goober.free.costandusagereport.CostAndUsageReportIO
 import goober.free.costexplorer.CostExplorerIO
 import goober.free.customerprofiles.CustomerProfilesIO
+import goober.free.databasemigration.DatabaseMigrationIO
 import goober.free.databrew.DataBrewIO
 import goober.free.dataexchange.DataExchangeIO
 import goober.free.datapipeline.DataPipelineIO
 import goober.free.datasync.DataSyncIO
-import goober.free.databasemigration.DatabaseMigrationIO
 import goober.free.dax.DaxIO
 import goober.free.detective.DetectiveIO
-import goober.free.devopsguru.DevOpsGuruIO
 import goober.free.devicefarm.DeviceFarmIO
+import goober.free.devopsguru.DevOpsGuruIO
 import goober.free.directconnect.DirectConnectIO
 import goober.free.directory.DirectoryIO
 import goober.free.dlm.DlmIO
@@ -96,12 +96,11 @@ import goober.free.elasticbeanstalk.ElasticBeanstalkIO
 import goober.free.elasticinference.ElasticInferenceIO
 import goober.free.elasticloadbalancing.ElasticLoadBalancingIO
 import goober.free.elasticloadbalancingv2.ElasticLoadBalancingV2IO
-import goober.free.elastictranscoder.ElasticTranscoderIO
 import goober.free.elasticsearch.ElasticsearchIO
+import goober.free.elastictranscoder.ElasticTranscoderIO
 import goober.free.emr.EmrIO
 import goober.free.emrcontainers.EmrContainersIO
 import goober.free.eventbridge.EventBridgeIO
-import goober.free.fsx.FSxIO
 import goober.free.finspace.FinspaceIO
 import goober.free.finspacedata.FinspaceDataIO
 import goober.free.firehose.FirehoseIO
@@ -110,6 +109,7 @@ import goober.free.fms.FmsIO
 import goober.free.forecast.ForecastIO
 import goober.free.forecastquery.ForecastqueryIO
 import goober.free.frauddetector.FraudDetectorIO
+import goober.free.fsx.FSxIO
 import goober.free.gamelift.GameLiftIO
 import goober.free.glacier.GlacierIO
 import goober.free.globalaccelerator.GlobalAcceleratorIO
@@ -125,19 +125,19 @@ import goober.free.iam.IamIO
 import goober.free.identitystore.IdentitystoreIO
 import goober.free.imagebuilder.ImagebuilderIO
 import goober.free.inspector.InspectorIO
-import goober.free.iotanalytics.IoTAnalyticsIO
-import goober.free.iotfleethub.IoTFleetHubIO
-import goober.free.iotsecuretunneling.IoTSecureTunnelingIO
-import goober.free.iotsitewise.IoTSiteWiseIO
-import goober.free.iotthingsgraph.IoTThingsGraphIO
 import goober.free.iot.IotIO
 import goober.free.iot1clickdevices.Iot1ClickDevicesIO
 import goober.free.iot1clickprojects.Iot1ClickProjectsIO
+import goober.free.iotanalytics.IoTAnalyticsIO
 import goober.free.iotdataplane.IotDataPlaneIO
 import goober.free.iotdeviceadvisor.IotDeviceAdvisorIO
 import goober.free.iotevents.IotEventsIO
 import goober.free.ioteventsdata.IotEventsDataIO
+import goober.free.iotfleethub.IoTFleetHubIO
 import goober.free.iotjobsdataplane.IotJobsDataPlaneIO
+import goober.free.iotsecuretunneling.IoTSecureTunnelingIO
+import goober.free.iotsitewise.IoTSiteWiseIO
+import goober.free.iotthingsgraph.IoTThingsGraphIO
 import goober.free.iotwireless.IotWirelessIO
 import goober.free.ivs.IvsIO
 import goober.free.kafka.KafkaIO
@@ -162,7 +162,6 @@ import goober.free.location.LocationIO
 import goober.free.lookoutequipment.LookoutEquipmentIO
 import goober.free.lookoutmetrics.LookoutMetricsIO
 import goober.free.lookoutvision.LookoutVisionIO
-import goober.free.mturk.MTurkIO
 import goober.free.machinelearning.MachineLearningIO
 import goober.free.macie.MacieIO
 import goober.free.macie2.Macie2IO
@@ -184,6 +183,7 @@ import goober.free.migrationhub.MigrationHubIO
 import goober.free.migrationhubconfig.MigrationHubConfigIO
 import goober.free.mobile.MobileIO
 import goober.free.mq.MqIO
+import goober.free.mturk.MTurkIO
 import goober.free.mwaa.MwaaIO
 import goober.free.neptune.NeptuneIO
 import goober.free.networkfirewall.NetworkFirewallIO
@@ -223,9 +223,9 @@ import goober.free.s3control.S3ControlIO
 import goober.free.s3outposts.S3OutpostsIO
 import goober.free.sagemaker.SageMakerIO
 import goober.free.sagemakera2iruntime.SageMakerA2IRuntimeIO
+import goober.free.sagemakeredge.SagemakerEdgeIO
 import goober.free.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeIO
 import goober.free.sagemakerruntime.SageMakerRuntimeIO
-import goober.free.sagemakeredge.SagemakerEdgeIO
 import goober.free.savingsplans.SavingsplansIO
 import goober.free.schemas.SchemasIO
 import goober.free.secretsmanager.SecretsManagerIO
@@ -282,16 +282,16 @@ import software.amazon.awssdk.services.apigateway.ApiGatewayClient
 import software.amazon.awssdk.services.apigatewaymanagementapi.ApiGatewayManagementApiClient
 import software.amazon.awssdk.services.apigatewayv2.ApiGatewayV2Client
 import software.amazon.awssdk.services.appconfig.AppConfigClient
-import software.amazon.awssdk.services.appintegrations.AppIntegrationsClient
-import software.amazon.awssdk.services.appmesh.AppMeshClient
-import software.amazon.awssdk.services.apprunner.AppRunnerClient
-import software.amazon.awssdk.services.appstream.AppStreamClient
-import software.amazon.awssdk.services.appsync.AppSyncClient
 import software.amazon.awssdk.services.appflow.AppflowClient
+import software.amazon.awssdk.services.appintegrations.AppIntegrationsClient
 import software.amazon.awssdk.services.applicationautoscaling.ApplicationAutoScalingClient
 import software.amazon.awssdk.services.applicationcostprofiler.ApplicationCostProfilerClient
 import software.amazon.awssdk.services.applicationdiscovery.ApplicationDiscoveryClient
 import software.amazon.awssdk.services.applicationinsights.ApplicationInsightsClient
+import software.amazon.awssdk.services.appmesh.AppMeshClient
+import software.amazon.awssdk.services.apprunner.AppRunnerClient
+import software.amazon.awssdk.services.appstream.AppStreamClient
+import software.amazon.awssdk.services.appsync.AppSyncClient
 import software.amazon.awssdk.services.athena.AthenaClient
 import software.amazon.awssdk.services.auditmanager.AuditManagerClient
 import software.amazon.awssdk.services.autoscaling.AutoScalingClient
@@ -313,6 +313,7 @@ import software.amazon.awssdk.services.cloudtrail.CloudTrailClient
 import software.amazon.awssdk.services.cloudwatch.CloudWatchClient
 import software.amazon.awssdk.services.cloudwatchevents.CloudWatchEventsClient
 import software.amazon.awssdk.services.cloudwatchlogs.CloudWatchLogsClient
+import software.amazon.awssdk.services.codeartifact.CodeartifactClient
 import software.amazon.awssdk.services.codebuild.CodeBuildClient
 import software.amazon.awssdk.services.codecommit.CodeCommitClient
 import software.amazon.awssdk.services.codedeploy.CodeDeployClient
@@ -321,7 +322,6 @@ import software.amazon.awssdk.services.codegurureviewer.CodeGuruReviewerClient
 import software.amazon.awssdk.services.codepipeline.CodePipelineClient
 import software.amazon.awssdk.services.codestar.CodeStarClient
 import software.amazon.awssdk.services.codestarconnections.CodeStarConnectionsClient
-import software.amazon.awssdk.services.codeartifact.CodeartifactClient
 import software.amazon.awssdk.services.codestarnotifications.CodestarNotificationsClient
 import software.amazon.awssdk.services.cognitoidentity.CognitoIdentityClient
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient
@@ -336,15 +336,15 @@ import software.amazon.awssdk.services.connectparticipant.ConnectParticipantClie
 import software.amazon.awssdk.services.costandusagereport.CostAndUsageReportClient
 import software.amazon.awssdk.services.costexplorer.CostExplorerClient
 import software.amazon.awssdk.services.customerprofiles.CustomerProfilesClient
+import software.amazon.awssdk.services.databasemigration.DatabaseMigrationClient
 import software.amazon.awssdk.services.databrew.DataBrewClient
 import software.amazon.awssdk.services.dataexchange.DataExchangeClient
 import software.amazon.awssdk.services.datapipeline.DataPipelineClient
 import software.amazon.awssdk.services.datasync.DataSyncClient
-import software.amazon.awssdk.services.databasemigration.DatabaseMigrationClient
 import software.amazon.awssdk.services.dax.DaxClient
 import software.amazon.awssdk.services.detective.DetectiveClient
-import software.amazon.awssdk.services.devopsguru.DevOpsGuruClient
 import software.amazon.awssdk.services.devicefarm.DeviceFarmClient
+import software.amazon.awssdk.services.devopsguru.DevOpsGuruClient
 import software.amazon.awssdk.services.directconnect.DirectConnectClient
 import software.amazon.awssdk.services.directory.DirectoryClient
 import software.amazon.awssdk.services.dlm.DlmClient
@@ -364,12 +364,11 @@ import software.amazon.awssdk.services.elasticbeanstalk.ElasticBeanstalkClient
 import software.amazon.awssdk.services.elasticinference.ElasticInferenceClient
 import software.amazon.awssdk.services.elasticloadbalancing.ElasticLoadBalancingClient
 import software.amazon.awssdk.services.elasticloadbalancingv2.ElasticLoadBalancingV2Client
-import software.amazon.awssdk.services.elastictranscoder.ElasticTranscoderClient
 import software.amazon.awssdk.services.elasticsearch.ElasticsearchClient
+import software.amazon.awssdk.services.elastictranscoder.ElasticTranscoderClient
 import software.amazon.awssdk.services.emr.EmrClient
 import software.amazon.awssdk.services.emrcontainers.EmrContainersClient
 import software.amazon.awssdk.services.eventbridge.EventBridgeClient
-import software.amazon.awssdk.services.fsx.FSxClient
 import software.amazon.awssdk.services.finspace.FinspaceClient
 import software.amazon.awssdk.services.finspacedata.FinspaceDataClient
 import software.amazon.awssdk.services.firehose.FirehoseClient
@@ -378,6 +377,7 @@ import software.amazon.awssdk.services.fms.FmsClient
 import software.amazon.awssdk.services.forecast.ForecastClient
 import software.amazon.awssdk.services.forecastquery.ForecastqueryClient
 import software.amazon.awssdk.services.frauddetector.FraudDetectorClient
+import software.amazon.awssdk.services.fsx.FSxClient
 import software.amazon.awssdk.services.gamelift.GameLiftClient
 import software.amazon.awssdk.services.glacier.GlacierClient
 import software.amazon.awssdk.services.globalaccelerator.GlobalAcceleratorClient
@@ -393,19 +393,19 @@ import software.amazon.awssdk.services.iam.IamClient
 import software.amazon.awssdk.services.identitystore.IdentitystoreClient
 import software.amazon.awssdk.services.imagebuilder.ImagebuilderClient
 import software.amazon.awssdk.services.inspector.InspectorClient
-import software.amazon.awssdk.services.iotanalytics.IoTAnalyticsClient
-import software.amazon.awssdk.services.iotfleethub.IoTFleetHubClient
-import software.amazon.awssdk.services.iotsecuretunneling.IoTSecureTunnelingClient
-import software.amazon.awssdk.services.iotsitewise.IoTSiteWiseClient
-import software.amazon.awssdk.services.iotthingsgraph.IoTThingsGraphClient
 import software.amazon.awssdk.services.iot.IotClient
 import software.amazon.awssdk.services.iot1clickdevices.Iot1ClickDevicesClient
 import software.amazon.awssdk.services.iot1clickprojects.Iot1ClickProjectsClient
+import software.amazon.awssdk.services.iotanalytics.IoTAnalyticsClient
 import software.amazon.awssdk.services.iotdataplane.IotDataPlaneClient
 import software.amazon.awssdk.services.iotdeviceadvisor.IotDeviceAdvisorClient
 import software.amazon.awssdk.services.iotevents.IotEventsClient
 import software.amazon.awssdk.services.ioteventsdata.IotEventsDataClient
+import software.amazon.awssdk.services.iotfleethub.IoTFleetHubClient
 import software.amazon.awssdk.services.iotjobsdataplane.IotJobsDataPlaneClient
+import software.amazon.awssdk.services.iotsecuretunneling.IoTSecureTunnelingClient
+import software.amazon.awssdk.services.iotsitewise.IoTSiteWiseClient
+import software.amazon.awssdk.services.iotthingsgraph.IoTThingsGraphClient
 import software.amazon.awssdk.services.iotwireless.IotWirelessClient
 import software.amazon.awssdk.services.ivs.IvsClient
 import software.amazon.awssdk.services.kafka.KafkaClient
@@ -430,7 +430,6 @@ import software.amazon.awssdk.services.location.LocationClient
 import software.amazon.awssdk.services.lookoutequipment.LookoutEquipmentClient
 import software.amazon.awssdk.services.lookoutmetrics.LookoutMetricsClient
 import software.amazon.awssdk.services.lookoutvision.LookoutVisionClient
-import software.amazon.awssdk.services.mturk.MTurkClient
 import software.amazon.awssdk.services.machinelearning.MachineLearningClient
 import software.amazon.awssdk.services.macie.MacieClient
 import software.amazon.awssdk.services.macie2.Macie2Client
@@ -452,6 +451,7 @@ import software.amazon.awssdk.services.migrationhub.MigrationHubClient
 import software.amazon.awssdk.services.migrationhubconfig.MigrationHubConfigClient
 import software.amazon.awssdk.services.mobile.MobileClient
 import software.amazon.awssdk.services.mq.MqClient
+import software.amazon.awssdk.services.mturk.MTurkClient
 import software.amazon.awssdk.services.mwaa.MwaaClient
 import software.amazon.awssdk.services.neptune.NeptuneClient
 import software.amazon.awssdk.services.networkfirewall.NetworkFirewallClient
@@ -491,9 +491,9 @@ import software.amazon.awssdk.services.s3control.S3ControlClient
 import software.amazon.awssdk.services.s3outposts.S3OutpostsClient
 import software.amazon.awssdk.services.sagemaker.SageMakerClient
 import software.amazon.awssdk.services.sagemakera2iruntime.SageMakerA2IRuntimeClient
+import software.amazon.awssdk.services.sagemakeredge.SagemakerEdgeClient
 import software.amazon.awssdk.services.sagemakerfeaturestoreruntime.SageMakerFeatureStoreRuntimeClient
 import software.amazon.awssdk.services.sagemakerruntime.SageMakerRuntimeClient
-import software.amazon.awssdk.services.sagemakeredge.SagemakerEdgeClient
 import software.amazon.awssdk.services.savingsplans.SavingsplansClient
 import software.amazon.awssdk.services.schemas.SchemasClient
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient
@@ -556,16 +556,16 @@ object Embedded {
   final case class ApiGatewayManagementApi[A](client: ApiGatewayManagementApiClient, io: ApiGatewayManagementApiIO[A]) extends Embedded[A]
   final case class ApiGatewayV2[A](client: ApiGatewayV2Client, io: ApiGatewayV2IO[A]) extends Embedded[A]
   final case class AppConfig[A](client: AppConfigClient, io: AppConfigIO[A]) extends Embedded[A]
-  final case class AppIntegrations[A](client: AppIntegrationsClient, io: AppIntegrationsIO[A]) extends Embedded[A]
-  final case class AppMesh[A](client: AppMeshClient, io: AppMeshIO[A]) extends Embedded[A]
-  final case class AppRunner[A](client: AppRunnerClient, io: AppRunnerIO[A]) extends Embedded[A]
-  final case class AppStream[A](client: AppStreamClient, io: AppStreamIO[A]) extends Embedded[A]
-  final case class AppSync[A](client: AppSyncClient, io: AppSyncIO[A]) extends Embedded[A]
   final case class Appflow[A](client: AppflowClient, io: AppflowIO[A]) extends Embedded[A]
+  final case class AppIntegrations[A](client: AppIntegrationsClient, io: AppIntegrationsIO[A]) extends Embedded[A]
   final case class ApplicationAutoScaling[A](client: ApplicationAutoScalingClient, io: ApplicationAutoScalingIO[A]) extends Embedded[A]
   final case class ApplicationCostProfiler[A](client: ApplicationCostProfilerClient, io: ApplicationCostProfilerIO[A]) extends Embedded[A]
   final case class ApplicationDiscovery[A](client: ApplicationDiscoveryClient, io: ApplicationDiscoveryIO[A]) extends Embedded[A]
   final case class ApplicationInsights[A](client: ApplicationInsightsClient, io: ApplicationInsightsIO[A]) extends Embedded[A]
+  final case class AppMesh[A](client: AppMeshClient, io: AppMeshIO[A]) extends Embedded[A]
+  final case class AppRunner[A](client: AppRunnerClient, io: AppRunnerIO[A]) extends Embedded[A]
+  final case class AppStream[A](client: AppStreamClient, io: AppStreamIO[A]) extends Embedded[A]
+  final case class AppSync[A](client: AppSyncClient, io: AppSyncIO[A]) extends Embedded[A]
   final case class Athena[A](client: AthenaClient, io: AthenaIO[A]) extends Embedded[A]
   final case class AuditManager[A](client: AuditManagerClient, io: AuditManagerIO[A]) extends Embedded[A]
   final case class AutoScaling[A](client: AutoScalingClient, io: AutoScalingIO[A]) extends Embedded[A]
@@ -587,6 +587,7 @@ object Embedded {
   final case class CloudWatch[A](client: CloudWatchClient, io: CloudWatchIO[A]) extends Embedded[A]
   final case class CloudWatchEvents[A](client: CloudWatchEventsClient, io: CloudWatchEventsIO[A]) extends Embedded[A]
   final case class CloudWatchLogs[A](client: CloudWatchLogsClient, io: CloudWatchLogsIO[A]) extends Embedded[A]
+  final case class Codeartifact[A](client: CodeartifactClient, io: CodeartifactIO[A]) extends Embedded[A]
   final case class CodeBuild[A](client: CodeBuildClient, io: CodeBuildIO[A]) extends Embedded[A]
   final case class CodeCommit[A](client: CodeCommitClient, io: CodeCommitIO[A]) extends Embedded[A]
   final case class CodeDeploy[A](client: CodeDeployClient, io: CodeDeployIO[A]) extends Embedded[A]
@@ -595,7 +596,6 @@ object Embedded {
   final case class CodePipeline[A](client: CodePipelineClient, io: CodePipelineIO[A]) extends Embedded[A]
   final case class CodeStar[A](client: CodeStarClient, io: CodeStarIO[A]) extends Embedded[A]
   final case class CodeStarConnections[A](client: CodeStarConnectionsClient, io: CodeStarConnectionsIO[A]) extends Embedded[A]
-  final case class Codeartifact[A](client: CodeartifactClient, io: CodeartifactIO[A]) extends Embedded[A]
   final case class CodestarNotifications[A](client: CodestarNotificationsClient, io: CodestarNotificationsIO[A]) extends Embedded[A]
   final case class CognitoIdentity[A](client: CognitoIdentityClient, io: CognitoIdentityIO[A]) extends Embedded[A]
   final case class CognitoIdentityProvider[A](client: CognitoIdentityProviderClient, io: CognitoIdentityProviderIO[A]) extends Embedded[A]
@@ -610,15 +610,15 @@ object Embedded {
   final case class CostAndUsageReport[A](client: CostAndUsageReportClient, io: CostAndUsageReportIO[A]) extends Embedded[A]
   final case class CostExplorer[A](client: CostExplorerClient, io: CostExplorerIO[A]) extends Embedded[A]
   final case class CustomerProfiles[A](client: CustomerProfilesClient, io: CustomerProfilesIO[A]) extends Embedded[A]
+  final case class DatabaseMigration[A](client: DatabaseMigrationClient, io: DatabaseMigrationIO[A]) extends Embedded[A]
   final case class DataBrew[A](client: DataBrewClient, io: DataBrewIO[A]) extends Embedded[A]
   final case class DataExchange[A](client: DataExchangeClient, io: DataExchangeIO[A]) extends Embedded[A]
   final case class DataPipeline[A](client: DataPipelineClient, io: DataPipelineIO[A]) extends Embedded[A]
   final case class DataSync[A](client: DataSyncClient, io: DataSyncIO[A]) extends Embedded[A]
-  final case class DatabaseMigration[A](client: DatabaseMigrationClient, io: DatabaseMigrationIO[A]) extends Embedded[A]
   final case class Dax[A](client: DaxClient, io: DaxIO[A]) extends Embedded[A]
   final case class Detective[A](client: DetectiveClient, io: DetectiveIO[A]) extends Embedded[A]
-  final case class DevOpsGuru[A](client: DevOpsGuruClient, io: DevOpsGuruIO[A]) extends Embedded[A]
   final case class DeviceFarm[A](client: DeviceFarmClient, io: DeviceFarmIO[A]) extends Embedded[A]
+  final case class DevOpsGuru[A](client: DevOpsGuruClient, io: DevOpsGuruIO[A]) extends Embedded[A]
   final case class DirectConnect[A](client: DirectConnectClient, io: DirectConnectIO[A]) extends Embedded[A]
   final case class Directory[A](client: DirectoryClient, io: DirectoryIO[A]) extends Embedded[A]
   final case class Dlm[A](client: DlmClient, io: DlmIO[A]) extends Embedded[A]
@@ -638,12 +638,11 @@ object Embedded {
   final case class ElasticInference[A](client: ElasticInferenceClient, io: ElasticInferenceIO[A]) extends Embedded[A]
   final case class ElasticLoadBalancing[A](client: ElasticLoadBalancingClient, io: ElasticLoadBalancingIO[A]) extends Embedded[A]
   final case class ElasticLoadBalancingV2[A](client: ElasticLoadBalancingV2Client, io: ElasticLoadBalancingV2IO[A]) extends Embedded[A]
-  final case class ElasticTranscoder[A](client: ElasticTranscoderClient, io: ElasticTranscoderIO[A]) extends Embedded[A]
   final case class Elasticsearch[A](client: ElasticsearchClient, io: ElasticsearchIO[A]) extends Embedded[A]
+  final case class ElasticTranscoder[A](client: ElasticTranscoderClient, io: ElasticTranscoderIO[A]) extends Embedded[A]
   final case class Emr[A](client: EmrClient, io: EmrIO[A]) extends Embedded[A]
   final case class EmrContainers[A](client: EmrContainersClient, io: EmrContainersIO[A]) extends Embedded[A]
   final case class EventBridge[A](client: EventBridgeClient, io: EventBridgeIO[A]) extends Embedded[A]
-  final case class FSx[A](client: FSxClient, io: FSxIO[A]) extends Embedded[A]
   final case class Finspace[A](client: FinspaceClient, io: FinspaceIO[A]) extends Embedded[A]
   final case class FinspaceData[A](client: FinspaceDataClient, io: FinspaceDataIO[A]) extends Embedded[A]
   final case class Firehose[A](client: FirehoseClient, io: FirehoseIO[A]) extends Embedded[A]
@@ -652,6 +651,7 @@ object Embedded {
   final case class Forecast[A](client: ForecastClient, io: ForecastIO[A]) extends Embedded[A]
   final case class Forecastquery[A](client: ForecastqueryClient, io: ForecastqueryIO[A]) extends Embedded[A]
   final case class FraudDetector[A](client: FraudDetectorClient, io: FraudDetectorIO[A]) extends Embedded[A]
+  final case class FSx[A](client: FSxClient, io: FSxIO[A]) extends Embedded[A]
   final case class GameLift[A](client: GameLiftClient, io: GameLiftIO[A]) extends Embedded[A]
   final case class Glacier[A](client: GlacierClient, io: GlacierIO[A]) extends Embedded[A]
   final case class GlobalAccelerator[A](client: GlobalAcceleratorClient, io: GlobalAcceleratorIO[A]) extends Embedded[A]
@@ -667,19 +667,19 @@ object Embedded {
   final case class Identitystore[A](client: IdentitystoreClient, io: IdentitystoreIO[A]) extends Embedded[A]
   final case class Imagebuilder[A](client: ImagebuilderClient, io: ImagebuilderIO[A]) extends Embedded[A]
   final case class Inspector[A](client: InspectorClient, io: InspectorIO[A]) extends Embedded[A]
-  final case class IoTAnalytics[A](client: IoTAnalyticsClient, io: IoTAnalyticsIO[A]) extends Embedded[A]
-  final case class IoTFleetHub[A](client: IoTFleetHubClient, io: IoTFleetHubIO[A]) extends Embedded[A]
-  final case class IoTSecureTunneling[A](client: IoTSecureTunnelingClient, io: IoTSecureTunnelingIO[A]) extends Embedded[A]
-  final case class IoTSiteWise[A](client: IoTSiteWiseClient, io: IoTSiteWiseIO[A]) extends Embedded[A]
-  final case class IoTThingsGraph[A](client: IoTThingsGraphClient, io: IoTThingsGraphIO[A]) extends Embedded[A]
   final case class Iot[A](client: IotClient, io: IotIO[A]) extends Embedded[A]
   final case class Iot1ClickDevices[A](client: Iot1ClickDevicesClient, io: Iot1ClickDevicesIO[A]) extends Embedded[A]
   final case class Iot1ClickProjects[A](client: Iot1ClickProjectsClient, io: Iot1ClickProjectsIO[A]) extends Embedded[A]
+  final case class IoTAnalytics[A](client: IoTAnalyticsClient, io: IoTAnalyticsIO[A]) extends Embedded[A]
   final case class IotDataPlane[A](client: IotDataPlaneClient, io: IotDataPlaneIO[A]) extends Embedded[A]
   final case class IotDeviceAdvisor[A](client: IotDeviceAdvisorClient, io: IotDeviceAdvisorIO[A]) extends Embedded[A]
   final case class IotEvents[A](client: IotEventsClient, io: IotEventsIO[A]) extends Embedded[A]
   final case class IotEventsData[A](client: IotEventsDataClient, io: IotEventsDataIO[A]) extends Embedded[A]
+  final case class IoTFleetHub[A](client: IoTFleetHubClient, io: IoTFleetHubIO[A]) extends Embedded[A]
   final case class IotJobsDataPlane[A](client: IotJobsDataPlaneClient, io: IotJobsDataPlaneIO[A]) extends Embedded[A]
+  final case class IoTSecureTunneling[A](client: IoTSecureTunnelingClient, io: IoTSecureTunnelingIO[A]) extends Embedded[A]
+  final case class IoTSiteWise[A](client: IoTSiteWiseClient, io: IoTSiteWiseIO[A]) extends Embedded[A]
+  final case class IoTThingsGraph[A](client: IoTThingsGraphClient, io: IoTThingsGraphIO[A]) extends Embedded[A]
   final case class IotWireless[A](client: IotWirelessClient, io: IotWirelessIO[A]) extends Embedded[A]
   final case class Ivs[A](client: IvsClient, io: IvsIO[A]) extends Embedded[A]
   final case class Kafka[A](client: KafkaClient, io: KafkaIO[A]) extends Embedded[A]
@@ -704,7 +704,6 @@ object Embedded {
   final case class LookoutEquipment[A](client: LookoutEquipmentClient, io: LookoutEquipmentIO[A]) extends Embedded[A]
   final case class LookoutMetrics[A](client: LookoutMetricsClient, io: LookoutMetricsIO[A]) extends Embedded[A]
   final case class LookoutVision[A](client: LookoutVisionClient, io: LookoutVisionIO[A]) extends Embedded[A]
-  final case class MTurk[A](client: MTurkClient, io: MTurkIO[A]) extends Embedded[A]
   final case class MachineLearning[A](client: MachineLearningClient, io: MachineLearningIO[A]) extends Embedded[A]
   final case class Macie[A](client: MacieClient, io: MacieIO[A]) extends Embedded[A]
   final case class Macie2[A](client: Macie2Client, io: Macie2IO[A]) extends Embedded[A]
@@ -726,6 +725,7 @@ object Embedded {
   final case class MigrationHubConfig[A](client: MigrationHubConfigClient, io: MigrationHubConfigIO[A]) extends Embedded[A]
   final case class Mobile[A](client: MobileClient, io: MobileIO[A]) extends Embedded[A]
   final case class Mq[A](client: MqClient, io: MqIO[A]) extends Embedded[A]
+  final case class MTurk[A](client: MTurkClient, io: MTurkIO[A]) extends Embedded[A]
   final case class Mwaa[A](client: MwaaClient, io: MwaaIO[A]) extends Embedded[A]
   final case class Neptune[A](client: NeptuneClient, io: NeptuneIO[A]) extends Embedded[A]
   final case class NetworkFirewall[A](client: NetworkFirewallClient, io: NetworkFirewallIO[A]) extends Embedded[A]
@@ -765,9 +765,9 @@ object Embedded {
   final case class S3Outposts[A](client: S3OutpostsClient, io: S3OutpostsIO[A]) extends Embedded[A]
   final case class SageMaker[A](client: SageMakerClient, io: SageMakerIO[A]) extends Embedded[A]
   final case class SageMakerA2IRuntime[A](client: SageMakerA2IRuntimeClient, io: SageMakerA2IRuntimeIO[A]) extends Embedded[A]
+  final case class SagemakerEdge[A](client: SagemakerEdgeClient, io: SagemakerEdgeIO[A]) extends Embedded[A]
   final case class SageMakerFeatureStoreRuntime[A](client: SageMakerFeatureStoreRuntimeClient, io: SageMakerFeatureStoreRuntimeIO[A]) extends Embedded[A]
   final case class SageMakerRuntime[A](client: SageMakerRuntimeClient, io: SageMakerRuntimeIO[A]) extends Embedded[A]
-  final case class SagemakerEdge[A](client: SagemakerEdgeClient, io: SagemakerEdgeIO[A]) extends Embedded[A]
   final case class Savingsplans[A](client: SavingsplansClient, io: SavingsplansIO[A]) extends Embedded[A]
   final case class Schemas[A](client: SchemasClient, io: SchemasIO[A]) extends Embedded[A]
   final case class SecretsManager[A](client: SecretsManagerClient, io: SecretsManagerIO[A]) extends Embedded[A]

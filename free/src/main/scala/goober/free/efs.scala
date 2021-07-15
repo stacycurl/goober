@@ -41,11 +41,6 @@ object efs { module =>
         ): Kleisli[M, EfsClient, CreateMountTargetResponse] =
           primitive(_.createMountTarget(request))
 
-        def createTags(
-          request: CreateTagsRequest
-        ): Kleisli[M, EfsClient, CreateTagsResponse] =
-          primitive(_.createTags(request))
-
         def deleteAccessPoint(
           request: DeleteAccessPointRequest
         ): Kleisli[M, EfsClient, DeleteAccessPointResponse] =
@@ -65,11 +60,6 @@ object efs { module =>
           request: DeleteMountTargetRequest
         ): Kleisli[M, EfsClient, DeleteMountTargetResponse] =
           primitive(_.deleteMountTarget(request))
-
-        def deleteTags(
-          request: DeleteTagsRequest
-        ): Kleisli[M, EfsClient, DeleteTagsResponse] =
-          primitive(_.deleteTags(request))
 
         def describeAccessPoints(
           request: DescribeAccessPointsRequest
@@ -110,11 +100,6 @@ object efs { module =>
           request: DescribeMountTargetsRequest
         ): Kleisli[M, EfsClient, DescribeMountTargetsResponse] =
           primitive(_.describeMountTargets(request))
-
-        def describeTags(
-          request: DescribeTagsRequest
-        ): Kleisli[M, EfsClient, DescribeTagsResponse] =
-          primitive(_.describeTags(request))
 
         def listTagsForResource(
           request: ListTagsForResourceRequest
@@ -186,10 +171,6 @@ object efs { module =>
         request: CreateMountTargetRequest
       ): F[CreateMountTargetResponse]
 
-      def createTags(
-        request: CreateTagsRequest
-      ): F[CreateTagsResponse]
-
       def deleteAccessPoint(
         request: DeleteAccessPointRequest
       ): F[DeleteAccessPointResponse]
@@ -205,10 +186,6 @@ object efs { module =>
       def deleteMountTarget(
         request: DeleteMountTargetRequest
       ): F[DeleteMountTargetResponse]
-
-      def deleteTags(
-        request: DeleteTagsRequest
-      ): F[DeleteTagsResponse]
 
       def describeAccessPoints(
         request: DescribeAccessPointsRequest
@@ -241,10 +218,6 @@ object efs { module =>
       def describeMountTargets(
         request: DescribeMountTargetsRequest
       ): F[DescribeMountTargetsResponse]
-
-      def describeTags(
-        request: DescribeTagsRequest
-      ): F[DescribeTagsResponse]
 
       def listTagsForResource(
         request: ListTagsForResourceRequest
@@ -311,13 +284,6 @@ object efs { module =>
         visitor.createMountTarget(request)
     }
 
-    final case class CreateTagsOp(
-      request: CreateTagsRequest
-    ) extends EfsOp[CreateTagsResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[CreateTagsResponse] =
-        visitor.createTags(request)
-    }
-
     final case class DeleteAccessPointOp(
       request: DeleteAccessPointRequest
     ) extends EfsOp[DeleteAccessPointResponse] {
@@ -344,13 +310,6 @@ object efs { module =>
     ) extends EfsOp[DeleteMountTargetResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DeleteMountTargetResponse] =
         visitor.deleteMountTarget(request)
-    }
-
-    final case class DeleteTagsOp(
-      request: DeleteTagsRequest
-    ) extends EfsOp[DeleteTagsResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[DeleteTagsResponse] =
-        visitor.deleteTags(request)
     }
 
     final case class DescribeAccessPointsOp(
@@ -407,13 +366,6 @@ object efs { module =>
     ) extends EfsOp[DescribeMountTargetsResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeMountTargetsResponse] =
         visitor.describeMountTargets(request)
-    }
-
-    final case class DescribeTagsOp(
-      request: DescribeTagsRequest
-    ) extends EfsOp[DescribeTagsResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[DescribeTagsResponse] =
-        visitor.describeTags(request)
     }
 
     final case class ListTagsForResourceOp(
@@ -505,11 +457,6 @@ object efs { module =>
   ): EfsIO[CreateMountTargetResponse] =
     FF.liftF(CreateMountTargetOp(request))
 
-  def createTags(
-    request: CreateTagsRequest
-  ): EfsIO[CreateTagsResponse] =
-    FF.liftF(CreateTagsOp(request))
-
   def deleteAccessPoint(
     request: DeleteAccessPointRequest
   ): EfsIO[DeleteAccessPointResponse] =
@@ -529,11 +476,6 @@ object efs { module =>
     request: DeleteMountTargetRequest
   ): EfsIO[DeleteMountTargetResponse] =
     FF.liftF(DeleteMountTargetOp(request))
-
-  def deleteTags(
-    request: DeleteTagsRequest
-  ): EfsIO[DeleteTagsResponse] =
-    FF.liftF(DeleteTagsOp(request))
 
   def describeAccessPoints(
     request: DescribeAccessPointsRequest
@@ -574,11 +516,6 @@ object efs { module =>
     request: DescribeMountTargetsRequest
   ): EfsIO[DescribeMountTargetsResponse] =
     FF.liftF(DescribeMountTargetsOp(request))
-
-  def describeTags(
-    request: DescribeTagsRequest
-  ): EfsIO[DescribeTagsResponse] =
-    FF.liftF(DescribeTagsOp(request))
 
   def listTagsForResource(
     request: ListTagsForResourceRequest

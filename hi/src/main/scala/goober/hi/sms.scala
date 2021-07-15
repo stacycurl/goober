@@ -13,18 +13,18 @@ object sms {
     // Methods for constructing model classes, requests, etc.
     // CreateAppRequest
     // CreateReplicationJobRequest
+    // DeleteAppRequest
     // DeleteAppLaunchConfigurationRequest
     // DeleteAppReplicationConfigurationRequest
-    // DeleteAppRequest
     // DeleteAppValidationConfigurationRequest
     // DeleteReplicationJobRequest
     // DeleteServerCatalogRequest
     // DisassociateConnectorRequest
     // GenerateChangeSetRequest
     // GenerateTemplateRequest
+    // GetAppRequest
     // GetAppLaunchConfigurationRequest
     // GetAppReplicationConfigurationRequest
-    // GetAppRequest
     // GetAppValidationConfigurationRequest
     // GetAppValidationOutputRequest
     // GetConnectorsRequest

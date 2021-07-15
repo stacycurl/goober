@@ -18,17 +18,17 @@ object neptune {
     // CopyDbClusterParameterGroupRequest
     // CopyDbClusterSnapshotRequest
     // CopyDbParameterGroupRequest
+    // CreateDbClusterRequest
     // CreateDbClusterEndpointRequest
     // CreateDbClusterParameterGroupRequest
-    // CreateDbClusterRequest
     // CreateDbClusterSnapshotRequest
     // CreateDbInstanceRequest
     // CreateDbParameterGroupRequest
     // CreateDbSubnetGroupRequest
     // CreateEventSubscriptionRequest
+    // DeleteDbClusterRequest
     // DeleteDbClusterEndpointRequest
     // DeleteDbClusterParameterGroupRequest
-    // DeleteDbClusterRequest
     // DeleteDbClusterSnapshotRequest
     // DeleteDbInstanceRequest
     // DeleteDbParameterGroupRequest
@@ -55,9 +55,9 @@ object neptune {
     // DescribeValidDbInstanceModificationsRequest
     // FailoverDbClusterRequest
     // ListTagsForResourceRequest
+    // ModifyDbClusterRequest
     // ModifyDbClusterEndpointRequest
     // ModifyDbClusterParameterGroupRequest
-    // ModifyDbClusterRequest
     // ModifyDbClusterSnapshotAttributeRequest
     // ModifyDbInstanceRequest
     // ModifyDbParameterGroupRequest

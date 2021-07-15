@@ -20,9 +20,9 @@ object codedeploy {
     // BatchGetOnPremisesInstancesRequest
     // ContinueDeploymentRequest
     // CreateApplicationRequest
+    // CreateDeploymentRequest
     // CreateDeploymentConfigRequest
     // CreateDeploymentGroupRequest
-    // CreateDeploymentRequest
     // DeleteApplicationRequest
     // DeleteDeploymentConfigRequest
     // DeleteDeploymentGroupRequest
@@ -31,9 +31,9 @@ object codedeploy {
     // DeregisterOnPremisesInstanceRequest
     // GetApplicationRequest
     // GetApplicationRevisionRequest
+    // GetDeploymentRequest
     // GetDeploymentConfigRequest
     // GetDeploymentGroupRequest
-    // GetDeploymentRequest
     // GetDeploymentTargetRequest
     // GetOnPremisesInstanceRequest
     // ListApplicationRevisionsRequest

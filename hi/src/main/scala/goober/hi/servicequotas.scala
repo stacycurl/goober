@@ -14,14 +14,14 @@ object servicequotas {
     // AssociateServiceQuotaTemplateRequest
     // DeleteServiceQuotaIncreaseRequestFromTemplateRequest
     // DisassociateServiceQuotaTemplateRequest
-    // GetAssociationForServiceQuotaTemplateRequest
     // GetAwsDefaultServiceQuotaRequest
+    // GetAssociationForServiceQuotaTemplateRequest
     // GetRequestedServiceQuotaChangeRequest
-    // GetServiceQuotaIncreaseRequestFromTemplateRequest
     // GetServiceQuotaRequest
+    // GetServiceQuotaIncreaseRequestFromTemplateRequest
     // ListAwsDefaultServiceQuotasRequest
-    // ListRequestedServiceQuotaChangeHistoryByQuotaRequest
     // ListRequestedServiceQuotaChangeHistoryRequest
+    // ListRequestedServiceQuotaChangeHistoryByQuotaRequest
     // ListServiceQuotaIncreaseRequestsInTemplateRequest
     // ListServiceQuotasRequest
     // ListServicesRequest

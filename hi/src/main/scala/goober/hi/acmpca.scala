@@ -11,17 +11,17 @@ object acmpca {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateCertificateAuthorityAuditReportRequest
     // CreateCertificateAuthorityRequest
+    // CreateCertificateAuthorityAuditReportRequest
     // CreatePermissionRequest
     // DeleteCertificateAuthorityRequest
     // DeletePermissionRequest
     // DeletePolicyRequest
-    // DescribeCertificateAuthorityAuditReportRequest
     // DescribeCertificateAuthorityRequest
+    // DescribeCertificateAuthorityAuditReportRequest
+    // GetCertificateRequest
     // GetCertificateAuthorityCertificateRequest
     // GetCertificateAuthorityCsrRequest
-    // GetCertificateRequest
     // GetPolicyRequest
     // ImportCertificateAuthorityCertificateRequest
     // IssueCertificateRequest

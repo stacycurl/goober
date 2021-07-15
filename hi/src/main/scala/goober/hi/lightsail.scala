@@ -22,23 +22,23 @@ object lightsail {
     // CreateCertificateRequest
     // CreateCloudFormationStackRequest
     // CreateContactMethodRequest
+    // CreateContainerServiceRequest
     // CreateContainerServiceDeploymentRequest
     // CreateContainerServiceRegistryLoginRequest
-    // CreateContainerServiceRequest
-    // CreateDiskFromSnapshotRequest
     // CreateDiskRequest
+    // CreateDiskFromSnapshotRequest
     // CreateDiskSnapshotRequest
     // CreateDistributionRequest
-    // CreateDomainEntryRequest
     // CreateDomainRequest
+    // CreateDomainEntryRequest
     // CreateInstanceSnapshotRequest
-    // CreateInstancesFromSnapshotRequest
     // CreateInstancesRequest
+    // CreateInstancesFromSnapshotRequest
     // CreateKeyPairRequest
     // CreateLoadBalancerRequest
     // CreateLoadBalancerTlsCertificateRequest
-    // CreateRelationalDatabaseFromSnapshotRequest
     // CreateRelationalDatabaseRequest
+    // CreateRelationalDatabaseFromSnapshotRequest
     // CreateRelationalDatabaseSnapshotRequest
     // DeleteAlarmRequest
     // DeleteAutoSnapshotRequest
@@ -49,8 +49,8 @@ object lightsail {
     // DeleteDiskRequest
     // DeleteDiskSnapshotRequest
     // DeleteDistributionRequest
-    // DeleteDomainEntryRequest
     // DeleteDomainRequest
+    // DeleteDomainEntryRequest
     // DeleteInstanceRequest
     // DeleteInstanceSnapshotRequest
     // DeleteKeyPairRequest
@@ -93,24 +93,25 @@ object lightsail {
     // GetDomainRequest
     // GetDomainsRequest
     // GetExportSnapshotRecordsRequest
+    // GetInstanceRequest
     // GetInstanceAccessDetailsRequest
     // GetInstanceMetricDataRequest
     // GetInstancePortStatesRequest
-    // GetInstanceRequest
     // GetInstanceSnapshotRequest
     // GetInstanceSnapshotsRequest
     // GetInstanceStateRequest
     // GetInstancesRequest
     // GetKeyPairRequest
     // GetKeyPairsRequest
-    // GetLoadBalancerMetricDataRequest
     // GetLoadBalancerRequest
+    // GetLoadBalancerMetricDataRequest
     // GetLoadBalancerTlsCertificatesRequest
     // GetLoadBalancersRequest
     // GetOperationRequest
-    // GetOperationsForResourceRequest
     // GetOperationsRequest
+    // GetOperationsForResourceRequest
     // GetRegionsRequest
+    // GetRelationalDatabaseRequest
     // GetRelationalDatabaseBlueprintsRequest
     // GetRelationalDatabaseBundlesRequest
     // GetRelationalDatabaseEventsRequest
@@ -119,7 +120,6 @@ object lightsail {
     // GetRelationalDatabaseMasterUserPasswordRequest
     // GetRelationalDatabaseMetricDataRequest
     // GetRelationalDatabaseParametersRequest
-    // GetRelationalDatabaseRequest
     // GetRelationalDatabaseSnapshotRequest
     // GetRelationalDatabaseSnapshotsRequest
     // GetRelationalDatabasesRequest
@@ -147,12 +147,12 @@ object lightsail {
     // UnpeerVpcRequest
     // UntagResourceRequest
     // UpdateContainerServiceRequest
-    // UpdateDistributionBundleRequest
     // UpdateDistributionRequest
+    // UpdateDistributionBundleRequest
     // UpdateDomainEntryRequest
     // UpdateLoadBalancerAttributeRequest
-    // UpdateRelationalDatabaseParametersRequest
     // UpdateRelationalDatabaseRequest
+    // UpdateRelationalDatabaseParametersRequest
 
   }
 

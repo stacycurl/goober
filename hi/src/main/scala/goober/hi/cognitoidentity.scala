@@ -14,13 +14,13 @@ object cognitoidentity {
     // CreateIdentityPoolRequest
     // DeleteIdentitiesRequest
     // DeleteIdentityPoolRequest
-    // DescribeIdentityPoolRequest
     // DescribeIdentityRequest
+    // DescribeIdentityPoolRequest
     // GetCredentialsForIdentityRequest
     // GetIdRequest
     // GetIdentityPoolRolesRequest
-    // GetOpenIdTokenForDeveloperIdentityRequest
     // GetOpenIdTokenRequest
+    // GetOpenIdTokenForDeveloperIdentityRequest
     // GetPrincipalTagAttributeMapRequest
     // ListIdentitiesRequest
     // ListIdentityPoolsRequest

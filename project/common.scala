@@ -1,48 +1,81 @@
 import java.io.PrintWriter
 
 import scala.collection.immutable.{List, Nil}
+import scala.reflect.ClassTag
 
 
 object common {
   import syntax._
 
-  object GenClient {
-    def ioImports(values: List[GenClient]): Imports =
+  object Client {
+    implicit val clientOrdering: Ordering[Client] =
+      Ordering.String.on[Client](_.name)
+
+    trait Companion {
+      def discover: List[Client]
+
+      def customs: List[String] =
+        custom.keySet.toList.sorted
+
+      def customModel(className: String): Option[String] =
+        custom.get(className).map(_.model)
+
+      def customModule(className: String): Option[String] =
+        custom.get(className).map(_.module)
+
+      def customClientModule(className: String): Option[String] =
+        custom.get(className).map(_.clientModule)
+
+      private val custom: Map[String, Custom] = Map(
+        simpleNameOf[software.amazon.awssdk.services.dynamodb.streams.DynamoDbStreamsClient] → Custom("dynamodb", "dynamodbstreams", "dynamodb.streams"),
+        simpleNameOf[software.amazon.awssdk.services.waf.regional.WafRegionalClient] → Custom("waf", "wafregional", "waf.regional")
+      )
+
+      private def simpleNameOf[A: ClassTag]: String =
+        implicitly[ClassTag[A]].runtimeClass.getSimpleName
+
+      private case class Custom(model: String, module: String, clientModule: String)
+    }
+
+    def ioImports(values: List[Client]): Imports =
       Imports.flatten(values.map(_.ioImports))
 
-    def opImports(values: List[GenClient]): Imports =
+    def opImports(values: List[Client]): Imports =
       Imports.flatten(values.map(_.opImports))
 
-    def clientImports(values: List[GenClient]): Imports =
+    def clientImports(values: List[Client]): Imports =
       Imports.flatten(values.map(_.clientImports))
   }
 
-  trait GenClient {
+  trait Client {
+    def companion: Client.Companion
+
     def module: String
 
-    def io: String =
+    lazy val io: String =
       s"${name}IO"
 
-    def op: String =
+    lazy val op: String =
       s"${name}Op"
 
-    def modelImports: Imports =
+    lazy val modelImports: Imports =
       Imports.create(s"software.amazon.awssdk.services.${modelPackage}.model._")
 
-    def clientImports: Imports =
+    lazy val clientImports: Imports =
       Imports.create(fullName)
 
-    def opImports: Imports =
+    lazy val opImports: Imports =
       Imports.create(s"goober.free.$module.$op")
 
-    def ioImports: Imports =
+    lazy val ioImports: Imports =
       Imports.create(s"goober.free.$module.$io")
 
     def kleisliType(`type`: String): String =
       s"Kleisli[M, $simpleName, ${`type`}]"
 
-    def name: String =
-      simpleName.stripSuffix("Client")
+    lazy val name: String =
+      simpleName
+        .stripSuffix("Client")
 
     def fullName: String
 
@@ -50,27 +83,39 @@ object common {
 
     def modelPackage: String
 
-    def methods: GenMethods
+    def methods: ServiceMethods
   }
 
-  trait GenMethods {
-    def smartConstructors: List[Free.SmartConstructor]
+  case class ServiceMethods(client: Client, values: List[ServiceMethod]) {
+    def filter: ServiceMethods = copy(
+      values = values.filterNot(_.isExcluded)
+        .groupBy(_.name)
+        .flatMap(ServiceMethod.choosePreferred)
+        .toList
+        .sortBy(_.name)
+    )
 
-    def kleisliVisitors: List[Free.Companion.Visitor.KleisliVisitor.Method]
+    def smartConstructors: List[Free.SmartConstructor] =
+      values.map(Free.SmartConstructor(client, _))
 
-    def visitorMethods: List[Free.Companion.Visitor.Method]
+    def visitorMethods: List[Free.Companion.Visitor.Method] =
+      values.map(Free.Companion.Visitor.Method)
 
-    def implementations: List[Free.Companion.Implementation]
+    def kleisliVisitors: List[Free.Companion.Visitor.KleisliVisitor.Method] =
+      values.map(Free.Companion.Visitor.KleisliVisitor.Method(client, _))
+
+    def implementations: List[Free.Companion.Implementation] =
+      values.map(Free.Companion.Implementation(client, _))
   }
 
-  object GenMethod {
-    def choosePreferred(values: (String, List[GenMethod])): Option[GenMethod] = {
-      val sorted = values._2.sortBy(_.getFullParameterTypes)(
-        Ordering.Implicits.seqDerivedOrdering[List, String](
-          indexOfOrdering(preferredTypesNames)
+  object ServiceMethod {
+    def choosePreferred(values: (String, List[ServiceMethod])): Option[ServiceMethod] = {
+      val sorted = values._2.sortBy(_.getParameterTypes)(
+        Ordering.Implicits.seqDerivedOrdering[List, Type](
+          indexOfOrdering(preferredTypes)
         )
       )
-      // println(s"${values._1}: $sorted")
+      //println(s"${values._1}: $sorted")
       sorted.headOption
     }
 
@@ -82,32 +127,34 @@ object common {
 
     lazy val excludedNames: Set[String] = Set("utilities")
 
-    lazy val excludedTypeNames: Set[String] = Set(
+    lazy val excludedTypes: Set[Type] = Set(
       classOf[java.util.function.Consumer[_]],
       classOf[software.amazon.awssdk.core.ResponseBytes[_]],
       classOf[software.amazon.awssdk.core.ResponseInputStream[_]],
       classOf[software.amazon.awssdk.core.sync.ResponseTransformer[_, _]]
-    ).map(_.getName)
+    ).map(Type.fromClass)
 
-    private lazy val preferredTypesNames = List(
+    private lazy val preferredTypes: List[Type] = List(
       classOf[software.amazon.awssdk.core.sync.RequestBody],
       classOf[java.nio.file.Path]
-    ).map(_.getName)
+    ).map(Type.fromClass)
   }
 
-  trait GenMethod {
+  trait ServiceMethod {
     def isExcluded: Boolean = {
       name.endsWith("Paginator")               ||
         name.endsWith("Torrent")               ||
-        GenMethod.excludedNames.contains(name)           ||
-        GenMethod.excludedTypeNames.contains(returnType) ||
-        getFullParameterTypes.isEmpty          ||
-        getFullParameterTypes.exists(GenMethod.excludedTypeNames.contains)
+        ServiceMethod.excludedNames.contains(name)           ||
+        ServiceMethod.excludedTypes.contains(returnType) ||
+//        getFullParameterTypes.isEmpty          ||
+        getParameterTypes.exists(ServiceMethod.excludedTypes.contains)
     }
+
+    def asRequest: String
 
     def name: String
 
-    def returnType: String
+    def returnType: Type
 
     final def parametersString: String = parameters.mkString(",\n  ")
     def parameters: List[String]
@@ -115,12 +162,35 @@ object common {
     final def parameterNamesString: String = parameterNames.mkString(", ")
     def parameterNames: List[String]
 
-    def getFullParameterTypes: List[String]
+    def getParameterTypes: List[Type]
   }
 
-  case class Hi(client: GenClient, methods: List[GenMethod]) extends Generator {
-    def this(client: GenClient) =
-      this(client, Nil)
+  object Type {
+    implicit val typeOrdering: Ordering[Type] =
+      Ordering[String].on[Type](_.value)
+
+    def fromClass(clazz: Class[_]): Type =
+      new Type(clazz.getName)
+  }
+
+  case class Type(value: String) {
+    def matches(other: Type): Boolean =
+      other        == this ||
+      other.simple == this ||
+      other        == simple ||
+      other.simple == simple
+
+    def simple: Type =
+      if (!value.contains(".")) this else Type(value.split("\\.").last)
+
+    override def toString: String = value
+  }
+
+  case class Hi(client: Client, methods: List[ServiceMethod]) extends Generator {
+    // println(s"Created client: ${client.name} ${client.module}")
+
+    def this(client: Client) =
+      this(client, client.methods.filter.values)
 
     def scalaFiles: ScalaFiles =
       ScalaFiles.create(ScalaFile(s"${Hi.directory}/${client.module}.scala", toString))
@@ -138,7 +208,7 @@ object common {
          |    import goober.hi.util.BuilderSyntax._
          |
          |    // Methods for constructing model classes, requests, etc.
-         |    ${methods.map(_.name.indentBy("  ")).mkString("\n    ")}
+         |    // ${methods.map(_.asRequest.indentBy("  ")).mkString("\n    // ")}
          |
          |  }
          |
@@ -156,29 +226,29 @@ object common {
   }
 
   case class Free(
-    client: GenClient,
+    client: Client,
     companion: Free.Companion,
     smartConstructors: Free.SmartConstructors
   ) extends Generator {
 
-    def this(client: GenClient) =
+    def this(client: Client) =
       this(client, new Free.Companion(client), new Free.SmartConstructors(client))
 
     def interpreterValue: String =
-      s"""lazy val ${client.name}Interpreter: ${client.op} ~> Kleisli[M, $client, *] = new ${client.name}Interpreter {
-         |  def primitive[A](f: $client ⇒ A): Kleisli[M, $client, A] = interpreter.primitive(f)
+      s"""lazy val ${client.name}Interpreter: ${client.op} ~> Kleisli[M, ${client.simpleName}, *] = new ${client.name}Interpreter {
+         |  def primitive[A](f: ${client.simpleName} ⇒ A): Kleisli[M, ${client.simpleName}, A] = interpreter.primitive(f)
          |}""".stripMargin
 
     def interpreterTrait: String =
       s"""trait ${client.name}Interpreter extends ${client.op}.Visitor.KleisliVisitor[M] {
-         |  def embed[A](e: Embedded[A]): Kleisli[M, $client, A] = interpreter.embed(e)
+         |  def embed[A](e: Embedded[A]): Kleisli[M, ${client.simpleName}, A] = interpreter.embed(e)
          |}""".stripMargin
 
     def embeddedClass: String =
-      s"final case class ${client.name}[A](client: $client, io: ${client.io}[A]) extends Embedded[A]"
+      s"final case class ${client.name}[A](client: ${client.simpleName}, io: ${client.io}[A]) extends Embedded[A]"
 
     def embeddedCase: String =
-      s"case Embedded.${client.name}(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, $client, *]](${client.name}Interpreter).run(client))"
+      s"case Embedded.${client.name}(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ${client.simpleName}, *]](${client.name}Interpreter).run(client))"
 
     def scalaFiles: ScalaFiles =
       ScalaFiles.create(ScalaFile(s"${Free.directory}/${client.module}.scala", toString))
@@ -214,12 +284,12 @@ object common {
     val directory = "/free/src/main/scala/goober/free"
 
     case class Companion(
-      client: GenClient,
+      client: Client,
       visitor: Companion.Visitor,
       implementations: Companion.Implementations
     ) {
 
-      def this(client: GenClient) =
+      def this(client: Client) =
         this(client, new Companion.Visitor(client), new Companion.Implementations(client))
 
       def imports: Imports =
@@ -227,9 +297,9 @@ object common {
 
       override def toString: String =
         s"""object ${client.op} {
-           |  // Given a $client we can embed a ${client.io} program in any algebra that understands embedding.
-           |  implicit val ${client.op}Embeddable: Embeddable[${client.op}, $client] = new Embeddable[${client.op}, $client] {
-           |    def embed[A](client: $client, io: ${client.io}[A]): Embedded[A] = Embedded.${client.name}(client, io)
+           |  // Given a ${client.simpleName} we can embed a ${client.io} program in any algebra that understands embedding.
+           |  implicit val ${client.op}Embeddable: Embeddable[${client.op}, ${client.simpleName}] = new Embeddable[${client.op}, ${client.simpleName}] {
+           |    def embed[A](client: ${client.simpleName}, io: ${client.io}[A]): Embedded[A] = Embedded.${client.name}(client, io)
            |  }
            |
            |  ${visitor.indentBy("  ")}
@@ -239,13 +309,13 @@ object common {
     }
 
     object Companion {
-      case class Visitor(client: GenClient, kleisliVisitor: Visitor.KleisliVisitor, methods: List[Visitor.Method]) {
-        def this(client: GenClient) =
+      case class Visitor(client: Client, kleisliVisitor: Visitor.KleisliVisitor, methods: List[Visitor.Method]) {
+        def this(client: Client) =
           this(client, new Visitor.KleisliVisitor(client), client.methods.visitorMethods)
 
         def imports: Imports = Imports.flatten(
-          ifUsed("java.nio.file.Path"),
-          ifUsed("software.amazon.awssdk.core.sync.RequestBody")
+          ifUsed(Type("java.nio.file.Path")),
+          ifUsed(Type("software.amazon.awssdk.core.sync.RequestBody"))
         )
 
         override def toString: String =
@@ -263,38 +333,38 @@ object common {
              |  ${methods.map(_.indentBy("  ")).mkString("\n  \n  ")}
              |}""".stripMargin
 
-        private def ifUsed(parameterType: String): Option[String] =
-          if (methods.exists(_.hasParameterType(parameterType))) Some(parameterType) else None
+        private def ifUsed(parameterType: Type): Option[String] =
+          if (methods.exists(_.hasParameterType(parameterType))) Some(parameterType.value) else None
       }
 
       object Visitor {
-        case class KleisliVisitor(client: GenClient, methods: List[KleisliVisitor.Method]) {
-          def this(client: GenClient) =
+        case class KleisliVisitor(client: Client, methods: List[KleisliVisitor.Method]) {
+          def this(client: Client) =
             this(client, client.methods.kleisliVisitors)
 
           override def toString: String =
-            s"""trait KleisliVisitor[M[_]] extends ${client.op}.Visitor[Kleisli[M, $client, *]] {
+            s"""trait KleisliVisitor[M[_]] extends ${client.op}.Visitor[Kleisli[M, ${client.simpleName}, *]] {
                |  ${methods.map(_.indentBy("  ")).mkString("\n\n  ")}
                |
                |  def primitive[A](
-               |    f: $client => A
+               |    f: ${client.simpleName} => A
                |  ): ${client.kleisliType("A")}
                |}""".stripMargin
         }
 
         object KleisliVisitor {
-          case class Method(client: GenClient, method: GenMethod) {
+          case class Method(client: Client, method: ServiceMethod) {
             override def toString: String =
               s"""def ${method.name}(
                  |  ${method.parametersString}
-                 |): ${client.kleisliType(method.returnType)} =
+                 |): ${client.kleisliType(method.returnType.value)} =
                  |  primitive(_.${method.name}(${method.parameterNamesString}))""".stripMargin
           }
         }
 
-        case class Method(method: GenMethod) {
-          def hasParameterType(parameterType: String): Boolean =
-            method.getFullParameterTypes.contains(parameterType)
+        case class Method(method: ServiceMethod) {
+          def hasParameterType(parameterType: Type): Boolean =
+            method.getParameterTypes.exists(_.matches(parameterType))
 
           override def toString: String =
             s"""def ${method.name}(
@@ -303,8 +373,8 @@ object common {
         }
       }
 
-      case class Implementations(client: GenClient, values: List[Implementation]) {
-        def this(client: GenClient) =
+      case class Implementations(client: Client, values: List[Implementation]) {
+        def this(client: Client) =
           this(client, client.methods.implementations)
 
         override def toString: String = {
@@ -319,7 +389,7 @@ object common {
         }
       }
 
-      case class Implementation(client: GenClient, method: GenMethod) {
+      case class Implementation(client: Client, method: ServiceMethod) {
         override def toString: String =
           s"""final case class ${method.name.capitalize}Op(
              |  ${method.parametersString}
@@ -330,8 +400,8 @@ object common {
       }
     }
 
-    case class SmartConstructors(client: GenClient, constructors: List[SmartConstructor]) {
-      def this(client: GenClient) =
+    case class SmartConstructors(client: Client, constructors: List[SmartConstructor]) {
+      def this(client: Client) =
         this(client, client.methods.smartConstructors)
 
       override def toString: String = {
@@ -349,7 +419,7 @@ object common {
       }
     }
 
-    case class SmartConstructor(client: GenClient, method: GenMethod) {
+    case class SmartConstructor(client: Client, method: ServiceMethod) {
       override def toString: String =
         s"""def ${method.name}(
            |  ${method.parametersString}
@@ -360,7 +430,7 @@ object common {
   }
 
 
-  case class Embedded(clients: List[GenClient]) extends Generator {
+  case class Embedded(clients: List[Client]) extends Generator {
     def scalaFiles: ScalaFiles =
       ScalaFiles.create(ScalaFile(s"${Free.directory}/embedded.scala", toString))
 
@@ -370,7 +440,7 @@ object common {
          |import scala.language.higherKinds
          |
          |import cats.free.Free
-         |${GenClient.ioImports(clients) + GenClient.clientImports(clients)}
+         |${Client.ioImports(clients) + Client.clientImports(clients)}
          |
          |
          |// A pair (J, Free[F, A]) with constructors that tie down J and F.
@@ -386,12 +456,12 @@ object common {
          |}
          |""".stripMargin
 
-      private def embeddedClass(client: GenClient): String =
-        s"final case class ${client.name}[A](client: $client, io: ${client.io}[A]) extends Embedded[A]"
+      private def embeddedClass(client: Client): String =
+        s"final case class ${client.name}[A](client: ${client.simpleName}, io: ${client.io}[A]) extends Embedded[A]"
   }
 
 
-  case class KleisliInterpreter(clients: List[GenClient]) extends Generator {
+  case class KleisliInterpreter(clients: List[Client]) extends Generator {
     def scalaFiles: ScalaFiles =
       ScalaFiles.create(ScalaFile(s"${Free.directory}/KleisliInterpreter.scala", toString))
 
@@ -403,7 +473,7 @@ object common {
          |import cats.data.Kleisli
          |import cats.effect.{Async, Blocker, ContextShift}
          |import cats.~>
-         |${GenClient.opImports(clients) + GenClient.clientImports(clients)}
+         |${Client.opImports(clients) + Client.clientImports(clients)}
          |
          |
          |object KleisliInterpreter {
@@ -443,18 +513,18 @@ object common {
          |}
          |""".stripMargin
 
-      private def interpreterValue(client: GenClient): String =
-        s"""lazy val ${client.name}Interpreter: ${client.op} ~> Kleisli[M, $client, *] = new ${client.name}Interpreter {
-           |  def primitive[A](f: $client ⇒ A): Kleisli[M, $client, A] = interpreter.primitive(f)
+      private def interpreterValue(client: Client): String =
+        s"""lazy val ${client.name}Interpreter: ${client.op} ~> Kleisli[M, ${client.simpleName}, *] = new ${client.name}Interpreter {
+           |  def primitive[A](f: ${client.simpleName} ⇒ A): Kleisli[M, ${client.simpleName}, A] = interpreter.primitive(f)
            |}""".stripMargin
 
-      private def interpreterTrait(client: GenClient): String =
+      private def interpreterTrait(client: Client): String =
         s"""trait ${client.name}Interpreter extends ${client.op}.Visitor.KleisliVisitor[M] {
-           |  def embed[A](e: Embedded[A]): Kleisli[M, $client, A] = interpreter.embed(e)
+           |  def embed[A](e: Embedded[A]): Kleisli[M, ${client.simpleName}, A] = interpreter.embed(e)
            |}""".stripMargin
 
-      private def embeddedCase(client: GenClient): String =
-        s"case Embedded.${client.name}(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, $client, *]](${client.name}Interpreter).run(client))"
+      private def embeddedCase(client: Client): String =
+        s"case Embedded.${client.name}(client, io) => Kleisli(_ => io.foldMap[Kleisli[M, ${client.simpleName}, *]](${client.name}Interpreter).run(client))"
   }
 
   object Imports {
@@ -503,6 +573,7 @@ object common {
 
   case class ScalaFile(name: String, contents: String) {
     def writeTo(directory: String): Unit = {
+      // println(s"Writing to $directory/$name ...")
       val pw = new PrintWriter(s"$directory/${name}")
       pw.write(contents.getLines.map(_.trimTrailing).mkString("\n"))
       pw.close()

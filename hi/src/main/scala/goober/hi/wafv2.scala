@@ -33,8 +33,8 @@ object wafv2 {
     // GetRegexPatternSetRequest
     // GetRuleGroupRequest
     // GetSampledRequestsRequest
-    // GetWebAclForResourceRequest
     // GetWebAclRequest
+    // GetWebAclForResourceRequest
     // ListAvailableManagedRuleGroupsRequest
     // ListIpSetsRequest
     // ListLoggingConfigurationsRequest

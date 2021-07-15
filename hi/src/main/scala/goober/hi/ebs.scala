@@ -12,12 +12,9 @@ object ebs {
 
     // Methods for constructing model classes, requests, etc.
     // CompleteSnapshotRequest
-    // GetSnapshotBlockRequest
     // ListChangedBlocksRequest
     // ListSnapshotBlocksRequest
-    // Path
     // PutSnapshotBlockRequest
-    // RequestBody
     // StartSnapshotRequest
 
   }

@@ -15,27 +15,27 @@ object imagebuilder {
     // CreateComponentRequest
     // CreateContainerRecipeRequest
     // CreateDistributionConfigurationRequest
+    // CreateImageRequest
     // CreateImagePipelineRequest
     // CreateImageRecipeRequest
-    // CreateImageRequest
     // CreateInfrastructureConfigurationRequest
     // DeleteComponentRequest
     // DeleteContainerRecipeRequest
     // DeleteDistributionConfigurationRequest
+    // DeleteImageRequest
     // DeleteImagePipelineRequest
     // DeleteImageRecipeRequest
-    // DeleteImageRequest
     // DeleteInfrastructureConfigurationRequest
-    // GetComponentPolicyRequest
     // GetComponentRequest
-    // GetContainerRecipePolicyRequest
+    // GetComponentPolicyRequest
     // GetContainerRecipeRequest
+    // GetContainerRecipePolicyRequest
     // GetDistributionConfigurationRequest
+    // GetImageRequest
     // GetImagePipelineRequest
     // GetImagePolicyRequest
-    // GetImageRecipePolicyRequest
     // GetImageRecipeRequest
-    // GetImageRequest
+    // GetImageRecipePolicyRequest
     // GetInfrastructureConfigurationRequest
     // ImportComponentRequest
     // ListComponentBuildVersionsRequest

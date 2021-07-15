@@ -34,8 +34,8 @@ object route53domains {
     // RetrieveDomainAuthCodeRequest
     // TransferDomainRequest
     // TransferDomainToAnotherAwsAccountRequest
-    // UpdateDomainContactPrivacyRequest
     // UpdateDomainContactRequest
+    // UpdateDomainContactPrivacyRequest
     // UpdateDomainNameserversRequest
     // UpdateTagsForDomainRequest
     // ViewBillingRequest

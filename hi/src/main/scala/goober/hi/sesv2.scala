@@ -11,33 +11,33 @@ object sesv2 {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateConfigurationSetEventDestinationRequest
     // CreateConfigurationSetRequest
-    // CreateContactListRequest
+    // CreateConfigurationSetEventDestinationRequest
     // CreateContactRequest
+    // CreateContactListRequest
     // CreateCustomVerificationEmailTemplateRequest
     // CreateDedicatedIpPoolRequest
     // CreateDeliverabilityTestReportRequest
-    // CreateEmailIdentityPolicyRequest
     // CreateEmailIdentityRequest
+    // CreateEmailIdentityPolicyRequest
     // CreateEmailTemplateRequest
     // CreateImportJobRequest
-    // DeleteConfigurationSetEventDestinationRequest
     // DeleteConfigurationSetRequest
-    // DeleteContactListRequest
+    // DeleteConfigurationSetEventDestinationRequest
     // DeleteContactRequest
+    // DeleteContactListRequest
     // DeleteCustomVerificationEmailTemplateRequest
     // DeleteDedicatedIpPoolRequest
-    // DeleteEmailIdentityPolicyRequest
     // DeleteEmailIdentityRequest
+    // DeleteEmailIdentityPolicyRequest
     // DeleteEmailTemplateRequest
     // DeleteSuppressedDestinationRequest
     // GetAccountRequest
     // GetBlacklistReportsRequest
-    // GetConfigurationSetEventDestinationsRequest
     // GetConfigurationSetRequest
-    // GetContactListRequest
+    // GetConfigurationSetEventDestinationsRequest
     // GetContactRequest
+    // GetContactListRequest
     // GetCustomVerificationEmailTemplateRequest
     // GetDedicatedIpRequest
     // GetDedicatedIpsRequest
@@ -45,8 +45,8 @@ object sesv2 {
     // GetDeliverabilityTestReportRequest
     // GetDomainDeliverabilityCampaignRequest
     // GetDomainStatisticsReportRequest
-    // GetEmailIdentityPoliciesRequest
     // GetEmailIdentityRequest
+    // GetEmailIdentityPoliciesRequest
     // GetEmailTemplateRequest
     // GetImportJobRequest
     // GetSuppressedDestinationRequest
@@ -87,8 +87,8 @@ object sesv2 {
     // TestRenderEmailTemplateRequest
     // UntagResourceRequest
     // UpdateConfigurationSetEventDestinationRequest
-    // UpdateContactListRequest
     // UpdateContactRequest
+    // UpdateContactListRequest
     // UpdateCustomVerificationEmailTemplateRequest
     // UpdateEmailIdentityPolicyRequest
     // UpdateEmailTemplateRequest

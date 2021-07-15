@@ -17,8 +17,8 @@ object cloudwatch {
     // DeleteInsightRulesRequest
     // DeleteMetricStreamRequest
     // DescribeAlarmHistoryRequest
-    // DescribeAlarmsForMetricRequest
     // DescribeAlarmsRequest
+    // DescribeAlarmsForMetricRequest
     // DescribeAnomalyDetectorsRequest
     // DescribeInsightRulesRequest
     // DisableAlarmActionsRequest

@@ -16,8 +16,8 @@ object firehose {
     // DescribeDeliveryStreamRequest
     // ListDeliveryStreamsRequest
     // ListTagsForDeliveryStreamRequest
-    // PutRecordBatchRequest
     // PutRecordRequest
+    // PutRecordBatchRequest
     // StartDeliveryStreamEncryptionRequest
     // StopDeliveryStreamEncryptionRequest
     // TagDeliveryStreamRequest

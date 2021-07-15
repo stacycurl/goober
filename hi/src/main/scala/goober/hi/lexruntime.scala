@@ -13,10 +13,7 @@ object lexruntime {
     // Methods for constructing model classes, requests, etc.
     // DeleteSessionRequest
     // GetSessionRequest
-    // Path
-    // PostContentRequest
     // PostTextRequest
-    // PutSessionRequest
 
   }
 

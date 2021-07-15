@@ -17,8 +17,8 @@ object sfn {
     // DeleteStateMachineRequest
     // DescribeActivityRequest
     // DescribeExecutionRequest
-    // DescribeStateMachineForExecutionRequest
     // DescribeStateMachineRequest
+    // DescribeStateMachineForExecutionRequest
     // GetActivityTaskRequest
     // GetExecutionHistoryRequest
     // ListActivitiesRequest

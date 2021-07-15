@@ -14,8 +14,8 @@ object outposts {
     // CreateOutpostRequest
     // DeleteOutpostRequest
     // DeleteSiteRequest
-    // GetOutpostInstanceTypesRequest
     // GetOutpostRequest
+    // GetOutpostInstanceTypesRequest
     // ListOutpostsRequest
     // ListSitesRequest
     // ListTagsForResourceRequest

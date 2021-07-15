@@ -15,8 +15,8 @@ object mediatailor {
     // CreateProgramRequest
     // CreateSourceLocationRequest
     // CreateVodSourceRequest
-    // DeleteChannelPolicyRequest
     // DeleteChannelRequest
+    // DeleteChannelPolicyRequest
     // DeletePlaybackConfigurationRequest
     // DeleteProgramRequest
     // DeleteSourceLocationRequest

@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.mediastoredata.MediaStoreDataClient
 import software.amazon.awssdk.services.mediastoredata.model._
-import java.nio.file.Path
 import software.amazon.awssdk.core.sync.RequestBody
 
 
@@ -37,12 +36,6 @@ object mediastoredata { module =>
           request: DescribeObjectRequest
         ): Kleisli[M, MediaStoreDataClient, DescribeObjectResponse] =
           primitive(_.describeObject(request))
-
-        def getObject(
-          request: GetObjectRequest,
-          path: Path
-        ): Kleisli[M, MediaStoreDataClient, GetObjectResponse] =
-          primitive(_.getObject(request, path))
 
         def listItems(
           request: ListItemsRequest
@@ -76,11 +69,6 @@ object mediastoredata { module =>
         request: DescribeObjectRequest
       ): F[DescribeObjectResponse]
 
-      def getObject(
-        request: GetObjectRequest,
-        path: Path
-      ): F[GetObjectResponse]
-
       def listItems(
         request: ListItemsRequest
       ): F[ListItemsResponse]
@@ -110,14 +98,6 @@ object mediastoredata { module =>
     ) extends MediaStoreDataOp[DescribeObjectResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeObjectResponse] =
         visitor.describeObject(request)
-    }
-
-    final case class GetObjectOp(
-      request: GetObjectRequest,
-      path: Path
-    ) extends MediaStoreDataOp[GetObjectResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetObjectResponse] =
-        visitor.getObject(request, path)
     }
 
     final case class ListItemsOp(
@@ -155,12 +135,6 @@ object mediastoredata { module =>
     request: DescribeObjectRequest
   ): MediaStoreDataIO[DescribeObjectResponse] =
     FF.liftF(DescribeObjectOp(request))
-
-  def getObject(
-    request: GetObjectRequest,
-    path: Path
-  ): MediaStoreDataIO[GetObjectResponse] =
-    FF.liftF(GetObjectOp(request, path))
 
   def listItems(
     request: ListItemsRequest

@@ -17,22 +17,22 @@ object licensemanager {
     // CheckoutLicenseRequest
     // CreateGrantRequest
     // CreateGrantVersionRequest
+    // CreateLicenseRequest
     // CreateLicenseConfigurationRequest
     // CreateLicenseManagerReportGeneratorRequest
-    // CreateLicenseRequest
     // CreateLicenseVersionRequest
     // CreateTokenRequest
     // DeleteGrantRequest
+    // DeleteLicenseRequest
     // DeleteLicenseConfigurationRequest
     // DeleteLicenseManagerReportGeneratorRequest
-    // DeleteLicenseRequest
     // DeleteTokenRequest
     // ExtendLicenseConsumptionRequest
     // GetAccessTokenRequest
     // GetGrantRequest
+    // GetLicenseRequest
     // GetLicenseConfigurationRequest
     // GetLicenseManagerReportGeneratorRequest
-    // GetLicenseRequest
     // GetLicenseUsageRequest
     // GetServiceSettingsRequest
     // ListAssociationsForLicenseConfigurationRequest

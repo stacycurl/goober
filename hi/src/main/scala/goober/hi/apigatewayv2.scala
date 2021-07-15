@@ -11,8 +11,8 @@ object apigatewayv2 {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateApiMappingRequest
     // CreateApiRequest
+    // CreateApiMappingRequest
     // CreateAuthorizerRequest
     // CreateDeploymentRequest
     // CreateDomainNameRequest
@@ -24,8 +24,8 @@ object apigatewayv2 {
     // CreateStageRequest
     // CreateVpcLinkRequest
     // DeleteAccessLogSettingsRequest
-    // DeleteApiMappingRequest
     // DeleteApiRequest
+    // DeleteApiMappingRequest
     // DeleteAuthorizerRequest
     // DeleteCorsConfigurationRequest
     // DeleteDeploymentRequest
@@ -40,9 +40,9 @@ object apigatewayv2 {
     // DeleteStageRequest
     // DeleteVpcLinkRequest
     // ExportApiRequest
+    // GetApiRequest
     // GetApiMappingRequest
     // GetApiMappingsRequest
-    // GetApiRequest
     // GetApisRequest
     // GetAuthorizerRequest
     // GetAuthorizersRequest
@@ -71,8 +71,8 @@ object apigatewayv2 {
     // ResetAuthorizersCacheRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateApiMappingRequest
     // UpdateApiRequest
+    // UpdateApiMappingRequest
     // UpdateAuthorizerRequest
     // UpdateDeploymentRequest
     // UpdateDomainNameRequest

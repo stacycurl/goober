@@ -29,9 +29,9 @@ object kms {
     // EnableKeyRequest
     // EnableKeyRotationRequest
     // EncryptRequest
+    // GenerateDataKeyRequest
     // GenerateDataKeyPairRequest
     // GenerateDataKeyPairWithoutPlaintextRequest
-    // GenerateDataKeyRequest
     // GenerateDataKeyWithoutPlaintextRequest
     // GenerateRandomRequest
     // GetKeyPolicyRequest

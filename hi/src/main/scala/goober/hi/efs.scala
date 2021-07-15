@@ -14,12 +14,10 @@ object efs {
     // CreateAccessPointRequest
     // CreateFileSystemRequest
     // CreateMountTargetRequest
-    // CreateTagsRequest
     // DeleteAccessPointRequest
-    // DeleteFileSystemPolicyRequest
     // DeleteFileSystemRequest
+    // DeleteFileSystemPolicyRequest
     // DeleteMountTargetRequest
-    // DeleteTagsRequest
     // DescribeAccessPointsRequest
     // DescribeAccountPreferencesRequest
     // DescribeBackupPolicyRequest
@@ -28,7 +26,6 @@ object efs {
     // DescribeLifecycleConfigurationRequest
     // DescribeMountTargetSecurityGroupsRequest
     // DescribeMountTargetsRequest
-    // DescribeTagsRequest
     // ListTagsForResourceRequest
     // ModifyMountTargetSecurityGroupsRequest
     // PutAccountPreferencesRequest

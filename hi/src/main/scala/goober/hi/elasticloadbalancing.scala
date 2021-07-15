@@ -17,12 +17,12 @@ object elasticloadbalancing {
     // ConfigureHealthCheckRequest
     // CreateAppCookieStickinessPolicyRequest
     // CreateLbCookieStickinessPolicyRequest
+    // CreateLoadBalancerRequest
     // CreateLoadBalancerListenersRequest
     // CreateLoadBalancerPolicyRequest
-    // CreateLoadBalancerRequest
+    // DeleteLoadBalancerRequest
     // DeleteLoadBalancerListenersRequest
     // DeleteLoadBalancerPolicyRequest
-    // DeleteLoadBalancerRequest
     // DeregisterInstancesFromLoadBalancerRequest
     // DescribeAccountLimitsRequest
     // DescribeInstanceHealthRequest

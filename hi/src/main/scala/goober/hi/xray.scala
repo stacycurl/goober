@@ -19,9 +19,9 @@ object xray {
     // GetEncryptionConfigRequest
     // GetGroupRequest
     // GetGroupsRequest
+    // GetInsightRequest
     // GetInsightEventsRequest
     // GetInsightImpactGraphRequest
-    // GetInsightRequest
     // GetInsightSummariesRequest
     // GetSamplingRulesRequest
     // GetSamplingStatisticSummariesRequest

@@ -12,11 +12,11 @@ object sqs {
 
     // Methods for constructing model classes, requests, etc.
     // AddPermissionRequest
-    // ChangeMessageVisibilityBatchRequest
     // ChangeMessageVisibilityRequest
+    // ChangeMessageVisibilityBatchRequest
     // CreateQueueRequest
-    // DeleteMessageBatchRequest
     // DeleteMessageRequest
+    // DeleteMessageBatchRequest
     // DeleteQueueRequest
     // GetQueueAttributesRequest
     // GetQueueUrlRequest
@@ -26,8 +26,8 @@ object sqs {
     // PurgeQueueRequest
     // ReceiveMessageRequest
     // RemovePermissionRequest
-    // SendMessageBatchRequest
     // SendMessageRequest
+    // SendMessageBatchRequest
     // SetQueueAttributesRequest
     // TagQueueRequest
     // UntagQueueRequest

@@ -25,7 +25,6 @@ object lookoutvision {
     // ListModelsRequest
     // ListProjectsRequest
     // ListTagsForResourceRequest
-    // RequestBody
     // StartModelRequest
     // StopModelRequest
     // TagResourceRequest

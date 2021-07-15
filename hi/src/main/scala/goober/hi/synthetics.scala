@@ -13,8 +13,8 @@ object synthetics {
     // Methods for constructing model classes, requests, etc.
     // CreateCanaryRequest
     // DeleteCanaryRequest
-    // DescribeCanariesLastRunRequest
     // DescribeCanariesRequest
+    // DescribeCanariesLastRunRequest
     // DescribeRuntimeVersionsRequest
     // GetCanaryRequest
     // GetCanaryRunsRequest

@@ -12,9 +12,9 @@ object lexmodelsv2 {
 
     // Methods for constructing model classes, requests, etc.
     // BuildBotLocaleRequest
+    // CreateBotRequest
     // CreateBotAliasRequest
     // CreateBotLocaleRequest
-    // CreateBotRequest
     // CreateBotVersionRequest
     // CreateExportRequest
     // CreateIntentRequest
@@ -23,9 +23,9 @@ object lexmodelsv2 {
     // CreateSlotRequest
     // CreateSlotTypeRequest
     // CreateUploadUrlRequest
+    // DeleteBotRequest
     // DeleteBotAliasRequest
     // DeleteBotLocaleRequest
-    // DeleteBotRequest
     // DeleteBotVersionRequest
     // DeleteExportRequest
     // DeleteImportRequest
@@ -34,9 +34,9 @@ object lexmodelsv2 {
     // DeleteResourcePolicyStatementRequest
     // DeleteSlotRequest
     // DeleteSlotTypeRequest
+    // DescribeBotRequest
     // DescribeBotAliasRequest
     // DescribeBotLocaleRequest
-    // DescribeBotRequest
     // DescribeBotVersionRequest
     // DescribeExportRequest
     // DescribeImportRequest
@@ -59,9 +59,9 @@ object lexmodelsv2 {
     // StartImportRequest
     // TagResourceRequest
     // UntagResourceRequest
+    // UpdateBotRequest
     // UpdateBotAliasRequest
     // UpdateBotLocaleRequest
-    // UpdateBotRequest
     // UpdateExportRequest
     // UpdateIntentRequest
     // UpdateResourcePolicyRequest

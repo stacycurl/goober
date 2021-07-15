@@ -15,11 +15,11 @@ object gamelift {
     // ClaimGameServerRequest
     // CreateAliasRequest
     // CreateBuildRequest
-    // CreateFleetLocationsRequest
     // CreateFleetRequest
+    // CreateFleetLocationsRequest
     // CreateGameServerGroupRequest
-    // CreateGameSessionQueueRequest
     // CreateGameSessionRequest
+    // CreateGameSessionQueueRequest
     // CreateMatchmakingConfigurationRequest
     // CreateMatchmakingRuleSetRequest
     // CreatePlayerSessionRequest
@@ -29,8 +29,8 @@ object gamelift {
     // CreateVpcPeeringConnectionRequest
     // DeleteAliasRequest
     // DeleteBuildRequest
-    // DeleteFleetLocationsRequest
     // DeleteFleetRequest
+    // DeleteFleetLocationsRequest
     // DeleteGameServerGroupRequest
     // DeleteGameSessionQueueRequest
     // DeleteMatchmakingConfigurationRequest
@@ -51,16 +51,16 @@ object gamelift {
     // DescribeFleetLocationUtilizationRequest
     // DescribeFleetPortSettingsRequest
     // DescribeFleetUtilizationRequest
+    // DescribeGameServerRequest
     // DescribeGameServerGroupRequest
     // DescribeGameServerInstancesRequest
-    // DescribeGameServerRequest
     // DescribeGameSessionDetailsRequest
     // DescribeGameSessionPlacementRequest
     // DescribeGameSessionQueuesRequest
     // DescribeGameSessionsRequest
     // DescribeInstancesRequest
-    // DescribeMatchmakingConfigurationsRequest
     // DescribeMatchmakingRequest
+    // DescribeMatchmakingConfigurationsRequest
     // DescribeMatchmakingRuleSetsRequest
     // DescribePlayerSessionsRequest
     // DescribeRuntimeConfigurationRequest
@@ -98,10 +98,10 @@ object gamelift {
     // UpdateFleetAttributesRequest
     // UpdateFleetCapacityRequest
     // UpdateFleetPortSettingsRequest
-    // UpdateGameServerGroupRequest
     // UpdateGameServerRequest
-    // UpdateGameSessionQueueRequest
+    // UpdateGameServerGroupRequest
     // UpdateGameSessionRequest
+    // UpdateGameSessionQueueRequest
     // UpdateMatchmakingConfigurationRequest
     // UpdateRuntimeConfigurationRequest
     // UpdateScriptRequest

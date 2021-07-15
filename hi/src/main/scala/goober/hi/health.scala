@@ -12,15 +12,15 @@ object health {
 
     // Methods for constructing model classes, requests, etc.
     // DescribeAffectedAccountsForOrganizationRequest
-    // DescribeAffectedEntitiesForOrganizationRequest
     // DescribeAffectedEntitiesRequest
+    // DescribeAffectedEntitiesForOrganizationRequest
     // DescribeEntityAggregatesRequest
     // DescribeEventAggregatesRequest
-    // DescribeEventDetailsForOrganizationRequest
     // DescribeEventDetailsRequest
+    // DescribeEventDetailsForOrganizationRequest
     // DescribeEventTypesRequest
-    // DescribeEventsForOrganizationRequest
     // DescribeEventsRequest
+    // DescribeEventsForOrganizationRequest
     // DescribeHealthServiceStatusForOrganizationRequest
     // DisableHealthServiceAccessForOrganizationRequest
     // EnableHealthServiceAccessForOrganizationRequest

@@ -36,10 +36,10 @@ object mediaconnect {
     // StopFlowRequest
     // TagResourceRequest
     // UntagResourceRequest
+    // UpdateFlowRequest
     // UpdateFlowEntitlementRequest
     // UpdateFlowMediaStreamRequest
     // UpdateFlowOutputRequest
-    // UpdateFlowRequest
     // UpdateFlowSourceRequest
 
   }

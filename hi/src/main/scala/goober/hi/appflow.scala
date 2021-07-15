@@ -18,8 +18,8 @@ object appflow {
     // DescribeConnectorEntityRequest
     // DescribeConnectorProfilesRequest
     // DescribeConnectorsRequest
-    // DescribeFlowExecutionRecordsRequest
     // DescribeFlowRequest
+    // DescribeFlowExecutionRecordsRequest
     // ListConnectorEntitiesRequest
     // ListFlowsRequest
     // ListTagsForResourceRequest

@@ -33,8 +33,8 @@ object glue {
     // CreateDevEndpointRequest
     // CreateJobRequest
     // CreateMlTransformRequest
-    // CreatePartitionIndexRequest
     // CreatePartitionRequest
+    // CreatePartitionIndexRequest
     // CreateRegistryRequest
     // CreateSchemaRequest
     // CreateScriptRequest
@@ -52,8 +52,8 @@ object glue {
     // DeleteDevEndpointRequest
     // DeleteJobRequest
     // DeleteMlTransformRequest
-    // DeletePartitionIndexRequest
     // DeletePartitionRequest
+    // DeletePartitionIndexRequest
     // DeleteRegistryRequest
     // DeleteResourcePolicyRequest
     // DeleteSchemaRequest
@@ -71,8 +71,8 @@ object glue {
     // GetColumnStatisticsForTableRequest
     // GetConnectionRequest
     // GetConnectionsRequest
-    // GetCrawlerMetricsRequest
     // GetCrawlerRequest
+    // GetCrawlerMetricsRequest
     // GetCrawlersRequest
     // GetDataCatalogEncryptionSettingsRequest
     // GetDatabaseRequest
@@ -80,25 +80,25 @@ object glue {
     // GetDataflowGraphRequest
     // GetDevEndpointRequest
     // GetDevEndpointsRequest
-    // GetJobBookmarkRequest
     // GetJobRequest
+    // GetJobBookmarkRequest
     // GetJobRunRequest
     // GetJobRunsRequest
     // GetJobsRequest
-    // GetMappingRequest
     // GetMlTaskRunRequest
     // GetMlTaskRunsRequest
     // GetMlTransformRequest
     // GetMlTransformsRequest
-    // GetPartitionIndexesRequest
+    // GetMappingRequest
     // GetPartitionRequest
+    // GetPartitionIndexesRequest
     // GetPartitionsRequest
     // GetPlanRequest
     // GetRegistryRequest
     // GetResourcePoliciesRequest
     // GetResourcePolicyRequest
-    // GetSchemaByDefinitionRequest
     // GetSchemaRequest
+    // GetSchemaByDefinitionRequest
     // GetSchemaVersionRequest
     // GetSchemaVersionsDiffRequest
     // GetSecurityConfigurationRequest
@@ -113,8 +113,8 @@ object glue {
     // GetUserDefinedFunctionRequest
     // GetUserDefinedFunctionsRequest
     // GetWorkflowRequest
-    // GetWorkflowRunPropertiesRequest
     // GetWorkflowRunRequest
+    // GetWorkflowRunPropertiesRequest
     // GetWorkflowRunsRequest
     // ImportCatalogToGlueRequest
     // ListCrawlersRequest

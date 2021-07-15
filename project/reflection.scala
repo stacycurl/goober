@@ -1,28 +1,17 @@
 import java.lang.reflect.Parameter
 import java.lang.{reflect ⇒ R}
-import common.Free.Companion.{Implementation, Visitor}
-import common.Free.Companion.Visitor.KleisliVisitor
-import common.Free.SmartConstructor
 import org.reflections.Reflections
-import software.amazon.awssdk.core.SdkField
 
 import scala.collection.JavaConverters._
-import scala.collection.immutable.{List, Nil}
+import scala.collection.immutable.List
 
 
 object reflection {
   import common._
-  import syntax._
 
-
-
-
-  object Client {
+  object ReflectionClient extends Client.Companion {
     def parentPackage(clazz: Class[_]): String =
       clazz.getPackage.getName.split("\\.").last
-
-    implicit val clientOrdering: Ordering[Client] =
-      Ordering.String.on[Client](_.name)
 
     def discover: List[Client] = {
       new Reflections("software.amazon.awssdk.services")
@@ -37,39 +26,29 @@ object reflection {
       Option(clazz)
         .filter(_.isInterface)
         .filterNot(_.getSimpleName.endsWith("AsyncClient"))
-        .map(new Client(_))
+        .map(new ReflectionClient(_))
     }
 
-    def methodsIn(client: Client, clazz: Class[_]): GenMethods = Methods(
+    def methodsIn(client: ReflectionClient, clazz: Class[_]): ServiceMethods = ServiceMethods(
       client = client,
       values = clazz.getDeclaredMethods.toList
         .filterNot(isStatic)
-        .map(RMethod)
-        .filterNot(_.isExcluded)
-        .groupBy(_.name)
-        .flatMap(GenMethod.choosePreferred)
-        .toList
-        .sortBy(_.name)
-    )
+        .map(ReflectionMethod)
+    ).filter
 
     private def isStatic(method: R.Method): Boolean =
       R.Modifier.isStatic(method.getModifiers)
-
-
-    private val custom: Map[Class[_], Custom] = Map(
-      classOf[software.amazon.awssdk.services.dynamodb.streams.DynamoDbStreamsClient] → Custom("dynamodb", "dynamodbstreams"),
-      classOf[software.amazon.awssdk.services.waf.regional.WafRegionalClient] → Custom("waf", "wafregional")
-    )
-
-    private case class Custom(model: String, module: String)
   }
 
-  class Client(clazz: Class[_]) extends GenClient {
-    val module: String =
-      Client.custom.get(clazz).fold(Client.parentPackage(clazz))(_.module)
+  class ReflectionClient(clazz: Class[_]) extends Client {
+    def companion: Client.Companion =
+      ReflectionClient
 
-    lazy val methods: GenMethods =
-      Client.methodsIn(this, clazz)
+    val module: String =
+      companion.customModule(clazz.getSimpleName).getOrElse(ReflectionClient.parentPackage(clazz))
+
+    lazy val methods: ServiceMethods =
+      ReflectionClient.methodsIn(this, clazz).filter
 
     override val toString: String =
       simpleName
@@ -81,29 +60,18 @@ object reflection {
       clazz.getSimpleName
 
     def modelPackage: String =
-      Client.custom.get(clazz).fold(Client.parentPackage(clazz))(_.model)
+      companion.customModel(clazz.getSimpleName).getOrElse(ReflectionClient.parentPackage(clazz))
   }
 
-  case class Methods(client: GenClient, values: List[GenMethod]) extends GenMethods {
-    def smartConstructors: List[SmartConstructor] =
-      values.map(SmartConstructor(client, _))
-
-    def visitorMethods: List[Visitor.Method] =
-      values.map(Visitor.Method)
-
-    def kleisliVisitors: List[KleisliVisitor.Method] =
-      values.map(KleisliVisitor.Method(client, _))
-
-    def implementations: List[Implementation] =
-      values.map(Implementation(client, _))
-  }
-
-  case class RMethod(method: R.Method) extends GenMethod {
+  case class ReflectionMethod(method: R.Method) extends ServiceMethod {
     def name: String =
       method.getName
 
-    def returnType: String =
-      method.getReturnType.getSimpleName
+    def asRequest: String =
+      name
+
+    def returnType: Type =
+      Type(method.getReturnType.getSimpleName)
 
     def parameters: List[String] = {
       parameterNamesList(method).zip(getSimpleParameterTypes).map {
@@ -114,8 +82,8 @@ object reflection {
     def parameterNames: List[String] =
       parameterNamesList(method)
 
-    def getFullParameterTypes: List[String] =
-      method.getParameterTypes.map(_.getName).toList
+    def getParameterTypes: List[Type] =
+      method.getParameterTypes.map(Type.fromClass).toList
 
     def getSimpleParameterTypes: List[String] =
       method.getParameterTypes.map(_.getSimpleName).toList

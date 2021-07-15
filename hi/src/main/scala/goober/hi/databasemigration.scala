@@ -25,8 +25,8 @@ object databasemigration {
     // DeleteEventSubscriptionRequest
     // DeleteReplicationInstanceRequest
     // DeleteReplicationSubnetGroupRequest
-    // DeleteReplicationTaskAssessmentRunRequest
     // DeleteReplicationTaskRequest
+    // DeleteReplicationTaskAssessmentRunRequest
     // DescribeAccountAttributesRequest
     // DescribeApplicableIndividualAssessmentsRequest
     // DescribeCertificatesRequest
@@ -61,9 +61,9 @@ object databasemigration {
     // RefreshSchemasRequest
     // ReloadTablesRequest
     // RemoveTagsFromResourceRequest
+    // StartReplicationTaskRequest
     // StartReplicationTaskAssessmentRequest
     // StartReplicationTaskAssessmentRunRequest
-    // StartReplicationTaskRequest
     // StopReplicationTaskRequest
     // TestConnectionRequest
 

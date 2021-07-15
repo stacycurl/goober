@@ -26,9 +26,9 @@ object directconnect {
     // ConfirmTransitVirtualInterfaceRequest
     // CreateBgpPeerRequest
     // CreateConnectionRequest
-    // CreateDirectConnectGatewayAssociationProposalRequest
-    // CreateDirectConnectGatewayAssociationRequest
     // CreateDirectConnectGatewayRequest
+    // CreateDirectConnectGatewayAssociationRequest
+    // CreateDirectConnectGatewayAssociationProposalRequest
     // CreateInterconnectRequest
     // CreateLagRequest
     // CreatePrivateVirtualInterfaceRequest
@@ -36,9 +36,9 @@ object directconnect {
     // CreateTransitVirtualInterfaceRequest
     // DeleteBgpPeerRequest
     // DeleteConnectionRequest
-    // DeleteDirectConnectGatewayAssociationProposalRequest
-    // DeleteDirectConnectGatewayAssociationRequest
     // DeleteDirectConnectGatewayRequest
+    // DeleteDirectConnectGatewayAssociationRequest
+    // DeleteDirectConnectGatewayAssociationProposalRequest
     // DeleteInterconnectRequest
     // DeleteLagRequest
     // DeleteVirtualInterfaceRequest

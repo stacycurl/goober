@@ -26,8 +26,8 @@ object workspaces {
     // DeleteWorkspaceBundleRequest
     // DeleteWorkspaceImageRequest
     // DeregisterWorkspaceDirectoryRequest
-    // DescribeAccountModificationsRequest
     // DescribeAccountRequest
+    // DescribeAccountModificationsRequest
     // DescribeClientPropertiesRequest
     // DescribeConnectionAliasPermissionsRequest
     // DescribeConnectionAliasesRequest
@@ -38,8 +38,8 @@ object workspaces {
     // DescribeWorkspaceImagePermissionsRequest
     // DescribeWorkspaceImagesRequest
     // DescribeWorkspaceSnapshotsRequest
-    // DescribeWorkspacesConnectionStatusRequest
     // DescribeWorkspacesRequest
+    // DescribeWorkspacesConnectionStatusRequest
     // DisassociateConnectionAliasRequest
     // DisassociateIpGroupsRequest
     // ImportWorkspaceImageRequest

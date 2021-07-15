@@ -13,20 +13,20 @@ object transcribe {
     // Methods for constructing model classes, requests, etc.
     // CreateLanguageModelRequest
     // CreateMedicalVocabularyRequest
-    // CreateVocabularyFilterRequest
     // CreateVocabularyRequest
+    // CreateVocabularyFilterRequest
     // DeleteLanguageModelRequest
     // DeleteMedicalTranscriptionJobRequest
     // DeleteMedicalVocabularyRequest
     // DeleteTranscriptionJobRequest
-    // DeleteVocabularyFilterRequest
     // DeleteVocabularyRequest
+    // DeleteVocabularyFilterRequest
     // DescribeLanguageModelRequest
     // GetMedicalTranscriptionJobRequest
     // GetMedicalVocabularyRequest
     // GetTranscriptionJobRequest
-    // GetVocabularyFilterRequest
     // GetVocabularyRequest
+    // GetVocabularyFilterRequest
     // ListLanguageModelsRequest
     // ListMedicalTranscriptionJobsRequest
     // ListMedicalVocabulariesRequest
@@ -36,8 +36,8 @@ object transcribe {
     // StartMedicalTranscriptionJobRequest
     // StartTranscriptionJobRequest
     // UpdateMedicalVocabularyRequest
-    // UpdateVocabularyFilterRequest
     // UpdateVocabularyRequest
+    // UpdateVocabularyFilterRequest
 
   }
 

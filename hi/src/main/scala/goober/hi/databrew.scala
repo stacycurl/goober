@@ -15,8 +15,8 @@ object databrew {
     // CreateDatasetRequest
     // CreateProfileJobRequest
     // CreateProjectRequest
-    // CreateRecipeJobRequest
     // CreateRecipeRequest
+    // CreateRecipeJobRequest
     // CreateScheduleRequest
     // DeleteDatasetRequest
     // DeleteJobRequest
@@ -47,8 +47,8 @@ object databrew {
     // UpdateDatasetRequest
     // UpdateProfileJobRequest
     // UpdateProjectRequest
-    // UpdateRecipeJobRequest
     // UpdateRecipeRequest
+    // UpdateRecipeJobRequest
     // UpdateScheduleRequest
 
   }

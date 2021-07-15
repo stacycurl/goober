@@ -36,25 +36,25 @@ object iam {
     // DeleteAccessKeyRequest
     // DeleteAccountAliasRequest
     // DeleteAccountPasswordPolicyRequest
-    // DeleteGroupPolicyRequest
     // DeleteGroupRequest
+    // DeleteGroupPolicyRequest
     // DeleteInstanceProfileRequest
     // DeleteLoginProfileRequest
     // DeleteOpenIdConnectProviderRequest
     // DeletePolicyRequest
     // DeletePolicyVersionRequest
+    // DeleteRoleRequest
     // DeleteRolePermissionsBoundaryRequest
     // DeleteRolePolicyRequest
-    // DeleteRoleRequest
     // DeleteSamlProviderRequest
+    // DeleteSshPublicKeyRequest
     // DeleteServerCertificateRequest
     // DeleteServiceLinkedRoleRequest
     // DeleteServiceSpecificCredentialRequest
     // DeleteSigningCertificateRequest
-    // DeleteSshPublicKeyRequest
+    // DeleteUserRequest
     // DeleteUserPermissionsBoundaryRequest
     // DeleteUserPolicyRequest
-    // DeleteUserRequest
     // DeleteVirtualMfaDeviceRequest
     // DetachGroupPolicyRequest
     // DetachRolePolicyRequest
@@ -70,24 +70,24 @@ object iam {
     // GetContextKeysForCustomPolicyRequest
     // GetContextKeysForPrincipalPolicyRequest
     // GetCredentialReportRequest
-    // GetGroupPolicyRequest
     // GetGroupRequest
+    // GetGroupPolicyRequest
     // GetInstanceProfileRequest
     // GetLoginProfileRequest
     // GetOpenIdConnectProviderRequest
     // GetOrganizationsAccessReportRequest
     // GetPolicyRequest
     // GetPolicyVersionRequest
-    // GetRolePolicyRequest
     // GetRoleRequest
+    // GetRolePolicyRequest
     // GetSamlProviderRequest
+    // GetSshPublicKeyRequest
     // GetServerCertificateRequest
     // GetServiceLastAccessedDetailsRequest
     // GetServiceLastAccessedDetailsWithEntitiesRequest
     // GetServiceLinkedRoleDeletionStatusRequest
-    // GetSshPublicKeyRequest
-    // GetUserPolicyRequest
     // GetUserRequest
+    // GetUserPolicyRequest
     // ListAccessKeysRequest
     // ListAccountAliasesRequest
     // ListAttachedGroupPoliciesRequest
@@ -95,17 +95,17 @@ object iam {
     // ListAttachedUserPoliciesRequest
     // ListEntitiesForPolicyRequest
     // ListGroupPoliciesRequest
-    // ListGroupsForUserRequest
     // ListGroupsRequest
+    // ListGroupsForUserRequest
     // ListInstanceProfileTagsRequest
-    // ListInstanceProfilesForRoleRequest
     // ListInstanceProfilesRequest
+    // ListInstanceProfilesForRoleRequest
     // ListMfaDeviceTagsRequest
     // ListMfaDevicesRequest
     // ListOpenIdConnectProviderTagsRequest
     // ListOpenIdConnectProvidersRequest
-    // ListPoliciesGrantingServiceAccessRequest
     // ListPoliciesRequest
+    // ListPoliciesGrantingServiceAccessRequest
     // ListPolicyTagsRequest
     // ListPolicyVersionsRequest
     // ListRolePoliciesRequest
@@ -113,11 +113,11 @@ object iam {
     // ListRolesRequest
     // ListSamlProviderTagsRequest
     // ListSamlProvidersRequest
+    // ListSshPublicKeysRequest
     // ListServerCertificateTagsRequest
     // ListServerCertificatesRequest
     // ListServiceSpecificCredentialsRequest
     // ListSigningCertificatesRequest
-    // ListSshPublicKeysRequest
     // ListUserPoliciesRequest
     // ListUserTagsRequest
     // ListUsersRequest
@@ -158,17 +158,17 @@ object iam {
     // UpdateGroupRequest
     // UpdateLoginProfileRequest
     // UpdateOpenIdConnectProviderThumbprintRequest
-    // UpdateRoleDescriptionRequest
     // UpdateRoleRequest
+    // UpdateRoleDescriptionRequest
     // UpdateSamlProviderRequest
+    // UpdateSshPublicKeyRequest
     // UpdateServerCertificateRequest
     // UpdateServiceSpecificCredentialRequest
     // UpdateSigningCertificateRequest
-    // UpdateSshPublicKeyRequest
     // UpdateUserRequest
+    // UploadSshPublicKeyRequest
     // UploadServerCertificateRequest
     // UploadSigningCertificateRequest
-    // UploadSshPublicKeyRequest
 
   }
 

@@ -14,8 +14,8 @@ object iotdeviceadvisor {
     // CreateSuiteDefinitionRequest
     // DeleteSuiteDefinitionRequest
     // GetSuiteDefinitionRequest
-    // GetSuiteRunReportRequest
     // GetSuiteRunRequest
+    // GetSuiteRunReportRequest
     // ListSuiteDefinitionsRequest
     // ListSuiteRunsRequest
     // ListTagsForResourceRequest

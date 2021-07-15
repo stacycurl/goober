@@ -26,25 +26,25 @@ object connect {
     // CreateQuickConnectRequest
     // CreateRoutingProfileRequest
     // CreateUseCaseRequest
-    // CreateUserHierarchyGroupRequest
     // CreateUserRequest
+    // CreateUserHierarchyGroupRequest
     // DeleteInstanceRequest
     // DeleteIntegrationAssociationRequest
     // DeleteQuickConnectRequest
     // DeleteUseCaseRequest
-    // DeleteUserHierarchyGroupRequest
     // DeleteUserRequest
+    // DeleteUserHierarchyGroupRequest
     // DescribeContactFlowRequest
     // DescribeHoursOfOperationRequest
-    // DescribeInstanceAttributeRequest
     // DescribeInstanceRequest
+    // DescribeInstanceAttributeRequest
     // DescribeInstanceStorageConfigRequest
     // DescribeQueueRequest
     // DescribeQuickConnectRequest
     // DescribeRoutingProfileRequest
+    // DescribeUserRequest
     // DescribeUserHierarchyGroupRequest
     // DescribeUserHierarchyStructureRequest
-    // DescribeUserRequest
     // DisassociateApprovedOriginRequest
     // DisassociateBotRequest
     // DisassociateInstanceStorageConfigRequest
@@ -85,8 +85,8 @@ object connect {
     // StartContactRecordingRequest
     // StartOutboundVoiceContactRequest
     // StartTaskContactRequest
-    // StopContactRecordingRequest
     // StopContactRequest
+    // StopContactRecordingRequest
     // SuspendContactRecordingRequest
     // TagResourceRequest
     // UntagResourceRequest
@@ -106,8 +106,8 @@ object connect {
     // UpdateRoutingProfileDefaultOutboundQueueRequest
     // UpdateRoutingProfileNameRequest
     // UpdateRoutingProfileQueuesRequest
-    // UpdateUserHierarchyGroupNameRequest
     // UpdateUserHierarchyRequest
+    // UpdateUserHierarchyGroupNameRequest
     // UpdateUserHierarchyStructureRequest
     // UpdateUserIdentityInfoRequest
     // UpdateUserPhoneConfigRequest

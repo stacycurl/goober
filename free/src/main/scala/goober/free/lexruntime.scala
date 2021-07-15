@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.lexruntime.LexRuntimeClient
 import software.amazon.awssdk.services.lexruntime.model._
-import java.nio.file.Path
 
 
 object lexruntime { module =>
@@ -37,23 +36,10 @@ object lexruntime { module =>
         ): Kleisli[M, LexRuntimeClient, GetSessionResponse] =
           primitive(_.getSession(request))
 
-        def postContent(
-          request: PostContentRequest,
-          sourcePath: Path,
-          destinationPath: Path
-        ): Kleisli[M, LexRuntimeClient, PostContentResponse] =
-          primitive(_.postContent(request, sourcePath, destinationPath))
-
         def postText(
           request: PostTextRequest
         ): Kleisli[M, LexRuntimeClient, PostTextResponse] =
           primitive(_.postText(request))
-
-        def putSession(
-          request: PutSessionRequest,
-          path: Path
-        ): Kleisli[M, LexRuntimeClient, PutSessionResponse] =
-          primitive(_.putSession(request, path))
 
         def primitive[A](
           f: LexRuntimeClient => A
@@ -76,20 +62,9 @@ object lexruntime { module =>
         request: GetSessionRequest
       ): F[GetSessionResponse]
 
-      def postContent(
-        request: PostContentRequest,
-        sourcePath: Path,
-        destinationPath: Path
-      ): F[PostContentResponse]
-
       def postText(
         request: PostTextRequest
       ): F[PostTextResponse]
-
-      def putSession(
-        request: PutSessionRequest,
-        path: Path
-      ): F[PutSessionResponse]
     }
 
     final case class Embed[A](
@@ -113,28 +88,11 @@ object lexruntime { module =>
         visitor.getSession(request)
     }
 
-    final case class PostContentOp(
-      request: PostContentRequest,
-      sourcePath: Path,
-      destinationPath: Path
-    ) extends LexRuntimeOp[PostContentResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[PostContentResponse] =
-        visitor.postContent(request, sourcePath, destinationPath)
-    }
-
     final case class PostTextOp(
       request: PostTextRequest
     ) extends LexRuntimeOp[PostTextResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[PostTextResponse] =
         visitor.postText(request)
-    }
-
-    final case class PutSessionOp(
-      request: PutSessionRequest,
-      path: Path
-    ) extends LexRuntimeOp[PutSessionResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[PutSessionResponse] =
-        visitor.putSession(request, path)
     }
   }
 
@@ -158,21 +116,8 @@ object lexruntime { module =>
   ): LexRuntimeIO[GetSessionResponse] =
     FF.liftF(GetSessionOp(request))
 
-  def postContent(
-    request: PostContentRequest,
-    sourcePath: Path,
-    destinationPath: Path
-  ): LexRuntimeIO[PostContentResponse] =
-    FF.liftF(PostContentOp(request, sourcePath, destinationPath))
-
   def postText(
     request: PostTextRequest
   ): LexRuntimeIO[PostTextResponse] =
     FF.liftF(PostTextOp(request))
-
-  def putSession(
-    request: PutSessionRequest,
-    path: Path
-  ): LexRuntimeIO[PutSessionResponse] =
-    FF.liftF(PutSessionOp(request, path))
 }

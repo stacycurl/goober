@@ -11,8 +11,6 @@ object workmailmessageflow {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // GetRawMessageContentRequest
-    // Path
     // PutRawMessageContentRequest
 
   }

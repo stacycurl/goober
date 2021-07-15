@@ -36,8 +36,8 @@ object elasticloadbalancingv2 {
     // ModifyListenerRequest
     // ModifyLoadBalancerAttributesRequest
     // ModifyRuleRequest
-    // ModifyTargetGroupAttributesRequest
     // ModifyTargetGroupRequest
+    // ModifyTargetGroupAttributesRequest
     // RegisterTargetsRequest
     // RemoveListenerCertificatesRequest
     // RemoveTagsRequest

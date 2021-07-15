@@ -53,8 +53,8 @@ object alexaforbusiness {
     // GetConferenceProviderRequest
     // GetContactRequest
     // GetDeviceRequest
-    // GetGatewayGroupRequest
     // GetGatewayRequest
+    // GetGatewayGroupRequest
     // GetInvitationConfigurationRequest
     // GetNetworkProfileRequest
     // GetProfileRequest
@@ -98,8 +98,8 @@ object alexaforbusiness {
     // UpdateConferenceProviderRequest
     // UpdateContactRequest
     // UpdateDeviceRequest
-    // UpdateGatewayGroupRequest
     // UpdateGatewayRequest
+    // UpdateGatewayGroupRequest
     // UpdateNetworkProfileRequest
     // UpdateProfileRequest
     // UpdateRoomRequest

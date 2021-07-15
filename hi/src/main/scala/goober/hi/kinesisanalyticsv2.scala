@@ -12,19 +12,19 @@ object kinesisanalyticsv2 {
 
     // Methods for constructing model classes, requests, etc.
     // AddApplicationCloudWatchLoggingOptionRequest
-    // AddApplicationInputProcessingConfigurationRequest
     // AddApplicationInputRequest
+    // AddApplicationInputProcessingConfigurationRequest
     // AddApplicationOutputRequest
     // AddApplicationReferenceDataSourceRequest
     // AddApplicationVpcConfigurationRequest
-    // CreateApplicationPresignedUrlRequest
     // CreateApplicationRequest
+    // CreateApplicationPresignedUrlRequest
     // CreateApplicationSnapshotRequest
+    // DeleteApplicationRequest
     // DeleteApplicationCloudWatchLoggingOptionRequest
     // DeleteApplicationInputProcessingConfigurationRequest
     // DeleteApplicationOutputRequest
     // DeleteApplicationReferenceDataSourceRequest
-    // DeleteApplicationRequest
     // DeleteApplicationSnapshotRequest
     // DeleteApplicationVpcConfigurationRequest
     // DescribeApplicationRequest
@@ -40,8 +40,8 @@ object kinesisanalyticsv2 {
     // StopApplicationRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateApplicationMaintenanceConfigurationRequest
     // UpdateApplicationRequest
+    // UpdateApplicationMaintenanceConfigurationRequest
 
   }
 

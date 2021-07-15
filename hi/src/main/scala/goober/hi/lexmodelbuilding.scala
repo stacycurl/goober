@@ -14,20 +14,20 @@ object lexmodelbuilding {
     // CreateBotVersionRequest
     // CreateIntentVersionRequest
     // CreateSlotTypeVersionRequest
+    // DeleteBotRequest
     // DeleteBotAliasRequest
     // DeleteBotChannelAssociationRequest
-    // DeleteBotRequest
     // DeleteBotVersionRequest
     // DeleteIntentRequest
     // DeleteIntentVersionRequest
     // DeleteSlotTypeRequest
     // DeleteSlotTypeVersionRequest
     // DeleteUtterancesRequest
+    // GetBotRequest
     // GetBotAliasRequest
     // GetBotAliasesRequest
     // GetBotChannelAssociationRequest
     // GetBotChannelAssociationsRequest
-    // GetBotRequest
     // GetBotVersionsRequest
     // GetBotsRequest
     // GetBuiltinIntentRequest
@@ -43,8 +43,8 @@ object lexmodelbuilding {
     // GetSlotTypesRequest
     // GetUtterancesViewRequest
     // ListTagsForResourceRequest
-    // PutBotAliasRequest
     // PutBotRequest
+    // PutBotAliasRequest
     // PutIntentRequest
     // PutSlotTypeRequest
     // StartImportRequest

@@ -11,10 +11,10 @@ object pinpointsmsvoice {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateConfigurationSetEventDestinationRequest
     // CreateConfigurationSetRequest
-    // DeleteConfigurationSetEventDestinationRequest
+    // CreateConfigurationSetEventDestinationRequest
     // DeleteConfigurationSetRequest
+    // DeleteConfigurationSetEventDestinationRequest
     // GetConfigurationSetEventDestinationsRequest
     // ListConfigurationSetsRequest
     // SendVoiceMessageRequest

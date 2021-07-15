@@ -30,10 +30,10 @@ object devicefarm {
     // DeleteUploadRequest
     // DeleteVpceConfigurationRequest
     // GetAccountSettingsRequest
-    // GetDeviceInstanceRequest
-    // GetDevicePoolCompatibilityRequest
-    // GetDevicePoolRequest
     // GetDeviceRequest
+    // GetDeviceInstanceRequest
+    // GetDevicePoolRequest
+    // GetDevicePoolCompatibilityRequest
     // GetInstanceProfileRequest
     // GetJobRequest
     // GetNetworkProfileRequest
@@ -42,9 +42,9 @@ object devicefarm {
     // GetRemoteAccessSessionRequest
     // GetRunRequest
     // GetSuiteRequest
+    // GetTestRequest
     // GetTestGridProjectRequest
     // GetTestGridSessionRequest
-    // GetTestRequest
     // GetUploadRequest
     // GetVpceConfigurationRequest
     // InstallToRemoteAccessSessionRequest

@@ -18,16 +18,16 @@ object ecr {
     // CreateRepositoryRequest
     // DeleteLifecyclePolicyRequest
     // DeleteRegistryPolicyRequest
-    // DeleteRepositoryPolicyRequest
     // DeleteRepositoryRequest
+    // DeleteRepositoryPolicyRequest
     // DescribeImageScanFindingsRequest
     // DescribeImagesRequest
     // DescribeRegistryRequest
     // DescribeRepositoriesRequest
     // GetAuthorizationTokenRequest
     // GetDownloadUrlForLayerRequest
-    // GetLifecyclePolicyPreviewRequest
     // GetLifecyclePolicyRequest
+    // GetLifecyclePolicyPreviewRequest
     // GetRegistryPolicyRequest
     // GetRepositoryPolicyRequest
     // InitiateLayerUploadRequest

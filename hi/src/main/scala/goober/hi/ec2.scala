@@ -76,11 +76,11 @@ object ec2 {
     // CreateLocalGatewayRouteTableVpcAssociationRequest
     // CreateManagedPrefixListRequest
     // CreateNatGatewayRequest
-    // CreateNetworkAclEntryRequest
     // CreateNetworkAclRequest
+    // CreateNetworkAclEntryRequest
     // CreateNetworkInsightsPathRequest
-    // CreateNetworkInterfacePermissionRequest
     // CreateNetworkInterfaceRequest
+    // CreateNetworkInterfacePermissionRequest
     // CreatePlacementGroupRequest
     // CreateReplaceRootVolumeTaskRequest
     // CreateReservedInstancesListingRequest
@@ -98,21 +98,21 @@ object ec2 {
     // CreateTrafficMirrorFilterRuleRequest
     // CreateTrafficMirrorSessionRequest
     // CreateTrafficMirrorTargetRequest
-    // CreateTransitGatewayConnectPeerRequest
+    // CreateTransitGatewayRequest
     // CreateTransitGatewayConnectRequest
+    // CreateTransitGatewayConnectPeerRequest
     // CreateTransitGatewayMulticastDomainRequest
     // CreateTransitGatewayPeeringAttachmentRequest
     // CreateTransitGatewayPrefixListReferenceRequest
-    // CreateTransitGatewayRequest
     // CreateTransitGatewayRouteRequest
     // CreateTransitGatewayRouteTableRequest
     // CreateTransitGatewayVpcAttachmentRequest
     // CreateVolumeRequest
-    // CreateVpcEndpointConnectionNotificationRequest
+    // CreateVpcRequest
     // CreateVpcEndpointRequest
+    // CreateVpcEndpointConnectionNotificationRequest
     // CreateVpcEndpointServiceConfigurationRequest
     // CreateVpcPeeringConnectionRequest
-    // CreateVpcRequest
     // CreateVpnConnectionRequest
     // CreateVpnConnectionRouteRequest
     // CreateVpnGatewayRequest
@@ -133,12 +133,12 @@ object ec2 {
     // DeleteLocalGatewayRouteTableVpcAssociationRequest
     // DeleteManagedPrefixListRequest
     // DeleteNatGatewayRequest
-    // DeleteNetworkAclEntryRequest
     // DeleteNetworkAclRequest
+    // DeleteNetworkAclEntryRequest
     // DeleteNetworkInsightsAnalysisRequest
     // DeleteNetworkInsightsPathRequest
-    // DeleteNetworkInterfacePermissionRequest
     // DeleteNetworkInterfaceRequest
+    // DeleteNetworkInterfacePermissionRequest
     // DeletePlacementGroupRequest
     // DeleteQueuedReservedInstancesRequest
     // DeleteRouteRequest
@@ -152,21 +152,21 @@ object ec2 {
     // DeleteTrafficMirrorFilterRuleRequest
     // DeleteTrafficMirrorSessionRequest
     // DeleteTrafficMirrorTargetRequest
-    // DeleteTransitGatewayConnectPeerRequest
+    // DeleteTransitGatewayRequest
     // DeleteTransitGatewayConnectRequest
+    // DeleteTransitGatewayConnectPeerRequest
     // DeleteTransitGatewayMulticastDomainRequest
     // DeleteTransitGatewayPeeringAttachmentRequest
     // DeleteTransitGatewayPrefixListReferenceRequest
-    // DeleteTransitGatewayRequest
     // DeleteTransitGatewayRouteRequest
     // DeleteTransitGatewayRouteTableRequest
     // DeleteTransitGatewayVpcAttachmentRequest
     // DeleteVolumeRequest
+    // DeleteVpcRequest
     // DeleteVpcEndpointConnectionNotificationsRequest
     // DeleteVpcEndpointServiceConfigurationsRequest
     // DeleteVpcEndpointsRequest
     // DeleteVpcPeeringConnectionRequest
-    // DeleteVpcRequest
     // DeleteVpnConnectionRequest
     // DeleteVpnConnectionRouteRequest
     // DeleteVpnGatewayRequest
@@ -176,8 +176,8 @@ object ec2 {
     // DeregisterTransitGatewayMulticastGroupMembersRequest
     // DeregisterTransitGatewayMulticastGroupSourcesRequest
     // DescribeAccountAttributesRequest
-    // DescribeAddressesAttributeRequest
     // DescribeAddressesRequest
+    // DescribeAddressesAttributeRequest
     // DescribeAggregateIdFormatRequest
     // DescribeAvailabilityZonesRequest
     // DescribeBundleTasksRequest
@@ -248,10 +248,10 @@ object ec2 {
     // DescribePublicIpv4PoolsRequest
     // DescribeRegionsRequest
     // DescribeReplaceRootVolumeTasksRequest
+    // DescribeReservedInstancesRequest
     // DescribeReservedInstancesListingsRequest
     // DescribeReservedInstancesModificationsRequest
     // DescribeReservedInstancesOfferingsRequest
-    // DescribeReservedInstancesRequest
     // DescribeRouteTablesRequest
     // DescribeScheduledInstanceAvailabilityRequest
     // DescribeScheduledInstancesRequest
@@ -282,11 +282,11 @@ object ec2 {
     // DescribeTransitGatewaysRequest
     // DescribeVolumeAttributeRequest
     // DescribeVolumeStatusRequest
-    // DescribeVolumesModificationsRequest
     // DescribeVolumesRequest
+    // DescribeVolumesModificationsRequest
     // DescribeVpcAttributeRequest
-    // DescribeVpcClassicLinkDnsSupportRequest
     // DescribeVpcClassicLinkRequest
+    // DescribeVpcClassicLinkDnsSupportRequest
     // DescribeVpcEndpointConnectionNotificationsRequest
     // DescribeVpcEndpointConnectionsRequest
     // DescribeVpcEndpointServiceConfigurationsRequest
@@ -308,8 +308,8 @@ object ec2 {
     // DisableSerialConsoleAccessRequest
     // DisableTransitGatewayRouteTablePropagationRequest
     // DisableVgwRoutePropagationRequest
-    // DisableVpcClassicLinkDnsSupportRequest
     // DisableVpcClassicLinkRequest
+    // DisableVpcClassicLinkDnsSupportRequest
     // DisassociateAddressRequest
     // DisassociateClientVpnTargetNetworkRequest
     // DisassociateEnclaveCertificateIamRoleRequest
@@ -326,8 +326,8 @@ object ec2 {
     // EnableTransitGatewayRouteTablePropagationRequest
     // EnableVgwRoutePropagationRequest
     // EnableVolumeIoRequest
-    // EnableVpcClassicLinkDnsSupportRequest
     // EnableVpcClassicLinkRequest
+    // EnableVpcClassicLinkDnsSupportRequest
     // ExportClientVpnClientCertificateRevocationListRequest
     // ExportClientVpnClientConfigurationRequest
     // ExportImageRequest
@@ -389,20 +389,20 @@ object ec2 {
     // ModifyTrafficMirrorFilterNetworkServicesRequest
     // ModifyTrafficMirrorFilterRuleRequest
     // ModifyTrafficMirrorSessionRequest
-    // ModifyTransitGatewayPrefixListReferenceRequest
     // ModifyTransitGatewayRequest
+    // ModifyTransitGatewayPrefixListReferenceRequest
     // ModifyTransitGatewayVpcAttachmentRequest
-    // ModifyVolumeAttributeRequest
     // ModifyVolumeRequest
+    // ModifyVolumeAttributeRequest
     // ModifyVpcAttributeRequest
-    // ModifyVpcEndpointConnectionNotificationRequest
     // ModifyVpcEndpointRequest
+    // ModifyVpcEndpointConnectionNotificationRequest
     // ModifyVpcEndpointServiceConfigurationRequest
     // ModifyVpcEndpointServicePermissionsRequest
     // ModifyVpcPeeringConnectionOptionsRequest
     // ModifyVpcTenancyRequest
-    // ModifyVpnConnectionOptionsRequest
     // ModifyVpnConnectionRequest
+    // ModifyVpnConnectionOptionsRequest
     // ModifyVpnTunnelCertificateRequest
     // ModifyVpnTunnelOptionsRequest
     // MonitorInstancesRequest

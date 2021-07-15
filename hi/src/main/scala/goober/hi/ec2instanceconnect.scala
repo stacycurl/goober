@@ -11,8 +11,8 @@ object ec2instanceconnect {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // SendSerialConsoleSshPublicKeyRequest
     // SendSshPublicKeyRequest
+    // SendSerialConsoleSshPublicKeyRequest
 
   }
 

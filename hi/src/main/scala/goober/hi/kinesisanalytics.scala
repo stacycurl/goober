@@ -12,16 +12,16 @@ object kinesisanalytics {
 
     // Methods for constructing model classes, requests, etc.
     // AddApplicationCloudWatchLoggingOptionRequest
-    // AddApplicationInputProcessingConfigurationRequest
     // AddApplicationInputRequest
+    // AddApplicationInputProcessingConfigurationRequest
     // AddApplicationOutputRequest
     // AddApplicationReferenceDataSourceRequest
     // CreateApplicationRequest
+    // DeleteApplicationRequest
     // DeleteApplicationCloudWatchLoggingOptionRequest
     // DeleteApplicationInputProcessingConfigurationRequest
     // DeleteApplicationOutputRequest
     // DeleteApplicationReferenceDataSourceRequest
-    // DeleteApplicationRequest
     // DescribeApplicationRequest
     // DiscoverInputSchemaRequest
     // ListApplicationsRequest

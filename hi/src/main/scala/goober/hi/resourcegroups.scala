@@ -13,9 +13,9 @@ object resourcegroups {
     // Methods for constructing model classes, requests, etc.
     // CreateGroupRequest
     // DeleteGroupRequest
+    // GetGroupRequest
     // GetGroupConfigurationRequest
     // GetGroupQueryRequest
-    // GetGroupRequest
     // GetTagsRequest
     // GroupResourcesRequest
     // ListGroupResourcesRequest
@@ -25,8 +25,8 @@ object resourcegroups {
     // TagRequest
     // UngroupResourcesRequest
     // UntagRequest
-    // UpdateGroupQueryRequest
     // UpdateGroupRequest
+    // UpdateGroupQueryRequest
 
   }
 

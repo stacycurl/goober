@@ -11,26 +11,26 @@ object budgets {
     import goober.hi.util.BuilderSyntax._
 
     // Methods for constructing model classes, requests, etc.
-    // CreateBudgetActionRequest
     // CreateBudgetRequest
+    // CreateBudgetActionRequest
     // CreateNotificationRequest
     // CreateSubscriberRequest
-    // DeleteBudgetActionRequest
     // DeleteBudgetRequest
+    // DeleteBudgetActionRequest
     // DeleteNotificationRequest
     // DeleteSubscriberRequest
-    // DescribeBudgetActionHistoriesRequest
+    // DescribeBudgetRequest
     // DescribeBudgetActionRequest
+    // DescribeBudgetActionHistoriesRequest
     // DescribeBudgetActionsForAccountRequest
     // DescribeBudgetActionsForBudgetRequest
     // DescribeBudgetPerformanceHistoryRequest
-    // DescribeBudgetRequest
     // DescribeBudgetsRequest
     // DescribeNotificationsForBudgetRequest
     // DescribeSubscribersForNotificationRequest
     // ExecuteBudgetActionRequest
-    // UpdateBudgetActionRequest
     // UpdateBudgetRequest
+    // UpdateBudgetActionRequest
     // UpdateNotificationRequest
     // UpdateSubscriberRequest
 

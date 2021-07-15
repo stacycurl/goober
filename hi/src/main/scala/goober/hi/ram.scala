@@ -12,12 +12,12 @@ object ram {
 
     // Methods for constructing model classes, requests, etc.
     // AcceptResourceShareInvitationRequest
-    // AssociateResourceSharePermissionRequest
     // AssociateResourceShareRequest
+    // AssociateResourceSharePermissionRequest
     // CreateResourceShareRequest
     // DeleteResourceShareRequest
-    // DisassociateResourceSharePermissionRequest
     // DisassociateResourceShareRequest
+    // DisassociateResourceSharePermissionRequest
     // EnableSharingWithAwsOrganizationRequest
     // GetPermissionRequest
     // GetResourcePoliciesRequest

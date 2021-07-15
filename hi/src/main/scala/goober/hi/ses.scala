@@ -12,20 +12,20 @@ object ses {
 
     // Methods for constructing model classes, requests, etc.
     // CloneReceiptRuleSetRequest
-    // CreateConfigurationSetEventDestinationRequest
     // CreateConfigurationSetRequest
+    // CreateConfigurationSetEventDestinationRequest
     // CreateConfigurationSetTrackingOptionsRequest
     // CreateCustomVerificationEmailTemplateRequest
     // CreateReceiptFilterRequest
     // CreateReceiptRuleRequest
     // CreateReceiptRuleSetRequest
     // CreateTemplateRequest
-    // DeleteConfigurationSetEventDestinationRequest
     // DeleteConfigurationSetRequest
+    // DeleteConfigurationSetEventDestinationRequest
     // DeleteConfigurationSetTrackingOptionsRequest
     // DeleteCustomVerificationEmailTemplateRequest
-    // DeleteIdentityPolicyRequest
     // DeleteIdentityRequest
+    // DeleteIdentityPolicyRequest
     // DeleteReceiptFilterRequest
     // DeleteReceiptRuleRequest
     // DeleteReceiptRuleSetRequest

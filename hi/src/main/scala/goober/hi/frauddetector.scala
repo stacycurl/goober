@@ -59,8 +59,8 @@ object frauddetector {
     // PutOutcomeRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateDetectorVersionMetadataRequest
     // UpdateDetectorVersionRequest
+    // UpdateDetectorVersionMetadataRequest
     // UpdateDetectorVersionStatusRequest
     // UpdateModelRequest
     // UpdateModelVersionRequest

@@ -13,16 +13,16 @@ object ssmcontacts {
     // Methods for constructing model classes, requests, etc.
     // AcceptPageRequest
     // ActivateContactChannelRequest
-    // CreateContactChannelRequest
     // CreateContactRequest
+    // CreateContactChannelRequest
     // DeactivateContactChannelRequest
-    // DeleteContactChannelRequest
     // DeleteContactRequest
+    // DeleteContactChannelRequest
     // DescribeEngagementRequest
     // DescribePageRequest
+    // GetContactRequest
     // GetContactChannelRequest
     // GetContactPolicyRequest
-    // GetContactRequest
     // ListContactChannelsRequest
     // ListContactsRequest
     // ListEngagementsRequest
@@ -36,8 +36,8 @@ object ssmcontacts {
     // StopEngagementRequest
     // TagResourceRequest
     // UntagResourceRequest
-    // UpdateContactChannelRequest
     // UpdateContactRequest
+    // UpdateContactChannelRequest
 
   }
 

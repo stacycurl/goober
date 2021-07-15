@@ -20,8 +20,8 @@ object route53 {
     // CreateKeySigningKeyRequest
     // CreateQueryLoggingConfigRequest
     // CreateReusableDelegationSetRequest
-    // CreateTrafficPolicyInstanceRequest
     // CreateTrafficPolicyRequest
+    // CreateTrafficPolicyInstanceRequest
     // CreateTrafficPolicyVersionRequest
     // CreateVpcAssociationAuthorizationRequest
     // DeactivateKeySigningKeyRequest
@@ -30,8 +30,8 @@ object route53 {
     // DeleteKeySigningKeyRequest
     // DeleteQueryLoggingConfigRequest
     // DeleteReusableDelegationSetRequest
-    // DeleteTrafficPolicyInstanceRequest
     // DeleteTrafficPolicyRequest
+    // DeleteTrafficPolicyInstanceRequest
     // DeleteVpcAssociationAuthorizationRequest
     // DisableHostedZoneDnssecRequest
     // DisassociateVpcFromHostedZoneRequest
@@ -41,33 +41,33 @@ object route53 {
     // GetCheckerIpRangesRequest
     // GetDnssecRequest
     // GetGeoLocationRequest
+    // GetHealthCheckRequest
     // GetHealthCheckCountRequest
     // GetHealthCheckLastFailureReasonRequest
-    // GetHealthCheckRequest
     // GetHealthCheckStatusRequest
+    // GetHostedZoneRequest
     // GetHostedZoneCountRequest
     // GetHostedZoneLimitRequest
-    // GetHostedZoneRequest
     // GetQueryLoggingConfigRequest
-    // GetReusableDelegationSetLimitRequest
     // GetReusableDelegationSetRequest
-    // GetTrafficPolicyInstanceCountRequest
-    // GetTrafficPolicyInstanceRequest
+    // GetReusableDelegationSetLimitRequest
     // GetTrafficPolicyRequest
+    // GetTrafficPolicyInstanceRequest
+    // GetTrafficPolicyInstanceCountRequest
     // ListGeoLocationsRequest
     // ListHealthChecksRequest
+    // ListHostedZonesRequest
     // ListHostedZonesByNameRequest
     // ListHostedZonesByVpcRequest
-    // ListHostedZonesRequest
     // ListQueryLoggingConfigsRequest
     // ListResourceRecordSetsRequest
     // ListReusableDelegationSetsRequest
     // ListTagsForResourceRequest
     // ListTagsForResourcesRequest
     // ListTrafficPoliciesRequest
+    // ListTrafficPolicyInstancesRequest
     // ListTrafficPolicyInstancesByHostedZoneRequest
     // ListTrafficPolicyInstancesByPolicyRequest
-    // ListTrafficPolicyInstancesRequest
     // ListTrafficPolicyVersionsRequest
     // ListVpcAssociationAuthorizationsRequest
     // TestDnsAnswerRequest

@@ -7,7 +7,6 @@ import cats.~>
 import cats.data.Kleisli
 import software.amazon.awssdk.services.medialive.MediaLiveClient
 import software.amazon.awssdk.services.medialive.model._
-import java.nio.file.Path
 
 
 object medialive { module =>
@@ -146,12 +145,6 @@ object medialive { module =>
           request: DescribeInputDeviceRequest
         ): Kleisli[M, MediaLiveClient, DescribeInputDeviceResponse] =
           primitive(_.describeInputDevice(request))
-
-        def describeInputDeviceThumbnail(
-          request: DescribeInputDeviceThumbnailRequest,
-          path: Path
-        ): Kleisli[M, MediaLiveClient, DescribeInputDeviceThumbnailResponse] =
-          primitive(_.describeInputDeviceThumbnail(request, path))
 
         def describeInputSecurityGroup(
           request: DescribeInputSecurityGroupRequest
@@ -416,11 +409,6 @@ object medialive { module =>
       def describeInputDevice(
         request: DescribeInputDeviceRequest
       ): F[DescribeInputDeviceResponse]
-
-      def describeInputDeviceThumbnail(
-        request: DescribeInputDeviceThumbnailRequest,
-        path: Path
-      ): F[DescribeInputDeviceThumbnailResponse]
 
       def describeInputSecurityGroup(
         request: DescribeInputSecurityGroupRequest
@@ -720,14 +708,6 @@ object medialive { module =>
     ) extends MediaLiveOp[DescribeInputDeviceResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[DescribeInputDeviceResponse] =
         visitor.describeInputDevice(request)
-    }
-
-    final case class DescribeInputDeviceThumbnailOp(
-      request: DescribeInputDeviceThumbnailRequest,
-      path: Path
-    ) extends MediaLiveOp[DescribeInputDeviceThumbnailResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[DescribeInputDeviceThumbnailResponse] =
-        visitor.describeInputDeviceThumbnail(request, path)
     }
 
     final case class DescribeInputSecurityGroupOp(
@@ -1077,12 +1057,6 @@ object medialive { module =>
     request: DescribeInputDeviceRequest
   ): MediaLiveIO[DescribeInputDeviceResponse] =
     FF.liftF(DescribeInputDeviceOp(request))
-
-  def describeInputDeviceThumbnail(
-    request: DescribeInputDeviceThumbnailRequest,
-    path: Path
-  ): MediaLiveIO[DescribeInputDeviceThumbnailResponse] =
-    FF.liftF(DescribeInputDeviceThumbnailOp(request, path))
 
   def describeInputSecurityGroup(
     request: DescribeInputSecurityGroupRequest

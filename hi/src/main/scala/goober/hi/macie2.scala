@@ -39,9 +39,9 @@ object macie2 {
     // GetClassificationExportConfigurationRequest
     // GetCustomDataIdentifierRequest
     // GetFindingStatisticsRequest
+    // GetFindingsRequest
     // GetFindingsFilterRequest
     // GetFindingsPublicationConfigurationRequest
-    // GetFindingsRequest
     // GetInvitationsCountRequest
     // GetMacieSessionRequest
     // GetMasterAccountRequest
@@ -50,8 +50,8 @@ object macie2 {
     // GetUsageTotalsRequest
     // ListClassificationJobsRequest
     // ListCustomDataIdentifiersRequest
-    // ListFindingsFiltersRequest
     // ListFindingsRequest
+    // ListFindingsFiltersRequest
     // ListInvitationsRequest
     // ListMembersRequest
     // ListOrganizationAdminAccountsRequest

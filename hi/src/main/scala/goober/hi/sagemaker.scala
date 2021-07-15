@@ -16,8 +16,8 @@ object sagemaker {
     // AssociateTrialComponentRequest
     // CreateActionRequest
     // CreateAlgorithmRequest
-    // CreateAppImageConfigRequest
     // CreateAppRequest
+    // CreateAppImageConfigRequest
     // CreateArtifactRequest
     // CreateAutoMlJobRequest
     // CreateCodeRepositoryRequest
@@ -27,8 +27,8 @@ object sagemaker {
     // CreateDeviceFleetRequest
     // CreateDomainRequest
     // CreateEdgePackagingJobRequest
-    // CreateEndpointConfigRequest
     // CreateEndpointRequest
+    // CreateEndpointConfigRequest
     // CreateExperimentRequest
     // CreateFeatureGroupRequest
     // CreateFlowDefinitionRequest
@@ -37,15 +37,15 @@ object sagemaker {
     // CreateImageRequest
     // CreateImageVersionRequest
     // CreateLabelingJobRequest
+    // CreateModelRequest
     // CreateModelBiasJobDefinitionRequest
     // CreateModelExplainabilityJobDefinitionRequest
-    // CreateModelPackageGroupRequest
     // CreateModelPackageRequest
+    // CreateModelPackageGroupRequest
     // CreateModelQualityJobDefinitionRequest
-    // CreateModelRequest
     // CreateMonitoringScheduleRequest
-    // CreateNotebookInstanceLifecycleConfigRequest
     // CreateNotebookInstanceRequest
+    // CreateNotebookInstanceLifecycleConfigRequest
     // CreatePipelineRequest
     // CreatePresignedDomainUrlRequest
     // CreatePresignedNotebookInstanceUrlRequest
@@ -53,15 +53,15 @@ object sagemaker {
     // CreateProjectRequest
     // CreateTrainingJobRequest
     // CreateTransformJobRequest
-    // CreateTrialComponentRequest
     // CreateTrialRequest
+    // CreateTrialComponentRequest
     // CreateUserProfileRequest
     // CreateWorkforceRequest
     // CreateWorkteamRequest
     // DeleteActionRequest
     // DeleteAlgorithmRequest
-    // DeleteAppImageConfigRequest
     // DeleteAppRequest
+    // DeleteAppImageConfigRequest
     // DeleteArtifactRequest
     // DeleteAssociationRequest
     // DeleteCodeRepositoryRequest
@@ -69,49 +69,49 @@ object sagemaker {
     // DeleteDataQualityJobDefinitionRequest
     // DeleteDeviceFleetRequest
     // DeleteDomainRequest
-    // DeleteEndpointConfigRequest
     // DeleteEndpointRequest
+    // DeleteEndpointConfigRequest
     // DeleteExperimentRequest
     // DeleteFeatureGroupRequest
     // DeleteFlowDefinitionRequest
     // DeleteHumanTaskUiRequest
     // DeleteImageRequest
     // DeleteImageVersionRequest
+    // DeleteModelRequest
     // DeleteModelBiasJobDefinitionRequest
     // DeleteModelExplainabilityJobDefinitionRequest
-    // DeleteModelPackageGroupPolicyRequest
-    // DeleteModelPackageGroupRequest
     // DeleteModelPackageRequest
+    // DeleteModelPackageGroupRequest
+    // DeleteModelPackageGroupPolicyRequest
     // DeleteModelQualityJobDefinitionRequest
-    // DeleteModelRequest
     // DeleteMonitoringScheduleRequest
-    // DeleteNotebookInstanceLifecycleConfigRequest
     // DeleteNotebookInstanceRequest
+    // DeleteNotebookInstanceLifecycleConfigRequest
     // DeletePipelineRequest
     // DeleteProjectRequest
     // DeleteTagsRequest
-    // DeleteTrialComponentRequest
     // DeleteTrialRequest
+    // DeleteTrialComponentRequest
     // DeleteUserProfileRequest
     // DeleteWorkforceRequest
     // DeleteWorkteamRequest
     // DeregisterDevicesRequest
     // DescribeActionRequest
     // DescribeAlgorithmRequest
-    // DescribeAppImageConfigRequest
     // DescribeAppRequest
+    // DescribeAppImageConfigRequest
     // DescribeArtifactRequest
     // DescribeAutoMlJobRequest
     // DescribeCodeRepositoryRequest
     // DescribeCompilationJobRequest
     // DescribeContextRequest
     // DescribeDataQualityJobDefinitionRequest
-    // DescribeDeviceFleetRequest
     // DescribeDeviceRequest
+    // DescribeDeviceFleetRequest
     // DescribeDomainRequest
     // DescribeEdgePackagingJobRequest
-    // DescribeEndpointConfigRequest
     // DescribeEndpointRequest
+    // DescribeEndpointConfigRequest
     // DescribeExperimentRequest
     // DescribeFeatureGroupRequest
     // DescribeFlowDefinitionRequest
@@ -120,25 +120,25 @@ object sagemaker {
     // DescribeImageRequest
     // DescribeImageVersionRequest
     // DescribeLabelingJobRequest
+    // DescribeModelRequest
     // DescribeModelBiasJobDefinitionRequest
     // DescribeModelExplainabilityJobDefinitionRequest
-    // DescribeModelPackageGroupRequest
     // DescribeModelPackageRequest
+    // DescribeModelPackageGroupRequest
     // DescribeModelQualityJobDefinitionRequest
-    // DescribeModelRequest
     // DescribeMonitoringScheduleRequest
-    // DescribeNotebookInstanceLifecycleConfigRequest
     // DescribeNotebookInstanceRequest
+    // DescribeNotebookInstanceLifecycleConfigRequest
+    // DescribePipelineRequest
     // DescribePipelineDefinitionForExecutionRequest
     // DescribePipelineExecutionRequest
-    // DescribePipelineRequest
     // DescribeProcessingJobRequest
     // DescribeProjectRequest
     // DescribeSubscribedWorkteamRequest
     // DescribeTrainingJobRequest
     // DescribeTransformJobRequest
-    // DescribeTrialComponentRequest
     // DescribeTrialRequest
+    // DescribeTrialComponentRequest
     // DescribeUserProfileRequest
     // DescribeWorkforceRequest
     // DescribeWorkteamRequest
@@ -174,8 +174,8 @@ object sagemaker {
     // ListHyperParameterTuningJobsRequest
     // ListImageVersionsRequest
     // ListImagesRequest
-    // ListLabelingJobsForWorkteamRequest
     // ListLabelingJobsRequest
+    // ListLabelingJobsForWorkteamRequest
     // ListModelBiasJobDefinitionsRequest
     // ListModelExplainabilityJobDefinitionsRequest
     // ListModelPackageGroupsRequest
@@ -194,8 +194,8 @@ object sagemaker {
     // ListProjectsRequest
     // ListSubscribedWorkteamsRequest
     // ListTagsRequest
-    // ListTrainingJobsForHyperParameterTuningJobRequest
     // ListTrainingJobsRequest
+    // ListTrainingJobsForHyperParameterTuningJobRequest
     // ListTransformJobsRequest
     // ListTrialComponentsRequest
     // ListTrialsRequest
@@ -236,13 +236,13 @@ object sagemaker {
     // UpdateImageRequest
     // UpdateModelPackageRequest
     // UpdateMonitoringScheduleRequest
-    // UpdateNotebookInstanceLifecycleConfigRequest
     // UpdateNotebookInstanceRequest
-    // UpdatePipelineExecutionRequest
+    // UpdateNotebookInstanceLifecycleConfigRequest
     // UpdatePipelineRequest
+    // UpdatePipelineExecutionRequest
     // UpdateTrainingJobRequest
-    // UpdateTrialComponentRequest
     // UpdateTrialRequest
+    // UpdateTrialComponentRequest
     // UpdateUserProfileRequest
     // UpdateWorkforceRequest
     // UpdateWorkteamRequest

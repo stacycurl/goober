@@ -31,11 +31,6 @@ object securityhub { module =>
         ): Kleisli[M, SecurityHubClient, AcceptAdministratorInvitationResponse] =
           primitive(_.acceptAdministratorInvitation(request))
 
-        def acceptInvitation(
-          request: AcceptInvitationRequest
-        ): Kleisli[M, SecurityHubClient, AcceptInvitationResponse] =
-          primitive(_.acceptInvitation(request))
-
         def batchDisableStandards(
           request: BatchDisableStandardsRequest
         ): Kleisli[M, SecurityHubClient, BatchDisableStandardsResponse] =
@@ -146,11 +141,6 @@ object securityhub { module =>
         ): Kleisli[M, SecurityHubClient, DisassociateFromAdministratorAccountResponse] =
           primitive(_.disassociateFromAdministratorAccount(request))
 
-        def disassociateFromMasterAccount(
-          request: DisassociateFromMasterAccountRequest
-        ): Kleisli[M, SecurityHubClient, DisassociateFromMasterAccountResponse] =
-          primitive(_.disassociateFromMasterAccount(request))
-
         def disassociateMembers(
           request: DisassociateMembersRequest
         ): Kleisli[M, SecurityHubClient, DisassociateMembersResponse] =
@@ -200,11 +190,6 @@ object securityhub { module =>
           request: GetInvitationsCountRequest
         ): Kleisli[M, SecurityHubClient, GetInvitationsCountResponse] =
           primitive(_.getInvitationsCount(request))
-
-        def getMasterAccount(
-          request: GetMasterAccountRequest
-        ): Kleisli[M, SecurityHubClient, GetMasterAccountResponse] =
-          primitive(_.getMasterAccount(request))
 
         def getMembers(
           request: GetMembersRequest
@@ -298,10 +283,6 @@ object securityhub { module =>
         request: AcceptAdministratorInvitationRequest
       ): F[AcceptAdministratorInvitationResponse]
 
-      def acceptInvitation(
-        request: AcceptInvitationRequest
-      ): F[AcceptInvitationResponse]
-
       def batchDisableStandards(
         request: BatchDisableStandardsRequest
       ): F[BatchDisableStandardsResponse]
@@ -390,10 +371,6 @@ object securityhub { module =>
         request: DisassociateFromAdministratorAccountRequest
       ): F[DisassociateFromAdministratorAccountResponse]
 
-      def disassociateFromMasterAccount(
-        request: DisassociateFromMasterAccountRequest
-      ): F[DisassociateFromMasterAccountResponse]
-
       def disassociateMembers(
         request: DisassociateMembersRequest
       ): F[DisassociateMembersResponse]
@@ -433,10 +410,6 @@ object securityhub { module =>
       def getInvitationsCount(
         request: GetInvitationsCountRequest
       ): F[GetInvitationsCountResponse]
-
-      def getMasterAccount(
-        request: GetMasterAccountRequest
-      ): F[GetMasterAccountResponse]
 
       def getMembers(
         request: GetMembersRequest
@@ -511,13 +484,6 @@ object securityhub { module =>
     ) extends SecurityHubOp[AcceptAdministratorInvitationResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[AcceptAdministratorInvitationResponse] =
         visitor.acceptAdministratorInvitation(request)
-    }
-
-    final case class AcceptInvitationOp(
-      request: AcceptInvitationRequest
-    ) extends SecurityHubOp[AcceptInvitationResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[AcceptInvitationResponse] =
-        visitor.acceptInvitation(request)
     }
 
     final case class BatchDisableStandardsOp(
@@ -674,13 +640,6 @@ object securityhub { module =>
         visitor.disassociateFromAdministratorAccount(request)
     }
 
-    final case class DisassociateFromMasterAccountOp(
-      request: DisassociateFromMasterAccountRequest
-    ) extends SecurityHubOp[DisassociateFromMasterAccountResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[DisassociateFromMasterAccountResponse] =
-        visitor.disassociateFromMasterAccount(request)
-    }
-
     final case class DisassociateMembersOp(
       request: DisassociateMembersRequest
     ) extends SecurityHubOp[DisassociateMembersResponse] {
@@ -749,13 +708,6 @@ object securityhub { module =>
     ) extends SecurityHubOp[GetInvitationsCountResponse] {
       def visit[F[_]](visitor: Visitor[F]): F[GetInvitationsCountResponse] =
         visitor.getInvitationsCount(request)
-    }
-
-    final case class GetMasterAccountOp(
-      request: GetMasterAccountRequest
-    ) extends SecurityHubOp[GetMasterAccountResponse] {
-      def visit[F[_]](visitor: Visitor[F]): F[GetMasterAccountResponse] =
-        visitor.getMasterAccount(request)
     }
 
     final case class GetMembersOp(
@@ -879,11 +831,6 @@ object securityhub { module =>
   ): SecurityHubIO[AcceptAdministratorInvitationResponse] =
     FF.liftF(AcceptAdministratorInvitationOp(request))
 
-  def acceptInvitation(
-    request: AcceptInvitationRequest
-  ): SecurityHubIO[AcceptInvitationResponse] =
-    FF.liftF(AcceptInvitationOp(request))
-
   def batchDisableStandards(
     request: BatchDisableStandardsRequest
   ): SecurityHubIO[BatchDisableStandardsResponse] =
@@ -994,11 +941,6 @@ object securityhub { module =>
   ): SecurityHubIO[DisassociateFromAdministratorAccountResponse] =
     FF.liftF(DisassociateFromAdministratorAccountOp(request))
 
-  def disassociateFromMasterAccount(
-    request: DisassociateFromMasterAccountRequest
-  ): SecurityHubIO[DisassociateFromMasterAccountResponse] =
-    FF.liftF(DisassociateFromMasterAccountOp(request))
-
   def disassociateMembers(
     request: DisassociateMembersRequest
   ): SecurityHubIO[DisassociateMembersResponse] =
@@ -1048,11 +990,6 @@ object securityhub { module =>
     request: GetInvitationsCountRequest
   ): SecurityHubIO[GetInvitationsCountResponse] =
     FF.liftF(GetInvitationsCountOp(request))
-
-  def getMasterAccount(
-    request: GetMasterAccountRequest
-  ): SecurityHubIO[GetMasterAccountResponse] =
-    FF.liftF(GetMasterAccountOp(request))
 
   def getMembers(
     request: GetMembersRequest
