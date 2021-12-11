@@ -3,15 +3,45 @@ import io.circe.{Codec, Decoder, DecodingFailure, Encoder, HCursor, Json, JsonOb
 import scala.annotation.tailrec
 import scala.collection.immutable.{::, List, Nil}
 import scala.reflect.ClassTag
+import scala.util.DynamicVariable
 
 
 object syntax {
+  trait Deferrer {
+    def apply[A](f: ⇒ A): A
+  }
+
+  object GConsole {
+    def echo[A](a: A): A = {
+      println(a.toString)
+      a
+    }
+
+    def println(message: String): Deferrer = {
+      Console.out.println(s"${indent.value}${message.indentBy(indent.value)}")
+
+      indented
+    }
+
+    def indented: Deferrer = new Deferrer {
+      def apply[A](f: ⇒ A): A = indent.withValue(indent.value + "  ")(f)
+    }
+
+    private val indent: DynamicVariable[String] =
+      new DynamicVariable[String]("")
+  }
+
   def getSome[X, A](f: X => Option[A]): X => A =
     f andThen (_.get)
 
   implicit class AnySyntax[A](private val self: A) extends AnyVal {
     def indentBy(by: String): String =
       self.toString.getLines.mkString(s"\n$by")
+  }
+
+  implicit class ListSyntax[A](private val self: List[A]) extends AnyVal {
+    def nonEmptyMkString(start: String, sep: String, end: String): String =
+      if (self.isEmpty) "" else self.mkString(start, sep, end)
   }
 
   implicit class ListEitherSyntax[L, R](private val self: List[Either[L, R]]) extends AnyVal {
@@ -26,6 +56,10 @@ object syntax {
   }
 
   implicit class StringSyntax(private val self: String) extends AnyVal {
+    def substringFromAfter(c: Char): Option[String] = PartialFunction.condOpt(self.indexOf(c)) {
+      case index if index > -1 ⇒ self.substring(index + 1)
+    }
+
     def getLines: List[String] =
       self.split("\n", -1).toList
 

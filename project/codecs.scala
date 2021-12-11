@@ -4,7 +4,7 @@ import io.circe.CursorOp.DownField
 import io.circe.parser.decode
 import io.circe.{Codec, Decoder, DecodingFailure, Encoder, Error, JsonNumber}
 
-import scala.collection.immutable.List
+import scala.collection.immutable.{List, ListMap}
 import scala.io.Source
 
 
@@ -88,7 +88,10 @@ object codecs {
 
     def recursivelyFind(dir: File)(p: File ⇒ Boolean): List[File] = {
       def loop(dir: File): List[File] = {
-        dir.listFiles().flatMap(file ⇒ {
+        val files = Option(dir.listFiles()).fold(List.empty[File])(_.toList)
+        // println(s"${files.length} files in $dir")
+
+        files.flatMap(file ⇒ {
           if (file.isDirectory) loop(file) else Some(file).filter(p)
         })(collection.breakOut)
       }
@@ -97,7 +100,7 @@ object codecs {
     }
 
     def discover(): List[JsonFileNames] = for {
-      serviceJsonFile ← recursivelyFind(new File(JsonFileNames.awsServices))(file ⇒ {
+      serviceJsonFile ← recursivelyFind(awsServicesDir)(file ⇒ {
         file.getName == "service-2.json"
       })
       if serviceJsonFile.exists()
@@ -111,6 +114,20 @@ object codecs {
       val source = Source.fromFile(file)
 
       try f(source) finally source.close
+    }
+
+    private def stripUntilSlash(optFile: Option[File]): Option[File] = for {
+      file ← optFile
+      path ← file.getPath.substringFromAfter('/')
+    } yield new File(path)
+
+    private def awsServicesDir: File = {
+      Stream.iterate(Option(new File(awsServices)))(stripUntilSlash).collectFirst {
+        case None ⇒ None
+        case Some(file) if file.exists() ⇒ Some(file)
+      }.get.getOrElse(
+        sys.error("Can't find services dir")
+      )
     }
 
     private val awsServices: String =
@@ -147,6 +164,12 @@ object codecs {
     authorizers: Option[Authorizers],
     documentation: Option[String]
   ) extends Client {
+
+//    shapes.collect {
+//      case (name, struct: StructureShapeDefinition) if struct.required.isEmpty ⇒ name
+//    }.toList.sorted.foreach(nothingRequired ⇒ {
+//      System.err.println(s"nothing required in: $nothingRequired")
+//    })
 
     def companion: Client.Companion =
       Service
@@ -226,6 +249,55 @@ object codecs {
           )
         }
       ).filter
+    }
+
+    lazy val types: List[CaseClassType] = shapes.collect {
+      case (name, struct: StructureShapeDefinition) ⇒ name -> struct
+    }.toList.sortBy(_._1).map((toCaseClassType _).tupled)
+
+    def lookupType(name: String): Type =
+      shapes.get(name).fold(Type(name))(toType(name, _))
+
+    def lookupFieldType(name: String): Type =
+      shapes.get(name).fold(Type(name))(toFieldType(name, _))
+
+    private def toType(name: String, shapeDefinition: ShapeDefinition): Type = shapeDefinition match {
+      case it: StructureShapeDefinition ⇒ toCaseClassType(name, it)
+      case nonRecursive(result)               ⇒ result
+      case other                       ⇒ Type(name)
+    }
+
+    private def toFieldType(name: String, shapeDefinition: ShapeDefinition): Type = shapeDefinition match {
+      case it: StructureShapeDefinition ⇒ Type(name)
+      case nonRecursive(result)               ⇒ result
+      case other                       ⇒ Type(name)
+    }
+
+    private object nonRecursive {
+      def unapply(shapeDefinition: ShapeDefinition): Option[Type] = PartialFunction.condOpt(shapeDefinition) {
+        case it: ListShapeDefinition      ⇒ OtherType(TypeName("List"), List(Type(it.member.shape)))
+        case it: StringShapeDefinition    ⇒ Type("String")
+        case it: IntegerShapeDefinition   ⇒ Type("Int")
+        case it: BooleanShapeDefinition   ⇒ Type("Boolean")
+      }
+    }
+
+    private def toCaseClassType(name: String, struct: StructureShapeDefinition): CaseClassType = try {
+      CaseClassType(
+        name = TypeName(name),
+        params = Nil,
+        required = Nil,
+        fields = struct.members.map {
+          case (paramName, shape: Shape) ⇒
+            TypeName(paramName) -> lookupFieldType(shape.shape).simple
+        }.toList
+      )
+    } catch {
+      case t: Throwable ⇒ throw new Exception(
+        s"""${t.getMessage}
+           |  toCaseClassType($name, ${struct.shapeType})""".stripMargin,
+        t.getCause
+      )
     }
 
     override def toString: String =
@@ -392,8 +464,8 @@ object codecs {
     def name: String =
       operationName.uncapitalize
 
-    def returnType: Type =
-      Type(s"${operationName.pascal}Response")
+    def returnType: TypeName =
+      TypeName(s"${operationName.pascal}Response")
 //      operation.output match {
 //      case Some(shape) ⇒ s"${shape.shape.stripSuffix("Result")}Response"
 //      case None        ⇒ s"${operation.name}Response"
@@ -403,31 +475,31 @@ object codecs {
 
     def parameterNames: List[String] = params.map(_.name)
 
-    def getParameterTypes: List[Type] = params.map(_.`type`)
+    def getParameterTypes: List[TypeName] = params.map(_.`type`)
 
     def asRequest: String = s"${operationName.pascal}Request"
 
     private def params: List[Param] = streamingFlags match {
       case StreamingFlags(true, true, _) ⇒ List(
-        Param("request", Type(asRequest)),
-        Param("sourcePath", Type("Path")),
-        Param("destinationPath", Type("Path"))
+        Param("request", TypeName(asRequest)),
+        Param("sourcePath", TypeName("Path")),
+        Param("destinationPath", TypeName("Path"))
       )
       case StreamingFlags(true, _, _) ⇒ List(
-        Param("request", Type(asRequest)),
-        Param("body", Type("RequestBody"))
+        Param("request", TypeName(asRequest)),
+        Param("body", TypeName("RequestBody"))
       )
       case StreamingFlags(_, true, _) ⇒ List(
-        Param("request", Type(asRequest)),
-        Param("path", Type("Path"))
+        Param("request", TypeName(asRequest)),
+        Param("path", TypeName("Path"))
       )
       case _ ⇒ List(
-        Param("request", Type(asRequest))
+        Param("request", TypeName(asRequest))
       )
     }
   }
 
-  case class Param(name: String, `type`: Type) {
+  case class Param(name: String, `type`: TypeName) {
     override def toString: String = s"$name: ${`type`}"
   }
 
@@ -909,7 +981,7 @@ object codecs {
     required: Option[List[String]],
     xmlOrder: Option[List[String]],
     xmlNamespace: Option[XmlNamespace],
-    members: Map[String, Shape],
+    members: ListMap[String, Shape],
     error: Option[StructureError],
     payload: Option[String],
     locationName: Option[String],

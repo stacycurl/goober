@@ -1,5 +1,5 @@
 import codecs._
-import common.{Client, Embedded, Free, Generators, Hi, KleisliInterpreter}
+import common.{CaseClassType, Client, Embedded, Free, Generators, Hi, HiType, KleisliInterpreter}
 import sbt.Def.task
 import sbt.{Def, Task, TaskKey, taskKey}
 
@@ -24,5 +24,13 @@ object generator {
   private def clientCompanion: Client.Companion = {
     Service
 //      ReflectionClient
+  }
+
+  def main(args: Array[String]): Unit = {
+    clientCompanion.discover.filter(_.module == "ec2").foreach(client ⇒ {
+      PartialFunction.condOpt(client.lookupType("AcceptReservedInstancesExchangeQuoteRequest")) {
+        case caseClass: CaseClassType ⇒ println(HiType(caseClass))
+      }
+    })
   }
 }

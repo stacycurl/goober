@@ -61,6 +61,12 @@ object reflection {
 
     def modelPackage: String =
       companion.customModel(clazz.getSimpleName).getOrElse(ReflectionClient.parentPackage(clazz))
+
+    def types: List[CaseClassType] =
+      Nil
+
+    def lookupType(name: String): Type =
+      Type(name)
   }
 
   case class ReflectionMethod(method: R.Method) extends ServiceMethod {
@@ -70,8 +76,8 @@ object reflection {
     def asRequest: String =
       name
 
-    def returnType: Type =
-      Type(method.getReturnType.getSimpleName)
+    def returnType: TypeName =
+      TypeName(method.getReturnType.getSimpleName)
 
     def parameters: List[String] = {
       parameterNamesList(method).zip(getSimpleParameterTypes).map {
@@ -82,8 +88,8 @@ object reflection {
     def parameterNames: List[String] =
       parameterNamesList(method)
 
-    def getParameterTypes: List[Type] =
-      method.getParameterTypes.map(Type.fromClass).toList
+    def getParameterTypes: List[TypeName] =
+      method.getParameterTypes.map(TypeName.fromClass).toList
 
     def getSimpleParameterTypes: List[String] =
       method.getParameterTypes.map(_.getSimpleName).toList

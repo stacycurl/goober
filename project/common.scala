@@ -84,6 +84,10 @@ object common {
     def modelPackage: String
 
     def methods: ServiceMethods
+
+    def types: List[CaseClassType]
+
+    def lookupType(name: String): Type
   }
 
   case class ServiceMethods(client: Client, values: List[ServiceMethod]) {
@@ -111,7 +115,7 @@ object common {
   object ServiceMethod {
     def choosePreferred(values: (String, List[ServiceMethod])): Option[ServiceMethod] = {
       val sorted = values._2.sortBy(_.getParameterTypes)(
-        Ordering.Implicits.seqDerivedOrdering[List, Type](
+        Ordering.Implicits.seqDerivedOrdering[List, TypeName](
           indexOfOrdering(preferredTypes)
         )
       )
@@ -127,17 +131,17 @@ object common {
 
     lazy val excludedNames: Set[String] = Set("utilities")
 
-    lazy val excludedTypes: Set[Type] = Set(
+    lazy val excludedTypes: Set[TypeName] = Set(
       classOf[java.util.function.Consumer[_]],
       classOf[software.amazon.awssdk.core.ResponseBytes[_]],
       classOf[software.amazon.awssdk.core.ResponseInputStream[_]],
       classOf[software.amazon.awssdk.core.sync.ResponseTransformer[_, _]]
-    ).map(Type.fromClass)
+    ).map(TypeName.fromClass)
 
-    private lazy val preferredTypes: List[Type] = List(
+    private lazy val preferredTypes: List[TypeName] = List(
       classOf[software.amazon.awssdk.core.sync.RequestBody],
       classOf[java.nio.file.Path]
-    ).map(Type.fromClass)
+    ).map(TypeName.fromClass)
   }
 
   trait ServiceMethod {
@@ -154,7 +158,7 @@ object common {
 
     def name: String
 
-    def returnType: Type
+    def returnType: TypeName
 
     final def parametersString: String = parameters.mkString(",\n  ")
     def parameters: List[String]
@@ -162,35 +166,90 @@ object common {
     final def parameterNamesString: String = parameterNames.mkString(", ")
     def parameterNames: List[String]
 
-    def getParameterTypes: List[Type]
+    def getParameterTypes: List[TypeName]
   }
 
-  object Type {
-    implicit val typeOrdering: Ordering[Type] =
-      Ordering[String].on[Type](_.value)
+  object TypeName {
+    val dryRun: TypeName =
+      TypeName("DryRun")
 
-    def fromClass(clazz: Class[_]): Type =
-      new Type(clazz.getName)
+    implicit val typeNameOrdering: Ordering[TypeName] =
+      Ordering[String].on[TypeName](_.value)
+
+    def fromClass(clazz: Class[_]): TypeName =
+      new TypeName(clazz.getName)
   }
 
-  case class Type(value: String) {
-    def matches(other: Type): Boolean =
+  case class TypeName(value: String) {
+    def matches(other: TypeName): Boolean =
       other        == this ||
       other.simple == this ||
       other        == simple ||
       other.simple == simple
 
-    def simple: Type =
-      if (!value.contains(".")) this else Type(value.split("\\.").last)
+    def uncapitalize: TypeName =
+      TypeName(value.uncapitalize)
 
-    override def toString: String = value
+    def simple: TypeName =
+      if (!value.contains(".")) this else TypeName(value.split("\\.").last)
+
+    override def toString: String =
+      if (value == "type") "`type`" else value
   }
 
-  case class Hi(client: Client, methods: List[ServiceMethod]) extends Generator {
+  object Type {
+    def apply(name: String): Type =
+      new OtherType(name)
+
+    implicit val typeOrdering: Ordering[Type] =
+      Ordering[TypeName].on[Type](_.name)
+  }
+
+  sealed trait Type {
+    def name: TypeName
+    def simple: Type
+    def fieldLess: Type
+  }
+
+  case class CaseClassType(
+    name: TypeName,
+    params: List[Type],
+    required: List[TypeName],
+    fields: List[(TypeName, Type)]
+  ) extends Type {
+
+    lazy val (requiredFields: List[(TypeName, Type)], optionalFields: List[(TypeName, Type)]) =
+      fields.partition(kv ⇒ required.contains(kv._1))
+
+    def simple: Type =
+      copy(name = name.simple)
+
+    def fieldLess: Type =
+      copy(params = params.map(_.fieldLess), required = Nil, fields = Nil)
+
+    override def toString: String =
+      s"""$name${params.nonEmptyMkString("[", ", ", "]")}${fields.map(kv ⇒ s"${kv._1}: ${kv._2}").nonEmptyMkString("(", ", ", ")")}"""
+  }
+
+  case class OtherType(name: TypeName, params: List[Type]) extends Type {
+    def this(name: String) =
+      this(TypeName(name), Nil)
+
+    def simple: Type =
+      copy(name = name.simple)
+
+    def fieldLess: Type =
+      copy(params = params.map(_.fieldLess))
+
+    override def toString: String =
+      s"""$name${params.nonEmptyMkString("[", ", ", "]")}"""
+  }
+
+  case class Hi(client: Client, types: List[HiType]) extends Generator {
     // println(s"Created client: ${client.name} ${client.module}")
 
     def this(client: Client) =
-      this(client, client.methods.filter.values)
+      this(client, client.types.flatMap(HiType.create))
 
     def scalaFiles: ScalaFiles =
       ScalaFiles.create(ScalaFile(s"${Hi.directory}/${client.module}.scala", toString))
@@ -208,7 +267,7 @@ object common {
          |    import goober.hi.util.BuilderSyntax._
          |
          |    // Methods for constructing model classes, requests, etc.
-         |    // ${methods.map(_.asRequest.indentBy("  ")).mkString("\n    // ")}
+         |    ${types.map(_.toString).mkString("\n\n").indentBy("    ")}
          |
          |  }
          |
@@ -221,8 +280,44 @@ object common {
     private val directory = "/hi/src/main/scala/goober/hi"
   }
 
-  case class HiModel(clazz: Class[_]) {
+  object HiType {
+    def create(caseClassType: CaseClassType): Option[HiType] =
+      if (caseClassType.name.value.endsWith("Result")) None else Some(HiType(caseClassType))
+  }
 
+  case class HiType(`type`: CaseClassType) {
+    override def toString: String =
+      s"""def ${`type`.name.simple.toString.uncapitalize}(
+         |  ${fields.mkString(",\n  ")}
+         |): ${`type`.name.simple.toString} =
+         |  ${`type`.name.simple.toString}
+         |    .builder
+         |    ${setters.mkString("\n    ")}
+         |    .build""".stripMargin
+
+    private def fields: List[String] = {
+      val requiredFields = `type`.requiredFields.map {
+        case (name, fieldType) ⇒ s"""${name.uncapitalize}: ${fieldType.simple.fieldLess}"""
+      }
+
+      val optionalFields = `type`.optionalFields.collect {
+        case (name, fieldType) if name != TypeName.dryRun ⇒ s"""${name.uncapitalize}: Option[${fieldType.simple.fieldLess}] = None"""
+      }
+
+      requiredFields ++ optionalFields
+    }
+
+    private def setters: List[String] = {
+      val requiredFields = `type`.requiredFields.map {
+        case (name, _) ⇒ s""".${name.uncapitalize}(${name.uncapitalize})"""
+      }
+
+      val optionalFields = `type`.optionalFields.collect {
+        case (name, _) if name != TypeName.dryRun ⇒ s""".ifSome(${name.uncapitalize})(_.${name.uncapitalize}(_))"""
+      }
+
+      requiredFields ++ optionalFields
+    }
   }
 
   case class Free(
@@ -314,8 +409,8 @@ object common {
           this(client, new Visitor.KleisliVisitor(client), client.methods.visitorMethods)
 
         def imports: Imports = Imports.flatten(
-          ifUsed(Type("java.nio.file.Path")),
-          ifUsed(Type("software.amazon.awssdk.core.sync.RequestBody"))
+          ifUsed(TypeName("java.nio.file.Path")),
+          ifUsed(TypeName("software.amazon.awssdk.core.sync.RequestBody"))
         )
 
         override def toString: String =
@@ -333,7 +428,7 @@ object common {
              |  ${methods.map(_.indentBy("  ")).mkString("\n  \n  ")}
              |}""".stripMargin
 
-        private def ifUsed(parameterType: Type): Option[String] =
+        private def ifUsed(parameterType: TypeName): Option[String] =
           if (methods.exists(_.hasParameterType(parameterType))) Some(parameterType.value) else None
       }
 
@@ -363,7 +458,7 @@ object common {
         }
 
         case class Method(method: ServiceMethod) {
-          def hasParameterType(parameterType: Type): Boolean =
+          def hasParameterType(parameterType: TypeName): Boolean =
             method.getParameterTypes.exists(_.matches(parameterType))
 
           override def toString: String =
